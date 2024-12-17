@@ -2,13 +2,13 @@ import React from 'react';
 
 import { BrowserRouter } from 'react-router-dom';
 
-import Counter from './components/counter';
+import DoomsdayQuiz from './components/doomsday-quiz';
 
 function App() {
   return (
     <BrowserRouter>
       <main className='flex h-screen flex-col items-center justify-center bg-primary text-color'>
-        <Counter />
+        <DoomsdayQuiz />
       </main>
     </BrowserRouter>
   );

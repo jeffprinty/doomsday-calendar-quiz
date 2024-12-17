@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 
 import { DateTime } from 'luxon';
 import randomInt from 'random-int';
+
 import Button from './button';
 
 //ES6 const, let
@@ -14,9 +15,7 @@ const daysOfWeek = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
 const DoomsdayQuiz = () => {
   const [dt, setDt] = useState<DateTime>();
   const [correctDay, setCorrectDay] = useState<string>('');
-  const [showDay, setShowDay] = useState(false);
   const generateNumber = () => {
-    setShowDay(false);
     const randomNumber = randomInt(0, 365);
     const randomDate = startDate.plus({ days: randomNumber });
     setDt(randomDate);
@@ -38,25 +37,21 @@ const DoomsdayQuiz = () => {
   };
 
   return (
-    <div>
-      {!!dt && (
-        <>
-          <div>{dt.toFormat('MMMM dd')}</div>
-          <div>{!!showDay && dt.toFormat('EEEE')}</div>
-        </>
-      )}
-      <br />
-      <Button onClick={generateNumber}>click</Button>
-      <br />
-      <br />
-      <div>
+    <section className='container flex h-72 w-1/3 flex-col items-center justify-between rounded-xl border border-tertiary bg-secondary py-10'>
+      <div className='flex h-20 w-full flex-col items-center justify-center bg-gray-600 text-center'>
+        {!!dt && <h2 className='text-5xl'>{dt.toFormat('MMMM dd, yyyy')}</h2>}
+      </div>
+      <div className='grid grid-cols-7'>
         {daysOfWeek.map((day) => (
           <Button key={day} onClick={() => handleDayClick(day)}>
             {day} {correctDay === day && '✅'}
           </Button>
         ))}
       </div>
-    </div>
+      <div className='flex-row items-center justify-center'>
+        <Button onClick={generateNumber}>click</Button>
+      </div>
+    </section>
   );
 };
 
