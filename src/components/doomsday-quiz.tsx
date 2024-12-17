@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 
 import { DateTime } from 'luxon';
 import randomInt from 'random-int';
+import Button from './button';
 
 //ES6 const, let
 //ES6 Destructuring
@@ -11,7 +12,7 @@ const startDate = DateTime.fromISO('2025-01-01');
 const daysOfWeek = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
 
 const DoomsdayQuiz = () => {
-  const [dt, setDt] = useState<DateTime | null>(null);
+  const [dt, setDt] = useState<DateTime>();
   const [correctDay, setCorrectDay] = useState<string>('');
   const [showDay, setShowDay] = useState(false);
   const generateNumber = () => {
@@ -38,21 +39,25 @@ const DoomsdayQuiz = () => {
 
   return (
     <div>
-      <div>{!!dt && dt.toFormat('MMMM dd')}</div>
-      <div>{!!showDay && !!dt && dt.toFormat('EEEE')}</div>
+      {!!dt && (
+        <>
+          <div>{dt.toFormat('MMMM dd')}</div>
+          <div>{!!showDay && dt.toFormat('EEEE')}</div>
+        </>
+      )}
       <br />
-      <button onClick={generateNumber}>click</button>
+      <Button onClick={generateNumber}>click</Button>
       <br />
       <br />
       <div>
         {daysOfWeek.map((day) => (
-          <button key={day} onClick={() => handleDayClick(day)}>
+          <Button key={day} onClick={() => handleDayClick(day)}>
             {day} {correctDay === day && '✅'}
-          </button>
+          </Button>
         ))}
       </div>
     </div>
   );
 };
 
-export default DoomsdayQuiz
+export default DoomsdayQuiz;
