@@ -12,5 +12,5 @@ export default defineConfig({
       dest: path.join(__dirname, 'dist', '~partytown')
     })
   ],
-  base: '/doomsday-calendar-quiz/',
+  base: '/doomsday-calendar-quiz',
 });
