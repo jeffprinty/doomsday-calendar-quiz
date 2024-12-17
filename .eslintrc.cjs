@@ -64,7 +64,8 @@ module.exports = {
         trailingComma: 'none',
         bracketSpacing: true,
         bracketSameLine: false,
-        arrowParens: 'always'
+        arrowParens: 'always',
+        endOfLine: 'lf'
       }
     ]
     // end prettier
