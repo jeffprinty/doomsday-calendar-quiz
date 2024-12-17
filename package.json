@@ -5,6 +5,7 @@
     "email": "doinel1atanasiu@gmail.com",
     "url": "https://business-link.d1a.app"
   },
+  "homepage": "https://jeffprinty.github.io/doomsday-calendar-quiz/",
   "repository": {
     "type": "git",
     "url": "https://github.com/doinel1a/vite-react-ts-starter"
@@ -22,6 +23,8 @@
     "lint:fix": "npx eslint --ext ts --ext tsx ./src --fix",
     "dev": "vite",
     "build": "tsc && vite build",
+    "predeploy" : "npm run build",
+    "deploy" : "gh-pages -d dist",
     "preview": "vite preview"
   },
   "dependencies": {
@@ -60,6 +63,7 @@
     "eslint-plugin-react-hooks": "^4.6.2",
     "eslint-plugin-sonarjs": "^0.25.1",
     "eslint-plugin-unicorn": "^55.0.0",
+    "gh-pages": "^6.2.0",
     "husky": "^9.1.6",
     "postcss": "^8.4.47",
     "prettier": "^3.3.3",
@@ -70,4 +74,3 @@
     "vite": "^5.4.7"
   }
 }
-

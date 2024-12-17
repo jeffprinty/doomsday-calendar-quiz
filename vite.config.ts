@@ -11,5 +11,6 @@ export default defineConfig({
     partytownVite({
       dest: path.join(__dirname, 'dist', '~partytown')
     })
-  ]
+  ],
+  base: '/doomsday-calendar-quiz/',
 });
