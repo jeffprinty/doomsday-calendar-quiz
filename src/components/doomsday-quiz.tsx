@@ -10,16 +10,21 @@ import Button from './button';
 //ES6 const, let
 //ES6 Destructuring
 
-const startDate = DateTime.fromISO('2025-01-01');
-
 const daysOfWeek: Array<Day> = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
 type Day = 'Sun' | 'Mon' | 'Tue' | 'Wed' | 'Thu' | 'Fri' | 'Sat';
 
 const correctColor = 'bg-green-600';
 const incorrectColor = 'bg-red-900';
 
-const DoomsdayQuiz = () => {
-  const [dt, setDt] = useState<DateTime>();
+const DoomsdayQuiz = ({
+  dateToGuess,
+  getNextDate,
+  placeholder
+}: {
+  dateToGuess?: DateTime;
+  getNextDate: () => DateTime;
+  placeholder?: boolean;
+}) => {
   const [startTime, setStartTime] = useState<DateTime>();
   const [answerTimes, setAnswerTimes] = useState<Array<[number, boolean, string]>>([]);
   console.log('answerTimes', answerTimes);
@@ -29,26 +34,25 @@ const DoomsdayQuiz = () => {
   const [correctIncorrect, setCorrectIncorrect] = useState<[number, number]>([0, 0]);
   const [enableDayClick, setEnableDayClick] = useState(false);
   const [wronglyGuessedDates, setWronglyGuessedDates] = useState<Array<string>>([]);
-  console.log('wronglyGuessedDates', wronglyGuessedDates);
+  console.log('wronglyGuessedDates', wronglyGuessedDates, placeholder);
 
-  const dateStringToGuess = dt?.toFormat('MMMM dd, yyyy') || '';
+  const dateStringToGuess = dateToGuess?.toFormat('MMMM dd, yyyy') || '';
 
   const generateRandomDate = () => {
-    const randomNumber = randomInt(0, 365);
-    const randomDate = startDate.plus({ days: randomNumber });
+    const randomDate = getNextDate();
+    console.log('TODO, do I need this?', randomDate);
     setStartTime(DateTime.now());
-    setDt(randomDate);
     setEnableDayClick(true);
     setCorrectDay(undefined);
     setLastAnswerCorrect(undefined);
   };
 
   const handleDayClick = (day: Day) => {
-    if (!dt) {
+    if (!dateToGuess) {
       return;
     }
     setDaySelected(day);
-    const dayShortName = dt.toFormat('ccc') as Day;
+    const dayShortName = dateToGuess.toFormat('ccc') as Day;
     const correctDayGuessed = dayShortName === day;
     setCorrectIncorrect(([correct, incorrect]) => {
       if (correctDayGuessed) {
@@ -126,7 +130,7 @@ const DoomsdayQuiz = () => {
           lastAnswerCorrect === false && incorrectColor
         ])}
       >
-        {!!dt && <h2 className='text-4xl'>{dateStringToGuess}</h2>}
+        {!!dateToGuess && <h2 className='text-4xl'>{dateStringToGuess}</h2>}
       </div>
       <div id='quiz__bottom-bit'>
         <div id='quiz__actions'>
@@ -168,4 +172,30 @@ const DoomsdayQuiz = () => {
   );
 };
 
-export default DoomsdayQuiz;
+// I want to be able to feed it random dates OR feed it a list of previously incorrect guesses
+const DoomsdayQuizContainer = () => {
+  // TODO: Allow set year
+  const [yearStart] = useState(DateTime.fromISO('2025-01-01'));
+  const [currentDateToGuess, setCurrentDateToGuess] = useState<DateTime>();
+  const getNextDate = () => {
+    const retryingFails = false;
+    if (retryingFails) {
+      // return next item in wrong guesses array
+    }
+    const randomNumber = randomInt(0, 364);
+    const newRandomDate = yearStart.plus({ days: randomNumber });
+    setCurrentDateToGuess(newRandomDate);
+    return newRandomDate;
+  };
+  return (
+    <>
+      <DoomsdayQuiz
+        dateToGuess={currentDateToGuess}
+        getNextDate={getNextDate}
+        placeholder={false}
+      />
+    </>
+  );
+};
+
+export default DoomsdayQuizContainer;
