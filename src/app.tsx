@@ -13,7 +13,7 @@ function App() {
     >
       <main className='flex h-screen w-screen flex-col items-center justify-center bg-primary text-color'>
         <Routes>
-          <Route path='/doomsday-calendar-quiz' element={<DoomsdayQuiz />} />
+          <Route path='/doomsday-calendar-quiz/*' element={<DoomsdayQuiz />} />
         </Routes>
       </main>
     </BrowserRouter>

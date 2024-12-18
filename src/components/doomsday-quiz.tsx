@@ -228,7 +228,7 @@ const DoomsdayQuizContainer = () => {
           }
         />
         <Route
-          path='/doomsday-calendar-quiz/info'
+          path='/info'
           element={<div>another page of greater length so prettier will stfu</div>}
         />
       </Routes>
