@@ -15,6 +15,14 @@ type Day = 'Sun' | 'Mon' | 'Tue' | 'Wed' | 'Thu' | 'Fri' | 'Sat';
 const correctColor = 'bg-green-600';
 const incorrectColor = 'bg-red-900';
 
+export const PageContainer = ({ children }: { children: React.ReactNode }) => {
+  return (
+    <section className='container flex h-screen w-full flex-col items-center justify-between border border-tertiary bg-secondary lg:w-2/3'>
+      {children}
+    </section>
+  );
+};
+
 const DoomsdayQuiz = ({
   dateToGuess,
   getNextDate,
@@ -78,7 +86,7 @@ const DoomsdayQuiz = ({
   const [correctValue, incorrectValue] = correctIncorrect;
 
   return (
-    <section className='container flex h-screen w-full flex-col items-center justify-between border border-tertiary bg-secondary lg:w-2/3'>
+    <PageContainer>
       <div id='quiz__top-bit'>
         <div className='flex h-32 w-full flex-row items-center justify-center bg-indigo-900 md:rounded-bl-2xl md:rounded-br-2xl'>
           <h1 className='text-center text-5xl'>Doomsday Calendar Quiz</h1>
@@ -168,7 +176,7 @@ const DoomsdayQuiz = ({
           </div>
         </div>
       </div>
-    </section>
+    </PageContainer>
   );
 };
 

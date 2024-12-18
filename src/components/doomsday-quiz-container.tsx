@@ -4,7 +4,7 @@ import { DateTime } from 'luxon';
 import randomInt from 'random-int';
 import { Route, Routes } from 'react-router-dom';
 
-import DoomsdayQuiz from './doomsday-quiz';
+import DoomsdayQuiz, { PageContainer } from './doomsday-quiz';
 
 const getRandomDateInYear = (year: number) => {
   const randomNumber = randomInt(0, 364);
@@ -69,7 +69,14 @@ const DoomsdayQuizContainer = () => {
         />
         <Route
           path='/info'
-          element={<div>another page of greater length so prettier will stfu</div>}
+          element={
+            <PageContainer>
+              <div className='explainer'>
+                someone's probably built this already
+                yep, shoutout https://github.com/mkmik/doom/blob/main/src/routes/%2Bpage.svelte
+              </div>
+            </PageContainer>
+          }
         />
       </Routes>
     </>
