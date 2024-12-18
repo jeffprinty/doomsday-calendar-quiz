@@ -19,11 +19,11 @@ const incorrectColor = 'bg-red-900';
 const DoomsdayQuiz = ({
   dateToGuess,
   getNextDate,
-  placeholder
+  onIncorrectGuess
 }: {
   dateToGuess?: DateTime;
   getNextDate: () => DateTime;
-  placeholder?: boolean;
+  onIncorrectGuess: (dateGuessed: DateTime) => void;
 }) => {
   const [startTime, setStartTime] = useState<DateTime>();
   const [answerTimes, setAnswerTimes] = useState<Array<[number, boolean, string]>>([]);
@@ -33,14 +33,12 @@ const DoomsdayQuiz = ({
   const [lastAnswerCorrect, setLastAnswerCorrect] = useState<boolean | undefined>();
   const [correctIncorrect, setCorrectIncorrect] = useState<[number, number]>([0, 0]);
   const [enableDayClick, setEnableDayClick] = useState(false);
-  const [wronglyGuessedDates, setWronglyGuessedDates] = useState<Array<string>>([]);
-  console.log('wronglyGuessedDates', wronglyGuessedDates, placeholder);
 
   const dateStringToGuess = dateToGuess?.toFormat('MMMM dd, yyyy') || '';
 
   const generateRandomDate = () => {
     const randomDate = getNextDate();
-    console.log('TODO, do I need this?', randomDate);
+    console.log('TODO, do I need this?', randomDate.toISO());
     setStartTime(DateTime.now());
     setEnableDayClick(true);
     setCorrectDay(undefined);
@@ -62,7 +60,7 @@ const DoomsdayQuiz = ({
     });
     setLastAnswerCorrect(correctDayGuessed);
     if (!correctDayGuessed) {
-      setWronglyGuessedDates((previous) => [...previous, dateStringToGuess]);
+      onIncorrectGuess(dateToGuess);
     }
     if (startTime) {
       const interval = Interval.fromDateTimes(startTime, DateTime.now());
@@ -114,7 +112,10 @@ const DoomsdayQuiz = ({
                   key={`${timeInSeconds}_${isCorrect}`}
                 >
                   <span>{timeInSeconds}</span>
-                  <span>{dateString}</span>
+                  <span>
+                    {dateString}
+                    {dateString === dateStringToGuess && '⚪️'}
+                  </span>
                 </li>
               ))}
             </ul>
@@ -176,23 +177,46 @@ const DoomsdayQuiz = ({
 const DoomsdayQuizContainer = () => {
   // TODO: Allow set year
   const [yearStart] = useState(DateTime.fromISO('2025-01-01'));
+  const [guessingAgain, setGuessingAgain] = useState(false);
+  console.log('guessingAgain', guessingAgain);
   const [currentDateToGuess, setCurrentDateToGuess] = useState<DateTime>();
+  const [wronglyGuessedDates, setWronglyGuessedDates] = useState<Array<DateTime>>([]);
   const getNextDate = () => {
-    const retryingFails = false;
-    if (retryingFails) {
+    if (guessingAgain) {
       // return next item in wrong guesses array
+      // get oldest wrong guess
+      const [oldestWrongGuess, ...remainingWrongGuesses] = wronglyGuessedDates;
+      if (oldestWrongGuess === undefined) {
+        // no guesses left, flip switch
+        setGuessingAgain(false);
+      } else {
+        setWronglyGuessedDates(remainingWrongGuesses);
+        setCurrentDateToGuess(oldestWrongGuess);
+        return oldestWrongGuess;
+      }
     }
     const randomNumber = randomInt(0, 364);
     const newRandomDate = yearStart.plus({ days: randomNumber });
     setCurrentDateToGuess(newRandomDate);
     return newRandomDate;
   };
+
+  const handleIncorrectGuess = (dateGuessed: DateTime) => {
+    console.log('dateGuessed', dateGuessed);
+    setWronglyGuessedDates((previous) => [...previous, dateGuessed]);
+  };
+
   return (
     <>
+      <input
+        type='checkbox'
+        checked={guessingAgain}
+        onChange={({ target: { checked } }) => setGuessingAgain(checked)}
+      />
       <DoomsdayQuiz
         dateToGuess={currentDateToGuess}
         getNextDate={getNextDate}
-        placeholder={false}
+        onIncorrectGuess={handleIncorrectGuess}
       />
     </>
   );
