@@ -38,3 +38,32 @@
   font-family: 'Roboto', sans-serif;
   font-weight: 400;
 }
+
+::-webkit-scrollbar {
+  width: 0.4em;
+}
+ 
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+}
+ 
+::-webkit-scrollbar-thumb {
+  background-color: darkgrey;
+  outline: 1px solid slategrey;
+}
+
+.quiz__day-of-week {
+  position: relative;
+  > span {
+    position: absolute;
+    top: -20px;
+    font-size: 36px;
+    left: 0;
+    right: 0;
+    text-align: center;
+  }
+  // &[data-correct-day="true"] {
+  //   background-color: limegreen !important;
+  //   color: black !important;
+  // }
+}

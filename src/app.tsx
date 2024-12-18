@@ -7,7 +7,7 @@ import DoomsdayQuiz from './components/doomsday-quiz';
 function App() {
   return (
     <BrowserRouter>
-      <main className='flex h-screen flex-col items-center justify-center bg-primary text-color'>
+      <main className='flex h-screen w-screen flex-col items-center justify-center bg-primary text-color'>
         <DoomsdayQuiz />
       </main>
     </BrowserRouter>
