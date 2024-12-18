@@ -4,9 +4,9 @@ import clsx from 'clsx';
 import { DateTime, Interval } from 'luxon';
 import randomInt from 'random-int';
 import { PieChart } from 'react-minimal-pie-chart';
+import { Route, Routes } from 'react-router-dom';
 
 import Button from './button';
-import { Route, Router, Routes } from 'react-router-dom';
 
 //ES6 const, let
 //ES6 Destructuring
@@ -218,7 +218,7 @@ const DoomsdayQuizContainer = () => {
       </div>
       <Routes>
         <Route
-          path='/doomsday-calendar-quiz'
+          path='/'
           element={
             <DoomsdayQuiz
               dateToGuess={currentDateToGuess}
@@ -226,6 +226,10 @@ const DoomsdayQuizContainer = () => {
               onIncorrectGuess={handleIncorrectGuess}
             />
           }
+        />
+        <Route
+          path='/doomsday-calendar-quiz/info'
+          element={<div>another page of greater length so prettier will stfu</div>}
         />
       </Routes>
     </>
