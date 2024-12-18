@@ -2,7 +2,7 @@ import React from 'react';
 
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 
-import DoomsdayQuiz from './components/doomsday-quiz';
+import DoomsdayQuizContainer from './components/doomsday-quiz-container';
 
 function App() {
   return (
@@ -13,7 +13,7 @@ function App() {
     >
       <main className='flex h-screen w-screen flex-col items-center justify-center bg-primary text-color'>
         <Routes>
-          <Route path='/doomsday-calendar-quiz/*' element={<DoomsdayQuiz />} />
+          <Route path='/doomsday-calendar-quiz/*' element={<DoomsdayQuizContainer />} />
         </Routes>
       </main>
     </BrowserRouter>
