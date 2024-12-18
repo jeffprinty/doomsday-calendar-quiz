@@ -6,6 +6,7 @@ import randomInt from 'random-int';
 import { PieChart } from 'react-minimal-pie-chart';
 
 import Button from './button';
+import { Route, Router, Routes } from 'react-router-dom';
 
 //ES6 const, let
 //ES6 Destructuring
@@ -113,8 +114,8 @@ const DoomsdayQuiz = ({
                 >
                   <span>{timeInSeconds}</span>
                   <span>
-                    {dateString}
                     {dateString === dateStringToGuess && '⚪️'}
+                    {dateString}
                   </span>
                 </li>
               ))}
@@ -208,16 +209,25 @@ const DoomsdayQuizContainer = () => {
 
   return (
     <>
-      <input
-        type='checkbox'
-        checked={guessingAgain}
-        onChange={({ target: { checked } }) => setGuessingAgain(checked)}
-      />
-      <DoomsdayQuiz
-        dateToGuess={currentDateToGuess}
-        getNextDate={getNextDate}
-        onIncorrectGuess={handleIncorrectGuess}
-      />
+      <div className='quiz__header-menu'>
+        <input
+          type='checkbox'
+          checked={guessingAgain}
+          onChange={({ target: { checked } }) => setGuessingAgain(checked)}
+        />
+      </div>
+      <Routes>
+        <Route
+          path='/doomsday-calendar-quiz'
+          element={
+            <DoomsdayQuiz
+              dateToGuess={currentDateToGuess}
+              getNextDate={getNextDate}
+              onIncorrectGuess={handleIncorrectGuess}
+            />
+          }
+        />
+      </Routes>
     </>
   );
 };
