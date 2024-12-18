@@ -6,11 +6,7 @@ import DoomsdayQuizContainer from './components/doomsday-quiz-container';
 
 function App() {
   return (
-    <BrowserRouter
-      future={{
-        v7_relativeSplatPath: true
-      }}
-    >
+    <BrowserRouter>
       <main className='flex h-screen w-screen flex-col items-center justify-center bg-primary text-color'>
         <Routes>
           <Route path='/doomsday-calendar-quiz/*' element={<DoomsdayQuizContainer />} />
