@@ -22,11 +22,14 @@ const DoomsdayQuiz = () => {
   const [dt, setDt] = useState<DateTime>();
   const [startTime, setStartTime] = useState<DateTime>();
   const [answerTimes, setAnswerTimes] = useState<Array<[number, boolean, string]>>([]);
+  console.log('answerTimes', answerTimes);
   const [correctDay, setCorrectDay] = useState<Day>();
   const [daySelected, setDaySelected] = useState<Day>();
   const [lastAnswerCorrect, setLastAnswerCorrect] = useState<boolean | undefined>();
   const [correctIncorrect, setCorrectIncorrect] = useState<[number, number]>([0, 0]);
   const [enableDayClick, setEnableDayClick] = useState(false);
+  const [wronglyGuessedDates, setWronglyGuessedDates] = useState<Array<string>>([]);
+  console.log('wronglyGuessedDates', wronglyGuessedDates);
 
   const dateStringToGuess = dt?.toFormat('MMMM dd, yyyy') || '';
 
@@ -54,6 +57,9 @@ const DoomsdayQuiz = () => {
       return [correct, incorrect + 1] as const;
     });
     setLastAnswerCorrect(correctDayGuessed);
+    if (!correctDayGuessed) {
+      setWronglyGuessedDates((previous) => [...previous, dateStringToGuess]);
+    }
     if (startTime) {
       const interval = Interval.fromDateTimes(startTime, DateTime.now());
       const intervalInSeconds = interval.length('seconds');
@@ -71,9 +77,9 @@ const DoomsdayQuiz = () => {
   const [correctValue, incorrectValue] = correctIncorrect;
 
   return (
-    <section className='container flex h-screen w-full flex-col items-center justify-between rounded-xl border border-tertiary bg-secondary lg:w-1/3'>
+    <section className='container flex h-screen w-full flex-col items-center justify-between border border-tertiary bg-secondary lg:w-2/3'>
       <div id='quiz__top-bit'>
-        <div className='flex h-32 w-full flex-row items-center justify-center bg-indigo-900'>
+        <div className='flex h-32 w-full flex-row items-center justify-center bg-indigo-900 md:rounded-bl-2xl md:rounded-br-2xl'>
           <h1 className='text-center text-5xl'>Doomsday Calendar Quiz</h1>
         </div>
         <div
@@ -84,7 +90,11 @@ const DoomsdayQuiz = () => {
             <PieChart
               label={({ dataEntry }) => `${Math.round(dataEntry.percentage)}%`}
               data={[
-                { title: 'Correct', value: correctValue, color: '#66FF66' },
+                {
+                  title: 'Correct',
+                  value: correctValue,
+                  color: 'rgb(22 163 74/var(--tw-bg-opacity,1))'
+                },
                 { title: 'Incorrect', value: incorrectValue, color: '#C13C37' }
               ]}
             />
@@ -94,7 +104,7 @@ const DoomsdayQuiz = () => {
               {[...answerTimes].reverse().map(([timeInSeconds, isCorrect, dateString]) => (
                 <li
                   className={clsx(
-                    'flex w-full flex-row justify-between px-2',
+                    'flex w-full flex-row justify-between bg-opacity-40 px-2',
                     isCorrect ? correctColor : incorrectColor
                   )}
                   key={`${timeInSeconds}_${isCorrect}`}
