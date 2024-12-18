@@ -174,13 +174,23 @@ const DoomsdayQuiz = ({
   );
 };
 
+const getRandomDateInYear = (year: number) => {
+  const randomNumber = randomInt(0, 364);
+  const initYearStart = DateTime.fromISO(`${year}-01-01`);
+  return initYearStart.plus({ days: randomNumber });
+};
+
 // I want to be able to feed it random dates OR feed it a list of previously incorrect guesses
 const DoomsdayQuizContainer = () => {
+  const initYear = 2025;
+  const startWithTimeAlready = getRandomDateInYear(initYear);
   // TODO: Allow set year
-  const [yearStart] = useState(DateTime.fromISO('2025-01-01'));
+  const [guessingYear] = useState(2025);
+  const yearStart = DateTime.fromISO(`${guessingYear}-01-01`);
   const [guessingAgain, setGuessingAgain] = useState(false);
   console.log('guessingAgain', guessingAgain);
-  const [currentDateToGuess, setCurrentDateToGuess] = useState<DateTime>();
+
+  const [currentDateToGuess, setCurrentDateToGuess] = useState<DateTime>(startWithTimeAlready);
   const [wronglyGuessedDates, setWronglyGuessedDates] = useState<Array<DateTime>>([]);
   const getNextDate = () => {
     if (guessingAgain) {
