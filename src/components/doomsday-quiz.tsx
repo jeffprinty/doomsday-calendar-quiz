@@ -39,7 +39,7 @@ const DoomsdayQuiz = ({
   const [daySelected, setDaySelected] = useState<Day>();
   const [lastAnswerCorrect, setLastAnswerCorrect] = useState<boolean | undefined>();
   const [correctIncorrect, setCorrectIncorrect] = useState<[number, number]>([0, 0]);
-  const [enableDayClick, setEnableDayClick] = useState(false);
+  const [enableDayClick, setEnableDayClick] = useState(true);
 
   const dateStringToGuess = dateToGuess?.toFormat('MMMM dd, yyyy') || '';
 
@@ -88,14 +88,14 @@ const DoomsdayQuiz = ({
   return (
     <PageContainer>
       <div id='quiz__top-bit'>
-        <div className='flex h-32 w-full flex-row items-center justify-center bg-indigo-900 md:rounded-bl-2xl md:rounded-br-2xl'>
-          <h1 className='text-center text-5xl'>Doomsday Calendar Quiz</h1>
+        <div className='flex w-full flex-row items-center justify-center bg-indigo-900 py-2 md:rounded-bl-2xl md:rounded-br-2xl'>
+          <h1 className='text-center text-3xl'>Doomsday Calendar Quiz</h1>
         </div>
         <div
           id='quiz__results'
-          className='grid h-64 w-full grid-cols-2 flex-row items-start justify-between'
+          className='grid h-48 w-full grid-cols-2 flex-row items-start justify-between bg-indigo-800 bg-opacity-40'
         >
-          <div className='flex h-64 flex-col items-center justify-center px-8'>
+          <div className='flex h-48 flex-col items-center justify-center px-8'>
             <PieChart
               label={({ dataEntry }) => `${Math.round(dataEntry.percentage)}%`}
               data={[
@@ -108,7 +108,7 @@ const DoomsdayQuiz = ({
               ]}
             />
           </div>
-          <div className='flex h-64 flex-col justify-start overflow-y-auto'>
+          <div className='flex h-48 flex-col justify-start overflow-y-auto'>
             <ul className='w-full'>
               {[...answerTimes].reverse().map(([timeInSeconds, isCorrect, dateString]) => (
                 <li
@@ -129,18 +129,19 @@ const DoomsdayQuiz = ({
           </div>
         </div>
       </div>
-      <div
-        id='quiz__date-to-guess'
-        className={clsx([
-          'flex h-20 w-full flex-col items-center justify-center text-center',
-          lastAnswerCorrect === undefined && 'bg-gray-600',
-          lastAnswerCorrect === true && correctColor,
-          lastAnswerCorrect === false && incorrectColor
-        ])}
-      >
-        {!!dateToGuess && <h2 className='text-4xl'>{dateStringToGuess}</h2>}
-      </div>
       <div id='quiz__bottom-bit'>
+        <div
+          id='quiz__date-to-guess'
+          className={clsx([
+            'my-10 flex w-full flex-col items-center justify-center pb-6 pt-4 text-center',
+            lastAnswerCorrect === undefined && 'bg-gray-600',
+            lastAnswerCorrect === true && correctColor,
+            lastAnswerCorrect === false && incorrectColor
+          ])}
+        >
+          <span className=''>What day of the week is:</span>
+          {!!dateToGuess && <h2 className='text-4xl'>{dateStringToGuess}</h2>}
+        </div>
         <div id='quiz__actions'>
           <div className='grid w-full grid-cols-7'>
             {daysOfWeek.map((day: Day) => {
