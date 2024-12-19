@@ -57,6 +57,7 @@ const DoomsdayInfo = () => {
 
   const doomsdayIs = dayNames[resultAfterSubtractingSevens];
 
+  const stepZero = 'text-pink-400';
   const stepOne = 'text-red-400';
   const stepTwo = 'text-orange-400';
   const stepThree = 'text-yellow-400';
@@ -88,12 +89,26 @@ const DoomsdayInfo = () => {
       <div>
         <input className='text-black' type='text' readOnly value={guessingYear.toString()} />
         <Button onClick={getNewYear}>borf</Button>
-        <div className=''>
-          <span className=''>{twoDigitYear} </span>
+        <div id='stepZero' className=''>
+          <span className=''>{century} </span>
+          <span className={stepZero}>{twoDigitYear} </span>
+        </div>
+        <div id='stepOne' className=''>
+          <span className={stepZero}>{twoDigitYear} </span>
           <span className=''>/ 12</span>
           <span className=''> = </span>
           <span className={stepOne}> {howManyTwelves} </span>
+          <span className=''>, {howManyTwelves} x 12 = </span>
+          <span className={stepOne}> {howManyTwelves * 12}  </span>
         </div>
+        <div id='stepTwo' className=''>
+          <span className={stepZero}>{twoDigitYear} </span>
+          <span className=''> - </span>
+          <span className={stepOne}>{howManyTwelves * 12}</span>
+          <span className=''> = </span>
+          <span className={stepTwo}> {differenceBetweenYearAnd} </span>
+        </div>
+        {/*
         <div className=''>
           <span className=''>{twoDigitYear} </span>
           <span className=''> - </span>
@@ -101,18 +116,19 @@ const DoomsdayInfo = () => {
           <span className=''> = </span>
           <span className={stepTwo}> {differenceBetweenYearAnd} </span>
         </div>
-        <div className=''>
-          <span className=''>{differenceBetweenYearAnd} </span>
+        */}
+        <div id='stepThree' className=''>
+          <span className={stepTwo}>{differenceBetweenYearAnd} </span>
           <span className=''> / </span>
           <span className=''> 4 </span>
           <span className=''> = </span>
           <span className={stepThree}> {howManyFours} </span>
         </div>
-        <div className=''>
+        <div id='stepFour' className=''>
           <span className=''>Anchor Day: </span>
           <span className={stepFour}> {anchorDayForCentury} </span>
         </div>
-        <div className=''>
+        <div id='stepFive' className=''>
           <span className={stepOne}> {howManyTwelves} </span>
           <span className=''> + </span>
           <span className={stepTwo}> {differenceBetweenYearAnd} </span>
@@ -123,13 +139,19 @@ const DoomsdayInfo = () => {
           <span className=''> = </span>
           <span className={stepFive}> {addedUp} </span>
         </div>
-        <div className=''>
+        <div id='stepSix' className=''>
           <span className={stepFive}>{addedUp} </span>
           {Array.from({ length: howManySevens }, (x, index) => index).map((sevenIteration) => (
             <span key={sevenIteration}> - 7</span>
           ))}
           <span className=''> = </span>
           <span className={stepSix}> {resultAfterSubtractingSevens} </span>
+        </div>
+        <div className='hidden'>
+          <span className={stepFive}>{addedUp}</span>
+          <span className=''> / 7 </span>
+          <span className=''> = </span>
+          <span className=''> {howManySevens} </span>
         </div>
         <div className=''>
           <span className=''>Doomsday is: </span>
