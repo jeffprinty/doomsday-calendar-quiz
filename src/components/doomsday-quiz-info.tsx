@@ -4,34 +4,21 @@ import clsx from 'clsx';
 import { DateTime } from 'luxon';
 
 import {
-  betterDaysTable,
   chance,
-  chunkArray,
+  correctColor,
   Day,
-  dayAbbreviations,
-  dayNames,
-  generateDaysTable,
-  mnemonics
+  incorrectColor,
+  mnemonics,
+  stepFive,
+  stepFour,
+  stepOne,
+  Steps,
+  stepThree,
+  stepTwo
 } from '../common';
 import Button from './button';
 import { DayOfWeekGuesser } from './doomsday-quiz';
-
-const anchorDays = {
-  '18': 5,
-  '19': 3,
-  '20': 2,
-  '21': 0
-};
-
-const stepZero = 'text-pink-400';
-const stepOne = 'text-red-400';
-const stepTwo = 'text-orange-400';
-const stepThree = 'text-yellow-400';
-const stepFour = 'text-green-400';
-const stepFive = 'text-blue-400';
-const stepSix = 'text-indigo-400';
-
-type Steps = 'stepOne' | 'stepTwo' | 'stepThree' | 'stepFour' | 'stepFive';
+import Hints from './hints';
 
 const DoomsdayForYear = () => {
   const [inputHash, setInputHash] = useState({
@@ -41,7 +28,6 @@ const DoomsdayForYear = () => {
     stepFour: '',
     stepFive: ''
   });
-  console.log('inputHash', inputHash);
   const rememberRow: Array<{
     id: Steps;
     stepClassName: string;
@@ -76,7 +62,7 @@ const DoomsdayForYear = () => {
 
   return (
     <div className='flex flex-col'>
-      <div className='grid w-96 grid-cols-5 py-10'>
+      <div className='grid w-96 grid-cols-5 py-3'>
         {rememberRow.map(({ id, stepClassName, stepText }) => (
           <div
             key={id}
@@ -114,40 +100,21 @@ const DoomsdayInfo = () => {
   const [correctDay, setCorrectDay] = useState<Day>();
   const [daySelected, setSelectedDay] = useState<Day>();
 
-  const [revealedSteps, setRevealedSteps] = useState(0);
+  const [lastAnswerCorrect, setLastAnswerCorrect] = useState<boolean | undefined>();
 
   const [inputHash, setInputHash] = useState<{ [key: string]: number }>({});
   console.log('inputHash', inputHash);
 
   const getNewYear = () => {
     const randomYearAsInt = chance.integer({ min: 1900, max: 2099 });
-    setRevealedSteps(0);
     setInputHash({});
+    setLastAnswerCorrect(undefined);
     setGuessingYear(randomYearAsInt);
     setCorrectDay(undefined);
     setSelectedDay(undefined);
   };
 
-  const twoDigitYear = Number(guessingYear.toString().slice(2, 4));
-  console.log('twoDigitYear', twoDigitYear);
-  const howManyTwelves = Math.floor(twoDigitYear / 12);
-  const stepOneResult = howManyTwelves * 12;
-  const stepTwoResult = twoDigitYear - stepOneResult;
-  const howManyFours = Math.floor(stepTwoResult / 4);
-
-  const century = guessingYear.toString().slice(0, 2);
-  // @ts-ignore
-  const anchorDayForCentury = anchorDays[century];
-  console.log('anchorDayForCentury', anchorDayForCentury);
-
-  const addedUp = howManyTwelves + stepTwoResult + howManyFours + anchorDayForCentury;
-
-  const howManySevens = Math.floor(addedUp / 7);
-
-  const resultAfterSubtractingSevens = addedUp - howManySevens * 7;
-
-  const doomsdayIs = dayNames[resultAfterSubtractingSevens];
-
+  // DUPED
   const doomsdayOnYear = DateTime.fromObject({
     year: guessingYear,
     month: 4,
@@ -156,10 +123,20 @@ const DoomsdayInfo = () => {
 
   const correctDoomsday = doomsdayOnYear.toFormat('ccc') as Day;
 
-  const unrevealed = 'opacity-5';
-
   return (
     <div>
+      <div
+        id='quiz__year-to-guess'
+        className={clsx([
+          'my-4 flex w-full flex-col items-center justify-center pb-6 pt-4 text-center',
+          lastAnswerCorrect === undefined && 'bg-gray-600',
+          lastAnswerCorrect === true && correctColor,
+          lastAnswerCorrect === false && incorrectColor
+        ])}
+      >
+        <span className=''>What is the doomsday for:</span>
+        <h2 className='text-6xl'>{guessingYear}</h2>
+      </div>
       <DoomsdayForYear key={guessingYear} />
       <DayOfWeekGuesser
         key={`week_${guessingYear}`}
@@ -168,87 +145,13 @@ const DoomsdayInfo = () => {
         onDayClick={(selected) => {
           setSelectedDay(selected);
           setCorrectDay(correctDoomsday);
+          setLastAnswerCorrect(selected === correctDoomsday);
         }}
       />
-      <div>
-        <input className='text-black' type='text' readOnly value={guessingYear.toString()} />
-        <Button onClick={getNewYear}>borf</Button>
-        <Button onClick={() => setRevealedSteps((previous) => previous + 1)}>next step</Button>
-        <div id='stepZero' className={clsx(revealedSteps < 0 && unrevealed)}>
-          <span className=''>{century} </span>
-          <span className={stepZero}>{twoDigitYear.toString()} </span>
-        </div>
-        <div id='stepOne' className={clsx(revealedSteps < 1 && unrevealed)}>
-          <span className={stepZero}>{twoDigitYear} </span>
-          <span className=''>/ 12</span>
-          <span className=''> = </span>
-          <span className={stepOne}> {howManyTwelves} </span>
-          <span className=''>, </span>
-          <span className={stepOne}>{howManyTwelves}</span>
-          <span className=''> x 12 = </span>
-          <span className=''> {stepOneResult} </span>
-        </div>
-        <div id='stepTwo' className={clsx(revealedSteps < 2 && unrevealed)}>
-          <span className={stepZero}>{twoDigitYear} </span>
-          <span className=''> - </span>
-          <span className=''>{stepOneResult}</span>
-          <span className=''> = </span>
-          <span className={stepTwo}> {stepTwoResult} </span>
-        </div>
-        {/*
-        <div className=''>
-          <span className=''>{twoDigitYear} </span>
-          <span className=''> - </span>
-          <span className=''> {howManyTwelves * 12} </span>
-          <span className=''> = </span>
-          <span className={stepTwo}> {stepTwoResult} </span>
-        </div>
-        */}
-        <div id='stepThree' className={clsx(revealedSteps < 3 && unrevealed)}>
-          <span className={stepTwo}>{stepTwoResult} </span>
-          <span className=''> / </span>
-          <span className=''> 4 </span>
-          <span className=''> = </span>
-          <span className={stepThree}> {howManyFours} </span>
-        </div>
-        <div id='stepFour' className={clsx(revealedSteps < 4 && unrevealed)}>
-          <span className=''>Anchor Day: </span>
-          <span className={stepFour}> {anchorDayForCentury} </span>
-        </div>
-        <div id='stepFive' className={clsx(revealedSteps < 5 && unrevealed)}>
-          <span className={stepOne}> {howManyTwelves} </span>
-          <span className=''> + </span>
-          <span className={stepTwo}> {stepTwoResult} </span>
-          <span className=''> + </span>
-          <span className={stepThree}> {howManyFours} </span>
-          <span className=''> + </span>
-          <span className={stepFour}> {anchorDayForCentury} </span>
-          <span className=''> = </span>
-          <span className={stepFive}> {addedUp} </span>
-        </div>
-        <div id='stepSix' className={clsx(revealedSteps < 6 && unrevealed)}>
-          <span className={stepFive}>{addedUp} </span>
-          {Array.from({ length: howManySevens }, (x, index) => index).map((sevenIteration) => (
-            <span key={sevenIteration}> - 7</span>
-          ))}
-          <span className=''> = </span>
-          <span className={stepSix}> {resultAfterSubtractingSevens} </span>
-        </div>
-        <div className='hidden'>
-          <span className={stepFive}>{addedUp}</span>
-          <span className=''> / 7 </span>
-          <span className=''> = </span>
-          <span className=''> {howManySevens} </span>
-        </div>
-        <div className={clsx(revealedSteps < 7 && unrevealed)}>
-          <span className=''>Doomsday is: </span>
-          <span className=''> {doomsdayIs} </span>
-        </div>
-        <div className={clsx(revealedSteps < 7 && unrevealed)}>
-          <span className=''>Double-check: </span>
-          <span className=''> {doomsdayOnYear.toFormat('cccc MMMM dd, yyyy')} </span>
-        </div>
-      </div>
+      <Button onClick={getNewYear} className='my-2 h-16 w-full'>
+        Random Year
+      </Button>
+      <Hints year={guessingYear} />
       <div className='explainer hidden'>
         {mnemonics.map(({ monthName, common }, index) => {
           const hackyMonthNumber = index + 1;

@@ -4,14 +4,11 @@ import clsx from 'clsx';
 import { DateTime, Interval } from 'luxon';
 import { PieChart } from 'react-minimal-pie-chart';
 
-import { Day, daysOfWeek, guessDateFormat } from '../common';
+import { correctColor, Day, daysOfWeek, guessDateFormat, incorrectColor } from '../common';
 import Button from './button';
 
 //ES6 const, let
 //ES6 Destructuring
-
-const correctColor = 'bg-green-600';
-const incorrectColor = 'bg-red-900';
 
 export const PageContainer = ({ children }: { children: React.ReactNode }) => {
   return (
@@ -33,7 +30,7 @@ export const DayOfWeekGuesser = ({
   onDayClick: (dayClicked: Day) => void;
 }) => {
   return (
-    <div className='grid w-full grid-cols-7'>
+    <div className='grid w-full grid-cols-7 pt-6'>
       {daysOfWeek.map((day: Day) => {
         const thisDayIsCorrect = correctDay === day;
         const thisDayWasSelected = daySelected === day;

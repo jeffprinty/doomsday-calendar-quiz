@@ -3,6 +3,31 @@ import { DateTime } from 'luxon';
 
 export const chance = new Chance();
 
+export const correctColor = 'bg-green-600';
+export const incorrectColor = 'bg-red-900';
+
+export const stepZero = 'text-pink-400';
+export const stepOne = 'text-red-400';
+export const stepTwo = 'text-orange-400';
+export const stepThree = 'text-yellow-400';
+export const stepFour = 'text-green-400';
+export const stepFive = 'text-blue-400';
+export const stepSix = 'text-indigo-400';
+export type Steps = 'stepOne' | 'stepTwo' | 'stepThree' | 'stepFour' | 'stepFive';
+
+export type AnchorDayCentury = '18' | '19' | '20' | '21';
+
+export const anchorDays = {
+  '18': 5,
+  '19': 3,
+  '20': 2,
+  '21': 0
+};
+
+export const getAnchorDayForCentury = (century: AnchorDayCentury) => {
+  return anchorDays[century];
+};
+
 export const sharedMemeticHandles = {
   doubles: '4/4, 6/6, 8/8, 10/10, 12/12',
   nineToFive: '9-to-5 at 7-11'
