@@ -20,7 +20,7 @@
     "test:safari": "npx playwright test --headed --project=webkit",
     "lint": "npx eslint --ext ts --ext tsx ./src",
     "lint:fix": "npx eslint --ext ts --ext tsx ./src --fix",
-    "dev": "vite",
+    "dev": "vite --host",
     "build": "tsc && vite build",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d dist",

@@ -156,7 +156,7 @@ const DoomsdayQuizContainer = () => {
 
   return (
     <>
-      <div className='quiz__header-menu absolute top-0 right-0'>
+      <div className='quiz__header-menu absolute right-0 top-0'>
         <input
           type='checkbox'
           checked={guessingAgain}

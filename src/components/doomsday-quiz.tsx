@@ -17,11 +17,13 @@ const incorrectColor = 'bg-red-900';
 
 export const PageContainer = ({ children }: { children: React.ReactNode }) => {
   return (
-    <section className='container flex h-screen w-full flex-col items-center justify-between border border-tertiary bg-secondary lg:w-2/3'>
+    <section className='container flex h-full w-full flex-col items-center justify-start border border-tertiary bg-secondary lg:w-2/3'>
       {children}
     </section>
   );
 };
+
+const guessDateFormat = 'MMMM dd, yyyy';
 
 const DoomsdayQuiz = ({
   dateToGuess,
@@ -32,8 +34,8 @@ const DoomsdayQuiz = ({
   getNextDate: () => DateTime;
   onIncorrectGuess: (dateGuessed: DateTime) => void;
 }) => {
-  const [startTime, setStartTime] = useState<DateTime>();
-  const [answerTimes, setAnswerTimes] = useState<Array<[number, boolean, string]>>([]);
+  const [startTime, setStartTime] = useState<DateTime>(DateTime.now());
+  const [answerTimes, setAnswerTimes] = useState<Array<[number, boolean, DateTime]>>([]);
   console.log('answerTimes', answerTimes);
   const [correctDay, setCorrectDay] = useState<Day>();
   const [daySelected, setDaySelected] = useState<Day>();
@@ -41,7 +43,7 @@ const DoomsdayQuiz = ({
   const [correctIncorrect, setCorrectIncorrect] = useState<[number, number]>([0, 0]);
   const [enableDayClick, setEnableDayClick] = useState(true);
 
-  const dateStringToGuess = dateToGuess?.toFormat('MMMM dd, yyyy') || '';
+  const dateStringToGuess = dateToGuess?.toFormat(guessDateFormat) || '';
 
   const generateRandomDate = () => {
     const randomDate = getNextDate();
@@ -75,7 +77,7 @@ const DoomsdayQuiz = ({
       if (intervalInSeconds) {
         setAnswerTimes((previous) => [
           ...previous,
-          [intervalInSeconds, correctDayGuessed, dateStringToGuess]
+          [intervalInSeconds, correctDayGuessed, dateToGuess]
         ]);
       }
     }
@@ -110,7 +112,7 @@ const DoomsdayQuiz = ({
           </div>
           <div className='flex h-48 flex-col justify-start overflow-y-auto'>
             <ul className='w-full'>
-              {[...answerTimes].reverse().map(([timeInSeconds, isCorrect, dateString]) => (
+              {[...answerTimes].reverse().map(([timeInSeconds, isCorrect, dateGuessed]) => (
                 <li
                   className={clsx(
                     'flex w-full flex-row justify-between bg-opacity-40 px-2',
@@ -120,8 +122,8 @@ const DoomsdayQuiz = ({
                 >
                   <span>{timeInSeconds}</span>
                   <span>
-                    {dateString === dateStringToGuess && '⚪️'}
-                    {dateString}
+                    {dateGuessed.toFormat(guessDateFormat) === dateStringToGuess && '⚪️'}
+                    {dateGuessed.toFormat('MMM dd, yy')}
                   </span>
                 </li>
               ))}
@@ -129,7 +131,7 @@ const DoomsdayQuiz = ({
           </div>
         </div>
       </div>
-      <div id='quiz__bottom-bit'>
+      <div id='quiz__bottom-bit' className=''>
         <div
           id='quiz__date-to-guess'
           className={clsx([
