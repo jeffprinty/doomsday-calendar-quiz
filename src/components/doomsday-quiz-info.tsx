@@ -3,97 +3,13 @@ import React, { useState } from 'react';
 import clsx from 'clsx';
 import { DateTime, Interval } from 'luxon';
 
-import {
-  correctColor,
-  Day,
-  getRandomYear,
-  incorrectColor,
-  mnemonics,
-  PastAnswer,
-  stepFive,
-  stepFour,
-  stepOne,
-  Steps,
-  stepThree,
-  stepTwo
-} from '../common';
+import { correctColor, Day, getRandomYear, incorrectColor, mnemonics, PastAnswer } from '../common';
 import Button from './button';
 import { DayOfWeekGuesser } from './doomsday-quiz';
 import Hints from './hints';
 import QuizResults from './quiz-results';
-import { GuessDisplay } from './shared';
+import { GuessDisplay, MathStepHelper } from './shared';
 
-const MathStepHelper = () => {
-  const [inputHash, setInputHash] = useState({
-    stepOne: '',
-    stepTwo: '',
-    stepThree: '',
-    stepFour: '',
-    stepFive: ''
-  });
-  const rememberRow: Array<{
-    id: Steps;
-    stepClassName: string;
-    stepText: string;
-  }> = [
-    {
-      id: 'stepOne',
-      stepClassName: stepOne,
-      stepText: 'How many twelves?'
-    },
-    {
-      id: 'stepTwo',
-      stepClassName: stepTwo,
-      stepText: 'Minus nearest twelve'
-    },
-    {
-      id: 'stepThree',
-      stepClassName: stepThree,
-      stepText: 'How many fours?'
-    },
-    {
-      id: 'stepFour',
-      stepClassName: stepFour,
-      stepText: 'Remember anchor day.'
-    },
-    {
-      id: 'stepFive',
-      stepClassName: stepFive,
-      stepText: 'Add it up.'
-    }
-  ];
-
-  return (
-    <div className='flex flex-col items-center'>
-      <div className='grid w-96 grid-cols-5 py-3'>
-        {rememberRow.map(({ id, stepClassName, stepText }) => (
-          <div
-            key={id}
-            className={clsx(
-              stepClassName,
-              'flex h-32 flex-col items-center justify-end text-center'
-            )}
-          >
-            <div>{stepText}</div>
-            <input
-              type='number'
-              className='mt-2 w-10 rounded-lg bg-indigo-900 py-2 text-center text-white'
-              value={inputHash[id]}
-              onChange={({ target: { value } }) =>
-                setInputHash((previous) => ({
-                  ...previous,
-                  [id]: Number(value)
-                }))
-              }
-            />
-          </div>
-        ))}
-      </div>
-    </div>
-  );
-};
-
-// I want to be able to feed it random dates OR feed it a list of previously incorrect guesses
 const DoomsdayInfo = () => {
   const initYear = getRandomYear();
 
