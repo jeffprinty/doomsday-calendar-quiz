@@ -6,12 +6,14 @@ import { DateTime } from 'luxon';
 import {
   chance,
   chunkArray,
+  Day,
   dayAbbreviations,
   dayNames,
   generateDaysTable,
   mnemonics
 } from '../common';
 import Button from './button';
+import { DayOfWeekGuesser } from './doomsday-quiz';
 
 const anchorDays = {
   '18': 5,
@@ -28,10 +30,22 @@ const stepFour = 'text-green-400';
 const stepFive = 'text-blue-400';
 const stepSix = 'text-indigo-400';
 
+type Steps = 'stepOne' | 'stepTwo' | 'stepThree' | 'stepFour' | 'stepFive';
+
 const DoomsdayForYear = () => {
-  const [inputHash, setInputHash] = useState<{ [key: string]: number }>({});
+  const [inputHash, setInputHash] = useState({
+    stepOne: '',
+    stepTwo: '',
+    stepThree: '',
+    stepFour: '',
+    stepFive: ''
+  });
   console.log('inputHash', inputHash);
-  const rememberRow = [
+  const rememberRow: Array<{
+    id: Steps;
+    stepClassName: string;
+    stepText: string;
+  }> = [
     {
       id: 'stepOne',
       stepClassName: stepOne,
@@ -51,27 +65,40 @@ const DoomsdayForYear = () => {
       id: 'stepFour',
       stepClassName: stepFour,
       stepText: 'Remember anchor day.'
+    },
+    {
+      id: 'stepFive',
+      stepClassName: stepFive,
+      stepText: 'Add it up.'
     }
   ];
 
   return (
-    <div className='grid w-72 grid-cols-4 py-10'>
-      {rememberRow.map(({ id, stepClassName, stepText }) => (
-        <div key={id} className={clsx(stepClassName, 'text-center')}>
-          <div>{stepText}</div>
-          <input
-            type='text'
-            className='w-8 bg-indigo-900 text-center text-white'
-            value={inputHash[id]}
-            onChange={({ target: { value } }) =>
-              setInputHash((previous) => ({
-                ...previous,
-                [id]: Number(value)
-              }))
-            }
-          />
-        </div>
-      ))}
+    <div className='flex flex-col'>
+      <div className='grid w-96 grid-cols-5 py-10'>
+        {rememberRow.map(({ id, stepClassName, stepText }) => (
+          <div
+            key={id}
+            className={clsx(
+              stepClassName,
+              'flex h-32 flex-col items-center justify-end text-center'
+            )}
+          >
+            <div>{stepText}</div>
+            <input
+              type='text'
+              className='mt-2 w-8 bg-indigo-900 text-center text-white'
+              value={inputHash[id]}
+              onChange={({ target: { value } }) =>
+                setInputHash((previous) => ({
+                  ...previous,
+                  [id]: Number(value)
+                }))
+              }
+            />
+          </div>
+        ))}
+      </div>
     </div>
   );
 };
@@ -83,6 +110,9 @@ const DoomsdayInfo = () => {
   const [guessingYear, setGuessingYear] = useState(initYear);
   console.log('guessingYear', guessingYear);
 
+  const [correctDay, setCorrectDay] = useState<Day>();
+  const [daySelected, setSelectedDay] = useState<Day>();
+
   const [revealedSteps, setRevealedSteps] = useState(0);
 
   const [inputHash, setInputHash] = useState<{ [key: string]: number }>({});
@@ -91,7 +121,6 @@ const DoomsdayInfo = () => {
   const daysTable = generateDaysTable();
   console.log('daysTable', daysTable);
   const chunked = chunkArray(daysTable, 7);
-  console.log('chunked', chunked);
 
   const showLongCal = false;
 
@@ -100,6 +129,8 @@ const DoomsdayInfo = () => {
     setRevealedSteps(0);
     setInputHash({});
     setGuessingYear(randomYearAsInt);
+    setCorrectDay(undefined);
+    setSelectedDay(undefined);
   };
 
   const twoDigitYear = Number(guessingYear.toString().slice(2, 4));
@@ -128,62 +159,29 @@ const DoomsdayInfo = () => {
     day: 4
   });
 
-  const steps = {
-    stepZero: {
-      description: 'Get the year',
-      answer: 0
-    },
-    stepOne: {
-      description: 'How many twelves fit inside?',
-      answer: stepOneResult
-    },
-    stepTwo: {
-      description: 'Year minus nearest multiple of twelve',
-      answer: stepTwoResult
-    },
-    stepThree: {
-      description: 'How many fours fit inside?',
-      answer: 0
-    },
-    stepFour: {
-      description: 'Anchor day',
-      answer: 0
-    },
-    stepFive: {
-      description: 'Add up.',
-      answer: 0
-    },
-    stepSix: {
-      description: '',
-      answer: 0
-    }
-  };
+  const correctDoomsday = doomsdayOnYear.toFormat('ccc') as Day;
 
   const unrevealed = 'opacity-5';
 
   return (
     <div>
-      <div className='explainer'>
-        {mnemonics.map(({ monthName, common }, index) => {
-          const hackyMonthNumber = index + 1;
-          return (
-            <div key={monthName} className='flex flex-row items-center justify-between text-center'>
-              {monthName}
-              <div className=''>
-                {hackyMonthNumber}/{common}
-              </div>
-            </div>
-          );
-        })}
-      </div>
       <DoomsdayForYear key={guessingYear} />
+      <DayOfWeekGuesser
+        key={`week_${guessingYear}`}
+        correctDay={correctDay}
+        daySelected={daySelected}
+        onDayClick={(selected) => {
+          setSelectedDay(selected);
+          setCorrectDay(correctDoomsday);
+        }}
+      />
       <div>
         <input className='text-black' type='text' readOnly value={guessingYear.toString()} />
         <Button onClick={getNewYear}>borf</Button>
         <Button onClick={() => setRevealedSteps((previous) => previous + 1)}>next step</Button>
         <div id='stepZero' className={clsx(revealedSteps < 0 && unrevealed)}>
           <span className=''>{century} </span>
-          <span className={stepZero}>{twoDigitYear} </span>
+          <span className={stepZero}>{twoDigitYear.toString()} </span>
         </div>
         <div id='stepOne' className={clsx(revealedSteps < 1 && unrevealed)}>
           <span className={stepZero}>{twoDigitYear} </span>
@@ -255,6 +253,19 @@ const DoomsdayInfo = () => {
           <span className=''>Double-check: </span>
           <span className=''> {doomsdayOnYear.toFormat('cccc MMMM dd, yyyy')} </span>
         </div>
+      </div>
+      <div className='explainer'>
+        {mnemonics.map(({ monthName, common }, index) => {
+          const hackyMonthNumber = index + 1;
+          return (
+            <div key={monthName} className='flex flex-row items-center justify-between text-center'>
+              {monthName}
+              <div className=''>
+                {hackyMonthNumber}/{common}
+              </div>
+            </div>
+          );
+        })}
       </div>
       {showLongCal && (
         <div className='calendar-butt grid w-72 grid-cols-7'>

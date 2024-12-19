@@ -4,14 +4,11 @@ import clsx from 'clsx';
 import { DateTime, Interval } from 'luxon';
 import { PieChart } from 'react-minimal-pie-chart';
 
-import { guessDateFormat } from '../common';
+import { Day, daysOfWeek, guessDateFormat } from '../common';
 import Button from './button';
 
 //ES6 const, let
 //ES6 Destructuring
-
-const daysOfWeek: Array<Day> = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
-type Day = 'Sun' | 'Mon' | 'Tue' | 'Wed' | 'Thu' | 'Fri' | 'Sat';
 
 const correctColor = 'bg-green-600';
 const incorrectColor = 'bg-red-900';
@@ -21,6 +18,44 @@ export const PageContainer = ({ children }: { children: React.ReactNode }) => {
     <section className='container flex h-full w-full flex-col items-center justify-start border border-tertiary bg-secondary lg:w-2/3'>
       {children}
     </section>
+  );
+};
+
+export const DayOfWeekGuesser = ({
+  correctDay,
+  daySelected,
+  disabled = false,
+  onDayClick
+}: {
+  correctDay?: Day;
+  daySelected?: Day;
+  disabled?: boolean;
+  onDayClick: (dayClicked: Day) => void;
+}) => {
+  return (
+    <div className='grid w-full grid-cols-7'>
+      {daysOfWeek.map((day: Day) => {
+        const thisDayIsCorrect = correctDay === day;
+        const thisDayWasSelected = daySelected === day;
+        const incorrectSelection = daySelected !== correctDay;
+        return (
+          <Button
+            className={clsx([
+              'quiz__day-of-week mx-1 h-24 px-1 text-center',
+              incorrectSelection && thisDayWasSelected && 'disabled:bg-red-900',
+              thisDayIsCorrect && 'disabled:bg-green-600 disabled:text-black'
+            ])}
+            data-correct-day={thisDayIsCorrect}
+            disabled={disabled}
+            key={day}
+            onClick={() => onDayClick(day)}
+          >
+            {day}
+            {thisDayIsCorrect && <span className='correct-indicator'>✅</span>}
+          </Button>
+        );
+      })}
+    </div>
   );
 };
 
@@ -144,29 +179,11 @@ const DoomsdayQuiz = ({
           {!!dateToGuess && <h2 className='text-4xl'>{dateStringToGuess}</h2>}
         </div>
         <div id='quiz__actions'>
-          <div className='grid w-full grid-cols-7'>
-            {daysOfWeek.map((day: Day) => {
-              const thisDayIsCorrect = correctDay === day;
-              const thisDayWasSelected = daySelected === day;
-              const incorrectSelection = daySelected !== correctDay;
-              return (
-                <Button
-                  className={clsx([
-                    'quiz__day-of-week mx-1 h-24 px-1 text-center',
-                    incorrectSelection && thisDayWasSelected && 'disabled:bg-red-900',
-                    thisDayIsCorrect && 'disabled:bg-green-600 disabled:text-black'
-                  ])}
-                  data-correct-day={thisDayIsCorrect}
-                  disabled={!enableDayClick}
-                  key={day}
-                  onClick={() => handleDayClick(day)}
-                >
-                  {day}
-                  {thisDayIsCorrect && <span className='correct-indicator'>✅</span>}
-                </Button>
-              );
-            })}
-          </div>
+          <DayOfWeekGuesser
+            correctDay={correctDay}
+            daySelected={daySelected}
+            onDayClick={handleDayClick}
+          />
           <div className='flex-row items-center justify-center p-2'>
             <Button
               className='my-2 h-16 w-full'
