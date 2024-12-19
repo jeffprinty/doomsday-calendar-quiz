@@ -4,6 +4,7 @@ import clsx from 'clsx';
 import { DateTime, Interval } from 'luxon';
 import { PieChart } from 'react-minimal-pie-chart';
 
+import { guessDateFormat } from '../common';
 import Button from './button';
 
 //ES6 const, let
@@ -22,8 +23,6 @@ export const PageContainer = ({ children }: { children: React.ReactNode }) => {
     </section>
   );
 };
-
-const guessDateFormat = 'MMMM dd, yyyy';
 
 const DoomsdayQuiz = ({
   dateToGuess,
