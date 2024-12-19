@@ -20,7 +20,7 @@ import Button from './button';
 import { DayOfWeekGuesser } from './doomsday-quiz';
 import Hints from './hints';
 
-const DoomsdayForYear = () => {
+const MathStepHelper = () => {
   const [inputHash, setInputHash] = useState({
     stepOne: '',
     stepTwo: '',
@@ -92,7 +92,7 @@ const DoomsdayForYear = () => {
 
 // I want to be able to feed it random dates OR feed it a list of previously incorrect guesses
 const DoomsdayInfo = () => {
-  const initYear = 1978;
+  const initYear = chance.integer({ min: 1900, max: 2099 });
   // TODO: Allow set year
   const [guessingYear, setGuessingYear] = useState(initYear);
   console.log('guessingYear', guessingYear);
@@ -137,7 +137,7 @@ const DoomsdayInfo = () => {
         <span className=''>What is the doomsday for:</span>
         <h2 className='text-6xl'>{guessingYear}</h2>
       </div>
-      <DoomsdayForYear key={guessingYear} />
+      <MathStepHelper key={guessingYear} />
       <DayOfWeekGuesser
         key={`week_${guessingYear}`}
         correctDay={correctDay}

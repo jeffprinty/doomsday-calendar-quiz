@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 
 import { DateTime } from 'luxon';
 import randomInt from 'random-int';
-import { Route, Routes } from 'react-router-dom';
+import { NavLink, Route, Routes } from 'react-router-dom';
 
 import DoomsdayQuiz from './doomsday-quiz';
 import DoomsdayInfo from './doomsday-quiz-info';
@@ -56,6 +56,8 @@ const DoomsdayQuizContainer = () => {
           checked={guessingAgain}
           onChange={({ target: { checked } }) => setGuessingAgain(checked)}
         />
+        <NavLink to='/doomsday-calendar-quiz/info'>info</NavLink>
+        <NavLink to='/doomsday-calendar-quiz/'>home</NavLink>
       </div>
       <Routes>
         <Route
