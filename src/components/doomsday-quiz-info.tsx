@@ -4,9 +4,9 @@ import clsx from 'clsx';
 import { DateTime } from 'luxon';
 
 import {
-  chance,
   correctColor,
   Day,
+  getRandomYear,
   incorrectColor,
   mnemonics,
   stepFive,
@@ -92,7 +92,7 @@ const MathStepHelper = () => {
 
 // I want to be able to feed it random dates OR feed it a list of previously incorrect guesses
 const DoomsdayInfo = () => {
-  const initYear = chance.integer({ min: 1900, max: 2099 });
+  const initYear = getRandomYear();
   // TODO: Allow set year
   const [guessingYear, setGuessingYear] = useState(initYear);
   console.log('guessingYear', guessingYear);
@@ -106,7 +106,7 @@ const DoomsdayInfo = () => {
   console.log('inputHash', inputHash);
 
   const getNewYear = () => {
-    const randomYearAsInt = chance.integer({ min: 1900, max: 2099 });
+    const randomYearAsInt = getRandomYear();
     setInputHash({});
     setLastAnswerCorrect(undefined);
     setGuessingYear(randomYearAsInt);

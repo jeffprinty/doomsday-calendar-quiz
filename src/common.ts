@@ -1,7 +1,5 @@
-import Chance from 'chance';
 import { DateTime } from 'luxon';
-
-export const chance = new Chance();
+import randomInteger from 'random-int';
 
 export const correctColor = 'bg-green-600';
 export const incorrectColor = 'bg-red-900';
@@ -218,8 +216,10 @@ export const chunkArray = <T>(arrayToChunk: Array<T>, size: number): Array<Array
     arrayToChunk.slice(index * size, index * size + size)
   );
 
+export const getRandomYear = () => randomInteger(1900, 2099);
+
 export const getRandomDateInYear = (year: number) => {
-  const randomDayOfYear = chance.integer({ min: 1, max: 365 });
+  const randomDayOfYear = randomInteger(1, 365);
   return DateTime.fromObject({
     year,
     ordinal: randomDayOfYear

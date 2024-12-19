@@ -1,17 +1,12 @@
-import React, { useState } from 'react';
+import React, { lazy, Suspense, useState } from 'react';
 
 import { DateTime } from 'luxon';
-import randomInt from 'random-int';
 import { NavLink, Route, Routes } from 'react-router-dom';
 
-import DoomsdayQuiz from './doomsday-quiz';
-import DoomsdayInfo from './doomsday-quiz-info';
+import { getRandomDateInYear } from '../common';
 
-const getRandomDateInYear = (year: number) => {
-  const randomNumber = randomInt(0, 364);
-  const initYearStart = DateTime.fromISO(`${year}-01-01`);
-  return initYearStart.plus({ days: randomNumber });
-};
+const DoomsdayQuiz = lazy(() => import('./doomsday-quiz'));
+const DoomsdayInfo = lazy(() => import('./doomsday-quiz-info'));
 
 // I want to be able to feed it random dates OR feed it a list of previously incorrect guesses
 const DoomsdayQuizContainer = () => {
@@ -59,19 +54,21 @@ const DoomsdayQuizContainer = () => {
         <NavLink to='/doomsday-calendar-quiz/info'>info</NavLink>
         <NavLink to='/doomsday-calendar-quiz/'>home</NavLink>
       </div>
-      <Routes>
-        <Route
-          path='/'
-          element={
-            <DoomsdayQuiz
-              dateToGuess={currentDateToGuess}
-              getNextDate={getNextDate}
-              onIncorrectGuess={handleIncorrectGuess}
-            />
-          }
-        />
-        <Route path='/info' element={<DoomsdayInfo />} />
-      </Routes>
+      <Suspense fallback={<div>loading</div>}>
+        <Routes>
+          <Route
+            path='/'
+            element={
+              <DoomsdayQuiz
+                dateToGuess={currentDateToGuess}
+                getNextDate={getNextDate}
+                onIncorrectGuess={handleIncorrectGuess}
+              />
+            }
+          />
+          <Route path='/info' element={<DoomsdayInfo />} />
+        </Routes>
+      </Suspense>
     </>
   );
 };
