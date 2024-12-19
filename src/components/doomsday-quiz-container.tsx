@@ -34,7 +34,9 @@ const monthNames = [
   'December'
 ];
 
-const mnemonics = [
+const dayAbbreviations = ['Su', 'Mo', 'Tu', 'We', 'Th', 'Sa'];
+
+export const mnemonics = [
   {
     month: 'jan',
     monthName: 'January',
@@ -119,6 +121,59 @@ const mnemonics = [
   }
 ];
 
+const generateDaysTable = () => {
+  const firstDayOfMonth = new Date(2025, 1, 1);
+  const weekdayOfFirstDay = firstDayOfMonth.getDay();
+  const currentDays = [];
+
+  for (let day = 0; day < 360; day++) {
+    if (day === 0 && weekdayOfFirstDay === 0) {
+      firstDayOfMonth.setDate(firstDayOfMonth.getDate() - 7);
+    } else if (day === 0) {
+      firstDayOfMonth.setDate(firstDayOfMonth.getDate() + (day - weekdayOfFirstDay));
+    } else {
+      firstDayOfMonth.setDate(firstDayOfMonth.getDate() + 1);
+    }
+
+    const monthNumber = firstDayOfMonth.getMonth();
+    const monthNumberForHumans = monthNumber + 1;
+    const monthMnemonic = mnemonics[monthNumber];
+    const dayIsDoomsday = monthMnemonic.common === firstDayOfMonth.getDay();
+
+    const calendarDay = {
+      // currentMonth: firstDayOfMonth.getMonth() === props.day.getMonth(),
+      date: new Date(firstDayOfMonth),
+      monthNumber,
+      monthNumberForHumans,
+      number: firstDayOfMonth.getDate(),
+      // selected: firstDayOfMonth.toDateString() === props.day.toDateString(),
+      year: firstDayOfMonth.getFullYear(),
+      dayIsDoomsday
+    };
+
+    currentDays.push(calendarDay);
+  }
+  return currentDays;
+};
+
+const betterDaysTable = () => {
+  const startingDay = DateTime.fromISO('2024-12-29');
+  const daysArray = [];
+  for (let day = 0; day < 360; day++) {
+    const dayy = startingDay.plus({ days: day });
+    const dayObject = {
+      dateTime: dayy
+    };
+    daysArray.push(dayObject);
+  }
+  return daysArray;
+};
+
+const chunkArray = <T,>(arrayToChunk: Array<T>, size: number): Array<Array<T>> =>
+  Array.from({ length: Math.ceil(arrayToChunk.length / size) }, (v, index) =>
+    arrayToChunk.slice(index * size, index * size + size)
+  );
+
 // I want to be able to feed it random dates OR feed it a list of previously incorrect guesses
 const DoomsdayQuizContainer = () => {
   const initYear = 2025;
@@ -154,6 +209,13 @@ const DoomsdayQuizContainer = () => {
     setWronglyGuessedDates((previous) => [...previous, dateGuessed]);
   };
 
+  const daysTable = generateDaysTable();
+  console.log('daysTable', daysTable);
+  const chunked = chunkArray(daysTable, 7);
+  console.log('chunked', chunked);
+
+  const showLongCal = false;
+
   return (
     <>
       <div className='quiz__header-menu absolute right-0 top-0'>
@@ -177,7 +239,7 @@ const DoomsdayQuizContainer = () => {
         <Route
           path='/info'
           element={
-            <PageContainer>
+            <div>
               <div className='explainer'>
                 {mnemonics.map(({ monthName, common }, index) => {
                   const hackyMonthNumber = index + 1;
@@ -194,7 +256,26 @@ const DoomsdayQuizContainer = () => {
                   );
                 })}
               </div>
-            </PageContainer>
+              {showLongCal && (
+                <div className='calendar-butt grid w-72 grid-cols-7'>
+                  {dayAbbreviations.map((abbr) => (
+                    <div key={abbr} className='wx-3 text-center'>
+                      {abbr}
+                    </div>
+                  ))}
+                  {daysTable.map(({ monthNumber, monthNumberForHumans, number, year }) => {
+                    return (
+                      <div
+                        key={`${monthNumberForHumans}${number}${year}`}
+                        className='wx-3 text-center'
+                      >
+                        {number}
+                      </div>
+                    );
+                  })}
+                </div>
+              )}
+            </div>
           }
         />
       </Routes>
