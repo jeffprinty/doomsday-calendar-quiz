@@ -1,53 +1,65 @@
 import React, { useState } from 'react';
 
-import clsx from 'clsx';
 import { DateTime, Interval } from 'luxon';
 
-import { correctColor, Day, getRandomYear, incorrectColor, mnemonics, PastAnswer } from '../common';
+import { Day, getRandomDateInYear, getRandomYear, guessDateFormat, PastAnswer } from '../common';
 import Button from './button';
-import Hints from './hints';
 import QuizResults from './quiz-results';
 import { DayOfWeekGuesser, GuessDisplay, MathStepHelper } from './shared';
 
 const GuessFullDate = () => {
   const initYear = getRandomYear();
+  const initRandomDateWithinYear = getRandomDateInYear(initYear);
 
-  const [showHints, setShowHints] = useState(false);
+  const [guessingDate, setGuessingDate] = useState(initRandomDateWithinYear);
+
   const [showResults, setShowResults] = useState(true);
-
-  // TODO: Allow set year
-  const [guessingYear, setGuessingYear] = useState(initYear);
 
   const [startTime, setStartTime] = useState<DateTime>(DateTime.now());
   const [pastAnswers, setPastAnswers] = useState<Array<PastAnswer>>([]);
 
-  const [correctDay, setCorrectDay] = useState<Day>();
-  const [daySelected, setSelectedDay] = useState<Day>();
+  const [correctDoomsdayForYear, setCorrectDoomsdayForYear] = useState<Day>();
+  const [selectedDoomsdayForYear, setSelectedDoomsdayForYear] = useState<Day>();
+
+  const [correctWeekdayForDate, setCorrectWeekdayForDate] = useState<Day>();
+  const [selectedWeekdayForDate, setSelectedWeekdayForDate] = useState<Day>();
 
   const [lastAnswerCorrect, setLastAnswerCorrect] = useState<boolean | undefined>();
 
   const doomsdayOnYear = DateTime.fromObject({
-    year: guessingYear,
+    year: guessingDate.get('year'),
     month: 4,
     day: 4
   });
 
   const correctDoomsday = doomsdayOnYear.toFormat('ccc') as Day;
 
-  const getNewYear = () => {
+  const getNewGuess = () => {
     const randomYearAsInt = getRandomYear();
+    const randomDateWithinYear = getRandomDateInYear(randomYearAsInt);
+    setGuessingDate(randomDateWithinYear);
     setLastAnswerCorrect(undefined);
-    setGuessingYear(randomYearAsInt);
-    setCorrectDay(undefined);
-    setSelectedDay(undefined);
+
+    setCorrectDoomsdayForYear(undefined);
+    setSelectedDoomsdayForYear(undefined);
+
+    setCorrectWeekdayForDate(undefined);
+    setSelectedWeekdayForDate(undefined);
+
     setStartTime(DateTime.now());
   };
 
-  const handleDayGuess = (guess: Day) => {
-    setSelectedDay(guess);
-    setCorrectDay(correctDoomsday);
-    const dayGuessedCorrectly = guess === correctDoomsday;
-    setLastAnswerCorrect(dayGuessedCorrectly);
+  const handleYearDoomsdayGuess = (guess: Day) => {
+    setSelectedDoomsdayForYear(guess);
+    setCorrectDoomsdayForYear(correctDoomsday);
+  };
+
+  const handleDateWeekdayGuess = (guess: Day) => {
+    const correctWeekdayForDate = guessingDate.toFormat('ccc') as Day;
+    setCorrectWeekdayForDate(correctWeekdayForDate);
+
+    const dayWeekdayGuessedCorrectly = guess === correctWeekdayForDate;
+    setLastAnswerCorrect(dayWeekdayGuessedCorrectly);
 
     if (startTime) {
       const interval = Interval.fromDateTimes(startTime, DateTime.now());
@@ -55,7 +67,7 @@ const GuessFullDate = () => {
       if (intervalInSeconds) {
         setPastAnswers((previous) => [
           ...previous,
-          [intervalInSeconds, dayGuessedCorrectly, doomsdayOnYear]
+          [intervalInSeconds, dayWeekdayGuessedCorrectly, doomsdayOnYear]
         ]);
       }
     }
@@ -64,60 +76,39 @@ const GuessFullDate = () => {
   return (
     <div>
       <GuessDisplay
-        questionText='What is the doomsday for:'
-        guessText={guessingYear}
+        questionText={lastAnswerCorrect ? 'Correct! The doomsday for' : 'What is the doomsday for:'}
+        guessText={guessingDate.toFormat(guessDateFormat)}
         guessedCorrectly={lastAnswerCorrect}
-        guessTextClassName='text-6xl'
+        subText={
+          lastAnswerCorrect ? (
+            <>
+              is <strong>{guessingDate.toFormat('cccc')}</strong>
+            </>
+          ) : undefined
+        }
       />
-      <div
-        id='quiz__year-to-guess'
-        className={clsx([
-          'my-4 flex w-full flex-col items-center justify-center pb-6 pt-4 text-center',
-          lastAnswerCorrect === undefined && 'bg-gray-600',
-          lastAnswerCorrect === true && correctColor,
-          lastAnswerCorrect === false && incorrectColor
-        ])}
-      >
-        <span className=''>What is the doomsday for:</span>
-        <h2 className='text-6xl'>{guessingYear}</h2>
-      </div>
-      <MathStepHelper key={guessingYear} />
+      <MathStepHelper key={startTime.toUnixInteger()} />
+      <div className='text-center'>Doomsday for Year</div>
       <DayOfWeekGuesser
-        key={`week_${guessingYear}`}
-        correctDay={correctDay}
-        daySelected={daySelected}
-        onDayClick={handleDayGuess}
+        key={`year_${startTime}`}
+        correctDay={correctDoomsdayForYear}
+        daySelected={selectedDoomsdayForYear}
+        onDayClick={handleYearDoomsdayGuess}
       />
-      <Button onClick={getNewYear} className='my-2 h-16 w-full'>
-        Random Year
-      </Button>
-      <Button onClick={() => setShowHints((previous) => !previous)}>
-        {showHints ? 'hide' : 'show'} hints
+      <div className='text-center'>Doomsday for Date</div>
+      <DayOfWeekGuesser
+        key={`date_${startTime}`}
+        correctDay={correctWeekdayForDate}
+        daySelected={selectedWeekdayForDate}
+        onDayClick={handleDateWeekdayGuess}
+      />
+      <Button onClick={getNewGuess} className='my-2 h-16 w-full'>
+        Random Date
       </Button>
       <Button onClick={() => setShowResults((previous) => !previous)}>
         {showResults ? 'hide' : 'show'} results
       </Button>
-      {showHints && <Hints key={`hints_${guessingYear}`} year={guessingYear} />}
-      {showResults && (
-        <QuizResults
-          answers={pastAnswers}
-          currentGuess={guessingYear.toString()}
-          dateFormat='yyyy'
-        />
-      )}
-      <div className='explainer hidden'>
-        {mnemonics.map(({ monthName, common }, index) => {
-          const hackyMonthNumber = index + 1;
-          return (
-            <div key={monthName} className='flex flex-row items-center justify-between text-center'>
-              {monthName}
-              <div className=''>
-                {hackyMonthNumber}/{common}
-              </div>
-            </div>
-          );
-        })}
-      </div>
+      {showResults && <QuizResults answers={pastAnswers} currentGuess={guessingDate.toString()} />}
     </div>
   );
 };
