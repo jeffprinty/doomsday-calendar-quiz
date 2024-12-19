@@ -73,8 +73,8 @@ const MathStepHelper = () => {
           >
             <div>{stepText}</div>
             <input
-              type='text'
-              className='mt-2 w-8 bg-indigo-900 text-center text-white'
+              type='number'
+              className='mt-2 w-10 rounded-lg bg-indigo-900 py-2 text-center text-white'
               value={inputHash[id]}
               onChange={({ target: { value } }) =>
                 setInputHash((previous) => ({
