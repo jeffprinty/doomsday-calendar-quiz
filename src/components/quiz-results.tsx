@@ -7,10 +7,12 @@ import { correctColor, guessDateFormat, incorrectColor, PastAnswer } from '../co
 
 const QuizResults = ({
   answers,
-  currentGuess
+  currentGuess,
+  dateFormat = 'MMM dd, yy'
 }: {
   answers: Array<PastAnswer>;
   currentGuess: string;
+  dateFormat?: string;
 }) => {
   const correctValue = answers.filter(([, isCorrect]) => isCorrect).length;
   const incorrectValue = answers.filter(([, isCorrect]) => !isCorrect).length;
@@ -45,7 +47,7 @@ const QuizResults = ({
               <span>{timeInSeconds}</span>
               <span>
                 {dateGuessed.toFormat(guessDateFormat) === currentGuess && '⚪️'}
-                {dateGuessed.toFormat('MMM dd, yy')}
+                {dateGuessed.toFormat(dateFormat)}
               </span>
             </li>
           ))}

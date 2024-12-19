@@ -19,7 +19,6 @@ import Button from './button';
 
 const Hints = ({ year }: { year: number }) => {
   const [revealedSteps, setRevealedSteps] = useState(0);
-  const [showHints, setShowHints] = useState(false);
   const twoDigitYear = Number(year.toString().slice(2, 4));
   console.log('twoDigitYear', twoDigitYear);
   const howManyTwelves = Math.floor(twoDigitYear / 12);
@@ -49,8 +48,7 @@ const Hints = ({ year }: { year: number }) => {
 
   return (
     <div>
-      <Button onClick={() => setShowHints((previous) => !previous)}>show hints</Button>
-      <div className={clsx(!showHints && 'hidden')}>
+      <div className=''>
         <Button onClick={() => setRevealedSteps((previous) => previous + 1)}>next step</Button>
         <div id='stepZero' className={clsx(revealedSteps < 0 && unrevealed)}>
           <span className=''>{century} </span>
