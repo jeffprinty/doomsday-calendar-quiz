@@ -18,76 +18,6 @@ import {
 } from '../common';
 import Button from './button';
 
-export const MathStepHelperV2 = () => {
-  const [inputHash, setInputHash] = useState({
-    stepOne: '',
-    stepTwo: '',
-    stepThree: '',
-    stepFour: '',
-    stepFive: ''
-  });
-  const rememberRow: Array<{
-    id: Steps;
-    stepClassName: string;
-    stepText: string;
-  }> = [
-    {
-      id: 'stepOne',
-      stepClassName: stepOne,
-      stepText: 'How many twelves?'
-    },
-    {
-      id: 'stepTwo',
-      stepClassName: stepTwo,
-      stepText: 'Minus nearest twelve'
-    },
-    {
-      id: 'stepThree',
-      stepClassName: stepThree,
-      stepText: 'How many fours?'
-    },
-    {
-      id: 'stepFour',
-      stepClassName: stepFour,
-      stepText: 'Remember anchor day.'
-    },
-    {
-      id: 'stepFive',
-      stepClassName: stepFive,
-      stepText: 'Add it up.'
-    }
-  ];
-
-  return (
-    <div className='flex flex-col items-center'>
-      <div className='grid w-96 grid-cols-5 py-3'>
-        {rememberRow.map(({ id, stepClassName, stepText }) => (
-          <div
-            key={id}
-            className={clsx(
-              stepClassName,
-              'flex h-32 flex-col items-center justify-end text-center'
-            )}
-          >
-            <div>{stepText}</div>
-            <input
-              type='number'
-              className='mt-2 w-10 rounded-lg bg-indigo-900 py-2 text-center text-white'
-              value={inputHash[id]}
-              onChange={({ target: { value } }) =>
-                setInputHash((previous) => ({
-                  ...previous,
-                  [id]: Number(value)
-                }))
-              }
-            />
-          </div>
-        ))}
-      </div>
-    </div>
-  );
-};
-
 const Hints = ({ year }: { year: number }) => {
   const [revealedSteps, setRevealedSteps] = useState(0);
 
@@ -164,6 +94,10 @@ const Hints = ({ year }: { year: number }) => {
     }
   ];
 
+  const handleStepAnswerClick = (id: Steps) => {
+    
+  };
+
   return (
     <div id='hints'>
       <div id='rememberr-row' className='flex flex-col items-center'>
@@ -171,13 +105,13 @@ const Hints = ({ year }: { year: number }) => {
           {rememberRowWithAnswers.map(({ id, stepClassName, stepText }) => (
             <div
               key={id}
-              className={clsx(stepClassName, 'flex flex-row items-center justify-between')}
+              className={clsx(stepClassName, 'mb-2 flex flex-row items-center justify-between')}
             >
               <div className='pr-4'>{stepText}</div>
-              <div>
+              <div className='flex flex-row items-center'>
                 <input
                   type='number'
-                  className='mt-2 w-10 rounded-lg bg-indigo-900 py-2 text-center text-white'
+                  className='w-10 rounded-lg bg-indigo-900 py-2 text-center text-white'
                   value={inputHash[id]}
                   onChange={({ target: { value } }) =>
                     setInputHash((previous) => ({
@@ -186,7 +120,7 @@ const Hints = ({ year }: { year: number }) => {
                     }))
                   }
                 />
-                <Button className='h-10 w-8' onClick={() => {}}>
+                <Button className='ml-2 h-10 w-8' onClick={() => handleStepAnswerClick(id)}>
                   ?
                 </Button>
               </div>
