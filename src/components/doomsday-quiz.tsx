@@ -4,7 +4,14 @@ import clsx from 'clsx';
 import { DateTime, Interval } from 'luxon';
 import { PieChart } from 'react-minimal-pie-chart';
 
-import { correctColor, Day, daysOfWeek, guessDateFormat, incorrectColor } from '../common';
+import {
+  correctColor,
+  Day,
+  daysOfWeek,
+  guessDateFormat,
+  incorrectColor,
+  PastAnswer
+} from '../common';
 import Button from './button';
 
 //ES6 const, let
@@ -66,12 +73,11 @@ const DoomsdayQuiz = ({
   onIncorrectGuess: (dateGuessed: DateTime) => void;
 }) => {
   const [startTime, setStartTime] = useState<DateTime>(DateTime.now());
-  const [answerTimes, setAnswerTimes] = useState<Array<[number, boolean, DateTime]>>([]);
+  const [answerTimes, setAnswerTimes] = useState<Array<PastAnswer>>([]);
   console.log('answerTimes', answerTimes);
   const [correctDay, setCorrectDay] = useState<Day>();
   const [daySelected, setDaySelected] = useState<Day>();
   const [lastAnswerCorrect, setLastAnswerCorrect] = useState<boolean | undefined>();
-  const [correctIncorrect, setCorrectIncorrect] = useState<[number, number]>([0, 0]);
   const [enableDayClick, setEnableDayClick] = useState(true);
 
   const dateStringToGuess = dateToGuess?.toFormat(guessDateFormat) || '';
@@ -92,12 +98,6 @@ const DoomsdayQuiz = ({
     setDaySelected(day);
     const dayShortName = dateToGuess.toFormat('ccc') as Day;
     const correctDayGuessed = dayShortName === day;
-    setCorrectIncorrect(([correct, incorrect]) => {
-      if (correctDayGuessed) {
-        return [correct + 1, incorrect] as const;
-      }
-      return [correct, incorrect + 1] as const;
-    });
     setLastAnswerCorrect(correctDayGuessed);
     if (!correctDayGuessed) {
       onIncorrectGuess(dateToGuess);
@@ -116,51 +116,13 @@ const DoomsdayQuiz = ({
     setCorrectDay(dayShortName);
   };
 
-  const [correctValue, incorrectValue] = correctIncorrect;
-
   return (
     <PageContainer>
       <div id='quiz__top-bit'>
         <div className='flex w-full flex-row items-center justify-center bg-indigo-900 py-2 md:rounded-bl-2xl md:rounded-br-2xl'>
           <h1 className='text-center text-3xl'>Doomsday Calendar Quiz</h1>
         </div>
-        <div
-          id='quiz__results'
-          className='grid h-48 w-full grid-cols-2 flex-row items-start justify-between bg-indigo-800 bg-opacity-40'
-        >
-          <div className='flex h-48 flex-col items-center justify-center px-8'>
-            <PieChart
-              label={({ dataEntry }) => `${Math.round(dataEntry.percentage)}%`}
-              data={[
-                {
-                  title: 'Correct',
-                  value: correctValue,
-                  color: 'rgb(22 163 74/var(--tw-bg-opacity,1))'
-                },
-                { title: 'Incorrect', value: incorrectValue, color: '#C13C37' }
-              ]}
-            />
-          </div>
-          <div className='flex h-48 flex-col justify-start overflow-y-auto'>
-            <ul className='w-full'>
-              {[...answerTimes].reverse().map(([timeInSeconds, isCorrect, dateGuessed]) => (
-                <li
-                  className={clsx(
-                    'flex w-full flex-row justify-between bg-opacity-40 px-2',
-                    isCorrect ? correctColor : incorrectColor
-                  )}
-                  key={`${timeInSeconds}_${isCorrect}`}
-                >
-                  <span>{timeInSeconds}</span>
-                  <span>
-                    {dateGuessed.toFormat(guessDateFormat) === dateStringToGuess && '⚪️'}
-                    {dateGuessed.toFormat('MMM dd, yy')}
-                  </span>
-                </li>
-              ))}
-            </ul>
-          </div>
-        </div>
+        <QuizResults answers={answerTimes} currentGuess={dateStringToGuess} />
       </div>
       <div id='quiz__bottom-bit' className=''>
         <div
@@ -197,3 +159,53 @@ const DoomsdayQuiz = ({
 };
 
 export default DoomsdayQuiz;
+
+export const QuizResults = ({
+  answers,
+  currentGuess
+}: {
+  answers: Array<PastAnswer>;
+  currentGuess: string;
+}) => {
+  const correctValue = answers.filter(([, isCorrect]) => isCorrect).length;
+  const incorrectValue = answers.filter(([, isCorrect]) => !isCorrect).length;
+  return (
+    <div
+      id='quiz__results'
+      className='grid h-48 w-full grid-cols-2 flex-row items-start justify-between bg-indigo-800 bg-opacity-40'
+    >
+      <div className='flex h-48 flex-col items-center justify-center px-8'>
+        <PieChart
+          label={({ dataEntry }) => `${Math.round(dataEntry.percentage)}%`}
+          data={[
+            {
+              title: 'Correct',
+              value: correctValue,
+              color: 'rgb(22 163 74/var(--tw-bg-opacity,1))'
+            },
+            { title: 'Incorrect', value: incorrectValue, color: '#C13C37' }
+          ]}
+        />
+      </div>
+      <div className='flex h-48 flex-col justify-start overflow-y-auto'>
+        <ul className='w-full'>
+          {[...answers].reverse().map(([timeInSeconds, isCorrect, dateGuessed]) => (
+            <li
+              className={clsx(
+                'flex w-full flex-row justify-between bg-opacity-40 px-2',
+                isCorrect ? correctColor : incorrectColor
+              )}
+              key={`${timeInSeconds}_${isCorrect}`}
+            >
+              <span>{timeInSeconds}</span>
+              <span>
+                {dateGuessed.toFormat(guessDateFormat) === currentGuess && '⚪️'}
+                {dateGuessed.toFormat('MMM dd, yy')}
+              </span>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </div>
+  );
+};
