@@ -127,7 +127,7 @@ const Hints = ({ showAnswers, year }: { showAnswers?: boolean; year: number }) =
               <div className='flex flex-row items-center'>
                 <input
                   type='number'
-                  className='w-10 rounded-lg bg-indigo-900 py-2 text-center text-white'
+                  className={clsx(stepClassName, 'w-10 rounded-lg bg-indigo-900 py-2 text-center')}
                   value={showAnswers ? answer : inputHash[id]}
                   onChange={({ target: { value } }) =>
                     setInputHash((previous) => ({
@@ -144,7 +144,7 @@ const Hints = ({ showAnswers, year }: { showAnswers?: boolean; year: number }) =
           ))}
         </div>
       </div>
-      <div className=''>
+      <div className='hidden'>
         <Button onClick={() => setRevealedSteps((previous) => previous + 1)}>next step</Button>
         <div id='stepZero' className={clsx(revealedSteps < 0 && unrevealed)}>
           <span className=''>{century} </span>

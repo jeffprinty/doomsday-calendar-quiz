@@ -5,7 +5,7 @@ import { DateTime, Interval } from 'luxon';
 import { Day, guessDateFormat, PastAnswer } from '../common';
 import Button from './button';
 import QuizResults from './quiz-results';
-import { DayOfWeekGuesser, GuessDisplay, PageContainer } from './shared';
+import { DayOfWeekGuesser, GuessDisplay } from './shared';
 
 const GuessDateDoomsdayWithinYear = ({
   dateToGuess,

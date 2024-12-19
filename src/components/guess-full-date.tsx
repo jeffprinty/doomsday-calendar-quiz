@@ -60,6 +60,7 @@ const GuessFullDate = () => {
   const handleYearDoomsdayGuess = (guess: Day) => {
     setSelectedDoomsdayForYear(guess);
     setCorrectDoomsdayForYear(correctDoomsday);
+    setShowAllAnswers(true);
   };
 
   const handleDateWeekdayGuess = (guess: Day) => {
@@ -89,6 +90,7 @@ const GuessFullDate = () => {
         questionText={lastAnswerCorrect ? 'Correct! The doomsday for' : 'What is the doomsday for:'}
         guessText={guessingDate.toFormat(guessDateFormat)}
         guessedCorrectly={lastAnswerCorrect}
+        isLeapYear={guessingDate.isInLeapYear}
         subText={
           lastAnswerCorrect ? (
             <>
@@ -98,7 +100,8 @@ const GuessFullDate = () => {
         }
       />
       <div id='guess-doomsday-for-year'>
-        <MathStepHelper key={startTime.toUnixInteger()} />
+        {/*<MathStepHelper key={startTime.toUnixInteger()} />*/}
+        <Hints key={`hints_${guessingYear}`} year={guessingYear} showAnswers={showAllAnswers} />
         <div className='text-center'>
           <span>Doomsday for Year</span>&nbsp; (
           <button
@@ -116,9 +119,6 @@ const GuessFullDate = () => {
           onDayClick={handleYearDoomsdayGuess}
           disabled={selectedDoomsdayForYear !== undefined}
         />
-        {showYearHints && (
-          <Hints key={`hints_${guessingYear}`} year={guessingYear} showAnswers={showAllAnswers} />
-        )}
       </div>
       <div id='guess-weekday-for-date'>
         <div className='text-center'>Doomsday for Date</div>

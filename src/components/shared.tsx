@@ -31,12 +31,14 @@ export const GuessDisplay = ({
   guessedCorrectly,
   guessText,
   guessTextClassName = 'text-4xl',
+  isLeapYear,
   questionText,
   subText
 }: {
   guessedCorrectly?: boolean;
   guessText: string | number;
   guessTextClassName?: string;
+  isLeapYear?: boolean;
   questionText: string;
   subText?: string | React.ReactNode;
 }) => {
@@ -51,7 +53,7 @@ export const GuessDisplay = ({
       ])}
     >
       <span className=''>{questionText}</span>
-      <h2 className={clsx(guessTextClassName)}>{guessText}</h2>
+      <h2 className={clsx(guessTextClassName, isLeapYear && 'text-blue-400')}>{guessText}</h2>
       <span className='text-xl'>{subText}</span>
     </div>
   );
