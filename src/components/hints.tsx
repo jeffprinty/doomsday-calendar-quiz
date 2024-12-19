@@ -7,14 +7,14 @@ import {
   AnchorDayCentury,
   dayNames,
   getAnchorDayForCentury,
-  stepFive,
-  stepFour,
-  stepOne,
-  Steps,
-  stepSix,
-  stepThree,
-  stepTwo,
-  stepZero
+  step0,
+  step1,
+  step2,
+  step3,
+  step4,
+  step5,
+  step6,
+  Steps
 } from '../common';
 import Button from './button';
 
@@ -64,39 +64,37 @@ const Hints = ({ year }: { year: number }) => {
   }> = [
     {
       id: 'stepOne',
-      stepClassName: stepOne,
+      stepClassName: step1,
       stepText: 'How many twelves?',
       answer: howManyTwelves
     },
     {
       id: 'stepTwo',
-      stepClassName: stepTwo,
+      stepClassName: step2,
       stepText: 'Minus nearest twelve',
       answer: stepTwoResult
     },
     {
       id: 'stepThree',
-      stepClassName: stepThree,
+      stepClassName: step3,
       stepText: 'How many fours?',
       answer: howManyFours
     },
     {
       id: 'stepFour',
-      stepClassName: stepFour,
+      stepClassName: step4,
       stepText: 'Remember anchor day.',
       answer: anchorDayForCentury
     },
     {
       id: 'stepFive',
-      stepClassName: stepFive,
+      stepClassName: step5,
       stepText: 'Add it up.',
       answer: addedUp
     }
   ];
 
-  const handleStepAnswerClick = (id: Steps) => {
-    
-  };
+  const handleStepAnswerClick = (id: Steps) => {};
 
   return (
     <div id='hints'>
@@ -132,24 +130,24 @@ const Hints = ({ year }: { year: number }) => {
         <Button onClick={() => setRevealedSteps((previous) => previous + 1)}>next step</Button>
         <div id='stepZero' className={clsx(revealedSteps < 0 && unrevealed)}>
           <span className=''>{century} </span>
-          <span className={stepZero}>{twoDigitYear.toString()} </span>
+          <span className={step0}>{twoDigitYear.toString()} </span>
         </div>
         <div id='stepOne' className={clsx(revealedSteps < 1 && unrevealed)}>
-          <span className={stepZero}>{twoDigitYear} </span>
+          <span className={step0}>{twoDigitYear} </span>
           <span className=''>/ 12</span>
           <span className=''> = </span>
-          <span className={stepOne}> {howManyTwelves} </span>
+          <span className={step1}> {howManyTwelves} </span>
           <span className=''>, </span>
-          <span className={stepOne}>{howManyTwelves}</span>
+          <span className={step1}>{howManyTwelves}</span>
           <span className=''> x 12 = </span>
           <span className=''> {stepOneResult} </span>
         </div>
         <div id='stepTwo' className={clsx(revealedSteps < 2 && unrevealed)}>
-          <span className={stepZero}>{twoDigitYear} </span>
+          <span className={step0}>{twoDigitYear} </span>
           <span className=''> - </span>
           <span className=''>{stepOneResult}</span>
           <span className=''> = </span>
-          <span className={stepTwo}> {stepTwoResult} </span>
+          <span className={step2}> {stepTwoResult} </span>
         </div>
         {/*
         <div className=''>
@@ -161,37 +159,37 @@ const Hints = ({ year }: { year: number }) => {
         </div>
         */}
         <div id='stepThree' className={clsx(revealedSteps < 3 && unrevealed)}>
-          <span className={stepTwo}>{stepTwoResult} </span>
+          <span className={step2}>{stepTwoResult} </span>
           <span className=''> / </span>
           <span className=''> 4 </span>
           <span className=''> = </span>
-          <span className={stepThree}> {howManyFours} </span>
+          <span className={step3}> {howManyFours} </span>
         </div>
         <div id='stepFour' className={clsx(revealedSteps < 4 && unrevealed)}>
           <span className=''>Anchor Day: </span>
-          <span className={stepFour}> {anchorDayForCentury} </span>
+          <span className={step4}> {anchorDayForCentury} </span>
         </div>
         <div id='stepFive' className={clsx(revealedSteps < 5 && unrevealed)}>
-          <span className={stepOne}> {howManyTwelves} </span>
+          <span className={step1}> {howManyTwelves} </span>
           <span className=''> + </span>
-          <span className={stepTwo}> {stepTwoResult} </span>
+          <span className={step2}> {stepTwoResult} </span>
           <span className=''> + </span>
-          <span className={stepThree}> {howManyFours} </span>
+          <span className={step3}> {howManyFours} </span>
           <span className=''> + </span>
-          <span className={stepFour}> {anchorDayForCentury} </span>
+          <span className={step4}> {anchorDayForCentury} </span>
           <span className=''> = </span>
-          <span className={stepFive}> {addedUp} </span>
+          <span className={step5}> {addedUp} </span>
         </div>
         <div id='stepSix' className={clsx(revealedSteps < 6 && unrevealed)}>
-          <span className={stepFive}>{addedUp} </span>
+          <span className={step5}>{addedUp} </span>
           {Array.from({ length: howManySevens }, (x, index) => index).map((sevenIteration) => (
             <span key={sevenIteration}> - 7</span>
           ))}
           <span className=''> = </span>
-          <span className={stepSix}> {resultAfterSubtractingSevens} </span>
+          <span className={step6}> {resultAfterSubtractingSevens} </span>
         </div>
         <div className='hidden'>
-          <span className={stepFive}>{addedUp}</span>
+          <span className={step5}>{addedUp}</span>
           <span className=''> / 7 </span>
           <span className=''> = </span>
           <span className=''> {howManySevens} </span>

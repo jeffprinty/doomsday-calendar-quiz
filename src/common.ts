@@ -4,13 +4,13 @@ import randomInteger from 'random-int';
 export const correctColor = 'bg-green-600';
 export const incorrectColor = 'bg-red-900';
 
-export const stepZero = 'text-pink-400';
-export const stepOne = 'text-red-400';
-export const stepTwo = 'text-orange-400';
-export const stepThree = 'text-yellow-400';
-export const stepFour = 'text-green-400';
-export const stepFive = 'text-blue-400';
-export const stepSix = 'text-indigo-400';
+export const step0 = 'text-pink-400';
+export const step1 = 'text-red-400';
+export const step2 = 'text-orange-400';
+export const step3 = 'text-yellow-400';
+export const step4 = 'text-green-400';
+export const step5 = 'text-blue-400';
+export const step6 = 'text-indigo-400';
 export type Steps = 'stepOne' | 'stepTwo' | 'stepThree' | 'stepFour' | 'stepFive';
 
 export type AnchorDayCentury = '18' | '19' | '20' | '21';
