@@ -21,6 +21,7 @@ import Button from './button';
 import { DayOfWeekGuesser } from './doomsday-quiz';
 import Hints from './hints';
 import QuizResults from './quiz-results';
+import { GuessDisplay } from './shared';
 
 const MathStepHelper = () => {
   const [inputHash, setInputHash] = useState({
@@ -63,7 +64,7 @@ const MathStepHelper = () => {
   ];
 
   return (
-    <div className='flex flex-col'>
+    <div className='flex flex-col items-center'>
       <div className='grid w-96 grid-cols-5 py-3'>
         {rememberRow.map(({ id, stepClassName, stepText }) => (
           <div
@@ -101,7 +102,6 @@ const DoomsdayInfo = () => {
 
   // TODO: Allow set year
   const [guessingYear, setGuessingYear] = useState(initYear);
-  console.log('guessingYear', guessingYear);
 
   const [startTime, setStartTime] = useState<DateTime>(DateTime.now());
   const [pastAnswers, setPastAnswers] = useState<Array<PastAnswer>>([]);
@@ -110,9 +110,6 @@ const DoomsdayInfo = () => {
   const [daySelected, setSelectedDay] = useState<Day>();
 
   const [lastAnswerCorrect, setLastAnswerCorrect] = useState<boolean | undefined>();
-
-  const [inputHash, setInputHash] = useState<{ [key: string]: number }>({});
-  console.log('inputHash', inputHash);
 
   const doomsdayOnYear = DateTime.fromObject({
     year: guessingYear,
@@ -124,7 +121,6 @@ const DoomsdayInfo = () => {
 
   const getNewYear = () => {
     const randomYearAsInt = getRandomYear();
-    setInputHash({});
     setLastAnswerCorrect(undefined);
     setGuessingYear(randomYearAsInt);
     setCorrectDay(undefined);
@@ -150,10 +146,14 @@ const DoomsdayInfo = () => {
     }
   };
 
-  // DUPED
-
   return (
     <div>
+      <GuessDisplay
+        questionText='What is the doomsday for:'
+        guessText={guessingYear}
+        guessedCorrectly={lastAnswerCorrect}
+        guessTextClassName='text-6xl'
+      />
       <div
         id='quiz__year-to-guess'
         className={clsx([

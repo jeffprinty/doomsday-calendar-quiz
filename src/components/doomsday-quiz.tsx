@@ -3,27 +3,13 @@ import React, { useState } from 'react';
 import clsx from 'clsx';
 import { DateTime, Interval } from 'luxon';
 
-import {
-  correctColor,
-  Day,
-  daysOfWeek,
-  guessDateFormat,
-  incorrectColor,
-  PastAnswer
-} from '../common';
+import { Day, daysOfWeek, guessDateFormat, PastAnswer } from '../common';
 import Button from './button';
 import QuizResults from './quiz-results';
+import { GuessDisplay, PageContainer } from './shared';
 
 //ES6 const, let
 //ES6 Destructuring
-
-export const PageContainer = ({ children }: { children: React.ReactNode }) => {
-  return (
-    <section className='container flex h-full w-full flex-col items-center justify-start border border-tertiary bg-secondary lg:w-2/3'>
-      {children}
-    </section>
-  );
-};
 
 export const DayOfWeekGuesser = ({
   correctDay,
@@ -124,18 +110,11 @@ const DoomsdayQuiz = ({
         <QuizResults answers={pastAnswers} currentGuess={dateStringToGuess} />
       </div>
       <div id='quiz__bottom-bit' className=''>
-        <div
-          id='quiz__date-to-guess'
-          className={clsx([
-            'my-10 flex w-full flex-col items-center justify-center pb-6 pt-4 text-center',
-            lastAnswerCorrect === undefined && 'bg-gray-600',
-            lastAnswerCorrect === true && correctColor,
-            lastAnswerCorrect === false && incorrectColor
-          ])}
-        >
-          <span className=''>What day of the week is:</span>
-          {!!dateToGuess && <h2 className='text-4xl'>{dateStringToGuess}</h2>}
-        </div>
+        <GuessDisplay
+          questionText='What day of the week is:'
+          guessText={dateStringToGuess}
+          guessedCorrectly={lastAnswerCorrect}
+        />
         <div id='quiz__actions'>
           <DayOfWeekGuesser
             correctDay={correctDay}
