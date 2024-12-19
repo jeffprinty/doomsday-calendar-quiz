@@ -4,12 +4,13 @@ import { DateTime } from 'luxon';
 import { NavLink, Route, Routes } from 'react-router-dom';
 
 import { getRandomDateInYear } from '../common';
+import GuessFullDate from './guess-full-date';
 
-const DoomsdayQuiz = lazy(() => import('./doomsday-quiz'));
-const DoomsdayInfo = lazy(() => import('./doomsday-quiz-info'));
+const DoomsdayQuiz = lazy(() => import('./guess-date-doomsday-within-year'));
+const GuessYearDoomsday = lazy(() => import('./guess-year-doomsday'));
 
 // I want to be able to feed it random dates OR feed it a list of previously incorrect guesses
-const DoomsdayQuizContainer = () => {
+const Base = () => {
   const initYear = 2025;
   const startWithTimeAlready = getRandomDateInYear(initYear);
   // TODO: Allow set year
@@ -66,11 +67,12 @@ const DoomsdayQuizContainer = () => {
               />
             }
           />
-          <Route path='/info' element={<DoomsdayInfo />} />
+          <Route path='/info' element={<GuessYearDoomsday />} />
+          <Route path='/full' element={<GuessFullDate />} />
         </Routes>
       </Suspense>
     </>
   );
 };
 
-export default DoomsdayQuizContainer;
+export default Base;

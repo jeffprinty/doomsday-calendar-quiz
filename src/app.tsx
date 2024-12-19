@@ -2,14 +2,14 @@ import React from 'react';
 
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 
-import DoomsdayQuizContainer from './components/doomsday-quiz-container';
+import Base from './components/base';
 
 function App() {
   return (
     <BrowserRouter>
       <main className='flex h-screen w-screen flex-col items-center justify-start bg-primary text-color'>
         <Routes>
-          <Route path='/doomsday-calendar-quiz/*' element={<DoomsdayQuizContainer />} />
+          <Route path='/doomsday-calendar-quiz/*' element={<Base />} />
         </Routes>
       </main>
     </BrowserRouter>

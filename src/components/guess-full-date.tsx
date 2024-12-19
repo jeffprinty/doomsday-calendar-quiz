@@ -5,12 +5,11 @@ import { DateTime, Interval } from 'luxon';
 
 import { correctColor, Day, getRandomYear, incorrectColor, mnemonics, PastAnswer } from '../common';
 import Button from './button';
-import { DayOfWeekGuesser } from './doomsday-quiz';
 import Hints from './hints';
 import QuizResults from './quiz-results';
-import { GuessDisplay, MathStepHelper } from './shared';
+import { DayOfWeekGuesser, GuessDisplay, MathStepHelper } from './shared';
 
-const DoomsdayInfo = () => {
+const GuessFullDate = () => {
   const initYear = getRandomYear();
 
   const [showHints, setShowHints] = useState(false);
@@ -123,4 +122,4 @@ const DoomsdayInfo = () => {
   );
 };
 
-export default DoomsdayInfo;
+export default GuessFullDate;

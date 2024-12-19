@@ -4,6 +4,8 @@ import clsx from 'clsx';
 
 import {
   correctColor,
+  Day,
+  daysOfWeek,
   incorrectColor,
   stepFive,
   stepFour,
@@ -12,6 +14,7 @@ import {
   stepThree,
   stepTwo
 } from '../common';
+import Button from './button';
 
 export const PageContainer = ({ children }: { children: React.ReactNode }) => {
   return (
@@ -114,6 +117,44 @@ export const MathStepHelper = () => {
           </div>
         ))}
       </div>
+    </div>
+  );
+};
+
+export const DayOfWeekGuesser = ({
+  correctDay,
+  daySelected,
+  disabled = false,
+  onDayClick
+}: {
+  correctDay?: Day;
+  daySelected?: Day;
+  disabled?: boolean;
+  onDayClick: (dayClicked: Day) => void;
+}) => {
+  return (
+    <div className='grid w-full grid-cols-7 pt-6'>
+      {daysOfWeek.map((day: Day) => {
+        const thisDayIsCorrect = correctDay === day;
+        const thisDayWasSelected = daySelected === day;
+        const incorrectSelection = daySelected !== correctDay;
+        return (
+          <Button
+            className={clsx([
+              'quiz__day-of-week mx-1 h-24 px-1 text-center',
+              incorrectSelection && thisDayWasSelected && 'disabled:bg-red-900',
+              thisDayIsCorrect && 'disabled:bg-green-600 disabled:text-black'
+            ])}
+            data-correct-day={thisDayIsCorrect}
+            disabled={disabled}
+            key={day}
+            onClick={() => onDayClick(day)}
+          >
+            {day}
+            {thisDayIsCorrect && <span className='correct-indicator'>✅</span>}
+          </Button>
+        );
+      })}
     </div>
   );
 };
