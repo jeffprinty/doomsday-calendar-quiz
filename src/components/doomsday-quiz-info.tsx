@@ -4,6 +4,7 @@ import clsx from 'clsx';
 import { DateTime } from 'luxon';
 
 import {
+  betterDaysTable,
   chance,
   chunkArray,
   Day,
@@ -117,12 +118,6 @@ const DoomsdayInfo = () => {
 
   const [inputHash, setInputHash] = useState<{ [key: string]: number }>({});
   console.log('inputHash', inputHash);
-
-  const daysTable = generateDaysTable();
-  console.log('daysTable', daysTable);
-  const chunked = chunkArray(daysTable, 7);
-
-  const showLongCal = false;
 
   const getNewYear = () => {
     const randomYearAsInt = chance.integer({ min: 1900, max: 2099 });
@@ -254,7 +249,7 @@ const DoomsdayInfo = () => {
           <span className=''> {doomsdayOnYear.toFormat('cccc MMMM dd, yyyy')} </span>
         </div>
       </div>
-      <div className='explainer'>
+      <div className='explainer hidden'>
         {mnemonics.map(({ monthName, common }, index) => {
           const hackyMonthNumber = index + 1;
           return (
@@ -267,22 +262,6 @@ const DoomsdayInfo = () => {
           );
         })}
       </div>
-      {showLongCal && (
-        <div className='calendar-butt grid w-72 grid-cols-7'>
-          {dayAbbreviations.map((abbr) => (
-            <div key={abbr} className='wx-3 text-center'>
-              {abbr}
-            </div>
-          ))}
-          {daysTable.map(({ monthNumber, monthNumberForHumans, number, year }) => {
-            return (
-              <div key={`${monthNumberForHumans}${number}${year}`} className='wx-3 text-center'>
-                {number}
-              </div>
-            );
-          })}
-        </div>
-      )}
     </div>
   );
 };

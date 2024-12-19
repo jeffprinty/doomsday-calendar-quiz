@@ -42,18 +42,21 @@ export const mnemonics = [
   {
     month: 'jan',
     monthName: 'January',
+    monthNumber: 1,
     common: 3,
     leap: 4
   },
   {
     month: 'feb',
     monthName: 'February',
+    monthNumber: 2,
     common: 28,
     leap: 29
   },
   {
     month: 'mar',
     monthName: 'March',
+    monthNumber: 3,
     common: 14,
     leap: 14,
     memeticHandle: 'pi day'
@@ -61,6 +64,7 @@ export const mnemonics = [
   {
     month: 'apr',
     monthName: 'April',
+    monthNumber: 4,
     common: 4,
     leap: 4,
     memeticHandle: sharedMemeticHandles.doubles
@@ -68,6 +72,7 @@ export const mnemonics = [
   {
     month: 'may',
     monthName: 'May',
+    monthNumber: 5,
     common: 9,
     leap: 9,
     memeticHandle: sharedMemeticHandles.nineToFive
@@ -75,6 +80,7 @@ export const mnemonics = [
   {
     month: 'jun',
     monthName: 'June',
+    monthNumber: 6,
     common: 6,
     leap: 6,
     memeticHandle: sharedMemeticHandles.doubles
@@ -82,6 +88,7 @@ export const mnemonics = [
   {
     month: 'jul',
     monthName: 'July',
+    monthNumber: 7,
     common: 11,
     leap: 11,
     memeticHandle: sharedMemeticHandles.nineToFive
@@ -89,6 +96,7 @@ export const mnemonics = [
   {
     month: 'aug',
     monthName: 'August',
+    monthNumber: 8,
     common: 8,
     leap: 8,
     memeticHandle: sharedMemeticHandles.doubles
@@ -96,6 +104,7 @@ export const mnemonics = [
   {
     month: 'sep',
     monthName: 'September',
+    monthNumber: 9,
     common: 5,
     leap: 5,
     memeticHandle: sharedMemeticHandles.nineToFive
@@ -103,6 +112,7 @@ export const mnemonics = [
   {
     month: 'oct',
     monthName: 'October',
+    monthNumber: 10,
     common: 10,
     leap: 10,
     memeticHandle: sharedMemeticHandles.doubles
@@ -110,6 +120,7 @@ export const mnemonics = [
   {
     month: 'nov',
     monthName: 'November',
+    monthNumber: 11,
     common: 7,
     leap: 7,
     memeticHandle: sharedMemeticHandles.nineToFive
@@ -117,6 +128,7 @@ export const mnemonics = [
   {
     month: 'dec',
     monthName: 'December',
+    monthNumber: 12,
     common: 12,
     leap: 12,
     memeticHandle: sharedMemeticHandles.doubles
@@ -160,13 +172,16 @@ export const generateDaysTable = () => {
   return currentDays;
 };
 
-export const betterDaysTable = () => {
+export const betterDaysTable = (howManyDays = 360) => {
   const startingDay = DateTime.fromISO('2024-12-29');
   const daysArray = [];
-  for (let day = 0; day < 360; day++) {
+  for (let day = 0; day < howManyDays; day++) {
     const dayy = startingDay.plus({ days: day });
     const dayObject = {
-      dateTime: dayy
+      date: dayy,
+      month: dayy.get('month'),
+      dayNumber: dayy.get('day'),
+      cellNumber: day
     };
     daysArray.push(dayObject);
   }
