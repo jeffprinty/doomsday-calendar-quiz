@@ -6,7 +6,7 @@ import { NavLink, Route, Routes } from 'react-router-dom';
 import { getRandomDateInYear } from '../common';
 import GuessFullDate from './guess-full-date';
 
-const DoomsdayQuiz = lazy(() => import('./guess-date-doomsday-within-year'));
+const GuessDateDoomsdayWithinYear = lazy(() => import('./guess-date-doomsday-within-year'));
 const GuessYearDoomsday = lazy(() => import('./guess-year-doomsday'));
 
 // I want to be able to feed it random dates OR feed it a list of previously incorrect guesses
@@ -47,27 +47,31 @@ const Base = () => {
   return (
     <>
       <div className='quiz__header-menu absolute right-0 top-0'>
+        <nav className='flex flex-col'>
+          <NavLink className={({ isActive }) => isActive ? 'text-white' : 'text-blue-700'} to='/doomsday-calendar-quiz/' end>home</NavLink>
+          <NavLink className={({ isActive }) => isActive ? 'text-white' : 'text-blue-700'} to='/doomsday-calendar-quiz/year'>year</NavLink>
+          <NavLink className={({ isActive }) => isActive ? 'text-white' : 'text-blue-700'} to='/doomsday-calendar-quiz/full'>full</NavLink>
+        </nav>
         <input
           type='checkbox'
           checked={guessingAgain}
           onChange={({ target: { checked } }) => setGuessingAgain(checked)}
         />
-        <NavLink to='/doomsday-calendar-quiz/info'>info</NavLink>
-        <NavLink to='/doomsday-calendar-quiz/'>home</NavLink>
       </div>
       <Suspense fallback={<div>loading</div>}>
         <Routes>
           <Route
             path='/'
+            index
             element={
-              <DoomsdayQuiz
+              <GuessDateDoomsdayWithinYear
                 dateToGuess={currentDateToGuess}
                 getNextDate={getNextDate}
                 onIncorrectGuess={handleIncorrectGuess}
               />
             }
           />
-          <Route path='/info' element={<GuessYearDoomsday />} />
+          <Route path='/year' element={<GuessYearDoomsday />} />
           <Route path='/full' element={<GuessFullDate />} />
         </Routes>
       </Suspense>

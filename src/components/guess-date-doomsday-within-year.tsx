@@ -7,7 +7,7 @@ import Button from './button';
 import QuizResults from './quiz-results';
 import { DayOfWeekGuesser, GuessDisplay, PageContainer } from './shared';
 
-const DoomsdayQuiz = ({
+const GuessDateDoomsdayWithinYear = ({
   dateToGuess,
   getNextDate,
   onIncorrectGuess
@@ -60,7 +60,7 @@ const DoomsdayQuiz = ({
   };
 
   return (
-    <PageContainer>
+    <div id='page__guess-date-within-year'>
       <div id='quiz__top-bit'>
         <div className='flex w-full flex-row items-center justify-center bg-indigo-900 py-2 md:rounded-bl-2xl md:rounded-br-2xl'>
           <h1 className='text-center text-3xl'>Doomsday Calendar Quiz</h1>
@@ -90,8 +90,8 @@ const DoomsdayQuiz = ({
           </div>
         </div>
       </div>
-    </PageContainer>
+    </div>
   );
 };
 
-export default DoomsdayQuiz;
+export default GuessDateDoomsdayWithinYear;

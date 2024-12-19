@@ -61,7 +61,7 @@ const GuessYearDoomsday = () => {
   };
 
   return (
-    <div>
+    <div id='page__guess-year-doomsday'>
       <GuessDisplay
         questionText='What is the doomsday for:'
         guessText={guessingYear}

@@ -16,9 +16,12 @@ import {
 } from '../common';
 import Button from './button';
 
-export const PageContainer = ({ children }: { children: React.ReactNode }) => {
+export const PageContainer = ({ children, id }: { children: React.ReactNode; id: string }) => {
   return (
-    <section className='container flex h-full w-full flex-col items-center justify-start border border-tertiary bg-secondary lg:w-2/3'>
+    <section
+      id={id}
+      className='container flex h-full w-full flex-col items-center justify-start border border-tertiary bg-secondary lg:w-2/3'
+    >
       {children}
     </section>
   );
