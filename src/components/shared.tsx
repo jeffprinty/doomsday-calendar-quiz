@@ -7,12 +7,12 @@ import {
   Day,
   daysOfWeek,
   incorrectColor,
-  stepFive,
-  stepFour,
-  stepOne,
-  Steps,
-  stepThree,
-  stepTwo
+  step1,
+  step2,
+  step3,
+  step4,
+  step5,
+  Steps
 } from '../common';
 import Button from './button';
 
@@ -72,27 +72,27 @@ export const MathStepHelper = () => {
   }> = [
     {
       id: 'stepOne',
-      stepClassName: stepOne,
+      stepClassName: step1,
       stepText: 'How many twelves?'
     },
     {
       id: 'stepTwo',
-      stepClassName: stepTwo,
+      stepClassName: step2,
       stepText: 'Minus nearest twelve'
     },
     {
       id: 'stepThree',
-      stepClassName: stepThree,
+      stepClassName: step3,
       stepText: 'How many fours?'
     },
     {
       id: 'stepFour',
-      stepClassName: stepFour,
+      stepClassName: step4,
       stepText: 'Remember anchor day.'
     },
     {
       id: 'stepFive',
-      stepClassName: stepFive,
+      stepClassName: step5,
       stepText: 'Add it up.'
     }
   ];

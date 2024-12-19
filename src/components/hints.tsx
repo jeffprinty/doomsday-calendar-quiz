@@ -18,7 +18,7 @@ import {
 } from '../common';
 import Button from './button';
 
-const Hints = ({ year }: { year: number }) => {
+const Hints = ({ showAnswers, year }: { showAnswers?: boolean; year: number }) => {
   const [revealedSteps, setRevealedSteps] = useState(0);
 
   const [inputHash, setInputHash] = useState({
@@ -94,13 +94,31 @@ const Hints = ({ year }: { year: number }) => {
     }
   ];
 
-  const handleStepAnswerClick = (id: Steps) => {};
+  const showAllAnswers = () => {
+    for (const { id, answer } of rememberRowWithAnswers) {
+      setInputHash((previous) => ({
+        ...previous,
+        [id]: answer
+      }));
+    }
+  };
+
+  const handleStepAnswerClick = (stepClicked: Steps) => {
+    const stepData = rememberRowWithAnswers.find(({ id }) => stepClicked === id);
+    if (stepData) {
+      const { answer } = stepData;
+      setInputHash((previous) => ({
+        ...previous,
+        [stepClicked]: answer
+      }));
+    }
+  };
 
   return (
     <div id='hints'>
       <div id='rememberr-row' className='flex flex-col items-center'>
         <div className='flex flex-col py-3'>
-          {rememberRowWithAnswers.map(({ id, stepClassName, stepText }) => (
+          {rememberRowWithAnswers.map(({ id, stepClassName, stepText, answer }) => (
             <div
               key={id}
               className={clsx(stepClassName, 'mb-2 flex flex-row items-center justify-between')}
@@ -110,7 +128,7 @@ const Hints = ({ year }: { year: number }) => {
                 <input
                   type='number'
                   className='w-10 rounded-lg bg-indigo-900 py-2 text-center text-white'
-                  value={inputHash[id]}
+                  value={showAnswers ? answer : inputHash[id]}
                   onChange={({ target: { value } }) =>
                     setInputHash((previous) => ({
                       ...previous,

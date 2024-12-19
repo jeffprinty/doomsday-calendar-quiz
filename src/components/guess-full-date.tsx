@@ -30,6 +30,8 @@ const GuessFullDate = () => {
 
   const [lastAnswerCorrect, setLastAnswerCorrect] = useState<boolean | undefined>();
 
+  const [showAllAnswers, setShowAllAnswers] = useState(false);
+
   const doomsdayOnYear = DateTime.fromObject({
     year: guessingDate.get('year'),
     month: 4,
@@ -52,6 +54,7 @@ const GuessFullDate = () => {
 
     setStartTime(DateTime.now());
     setShowYearHints(false);
+    setShowAllAnswers(false);
   };
 
   const handleYearDoomsdayGuess = (guess: Day) => {
@@ -65,6 +68,8 @@ const GuessFullDate = () => {
 
     const dayWeekdayGuessedCorrectly = guess === correctWeekdayForDate;
     setLastAnswerCorrect(dayWeekdayGuessedCorrectly);
+
+    setShowAllAnswers(true);
 
     if (startTime) {
       const interval = Interval.fromDateTimes(startTime, DateTime.now());
@@ -111,7 +116,9 @@ const GuessFullDate = () => {
           onDayClick={handleYearDoomsdayGuess}
           disabled={selectedDoomsdayForYear !== undefined}
         />
-        {showYearHints && <Hints key={`hints_${guessingYear}`} year={guessingYear} />}
+        {showYearHints && (
+          <Hints key={`hints_${guessingYear}`} year={guessingYear} showAnswers={showAllAnswers} />
+        )}
       </div>
       <div id='guess-weekday-for-date'>
         <div className='text-center'>Doomsday for Date</div>
