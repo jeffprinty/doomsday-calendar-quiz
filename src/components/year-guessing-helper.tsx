@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 
 import clsx from 'clsx';
 import { DateTime } from 'luxon';
-import { IoChevronDownOutline } from 'react-icons/io5';
+import { BiMath, BiSolidInfoCircle } from 'react-icons/bi';
 
 import {
   AnchorDayCentury,
@@ -21,6 +21,14 @@ import Button from './button';
 
 const unrevealed = 'opacity-5';
 
+const stepHashInit = {
+  stepOne: '',
+  stepTwo: '',
+  stepThree: '',
+  stepFour: '',
+  stepFive: ''
+};
+
 const YearGuessingHelper = ({ showAnswers, year }: { showAnswers?: boolean; year: number }) => {
   const [revealedSteps, setRevealedSteps] = useState(0);
 
@@ -32,11 +40,18 @@ const YearGuessingHelper = ({ showAnswers, year }: { showAnswers?: boolean; year
     stepFive: ''
   });
   const [expandedHintHash, setExpandedHintHash] = useState({
-    stepOne: '',
-    stepTwo: '',
-    stepThree: '',
-    stepFour: '',
-    stepFive: ''
+    stepOne: false,
+    stepTwo: false,
+    stepThree: false,
+    stepFour: false,
+    stepFive: false
+  });
+  const [expandedMathHash, setExpandedMathHash] = useState({
+    stepOne: false,
+    stepTwo: false,
+    stepThree: false,
+    stepFour: false,
+    stepFive: false
   });
 
   // <YEAR MATH>
@@ -77,15 +92,11 @@ const YearGuessingHelper = ({ showAnswers, year }: { showAnswers?: boolean; year
       stepText: 'How many twelves?',
       answer: howManyTwelves,
       equation: (
-        <>
-          How many times does 12 fit into the year?
-          <div id='stepOne' className={clsx(revealedSteps < 1 && unrevealed)}>
-            <span className={step0}>{twoDigitYear} </span>
-            <span className=''>/ 12</span>
-            <span className=''> = </span>
-            <span className={step1}> {howManyTwelves} </span>
-          </div>
-        </>
+        <div>
+          <span className={step0}>{twoDigitYear} </span>
+          <span className=''>/ 12</span>
+          <span className=''> = </span>
+        </div>
       )
     },
     {
@@ -93,39 +104,61 @@ const YearGuessingHelper = ({ showAnswers, year }: { showAnswers?: boolean; year
       stepClassName: step2,
       stepText: 'Minus nearest twelve',
       answer: stepTwoResult,
-      equation: <>year - nearest twelve</>
+      equation: (
+        <div>
+          <span className={step0}>{twoDigitYear} </span>
+          <span className=''> - </span>
+          <span className={step1}>{stepOneResult}</span>
+          <span className=''> = </span>
+        </div>
+      )
     },
     {
       id: 'stepThree',
       stepClassName: step3,
       stepText: 'How many fours?',
       answer: howManyFours,
-      equation: <>How many fours fit into the product of the above</>
+      equation: (
+        <div>
+          <span className={step2}>{stepTwoResult} </span>
+          <span className=''> / </span>
+          <span className=''> 4 </span>
+          <span className=''> = </span>
+        </div>
+      )
     },
     {
       id: 'stepFour',
       stepClassName: step4,
       stepText: 'Remember anchor day.',
       answer: anchorDayForCentury,
-      equation: <>Get the anchor day</>
+      equation: (
+        <div>
+          <span className=''>{century} </span>
+          <span className=''> = </span>
+          <span className=''> {anchorDayForCentury} </span>
+        </div>
+      )
     },
     {
       id: 'stepFive',
       stepClassName: step5,
       stepText: 'Add it up.',
       answer: addedUp,
-      equation: <>add all four of the above numbers</>
+      equation: (
+        <div>
+          <span className={step0}>{howManyTwelves} </span>
+          <span className=''> + </span>
+          <span className={step1}>{stepTwoResult}</span>
+          <span className=''> + </span>
+          <span className={step3}>{howManyFours}</span>
+          <span className=''> + </span>
+          <span className={step4}>{anchorDayForCentury}</span>
+          <span className=''> = </span>
+        </div>
+      )
     }
   ];
-
-  const showAllAnswers = () => {
-    for (const { id, answer } of rememberRowWithAnswers) {
-      setInputHash((previous) => ({
-        ...previous,
-        [id]: answer
-      }));
-    }
-  };
 
   const handleStepAnswerClick = (stepClicked: Steps) => {
     const stepData = rememberRowWithAnswers.find(({ id }) => stepClicked === id);
@@ -141,61 +174,72 @@ const YearGuessingHelper = ({ showAnswers, year }: { showAnswers?: boolean; year
   return (
     <div id='hints'>
       <div className='flex flex-col items-center'>
-        <div className='flex flex-col py-3'>
-          {rememberRowWithAnswers.map(({ id, stepClassName, stepText, answer, equation }) => (
-            <React.Fragment key={id}>
-              <div
-                key={id}
-                className={clsx(stepClassName, 'mb-2 flex flex-row items-center justify-between')}
-              >
-                <div className='row flex-row items-center justify-start pr-4'>
-                  <span>{stepText}</span>
-                  <button
-                    className={clsx(
-                      expandedHintHash[id] ? 'rotate-0' : 'rotate-90',
-                      'ml-2 transition-all duration-300 ease-in-out'
-                    )}
-                    onClick={() =>
-                      setExpandedHintHash((previous) => ({
-                        ...previous,
-                        [id]: !previous[id]
-                      }))
-                    }
+        <div className='flex w-full flex-col py-3 md:w-4/5'>
+          {rememberRowWithAnswers.map(({ id, stepClassName, stepText, answer, equation }) => {
+            const hintHashExpanded = expandedHintHash[id];
+            const mathHashExpanded = expandedMathHash[id];
+            return (
+              <React.Fragment key={id}>
+                <div key={id} className={clsx('mb-2 flex flex-row items-center justify-between')}>
+                  <div
+                    className={clsx(stepClassName, 'row flex-row items-center justify-start pr-4')}
                   >
-                    <IoChevronDownOutline />
-                  </button>
-                </div>
-                <div className='flex flex-row justify-center items-center'>
-                  <div className={clsx('flex')}>
-                    {equation}
+                    <span>{stepText}</span>
+                    <button
+                      className='ml-2 transition-all duration-300 ease-in-out'
+                      onClick={() =>
+                        setExpandedHintHash((previous) => ({
+                          ...previous,
+                          [id]: !previous[id]
+                        }))
+                      }
+                    >
+                      <BiSolidInfoCircle />
+                    </button>
                   </div>
-                  <input
-                    type='number'
-                    className={clsx(
-                      stepClassName,
-                      'w-10 rounded-lg bg-indigo-900 py-2 text-center'
-                    )}
-                    value={showAnswers ? answer : inputHash[id]}
-                    onChange={({ target: { value } }) =>
-                      setInputHash((previous) => ({
-                        ...previous,
-                        [id]: Number(value)
-                      }))
-                    }
-                  />
-                  <Button className='ml-2 h-10 w-8' onClick={() => handleStepAnswerClick(id)}>
-                    ?
-                  </Button>
+                  <div className='flex flex-row items-center justify-center'>
+                    <button
+                      className={clsx(stepClassName, 'mr-2')}
+                      onClick={() =>
+                        setExpandedMathHash((previous) => ({
+                          ...previous,
+                          [id]: !previous[id]
+                        }))
+                      }
+                    >
+                      <BiMath />
+                    </button>
+                    <div className={clsx('mr-1 flex', !mathHashExpanded && 'hidden')}>
+                      {equation}
+                    </div>
+                    <input
+                      type='number'
+                      className={clsx(
+                        stepClassName,
+                        'w-10 rounded-lg bg-indigo-900 py-2 text-center'
+                      )}
+                      value={showAnswers ? answer : inputHash[id]}
+                      onChange={({ target: { value } }) =>
+                        setInputHash((previous) => ({
+                          ...previous,
+                          [id]: Number(value)
+                        }))
+                      }
+                    />
+                    <Button className='ml-2 h-10 w-8' onClick={() => handleStepAnswerClick(id)}>
+                      ?
+                    </Button>
+                  </div>
                 </div>
-              </div>
-              <div className={!clsx(expandedHintHash[id] && 'hidden', 'flex w-64 flex-col')}>
-                {equation}
-              </div>
-            </React.Fragment>
-          ))}
+                <div className={clsx(!hintHashExpanded && 'hidden', 'flex w-64 flex-col')}>
+                  {equation}
+                </div>
+              </React.Fragment>
+            );
+          })}
         </div>
       </div>
-      <div>
+      <div className='hidden'>
         <Button onClick={() => setRevealedSteps((previous) => previous + 1)}>next step</Button>
         <div id='stepZero' className={clsx(revealedSteps < 0 && unrevealed)}>
           <span className=''>{century} </span>
