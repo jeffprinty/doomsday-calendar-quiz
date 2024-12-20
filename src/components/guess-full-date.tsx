@@ -4,9 +4,9 @@ import { DateTime, Interval } from 'luxon';
 
 import { Day, getRandomDateInYear, getRandomYear, guessDateFormat, PastAnswer } from '../common';
 import Button from './button';
-import Hints from './hints';
 import QuizResults from './quiz-results';
-import { DayOfWeekGuesser, GuessDisplay, MathStepHelper } from './shared';
+import { DayOfWeekGuesser, GuessDisplay } from './shared';
+import YearGuessingHelper from './year-guessing-helper';
 
 const GuessFullDate = () => {
   const initYear = getRandomYear();
@@ -100,8 +100,11 @@ const GuessFullDate = () => {
         }
       />
       <div id='guess-doomsday-for-year'>
-        {/*<MathStepHelper key={startTime.toUnixInteger()} />*/}
-        <Hints key={`hints_${guessingYear}`} year={guessingYear} showAnswers={showAllAnswers} />
+        <YearGuessingHelper
+          key={`hints_${guessingYear}`}
+          year={guessingYear}
+          showAnswers={showAllAnswers}
+        />
         <div className='text-center'>
           <span>Doomsday for Year</span>&nbsp; (
           <button

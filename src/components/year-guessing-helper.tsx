@@ -18,7 +18,7 @@ import {
 } from '../common';
 import Button from './button';
 
-const Hints = ({ showAnswers, year }: { showAnswers?: boolean; year: number }) => {
+const YearGuessingHelper = ({ showAnswers, year }: { showAnswers?: boolean; year: number }) => {
   const [revealedSteps, setRevealedSteps] = useState(0);
 
   const [inputHash, setInputHash] = useState({
@@ -225,4 +225,4 @@ const Hints = ({ showAnswers, year }: { showAnswers?: boolean; year: number }) =
   );
 };
 
-export default Hints;
+export default YearGuessingHelper;

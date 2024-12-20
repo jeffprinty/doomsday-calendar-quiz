@@ -59,7 +59,7 @@ export const GuessDisplay = ({
   );
 };
 
-export const MathStepHelper = () => {
+export const YearStepHelperHorizontal = () => {
   const [inputHash, setInputHash] = useState({
     stepOne: '',
     stepTwo: '',

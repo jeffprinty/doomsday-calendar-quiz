@@ -1,13 +1,12 @@
-import React, { lazy, Suspense, useState } from 'react';
+import React, { useState } from 'react';
 
 import { DateTime } from 'luxon';
 import { NavLink, Route, Routes } from 'react-router-dom';
 
 import { getRandomDateInYear } from '../common';
+import GuessDateDoomsdayWithinYear from './guess-date-doomsday-within-year';
 import GuessFullDate from './guess-full-date';
-
-const GuessDateDoomsdayWithinYear = lazy(() => import('./guess-date-doomsday-within-year'));
-const GuessYearDoomsday = lazy(() => import('./guess-year-doomsday'));
+import GuessYearDoomsday from './guess-year-doomsday';
 
 const activeLink = 'text-white';
 const inactiveLink = 'text-blue-700';
@@ -77,23 +76,21 @@ const Base = () => {
           onChange={({ target: { checked } }) => setGuessingAgain(checked)}
         />
       </div>
-      <Suspense fallback={<div>loading</div>}>
-        <Routes>
-          <Route
-            path='/'
-            index
-            element={
-              <GuessDateDoomsdayWithinYear
-                dateToGuess={currentDateToGuess}
-                getNextDate={getNextDate}
-                onIncorrectGuess={handleIncorrectGuess}
-              />
-            }
-          />
-          <Route path='/year' element={<GuessYearDoomsday />} />
-          <Route path='/full' element={<GuessFullDate />} />
-        </Routes>
-      </Suspense>
+      <Routes>
+        <Route
+          path='/'
+          index
+          element={
+            <GuessDateDoomsdayWithinYear
+              dateToGuess={currentDateToGuess}
+              getNextDate={getNextDate}
+              onIncorrectGuess={handleIncorrectGuess}
+            />
+          }
+        />
+        <Route path='/year' element={<GuessYearDoomsday />} />
+        <Route path='/full' element={<GuessFullDate />} />
+      </Routes>
     </>
   );
 };

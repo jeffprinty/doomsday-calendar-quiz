@@ -4,9 +4,8 @@ import { DateTime, Interval } from 'luxon';
 
 import { Day, getRandomYear, mnemonics, PastAnswer } from '../common';
 import Button from './button';
-import Hints from './hints';
 import QuizResults from './quiz-results';
-import { DayOfWeekGuesser, GuessDisplay, MathStepHelper } from './shared';
+import { DayOfWeekGuesser, GuessDisplay, YearStepHelperHorizontal } from './shared';
 
 const GuessYearDoomsday = () => {
   const initYear = getRandomYear();
@@ -68,7 +67,7 @@ const GuessYearDoomsday = () => {
         guessedCorrectly={lastAnswerCorrect}
         guessTextClassName='text-6xl'
       />
-      <MathStepHelper key={guessingYear} />
+      <YearStepHelperHorizontal key={guessingYear} />
       <DayOfWeekGuesser
         key={`week_${guessingYear}`}
         correctDay={correctDay}
@@ -84,7 +83,7 @@ const GuessYearDoomsday = () => {
       <Button onClick={() => setShowResults((previous) => !previous)}>
         {showResults ? 'hide' : 'show'} results
       </Button>
-      {showHints && <Hints key={`hints_${guessingYear}`} year={guessingYear} />}
+      {showHints && <YearStepHelperHorizontal key={`hints_${guessingYear}`} year={guessingYear} />}
       {showResults && (
         <QuizResults
           answers={pastAnswers}
