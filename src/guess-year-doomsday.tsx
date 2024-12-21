@@ -2,10 +2,10 @@ import React, { useState } from 'react';
 
 import { DateTime, Interval } from 'luxon';
 
-import { Day, getRandomYear, mnemonics, PastAnswer } from '../common';
-import Button from './button';
-import QuizResults from './quiz-results';
-import { DayOfWeekGuesser, GuessDisplay, YearStepHelperHorizontal } from './shared';
+import { Day, getRandomYear, mnemonics, PastAnswer } from './common';
+import Button from './components/button';
+import QuizResults from './components/quiz-results';
+import { DayOfWeekGuesser, GuessDisplay, YearStepHelperHorizontal } from './components/shared';
 
 const GuessYearDoomsday = () => {
   const initYear = getRandomYear();

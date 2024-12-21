@@ -65,7 +65,8 @@ export const YearStepHelperHorizontal = () => {
     stepTwo: '',
     stepThree: '',
     stepFour: '',
-    stepFive: ''
+    stepFive: '',
+    stepSix: ''
   });
   const rememberRow: Array<{
     id: Steps;

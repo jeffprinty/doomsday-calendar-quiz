@@ -2,7 +2,7 @@ import React from 'react';
 
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 
-import Base from './components/base';
+import Base from './base';
 
 function App() {
   return (

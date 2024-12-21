@@ -2,11 +2,11 @@ import React, { useState } from 'react';
 
 import { DateTime, Interval } from 'luxon';
 
-import { Day, getRandomDateInYear, getRandomYear, guessDateFormat, PastAnswer } from '../common';
-import Button from './button';
-import QuizResults from './quiz-results';
-import { DayOfWeekGuesser, GuessDisplay } from './shared';
-import YearGuessingHelper from './year-guessing-helper';
+import { Day, getRandomDateInYear, getRandomYear, guessDateFormat, PastAnswer } from './common';
+import Button from './components/button';
+import QuizResults from './components/quiz-results';
+import { DayOfWeekGuesser, GuessDisplay } from './components/shared';
+import YearGuessingHelper from './components/year-guessing-helper';
 
 const GuessFullDate = () => {
   const initYear = getRandomYear();

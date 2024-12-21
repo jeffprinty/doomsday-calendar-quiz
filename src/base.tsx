@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import { DateTime } from 'luxon';
 import { NavLink, Route, Routes } from 'react-router-dom';
 
-import { getRandomDateInYear } from '../common';
+import { getRandomDateInYear } from './common';
 import GuessDateDoomsdayWithinYear from './guess-date-doomsday-within-year';
 import GuessFullDate from './guess-full-date';
 import GuessYearDoomsday from './guess-year-doomsday';
