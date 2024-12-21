@@ -18,7 +18,6 @@ const Base = () => {
   // TODO: Allow set year
   const [guessingYear] = useState(2025);
   const [guessingAgain, setGuessingAgain] = useState(false);
-  console.log('guessingAgain', guessingAgain);
 
   const [currentDateToGuess, setCurrentDateToGuess] = useState<DateTime>(startWithTimeAlready);
   const [wronglyGuessedDates, setWronglyGuessedDates] = useState<Array<DateTime>>([]);
@@ -42,7 +41,6 @@ const Base = () => {
   };
 
   const handleIncorrectGuess = (dateGuessed: DateTime) => {
-    console.log('dateGuessed', dateGuessed);
     setWronglyGuessedDates((previous) => [...previous, dateGuessed]);
   };
 
