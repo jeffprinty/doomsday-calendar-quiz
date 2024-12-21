@@ -83,7 +83,7 @@ const GuessYearDoomsday = () => {
       <Button onClick={() => setShowResults((previous) => !previous)}>
         {showResults ? 'hide' : 'show'} results
       </Button>
-      {showHints && <YearStepHelperHorizontal key={`hints_${guessingYear}`} year={guessingYear} />}
+      {showHints && <YearStepHelperHorizontal key={`hints_${guessingYear}`} />}
       {showResults && (
         <QuizResults
           answers={pastAnswers}

@@ -21,14 +21,6 @@ import Button from './button';
 
 const unrevealed = 'opacity-5';
 
-const stepHashInit = {
-  stepOne: '',
-  stepTwo: '',
-  stepThree: '',
-  stepFour: '',
-  stepFive: ''
-};
-
 const YearGuessingHelper = ({ showAnswers, year }: { showAnswers?: boolean; year: number }) => {
   const [revealedSteps, setRevealedSteps] = useState(0);
 
@@ -37,21 +29,24 @@ const YearGuessingHelper = ({ showAnswers, year }: { showAnswers?: boolean; year
     stepTwo: '',
     stepThree: '',
     stepFour: '',
-    stepFive: ''
+    stepFive: '',
+    stepSix: ''
   });
   const [expandedHintHash, setExpandedHintHash] = useState({
     stepOne: false,
     stepTwo: false,
     stepThree: false,
     stepFour: false,
-    stepFive: false
+    stepFive: false,
+    stepSix: false
   });
   const [expandedMathHash, setExpandedMathHash] = useState({
     stepOne: false,
     stepTwo: false,
     stepThree: false,
     stepFour: false,
-    stepFive: false
+    stepFive: false,
+    stepSix: false
   });
 
   // <YEAR MATH>
@@ -157,6 +152,21 @@ const YearGuessingHelper = ({ showAnswers, year }: { showAnswers?: boolean; year
           <span className=''> = </span>
         </div>
       )
+    },
+    {
+      id: 'stepSix',
+      stepClassName: step6,
+      stepText: 'Subtract sevens',
+      answer: resultAfterSubtractingSevens,
+      equation: (
+        <div>
+          <span className={step5}>{addedUp} </span>
+          {Array.from({ length: howManySevens }, (x, index) => index).map((sevenIteration) => (
+            <span key={sevenIteration}> - 7</span>
+          ))}
+          <span className=''> = </span>
+        </div>
+      )
     }
   ];
 
@@ -226,9 +236,12 @@ const YearGuessingHelper = ({ showAnswers, year }: { showAnswers?: boolean; year
                         }))
                       }
                     />
-                    <Button className='ml-2 h-10 w-8' onClick={() => handleStepAnswerClick(id)}>
+                    <button
+                      className={clsx(stepClassName, 'ml-1 h-10 w-6')}
+                      onClick={() => handleStepAnswerClick(id)}
+                    >
                       ?
-                    </Button>
+                    </button>
                   </div>
                 </div>
                 <div className={clsx(!hintHashExpanded && 'hidden', 'flex w-64 flex-col')}>

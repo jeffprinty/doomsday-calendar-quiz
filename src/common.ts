@@ -11,7 +11,7 @@ export const step3 = 'text-yellow-400';
 export const step4 = 'text-green-400';
 export const step5 = 'text-blue-400';
 export const step6 = 'text-indigo-400';
-export type Steps = 'stepOne' | 'stepTwo' | 'stepThree' | 'stepFour' | 'stepFive';
+export type Steps = 'stepOne' | 'stepTwo' | 'stepThree' | 'stepFour' | 'stepFive' | 'stepSix';
 
 export type AnchorDayCentury = '18' | '19' | '20' | '21';
 
