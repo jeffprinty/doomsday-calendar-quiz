@@ -22,6 +22,7 @@ const GuessDateDoomsdayWithinYear = ({
   const [daySelected, setDaySelected] = useState<Day>();
   const [lastAnswerCorrect, setLastAnswerCorrect] = useState<boolean | undefined>();
   const [enableDayClick, setEnableDayClick] = useState(true);
+  const [showSettings, setShowSettings] = useState(false);
 
   const dateStringToGuess = dateToGuess?.toFormat(guessDateFormat) || '';
 
@@ -68,11 +69,19 @@ const GuessDateDoomsdayWithinYear = ({
         <QuizResults answers={pastAnswers} currentGuess={dateStringToGuess} />
       </div>
       <div id='quiz__bottom-bit' className=''>
-        <GuessDisplay
-          questionText='What day of the week is:'
-          guessText={dateStringToGuess}
-          guessedCorrectly={lastAnswerCorrect}
-        />
+        <div className='relative'>
+          <GuessDisplay
+            questionText='What day of the week is:'
+            guessText={dateStringToGuess}
+            guessedCorrectly={lastAnswerCorrect}
+          />
+          <button
+            className='absolute bottom-2 right-2'
+            onClick={() => setShowSettings(!showSettings)}
+          >
+            Cog
+          </button>
+        </div>
         <div id='quiz__actions'>
           <DayOfWeekGuesser
             correctDay={correctDay}
