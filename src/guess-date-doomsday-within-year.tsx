@@ -10,11 +10,13 @@ import { DayOfWeekGuesser, GuessDisplay } from './components/shared';
 const GuessDateDoomsdayWithinYear = ({
   dateToGuess,
   getNextDate,
-  onIncorrectGuess
+  onIncorrectGuess,
+  updateYear
 }: {
   dateToGuess?: DateTime;
   getNextDate: () => DateTime;
   onIncorrectGuess: (dateGuessed: DateTime) => void;
+  updateYear: (updatedYear: number) => void;
 }) => {
   const [startTime, setStartTime] = useState<DateTime>(DateTime.now());
   const [pastAnswers, setPastAnswers] = useState<Array<PastAnswer>>([]);
@@ -98,7 +100,32 @@ const GuessDateDoomsdayWithinYear = ({
             </Button>
           </div>
         </div>
+        {showSettings && (
+          <YearInput onSubmit={updateYear} initYear={Number(dateToGuess?.toFormat('yyyy'))} />
+        )}
       </div>
+    </div>
+  );
+};
+
+const YearInput = ({
+  onSubmit,
+  initYear
+}: {
+  onSubmit: (year: number) => void;
+  initYear?: number;
+}) => {
+  const [year, setYear] = useState(initYear || 2025);
+
+  return (
+    <div>
+      <input
+        type='number'
+        className='text-black'
+        onChange={({ target: { value } }) => setYear(Number(value))}
+        value={year}
+      />
+      <button onClick={() => onSubmit(year)}>Set Year</button>
     </div>
   );
 };
@@ -107,7 +134,7 @@ const GuessDateWithinYearWrap = () => {
   const initYear = 2025;
   const startWithTimeAlready = getRandomDateInYear(initYear);
   // TODO: Allow set year
-  const [guessingYear] = useState(2025);
+  const [guessingYear, setGuessingYear] = useState(2025);
   const [guessingAgain, setGuessingAgain] = useState(false);
 
   const [currentDateToGuess, setCurrentDateToGuess] = useState<DateTime>(startWithTimeAlready);
@@ -139,6 +166,7 @@ const GuessDateWithinYearWrap = () => {
       dateToGuess={currentDateToGuess}
       getNextDate={getNextDate}
       onIncorrectGuess={handleIncorrectGuess}
+      updateYear={setGuessingYear}
     />
   );
 };
