@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 
 import { DateTime, Interval } from 'luxon';
 
-import { Day, guessDateFormat, PastAnswer } from './common';
+import { Day, getRandomDateInYear, guessDateFormat, PastAnswer } from './common';
 import Button from './components/button';
 import QuizResults from './components/quiz-results';
 import { DayOfWeekGuesser, GuessDisplay } from './components/shared';
@@ -94,4 +94,44 @@ const GuessDateDoomsdayWithinYear = ({
   );
 };
 
-export default GuessDateDoomsdayWithinYear;
+const GuessDateWithinYearWrap = () => {
+  const initYear = 2025;
+  const startWithTimeAlready = getRandomDateInYear(initYear);
+  // TODO: Allow set year
+  const [guessingYear] = useState(2025);
+  const [guessingAgain, setGuessingAgain] = useState(false);
+
+  const [currentDateToGuess, setCurrentDateToGuess] = useState<DateTime>(startWithTimeAlready);
+  const [wronglyGuessedDates, setWronglyGuessedDates] = useState<Array<DateTime>>([]);
+  const getNextDate = () => {
+    if (guessingAgain) {
+      // return next item in wrong guesses array
+      // get oldest wrong guess
+      const [oldestWrongGuess, ...remainingWrongGuesses] = wronglyGuessedDates;
+      if (oldestWrongGuess === undefined) {
+        // no guesses left, flip switch
+        setGuessingAgain(false);
+      } else {
+        setWronglyGuessedDates(remainingWrongGuesses);
+        setCurrentDateToGuess(oldestWrongGuess);
+        return oldestWrongGuess;
+      }
+    }
+    const newRandomDate = getRandomDateInYear(guessingYear);
+    setCurrentDateToGuess(newRandomDate);
+    return newRandomDate;
+  };
+
+  const handleIncorrectGuess = (dateGuessed: DateTime) => {
+    setWronglyGuessedDates((previous) => [...previous, dateGuessed]);
+  };
+  return (
+    <GuessDateDoomsdayWithinYear
+      dateToGuess={currentDateToGuess}
+      getNextDate={getNextDate}
+      onIncorrectGuess={handleIncorrectGuess}
+    />
+  );
+};
+
+export default GuessDateWithinYearWrap;

@@ -1,9 +1,7 @@
-import React, { useState } from 'react';
+import React from 'react';
 
-import { DateTime } from 'luxon';
 import { NavLink, Route, Routes } from 'react-router-dom';
 
-import { getRandomDateInYear } from './common';
 import GuessDateDoomsdayWithinYear from './guess-date-doomsday-within-year';
 import GuessFullDate from './guess-full-date';
 import GuessYearDoomsday from './guess-year-doomsday';
@@ -13,37 +11,6 @@ const inactiveLink = 'text-blue-700';
 
 // I want to be able to feed it random dates OR feed it a list of previously incorrect guesses
 const Base = () => {
-  const initYear = 2025;
-  const startWithTimeAlready = getRandomDateInYear(initYear);
-  // TODO: Allow set year
-  const [guessingYear] = useState(2025);
-  const [guessingAgain, setGuessingAgain] = useState(false);
-
-  const [currentDateToGuess, setCurrentDateToGuess] = useState<DateTime>(startWithTimeAlready);
-  const [wronglyGuessedDates, setWronglyGuessedDates] = useState<Array<DateTime>>([]);
-  const getNextDate = () => {
-    if (guessingAgain) {
-      // return next item in wrong guesses array
-      // get oldest wrong guess
-      const [oldestWrongGuess, ...remainingWrongGuesses] = wronglyGuessedDates;
-      if (oldestWrongGuess === undefined) {
-        // no guesses left, flip switch
-        setGuessingAgain(false);
-      } else {
-        setWronglyGuessedDates(remainingWrongGuesses);
-        setCurrentDateToGuess(oldestWrongGuess);
-        return oldestWrongGuess;
-      }
-    }
-    const newRandomDate = getRandomDateInYear(guessingYear);
-    setCurrentDateToGuess(newRandomDate);
-    return newRandomDate;
-  };
-
-  const handleIncorrectGuess = (dateGuessed: DateTime) => {
-    setWronglyGuessedDates((previous) => [...previous, dateGuessed]);
-  };
-
   return (
     <>
       <div className='quiz__header-menu absolute right-0 top-0'>
@@ -68,24 +35,9 @@ const Base = () => {
             full
           </NavLink>
         </nav>
-        <input
-          type='checkbox'
-          checked={guessingAgain}
-          onChange={({ target: { checked } }) => setGuessingAgain(checked)}
-        />
       </div>
       <Routes>
-        <Route
-          path='/'
-          index
-          element={
-            <GuessDateDoomsdayWithinYear
-              dateToGuess={currentDateToGuess}
-              getNextDate={getNextDate}
-              onIncorrectGuess={handleIncorrectGuess}
-            />
-          }
-        />
+        <Route path='/' index element={<GuessDateDoomsdayWithinYear />} />
         <Route path='/year' element={<GuessYearDoomsday />} />
         <Route path='/full' element={<GuessFullDate />} />
       </Routes>
