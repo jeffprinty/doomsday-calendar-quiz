@@ -6,6 +6,7 @@ import { DateTime } from 'luxon';
 import {
   AnchorDayCentury,
   dayNames,
+  fullDateWithWeekdayFormat,
   getAnchorDayForCentury,
   step0,
   step1,
@@ -122,7 +123,7 @@ const ProgressiveMathOld = ({ year }: { showAnswers?: boolean; year: number }) =
       </div>
       <div className={clsx(revealedSteps < 7 && unrevealed)}>
         <span className=''>Double-check: </span>
-        <span className=''> {doomsdayOnYear.toFormat('cccc MMMM dd, yyyy')} </span>
+        <span className=''> {doomsdayOnYear.toFormat(fullDateWithWeekdayFormat)} </span>
       </div>
     </div>
   );

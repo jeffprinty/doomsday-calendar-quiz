@@ -48,7 +48,7 @@ export const monthNames = [
   'December'
 ];
 
-export const dayAbbreviations = ['Su', 'Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa'];
+export const twoLetterDays = ['Su', 'Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa'];
 
 export type Day = 'Sun' | 'Mon' | 'Tue' | 'Wed' | 'Thu' | 'Fri' | 'Sat';
 export const daysOfWeek: Array<Day> = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
@@ -161,6 +161,7 @@ export const mnemonics = [
 ];
 
 export const guessDateFormat = 'MMMM dd, yyyy';
+export const fullDateWithWeekdayFormat = 'cccc MMMM dd, yyyy';
 
 export const generateDaysTable = () => {
   const firstDayOfMonth = new Date(2025, 1, 1);
@@ -195,22 +196,6 @@ export const generateDaysTable = () => {
     currentDays.push(calendarDay);
   }
   return currentDays;
-};
-
-export const betterDaysTable = (howManyDays = 360) => {
-  const startingDay = DateTime.fromISO('2024-12-29');
-  const daysArray = [];
-  for (let day = 0; day < howManyDays; day++) {
-    const dayy = startingDay.plus({ days: day });
-    const dayObject = {
-      date: dayy,
-      month: dayy.get('month'),
-      dayNumber: dayy.get('day'),
-      cellNumber: day
-    };
-    daysArray.push(dayObject);
-  }
-  return daysArray;
 };
 
 export const chunkArray = <T>(arrayToChunk: Array<T>, size: number): Array<Array<T>> =>
