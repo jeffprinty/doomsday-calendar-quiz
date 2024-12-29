@@ -65,9 +65,6 @@ const GuessDateDoomsdayWithinYear = ({
   return (
     <div id='page__guess-date-within-year'>
       <div id='quiz__top-bit'>
-        <div className='flex w-full flex-row items-center justify-center bg-indigo-900 py-2 md:rounded-bl-2xl md:rounded-br-2xl'>
-          <h1 className='text-center text-3xl'>Doomsday Calendar Quiz</h1>
-        </div>
         <QuizResults answers={pastAnswers} currentGuess={dateStringToGuess} />
       </div>
       <div id='quiz__bottom-bit' className=''>

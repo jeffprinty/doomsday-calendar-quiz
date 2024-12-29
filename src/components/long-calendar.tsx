@@ -47,7 +47,7 @@ const betterDaysTable = (howManyDays = 360) => {
 
 const LongCalendar = () => {
   const daysTable = betterDaysTable(1000);
-  const chunked = chunkArray(daysTable, 7);
+  const chunkedByWeek = chunkArray(daysTable, 7);
 
   return (
     <div className='long-calendar flex w-full flex-row items-start justify-center overflow-y-auto'>
@@ -62,7 +62,7 @@ const LongCalendar = () => {
           </tr>
         </thead>
         <tbody>
-          {chunked.map((weekArray) => {
+          {chunkedByWeek.map((weekArray) => {
             const rowsToAdd: Array<JSX.Element> = [];
             const chunkContainsFirstOfYear = weekArray.find(
               (day) => day.dayNumber === 1 && day.month === 1
