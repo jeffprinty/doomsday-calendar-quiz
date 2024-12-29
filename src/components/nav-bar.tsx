@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 
 import clsx from 'clsx';
-import { AiOutlineClose, AiOutlineMenu } from 'react-icons/ai';
+import { AiFillCalendar, AiOutlineClose, AiOutlineMenu } from 'react-icons/ai';
 import { NavLink } from 'react-router-dom';
 
 interface NavItem {
@@ -49,7 +49,7 @@ const NavBar = ({ navItems }: { navItems: Array<NavItem> }) => {
       </ul>
 
       {/* Mobile Navigation Icon */}
-      <button onClick={handleNav} className='block md:hidden'>
+      <button onClick={handleNav} className='z-20 block md:hidden'>
         {nav ? <AiOutlineClose size={20} /> : <AiOutlineMenu size={20} />}
       </button>
 
@@ -58,12 +58,14 @@ const NavBar = ({ navItems }: { navItems: Array<NavItem> }) => {
         className={clsx(
           'z-10',
           nav
-            ? 'fixed left-0 top-0 h-full w-[60%] border-r border-r-gray-900 bg-[#000300] duration-500 ease-in-out md:hidden'
-            : 'fixed bottom-0 left-[-100%] top-0 w-[60%] duration-500 ease-in-out'
+            ? 'fixed right-0 top-0 h-full w-[40%] border-r border-r-gray-900 bg-[#000300] duration-500 ease-in-out md:hidden'
+            : 'fixed bottom-0 right-[-100%] top-0 w-[40%] duration-500 ease-in-out'
         )}
       >
         {/* Mobile Logo */}
-        <h1 className='m-4 w-full text-3xl font-bold text-[#00df9a]'>{menuTitle}</h1>
+        <h1 className='m-4 w-full text-3xl font-bold text-[#00df9a]'>
+          <AiFillCalendar />
+        </h1>
 
         {/* Mobile Navigation Items */}
         {navItems.map((item) => (
