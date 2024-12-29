@@ -77,13 +77,9 @@ const GuessYearDoomsday = () => {
       <Button onClick={getNewYear} className='my-2 h-16 w-full'>
         Random Year
       </Button>
-      <Button onClick={() => setShowHints((previous) => !previous)}>
-        {showHints ? 'hide' : 'show'} hints
-      </Button>
       <Button onClick={() => setShowResults((previous) => !previous)}>
         {showResults ? 'hide' : 'show'} results
       </Button>
-      {showHints && <YearStepHelperHorizontal key={`hints_${guessingYear}`} />}
       {showResults && (
         <QuizResults
           answers={pastAnswers}

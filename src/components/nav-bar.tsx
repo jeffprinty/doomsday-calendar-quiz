@@ -10,6 +10,8 @@ interface NavItem {
   end?: boolean;
 }
 
+const menuTitle = 'Doomsday Calendar Quiz';
+
 const NavBar = ({ navItems }: { navItems: Array<NavItem> }) => {
   // State to manage the navbar's visibility
   const [nav, setNav] = useState(false);
@@ -19,17 +21,10 @@ const NavBar = ({ navItems }: { navItems: Array<NavItem> }) => {
     setNav(!nav);
   };
 
-  const renderNavLink = ({ text, ...navLinkProperties }: NavItem, isMobile = false) => (
+  const renderNavLink = ({ text, ...navLinkProperties }: NavItem) => (
     <NavLink
       key={text}
-      className={({ isActive }) =>
-        clsx(
-          isActive ? 'text-white' : 'text-blue-400',
-          isMobile
-            ? 'cursor-pointer rounded-xl border-b border-gray-600 p-4 duration-300 hover:bg-[#00df9a] hover:text-black'
-            : 'm-2 cursor-pointer rounded-xl p-4 duration-300 hover:bg-[#00df9a] hover:text-black'
-        )
-      }
+      className={({ isActive }) => clsx(isActive ? 'text-white' : 'text-blue-400')}
       {...navLinkProperties}
     >
       {text}
@@ -37,12 +32,21 @@ const NavBar = ({ navItems }: { navItems: Array<NavItem> }) => {
   );
 
   return (
-    <div className='mx-auto flex h-20 max-w-[1240px] items-center justify-between bg-black px-4 text-white'>
+    <div className='mx-auto flex h-20 w-full items-center justify-between bg-black px-4 text-white'>
       {/* Logo */}
-      <h1 className='w-full text-3xl font-bold text-[#00df9a]'>Doomsday Calendar Quiz</h1>
+      <h1 className='w-full text-3xl font-bold text-[#00df9a]'>{menuTitle}</h1>
 
       {/* Desktop Navigation */}
-      <ul className='hidden md:flex'>{navItems.map((navItem) => renderNavLink(navItem))}</ul>
+      <ul className='hidden md:flex'>
+        {navItems.map((item) => (
+          <li
+            key={item.text}
+            className='m-2 cursor-pointer rounded-xl p-4 duration-300 hover:bg-[#00df9a] hover:text-black'
+          >
+            {renderNavLink(item)}
+          </li>
+        ))}
+      </ul>
 
       {/* Mobile Navigation Icon */}
       <button onClick={handleNav} className='block md:hidden'>
@@ -51,22 +55,23 @@ const NavBar = ({ navItems }: { navItems: Array<NavItem> }) => {
 
       {/* Mobile Navigation Menu */}
       <ul
-        className={
+        className={clsx(
+          'z-10',
           nav
             ? 'fixed left-0 top-0 h-full w-[60%] border-r border-r-gray-900 bg-[#000300] duration-500 ease-in-out md:hidden'
             : 'fixed bottom-0 left-[-100%] top-0 w-[60%] duration-500 ease-in-out'
-        }
+        )}
       >
         {/* Mobile Logo */}
-        <h1 className='m-4 w-full text-3xl font-bold text-[#00df9a]'>REACT.</h1>
+        <h1 className='m-4 w-full text-3xl font-bold text-[#00df9a]'>{menuTitle}</h1>
 
         {/* Mobile Navigation Items */}
         {navItems.map((item) => (
           <li
-            key={item.id}
+            key={item.text}
             className='cursor-pointer rounded-xl border-b border-gray-600 p-4 duration-300 hover:bg-[#00df9a] hover:text-black'
           >
-            {renderNavLink(item, true)}
+            {renderNavLink(item)}
           </li>
         ))}
       </ul>

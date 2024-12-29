@@ -18,7 +18,7 @@ const QuizResults = ({
   const incorrectValue = answers.filter(([, isCorrect]) => !isCorrect).length;
   return (
     <div
-      id='quiz__results'
+      id='quiz-results'
       className='grid h-48 w-full grid-cols-2 flex-row items-start justify-between bg-indigo-800 bg-opacity-40'
     >
       <div className='flex h-48 flex-col items-center justify-center px-8'>
