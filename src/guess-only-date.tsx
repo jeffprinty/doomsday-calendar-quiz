@@ -17,44 +17,22 @@ const GuessOnlyDate = () => {
 
   const [guessingDate, setGuessingDate] = useState(initRandomDateWithinYear);
 
-  const [startTime, setStartTime] = useState<DateTime>(DateTime.now());
+  // const [startTime, setStartTime] = useState<DateTime>(DateTime.now());
 
   const [lastAnswerCorrect, setLastAnswerCorrect] = useState<boolean | undefined>();
-
-  const mnemonicForMonth = mnemonics.find(({ monthNumber }) => monthNumber === guessingDate.month);
-  console.log('mnemonicForMonth', mnemonicForMonth);
-  if (!mnemonicForMonth) {
-    return <></>;
-  }
-  const doomsdayInMonth = DateTime.fromObject({
-    year: guessingDate.year,
-    month: guessingDate.month,
-    day: mnemonicForMonth.common,
-  });
-  const fullOffset = guessingDate.day - doomsdayInMonth.day;
-  const correctOffset = fullOffset % 7;
-
-  // there is almost certainly a sexier way to do this math
-  const alternateCorrectOffset = correctOffset > 0 ? correctOffset - 7 : 7 + correctOffset;
 
   const getNewGuess = () => {
     setGuessingDate(getRandomDateInYear(2025));
     setLastAnswerCorrect(undefined);
-    setStartTime(DateTime.now());
-  };
-
-  const handleGuess = (clickedOffset: number) => {
-    const guessIsCorrect = clickedOffset === correctOffset;
-    const alternateCorrect = clickedOffset === alternateCorrectOffset;
-    setLastAnswerCorrect(guessIsCorrect || alternateCorrect);
+    // setStartTime(DateTime.now());
   };
 
   return (
     <div id='page__guess-only-date' className='w-full md:w-2/3 lg:w-96'>
       <OffsetGuesser
-        handleClick={handleGuess}
+        onAnswer={setLastAnswerCorrect}
         guessingDate={guessingDate}
-        lastAnswerCorrect={lastAnswerCorrect}
+        key={guessingDate.toISO()}
       />
       <Button onClick={getNewGuess} className='my-2 h-16 w-full'>
         Random Date
@@ -65,15 +43,14 @@ const GuessOnlyDate = () => {
 
 export default GuessOnlyDate;
 
-const OffsetGuesser = ({
+export const OffsetGuesser = ({
   guessingDate,
-  handleClick,
-  lastAnswerCorrect,
+  onAnswer,
 }: {
   guessingDate: DateTime;
-  handleClick: (clicked: number) => void;
-  lastAnswerCorrect?: boolean;
+  onAnswer: (correct: boolean) => void;
 }) => {
+  const [answerIsCorrect, setAnswerIsCorrect] = useState<boolean | undefined>();
   const showDay = false;
 
   const mnemonicForMonth = mnemonics.find(({ monthNumber }) => monthNumber === guessingDate.month);
@@ -92,15 +69,22 @@ const OffsetGuesser = ({
   // there is almost certainly a sexier way to do this math
   const alternateCorrectOffset = correctOffset > 0 ? correctOffset - 7 : 7 + correctOffset;
 
+  const onClick = (clickedOffset: number) => {
+    const guessIsCorrect = clickedOffset === correctOffset;
+    const alternateCorrect = clickedOffset === alternateCorrectOffset;
+    setAnswerIsCorrect(guessIsCorrect || alternateCorrect);
+    onAnswer(guessIsCorrect || alternateCorrect);
+  };
+
   return (
     <div id='offset-guesser'>
       <GuessDisplay
-        questionText={lastAnswerCorrect ? 'Correct! The offset for' : 'What is the day offset for:'}
+        questionText={answerIsCorrect ? 'Correct! The offset for' : 'What is the day offset for:'}
         guessText={guessingDate.toFormat('MMMM dd')}
-        guessedCorrectly={lastAnswerCorrect}
+        guessedCorrectly={answerIsCorrect}
         isLeapYear={guessingDate.isInLeapYear}
         subText={
-          lastAnswerCorrect ? (
+          answerIsCorrect ? (
             <>
               is <strong>{correctOffset}</strong>
               {correctOffset !== 0 && (
@@ -125,7 +109,7 @@ const OffsetGuesser = ({
               // thisDayIsCorrect && 'active:text-black disabled:bg-green-600 disabled:text-black'
             ])}
             key={offset}
-            onClick={() => handleClick(offset)}
+            onClick={() => onClick(offset)}
           >
             {offset}
             {showDay && <div className='text-xs'>day</div>}

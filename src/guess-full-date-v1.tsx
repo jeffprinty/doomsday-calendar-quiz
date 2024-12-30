@@ -7,7 +7,6 @@ import Button from './components/button';
 import QuizResults from './components/quiz-results';
 import { DayOfWeekGuesser, GuessDisplay } from './components/shared';
 import YearGuessingHelper from './components/year-guessing-helper';
-import { OffsetGuesser } from './guess-only-date';
 
 const GuessFullDate = () => {
   const initYear = getRandomYear();
@@ -100,7 +99,6 @@ const GuessFullDate = () => {
           ) : undefined
         }
       />
-      <OffsetGuesser guessingDate={guessingDate} onAnswer={() => {}} />
       <div id='guess-doomsday-for-year'>
         <YearGuessingHelper
           key={`hints_${guessingYear}`}
