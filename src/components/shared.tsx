@@ -12,7 +12,7 @@ import {
   step3,
   step4,
   step5,
-  Steps
+  Steps,
 } from '../common';
 import Button from './button';
 
@@ -33,7 +33,7 @@ export const GuessDisplay = ({
   guessTextClassName = 'text-4xl',
   isLeapYear,
   questionText,
-  subText
+  subText,
 }: {
   guessedCorrectly?: boolean;
   guessText: string | number;
@@ -49,7 +49,7 @@ export const GuessDisplay = ({
         'my-4 flex w-full flex-col items-center justify-center pb-6 pt-4 text-center',
         guessedCorrectly === undefined && 'bg-gray-600',
         guessedCorrectly === true && correctColor,
-        guessedCorrectly === false && incorrectColor
+        guessedCorrectly === false && incorrectColor,
       ])}
     >
       <span className=''>{questionText}</span>
@@ -66,7 +66,7 @@ export const YearStepHelperHorizontal = () => {
     stepThree: '',
     stepFour: '',
     stepFive: '',
-    stepSix: ''
+    stepSix: '',
   });
   const rememberRow: Array<{
     id: Steps;
@@ -76,28 +76,28 @@ export const YearStepHelperHorizontal = () => {
     {
       id: 'stepOne',
       stepClassName: step1,
-      stepText: 'How many twelves?'
+      stepText: 'How many twelves?',
     },
     {
       id: 'stepTwo',
       stepClassName: step2,
-      stepText: 'Minus nearest twelve'
+      stepText: 'Minus nearest twelve',
     },
     {
       id: 'stepThree',
       stepClassName: step3,
-      stepText: 'How many fours?'
+      stepText: 'How many fours?',
     },
     {
       id: 'stepFour',
       stepClassName: step4,
-      stepText: 'Remember anchor day.'
+      stepText: 'Remember anchor day.',
     },
     {
       id: 'stepFive',
       stepClassName: step5,
-      stepText: 'Add it up.'
-    }
+      stepText: 'Add it up.',
+    },
   ];
 
   return (
@@ -119,7 +119,7 @@ export const YearStepHelperHorizontal = () => {
               onChange={({ target: { value } }) =>
                 setInputHash((previous) => ({
                   ...previous,
-                  [id]: Number(value)
+                  [id]: Number(value),
                 }))
               }
             />
@@ -134,7 +134,7 @@ export const DayOfWeekGuesser = ({
   correctDay,
   daySelected,
   disabled = false,
-  onDayClick
+  onDayClick,
 }: {
   correctDay?: Day;
   daySelected?: Day;
@@ -152,7 +152,7 @@ export const DayOfWeekGuesser = ({
             className={clsx([
               'quiz__day-of-week mx-1 h-24 px-1 text-center',
               incorrectSelection && thisDayWasSelected && 'disabled:bg-red-900',
-              thisDayIsCorrect && 'active:text-black disabled:bg-green-600 disabled:text-black'
+              thisDayIsCorrect && 'active:text-black disabled:bg-green-600 disabled:text-black',
             ])}
             data-correct-day={thisDayIsCorrect}
             disabled={disabled}

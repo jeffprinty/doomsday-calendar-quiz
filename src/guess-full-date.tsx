@@ -35,7 +35,7 @@ const GuessFullDate = () => {
   const doomsdayOnYear = DateTime.fromObject({
     year: guessingDate.get('year'),
     month: 4,
-    day: 4
+    day: 4,
   });
 
   const correctDoomsday = doomsdayOnYear.toFormat('ccc') as Day;
@@ -78,7 +78,7 @@ const GuessFullDate = () => {
       if (intervalInSeconds) {
         setPastAnswers((previous) => [
           ...previous,
-          [intervalInSeconds, dayWeekdayGuessedCorrectly, doomsdayOnYear]
+          [intervalInSeconds, dayWeekdayGuessedCorrectly, doomsdayOnYear],
         ]);
       }
     }

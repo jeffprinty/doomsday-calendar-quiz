@@ -21,7 +21,7 @@ export const anchorDays = {
   '18': 5,
   '19': 3,
   '20': 2,
-  '21': 0
+  '21': 0,
 };
 
 export const getAnchorDayForCentury = (century: AnchorDayCentury) => {
@@ -30,7 +30,7 @@ export const getAnchorDayForCentury = (century: AnchorDayCentury) => {
 
 export const sharedMemeticHandles = {
   doubles: '4/4, 6/6, 8/8, 10/10, 12/12',
-  nineToFive: '9-to-5 at 7-11'
+  nineToFive: '9-to-5 at 7-11',
 };
 
 export const monthNames = [
@@ -45,7 +45,7 @@ export const monthNames = [
   'September',
   'October',
   'November',
-  'December'
+  'December',
 ];
 
 export const twoLetterDays = ['Su', 'Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa'];
@@ -60,7 +60,7 @@ export const dayNames = [
   'Wednesday',
   'Thursday',
   'Friday',
-  'Saturday'
+  'Saturday',
 ];
 
 export const mnemonics = [
@@ -69,14 +69,14 @@ export const mnemonics = [
     monthName: 'January',
     monthNumber: 1,
     common: 3,
-    leap: 4
+    leap: 4,
   },
   {
     month: 'feb',
     monthName: 'February',
     monthNumber: 2,
     common: 28,
-    leap: 29
+    leap: 29,
   },
   {
     month: 'mar',
@@ -84,7 +84,7 @@ export const mnemonics = [
     monthNumber: 3,
     common: 14,
     leap: 14,
-    memeticHandle: 'pi day'
+    memeticHandle: 'pi day',
   },
   {
     month: 'apr',
@@ -92,7 +92,7 @@ export const mnemonics = [
     monthNumber: 4,
     common: 4,
     leap: 4,
-    memeticHandle: sharedMemeticHandles.doubles
+    memeticHandle: sharedMemeticHandles.doubles,
   },
   {
     month: 'may',
@@ -100,7 +100,7 @@ export const mnemonics = [
     monthNumber: 5,
     common: 9,
     leap: 9,
-    memeticHandle: sharedMemeticHandles.nineToFive
+    memeticHandle: sharedMemeticHandles.nineToFive,
   },
   {
     month: 'jun',
@@ -108,7 +108,7 @@ export const mnemonics = [
     monthNumber: 6,
     common: 6,
     leap: 6,
-    memeticHandle: sharedMemeticHandles.doubles
+    memeticHandle: sharedMemeticHandles.doubles,
   },
   {
     month: 'jul',
@@ -116,7 +116,7 @@ export const mnemonics = [
     monthNumber: 7,
     common: 11,
     leap: 11,
-    memeticHandle: sharedMemeticHandles.nineToFive
+    memeticHandle: sharedMemeticHandles.nineToFive,
   },
   {
     month: 'aug',
@@ -124,7 +124,7 @@ export const mnemonics = [
     monthNumber: 8,
     common: 8,
     leap: 8,
-    memeticHandle: sharedMemeticHandles.doubles
+    memeticHandle: sharedMemeticHandles.doubles,
   },
   {
     month: 'sep',
@@ -132,7 +132,7 @@ export const mnemonics = [
     monthNumber: 9,
     common: 5,
     leap: 5,
-    memeticHandle: sharedMemeticHandles.nineToFive
+    memeticHandle: sharedMemeticHandles.nineToFive,
   },
   {
     month: 'oct',
@@ -140,7 +140,7 @@ export const mnemonics = [
     monthNumber: 10,
     common: 10,
     leap: 10,
-    memeticHandle: sharedMemeticHandles.doubles
+    memeticHandle: sharedMemeticHandles.doubles,
   },
   {
     month: 'nov',
@@ -148,7 +148,7 @@ export const mnemonics = [
     monthNumber: 11,
     common: 7,
     leap: 7,
-    memeticHandle: sharedMemeticHandles.nineToFive
+    memeticHandle: sharedMemeticHandles.nineToFive,
   },
   {
     month: 'dec',
@@ -156,8 +156,8 @@ export const mnemonics = [
     monthNumber: 12,
     common: 12,
     leap: 12,
-    memeticHandle: sharedMemeticHandles.doubles
-  }
+    memeticHandle: sharedMemeticHandles.doubles,
+  },
 ];
 
 export const guessDateFormat = 'MMMM dd, yyyy';
@@ -190,7 +190,7 @@ export const generateDaysTable = () => {
       number: firstDayOfMonth.getDate(),
       // selected: firstDayOfMonth.toDateString() === props.day.toDateString(),
       year: firstDayOfMonth.getFullYear(),
-      dayIsDoomsday
+      dayIsDoomsday,
     };
 
     currentDays.push(calendarDay);
@@ -209,6 +209,6 @@ export const getRandomDateInYear = (year: number) => {
   const randomDayOfYear = randomInteger(1, 365);
   return DateTime.fromObject({
     year,
-    ordinal: randomDayOfYear
+    ordinal: randomDayOfYear,
   });
 };

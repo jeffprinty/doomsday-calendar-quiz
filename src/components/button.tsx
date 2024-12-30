@@ -16,7 +16,7 @@ export default function Button({
       type='button'
       className={clsx([
         'rounded-xl bg-accent-primary py-2 text-xl transition-colors hover:bg-accent-primary-state focus:bg-accent-primary-state disabled:bg-blue-900 disabled:text-slate-400',
-        className
+        className,
       ])}
       onClick={onClick}
       {...properties}

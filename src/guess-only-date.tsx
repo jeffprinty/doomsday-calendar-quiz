@@ -29,7 +29,7 @@ const GuessOnlyDate = () => {
   const doomsdayInMonth = DateTime.fromObject({
     year: guessingDate.year,
     month: guessingDate.month,
-    day: mnemonicForMonth.common
+    day: mnemonicForMonth.common,
   });
   const fullOffset = guessingDate.day - doomsdayInMonth.day;
   const correctOffset = fullOffset % 7;
@@ -68,7 +68,7 @@ export default GuessOnlyDate;
 const OffsetGuesser = ({
   guessingDate,
   handleClick,
-  lastAnswerCorrect
+  lastAnswerCorrect,
 }: {
   guessingDate: DateTime;
   handleClick: (clicked: number) => void;
@@ -84,7 +84,7 @@ const OffsetGuesser = ({
   const doomsdayInMonth = DateTime.fromObject({
     year: guessingDate.year,
     month: guessingDate.month,
-    day: mnemonicForMonth.common
+    day: mnemonicForMonth.common,
   });
   const fullOffset = guessingDate.day - doomsdayInMonth.day;
   const correctOffset = fullOffset % 7;
@@ -120,7 +120,7 @@ const OffsetGuesser = ({
         {[-6, -5, -4, -3, -2, -1, 0, 1, 2, 3, 4, 5, 6].map((offset) => (
           <Button
             className={clsx([
-              'h-20 px-3 text-center'
+              'h-20 px-3 text-center',
               // incorrectSelection && thisDayWasSelected && 'disabled:bg-red-900',
               // thisDayIsCorrect && 'active:text-black disabled:bg-green-600 disabled:text-black'
             ])}

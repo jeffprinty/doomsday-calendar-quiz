@@ -13,7 +13,7 @@ import {
   step4,
   step5,
   step6,
-  Steps
+  Steps,
 } from '../common';
 
 interface RememberRow {
@@ -54,7 +54,7 @@ const YearGuessingHelper = ({ showAnswers, year }: { showAnswers?: boolean; year
           <span className=''>/ 12</span>
           <span className=''> = </span>
         </div>
-      )
+      ),
     },
     {
       id: 'stepTwo',
@@ -68,7 +68,7 @@ const YearGuessingHelper = ({ showAnswers, year }: { showAnswers?: boolean; year
           <span className={step1}>{stepOneResult}</span>
           <span className=''> = </span>
         </div>
-      )
+      ),
     },
     {
       id: 'stepThree',
@@ -82,7 +82,7 @@ const YearGuessingHelper = ({ showAnswers, year }: { showAnswers?: boolean; year
           <span className=''> 4 </span>
           <span className=''> = </span>
         </div>
-      )
+      ),
     },
     {
       id: 'stepFour',
@@ -95,7 +95,7 @@ const YearGuessingHelper = ({ showAnswers, year }: { showAnswers?: boolean; year
           <span className=''> = </span>
           <span className=''> {anchorDayForCentury} </span>
         </div>
-      )
+      ),
     },
     {
       id: 'stepFive',
@@ -113,7 +113,7 @@ const YearGuessingHelper = ({ showAnswers, year }: { showAnswers?: boolean; year
           <span className={step4}>{anchorDayForCentury}</span>
           <span className=''> = </span>
         </div>
-      )
+      ),
     },
     {
       id: 'stepSix',
@@ -128,8 +128,8 @@ const YearGuessingHelper = ({ showAnswers, year }: { showAnswers?: boolean; year
           ))}
           <span className=''> = </span>
         </div>
-      )
-    }
+      ),
+    },
   ];
 
   return (

@@ -14,7 +14,7 @@ const navLinks = [
   { to: '/doomsday-calendar-quiz/year', text: 'year' },
   { to: '/doomsday-calendar-quiz/full', text: 'full' },
   { to: '/doomsday-calendar-quiz/long', text: 'long' },
-  { to: '/doomsday-calendar-quiz/only-date', text: 'date' }
+  { to: '/doomsday-calendar-quiz/only-date', text: 'date' },
 ];
 
 // I want to be able to feed it random dates OR feed it a list of previously incorrect guesses

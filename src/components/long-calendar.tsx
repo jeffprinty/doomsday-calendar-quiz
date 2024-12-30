@@ -9,7 +9,7 @@ const getDoomsdayForYear = (year: number) =>
   DateTime.fromObject({
     year,
     month: 4,
-    day: 4
+    day: 4,
   });
 
 const betterDaysTable = (howManyDays = 360) => {
@@ -38,7 +38,7 @@ const betterDaysTable = (howManyDays = 360) => {
       weekday, // NOTE: this is luxon weekday, sunday = 1
       cellNumber: day,
       year: dayYear,
-      sameWeekdayAsDoomsday: doomsdayForYear.get('weekday') === weekday
+      sameWeekdayAsDoomsday: doomsdayForYear.get('weekday') === weekday,
     };
     daysArray.push(dayObject);
   }

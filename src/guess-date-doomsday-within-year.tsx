@@ -11,7 +11,7 @@ const GuessDateDoomsdayWithinYear = ({
   dateToGuess,
   getNextDate,
   onIncorrectGuess,
-  updateYear
+  updateYear,
 }: {
   dateToGuess?: DateTime;
   getNextDate: () => DateTime;
@@ -54,7 +54,7 @@ const GuessDateDoomsdayWithinYear = ({
       if (intervalInSeconds) {
         setPastAnswers((previous) => [
           ...previous,
-          [intervalInSeconds, correctDayGuessed, dateToGuess]
+          [intervalInSeconds, correctDayGuessed, dateToGuess],
         ]);
       }
     }
@@ -107,7 +107,7 @@ const GuessDateDoomsdayWithinYear = ({
 
 const YearInput = ({
   onSubmit,
-  initYear
+  initYear,
 }: {
   onSubmit: (year: number) => void;
   initYear?: number;

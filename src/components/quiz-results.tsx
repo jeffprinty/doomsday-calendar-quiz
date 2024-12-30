@@ -8,7 +8,7 @@ import { correctColor, guessDateFormat, incorrectColor, PastAnswer } from '../co
 const QuizResults = ({
   answers,
   currentGuess,
-  dateFormat = 'MMM dd, yy'
+  dateFormat = 'MMM dd, yy',
 }: {
   answers: Array<PastAnswer>;
   currentGuess: string;
@@ -28,9 +28,9 @@ const QuizResults = ({
             {
               title: 'Correct',
               value: correctValue,
-              color: 'rgb(22 163 74/var(--tw-bg-opacity,1))'
+              color: 'rgb(22 163 74/var(--tw-bg-opacity,1))',
             },
-            { title: 'Incorrect', value: incorrectValue, color: '#C13C37' }
+            { title: 'Incorrect', value: incorrectValue, color: '#C13C37' },
           ]}
         />
       </div>

@@ -14,7 +14,7 @@ import {
   step3,
   step4,
   step5,
-  step6
+  step6,
 } from '../common';
 import Button from './button';
 
@@ -45,7 +45,7 @@ const ProgressiveMathOld = ({ year }: { showAnswers?: boolean; year: number }) =
   const doomsdayOnYear = DateTime.fromObject({
     year,
     month: 4,
-    day: 4
+    day: 4,
   });
 
   return (
