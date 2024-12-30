@@ -8,7 +8,7 @@ import QuizResults from './components/quiz-results';
 import { DayOfWeekGuesser, GuessDisplay } from './components/shared';
 import YearGuessingHelper from './components/year-guessing-helper';
 
-const GuessFullDate = () => {
+const GuessFullDateV1 = () => {
   const initYear = getRandomYear();
   const initRandomDateWithinYear = getRandomDateInYear(initYear);
 
@@ -142,4 +142,4 @@ const GuessFullDate = () => {
   );
 };
 
-export default GuessFullDate;
+export default GuessFullDateV1;

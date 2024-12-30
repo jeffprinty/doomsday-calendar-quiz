@@ -131,20 +131,26 @@ export const OffsetGuesser = ({
 const makeButtonClassName = (bgClassName: string) =>
   `${bgClassName} hover:${bgClassName} focus:${bgClassName} active:${bgClassName} disabled:${bgClassName}`;
 
-const AwareButton = ({
-  isAnswered,
-  correctOffset,
+// borf
+export const AwareButton = ({
   alternateOffset,
+  correctOffset,
+  isAnswered,
+  offset,
+  onClick,
   selectedOffset,
 }: {
-  isAnswered: boolean;
-  correctOffset: number;
   alternateOffset: number;
-  selectedOffset: number;
+  correctOffset: number;
+  isAnswered: boolean;
+  offset: number;
+  onClick: (offset: number) => void;
+  selectedOffset?: number;
 }) => {
-  const answerIsCorrect = selectedOffset === correctOffset;
-  const answerIsAlternateCorrect = selectedOffset === alternateOffset;
-  const answerIsWrong = !answerIsCorrect && !answerIsAlternateCorrect;
+  const thisIsSelected = offset === selectedOffset;
+  const answerIsCorrect = thisIsSelected && selectedOffset === correctOffset;
+  const answerIsAlternateCorrect = offset === alternateOffset;
+  const answerIsWrong = thisIsSelected && !answerIsCorrect && !answerIsAlternateCorrect;
   return (
     <Button
       className={clsx([

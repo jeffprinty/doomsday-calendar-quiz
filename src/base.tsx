@@ -6,6 +6,7 @@ import LongCalendar from './components/long-calendar';
 import NavBar from './components/nav-bar';
 import GuessDateDoomsdayWithinYear from './guess-date-doomsday-within-year';
 import GuessFullDate from './guess-full-date';
+import GuessFullDateV1 from './guess-full-date-v1';
 import GuessOnlyDate from './guess-only-date';
 import GuessYearDoomsday from './guess-year-doomsday';
 
@@ -13,8 +14,9 @@ const navLinks = [
   { to: '/doomsday-calendar-quiz/', text: 'home', end: true },
   { to: '/doomsday-calendar-quiz/year', text: 'year' },
   { to: '/doomsday-calendar-quiz/full', text: 'full' },
-  { to: '/doomsday-calendar-quiz/long', text: 'long' },
-  { to: '/doomsday-calendar-quiz/only-date', text: 'date' },
+  { to: '/doomsday-calendar-quiz/progressive', text: 'progressive' },
+  // { to: '/doomsday-calendar-quiz/info/long', text: 'long' },
+  { to: '/doomsday-calendar-quiz/date-offset', text: 'offset' },
 ];
 
 // I want to be able to feed it random dates OR feed it a list of previously incorrect guesses
@@ -25,9 +27,10 @@ const Base = () => {
       <Routes>
         <Route path='/' index element={<GuessDateDoomsdayWithinYear />} />
         <Route path='/year' element={<GuessYearDoomsday />} />
-        <Route path='/full' element={<GuessFullDate />} />
-        <Route path='/long' element={<LongCalendar />} />
-        <Route path='/only-date' element={<GuessOnlyDate />} />
+        <Route path='/full' element={<GuessFullDateV1 />} />
+        <Route path='/progressive' element={<GuessFullDate />} />
+        <Route path='/info/long' element={<LongCalendar />} />
+        <Route path='/date-offset' element={<GuessOnlyDate />} />
       </Routes>
     </main>
   );
