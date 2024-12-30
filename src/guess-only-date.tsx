@@ -83,18 +83,16 @@ export const OffsetGuesser = ({
         guessText={guessingDate.toFormat('MMMM dd')}
         guessedCorrectly={answerIsCorrect}
         isLeapYear={guessingDate.isInLeapYear}
-        subText={
-          answerIsCorrect ? (
-            <>
-              is <strong>{correctOffset}</strong>
-              {correctOffset !== 0 && (
-                <>
-                  &nbsp;or&nbsp;
-                  <strong>{alternateCorrectOffset}</strong>
-                </>
-              )}
-            </>
-          ) : undefined
+        explainCorrect={
+          <>
+            is <strong>{correctOffset}</strong>
+            {correctOffset !== 0 && (
+              <>
+                &nbsp;or&nbsp;
+                <strong>{alternateCorrectOffset}</strong>
+              </>
+            )}
+          </>
         }
       />
       <div

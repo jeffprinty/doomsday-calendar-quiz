@@ -91,12 +91,10 @@ const GuessFullDate = () => {
         guessText={guessingDate.toFormat(guessDateFormat)}
         guessedCorrectly={lastAnswerCorrect}
         isLeapYear={guessingDate.isInLeapYear}
-        subText={
-          lastAnswerCorrect ? (
-            <>
-              is <strong>{guessingDate.toFormat('cccc')}</strong>
-            </>
-          ) : undefined
+        explainCorrect={
+          <>
+            is <strong>{guessingDate.toFormat('cccc')}</strong>
+          </>
         }
       />
       <div id='guess-doomsday-for-year'>

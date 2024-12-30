@@ -33,15 +33,18 @@ export const GuessDisplay = ({
   guessTextClassName = 'text-4xl',
   isLeapYear,
   questionText,
-  subText,
+  explainCorrect,
+  explainIncorrect,
 }: {
   guessedCorrectly?: boolean;
   guessText: string | number;
   guessTextClassName?: string;
   isLeapYear?: boolean;
   questionText: string;
-  subText?: string | React.ReactNode;
+  explainCorrect?: string | React.ReactNode;
+  explainIncorrect?: string | React.ReactNode;
 }) => {
+  const explainMessage = guessedCorrectly ? explainCorrect : explainIncorrect;
   return (
     <div
       id='quiz__year-to-guess'
@@ -54,7 +57,7 @@ export const GuessDisplay = ({
     >
       <span className=''>{questionText}</span>
       <h2 className={clsx(guessTextClassName, isLeapYear && 'text-blue-400')}>{guessText}</h2>
-      <span className='text-xl'>{subText}</span>
+      {guessedCorrectly !== undefined && <span className='text-xl'>{explainMessage}</span>}
     </div>
   );
 };
