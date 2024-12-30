@@ -25,6 +25,8 @@ const GuessFullDate = () => {
 
   const [currentStep, setCurrentStep] = useState(0);
 
+  const nextStep = () => setCurrentStep((previous) => previous + 1);
+
   const [correctDoomsdayForYear, setCorrectDoomsdayForYear] = useState<Day>();
   const [selectedDoomsdayForYear, setSelectedDoomsdayForYear] = useState<Day>();
 
@@ -58,12 +60,14 @@ const GuessFullDate = () => {
     setStartTime(DateTime.now());
     setShowYearHints(false);
     setShowAllAnswers(false);
+    setCurrentStep(0);
   };
 
   const handleYearDoomsdayGuess = (guess: Day) => {
     setSelectedDoomsdayForYear(guess);
     setCorrectDoomsdayForYear(correctDoomsday);
     setShowAllAnswers(true);
+    nextStep();
   };
 
   const handleDateWeekdayGuess = (guess: Day) => {
@@ -103,7 +107,8 @@ const GuessFullDate = () => {
       <GuesserStep>
         <OffsetGuesser
           guessingDate={guessingDate}
-          onAnswer={() => setCurrentStep((previous) => previous + 1)}
+          key={`offset-guesser__${guessingYear}`}
+          onAnswer={() => nextStep()}
         />
       </GuesserStep>
       <GuesserStep show={currentStep > 0}>
