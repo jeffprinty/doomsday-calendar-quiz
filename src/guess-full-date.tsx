@@ -101,11 +101,19 @@ const GuessFullDate = () => {
         }
       />
       <GuesserStep>
-        <OffsetGuesser guessingDate={guessingDate} onAnswer={() => setCurrentStep((previous) => previous + 1)} />
+        <OffsetGuesser
+          guessingDate={guessingDate}
+          onAnswer={() => setCurrentStep((previous) => previous + 1)}
+        />
       </GuesserStep>
       <GuesserStep show={currentStep > 0}>
         <div id='guess-doomsday-for-year'>
-          <GuessDisplay questionText='Now we get the doomsday for the year:' guessText={guessingDate.toFormat('yyyy')} guessedCorrectly={lastAnswerCorrect} isLeapYear={guessingDate.isInLeapYear} />
+          <GuessDisplay
+            questionText='Now we get the doomsday for the year:'
+            guessText={guessingDate.toFormat('yyyy')}
+            guessedCorrectly={lastAnswerCorrect}
+            isLeapYear={guessingDate.isInLeapYear}
+          />
           <YearGuessingHelper
             key={`hints_${guessingYear}`}
             year={guessingYear}
@@ -121,6 +129,7 @@ const GuessFullDate = () => {
             </button>
             )
           </div>
+          <span>beef</span>
           <DayOfWeekGuesser
             key={`year_${startTime}`}
             correctDay={correctDoomsdayForYear}

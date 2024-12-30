@@ -20,6 +20,7 @@ const GuessOnlyDate = () => {
   // const [startTime, setStartTime] = useState<DateTime>(DateTime.now());
 
   const [lastAnswerCorrect, setLastAnswerCorrect] = useState<boolean | undefined>();
+  console.log('lastAnswerCorrect', lastAnswerCorrect);
 
   const getNewGuess = () => {
     setGuessingDate(getRandomDateInYear(2025));
