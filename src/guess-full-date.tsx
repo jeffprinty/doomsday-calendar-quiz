@@ -5,7 +5,7 @@ import { DateTime, Interval } from 'luxon';
 import { Day, getRandomDateInYear, getRandomYear, guessDateFormat, PastAnswer } from './common';
 import Button from './components/button';
 import QuizResults from './components/quiz-results';
-import { DayOfWeekGuesser, GuessDisplay } from './components/shared';
+import { DayOfWeekGuesser, GuessDisplay, GuesserStep } from './components/shared';
 import YearGuessingHelper from './components/year-guessing-helper';
 import { OffsetGuesser } from './guess-only-date';
 
@@ -17,11 +17,13 @@ const GuessFullDate = () => {
 
   const guessingYear = Number(guessingDate.toFormat('yyyy'));
 
-  const [showResults, setShowResults] = useState(true);
+  const [showResults, setShowResults] = useState(false);
   const [showYearHints, setShowYearHints] = useState(false);
 
   const [startTime, setStartTime] = useState<DateTime>(DateTime.now());
   const [pastAnswers, setPastAnswers] = useState<Array<PastAnswer>>([]);
+
+  const [currentStep, setCurrentStep] = useState(0);
 
   const [correctDoomsdayForYear, setCorrectDoomsdayForYear] = useState<Day>();
   const [selectedDoomsdayForYear, setSelectedDoomsdayForYear] = useState<Day>();
@@ -98,41 +100,56 @@ const GuessFullDate = () => {
           </>
         }
       />
-      <OffsetGuesser guessingDate={guessingDate} onAnswer={() => {}} />
-      <div id='guess-doomsday-for-year'>
-        <YearGuessingHelper
-          key={`hints_${guessingYear}`}
-          year={guessingYear}
-          showAnswers={showAllAnswers}
+      <GuesserStep>
+        <OffsetGuesser
+          guessingDate={guessingDate}
+          onAnswer={() => setCurrentStep((previous) => previous + 1)}
         />
-        <div className='text-center'>
-          <span>Doomsday for Year</span>&nbsp; (
-          <button
-            onClick={() => setShowYearHints((previous) => !previous)}
-            className='text-blue-400'
-          >
-            {showYearHints ? 'hide' : 'show'} hints
-          </button>
-          )
+      </GuesserStep>
+      <GuesserStep show={currentStep > 0}>
+        <div id='guess-doomsday-for-year'>
+          <GuessDisplay
+            questionText='Now we get the doomsday for the year:'
+            guessText={guessingDate.toFormat('yyyy')}
+            guessedCorrectly={lastAnswerCorrect}
+            isLeapYear={guessingDate.isInLeapYear}
+          />
+          <YearGuessingHelper
+            key={`hints_${guessingYear}`}
+            year={guessingYear}
+            showAnswers={showAllAnswers}
+          />
+          <div className='text-center'>
+            <span>Doomsday for Year</span>&nbsp; (
+            <button
+              onClick={() => setShowYearHints((previous) => !previous)}
+              className='text-blue-400'
+            >
+              {showYearHints ? 'hide' : 'show'} hints
+            </button>
+            )
+          </div>
+          <DayOfWeekGuesser
+            key={`year_${startTime}`}
+            correctDay={correctDoomsdayForYear}
+            daySelected={selectedDoomsdayForYear}
+            onDayClick={handleYearDoomsdayGuess}
+            disabled={selectedDoomsdayForYear !== undefined}
+          />
         </div>
-        <DayOfWeekGuesser
-          key={`year_${startTime}`}
-          correctDay={correctDoomsdayForYear}
-          daySelected={selectedDoomsdayForYear}
-          onDayClick={handleYearDoomsdayGuess}
-          disabled={selectedDoomsdayForYear !== undefined}
-        />
-      </div>
-      <div id='guess-weekday-for-date'>
-        <div className='text-center'>Doomsday for Date</div>
-        <DayOfWeekGuesser
-          key={`date_${startTime}`}
-          correctDay={correctWeekdayForDate}
-          daySelected={selectedWeekdayForDate}
-          onDayClick={handleDateWeekdayGuess}
-          disabled={selectedDoomsdayForYear === undefined}
-        />
-      </div>
+      </GuesserStep>
+      <GuesserStep show={currentStep > 1}>
+        <div id='guess-weekday-for-date'>
+          <div className='text-center'>Doomsday for Date</div>
+          <DayOfWeekGuesser
+            key={`date_${startTime}`}
+            correctDay={correctWeekdayForDate}
+            daySelected={selectedWeekdayForDate}
+            onDayClick={handleDateWeekdayGuess}
+            disabled={selectedDoomsdayForYear === undefined}
+          />
+        </div>
+      </GuesserStep>
       <Button onClick={getNewGuess} className='my-2 h-16 w-full'>
         Random Date
       </Button>

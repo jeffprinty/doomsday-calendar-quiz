@@ -27,6 +27,19 @@ export const PageContainer = ({ children, id }: { children: React.ReactNode; id:
   );
 };
 
+export const GuesserStep = ({
+  show = true,
+  children,
+}: {
+  show?: boolean;
+  children: React.ReactNode;
+}) => {
+  if (!show) {
+    return <></>;
+  }
+  return <>{children}</>;
+};
+
 export const GuessDisplay = ({
   guessedCorrectly,
   guessText,
