@@ -51,7 +51,9 @@ export const OffsetGuesser = ({
   guessingDate: DateTime;
   onAnswer: (correct: boolean) => void;
 }) => {
+  const [selectedOffset, setSelectedOffset] = useState<number | undefined>();
   const [answerIsCorrect, setAnswerIsCorrect] = useState<boolean | undefined>();
+  const isAnswered = answerIsCorrect !== undefined;
   const showDay = false;
 
   const mnemonicForMonth = mnemonics.find(({ monthNumber }) => monthNumber === guessingDate.month);
@@ -75,6 +77,7 @@ export const OffsetGuesser = ({
     const alternateCorrect = clickedOffset === alternateCorrectOffset;
     setAnswerIsCorrect(guessIsCorrect || alternateCorrect);
     onAnswer(guessIsCorrect || alternateCorrect);
+    setSelectedOffset(clickedOffset);
   };
 
   return (
@@ -104,7 +107,9 @@ export const OffsetGuesser = ({
           <Button
             className={clsx([
               'h-20 px-3 text-center',
-              // incorrectSelection && thisDayWasSelected && 'disabled:bg-red-900',
+              isAnswered && correctOffset === offset && makeClassNameColor(600),
+              isAnswered && alternateCorrectOffset === offset && makeClassNameColor(800),
+              isAnswered && selectedOffset === offset && 'bg-red-900 disabled:bg-red-900',
               // thisDayIsCorrect && 'active:text-black disabled:bg-green-600 disabled:text-black'
             ])}
             key={offset}
@@ -118,3 +123,6 @@ export const OffsetGuesser = ({
     </div>
   );
 };
+
+const makeClassNameColor = (numbo: number) =>
+  `bg-green-${numbo} hover:bg-green-${numbo} focus:bg-green-${numbo} active:bg-green-${numbo}`;
