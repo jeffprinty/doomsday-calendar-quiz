@@ -10,7 +10,6 @@ import { DayOfWeekGuesser, GuessDisplay, YearStepHelperHorizontal } from './comp
 const GuessYearDoomsday = () => {
   const initYear = getRandomYear();
 
-  const [showHints, setShowHints] = useState(false);
   const [showResults, setShowResults] = useState(true);
 
   // TODO: Allow set year

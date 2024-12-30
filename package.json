@@ -12,7 +12,10 @@
   },
   "type": "module",
   "lint-staged": {
-    "*": "npm run lint:fix"
+    "*": [
+      "echo 'pooopy'",
+      "npx eslint --ext ts --ext tsx ./src --fix"
+    ]
   },
   "scripts": {
     "postinstall": "husky & playwright install",
