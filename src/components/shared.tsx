@@ -146,6 +146,40 @@ export const YearStepHelperHorizontal = () => {
   );
 };
 
+export function GuesserButton({
+  isAnswered,
+  isCorrect,
+  className,
+  children,
+  onClick,
+  selectedCorrect = 'bg-green-600',
+  selectedIncorrect = 'bg-red-900',
+  ...properties
+}: {
+  isAnswered: boolean | undefined;
+  isCorrect: boolean | undefined;
+  className?: string;
+  onClick: React.MouseEventHandler<HTMLButtonElement>;
+  selectedCorrect?: string;
+  selectedIncorrect?: string;
+} & React.ButtonHTMLAttributes<HTMLButtonElement>) {
+  let correctnessClassName = '';
+  if (isAnswered) {
+    const buttonBgColor = isCorrect ? selectedCorrect : selectedIncorrect;
+    correctnessClassName = `${buttonBgColor} hover:${buttonBgColor} focus:${buttonBgColor} active:${buttonBgColor} disabled:${buttonBgColor}`;
+  }
+  return (
+    <Button
+      type='button'
+      className={clsx(['h-20 px-3 text-center', isAnswered && correctnessClassName, className])}
+      onClick={onClick}
+      {...properties}
+    >
+      {children}
+    </Button>
+  );
+}
+
 export const DayOfWeekGuesser = ({
   correctDay,
   daySelected,

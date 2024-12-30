@@ -21,10 +21,10 @@ const NavBar = ({ navItems }: { navItems: Array<NavItem> }) => {
     setNav(!nav);
   };
 
-  const renderNavLink = ({ text, ...navLinkProperties }: NavItem) => (
+  const renderNavLink = ({ text, ...navLinkProperties }: NavItem, className: string) => (
     <NavLink
       key={text}
-      className={({ isActive }) => clsx(isActive ? 'text-white' : 'text-blue-400')}
+      className={({ isActive }) => clsx(className, isActive ? 'text-white' : 'text-blue-400')}
       {...navLinkProperties}
     >
       {text}
@@ -33,17 +33,16 @@ const NavBar = ({ navItems }: { navItems: Array<NavItem> }) => {
 
   return (
     <div className='mx-auto flex h-20 w-full items-center justify-between bg-black px-4 text-white'>
-      {/* Logo */}
       <h1 className='w-full text-3xl font-bold text-[#00df9a]'>{menuTitle}</h1>
 
       {/* Desktop Navigation */}
       <ul className='hidden md:flex'>
         {navItems.map((item) => (
-          <li
-            key={item.text}
-            className='m-2 cursor-pointer rounded-xl p-4 duration-300 hover:bg-[#00df9a] hover:text-black'
-          >
-            {renderNavLink(item)}
+          <li key={item.text}>
+            {renderNavLink(
+              item,
+              'mx-2 cursor-pointer rounded-xl px-4 py-2 duration-300 hover:bg-[#00df9a] hover:text-white'
+            )}
           </li>
         ))}
       </ul>
@@ -69,11 +68,11 @@ const NavBar = ({ navItems }: { navItems: Array<NavItem> }) => {
 
         {/* Mobile Navigation Items */}
         {navItems.map((item) => (
-          <li
-            key={item.text}
-            className='cursor-pointer rounded-xl border-b border-gray-600 p-4 duration-300 hover:bg-[#00df9a] hover:text-black'
-          >
-            {renderNavLink(item)}
+          <li key={item.text}>
+            {renderNavLink(
+              item,
+              'cursor-pointer rounded-xl border-b border-gray-600 p-4 duration-300 hover:bg-[#00df9a] hover:text-black'
+            )}
           </li>
         ))}
       </ul>

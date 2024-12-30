@@ -70,11 +70,11 @@ export const OffsetGuesser = ({
   const correctOffset = fullOffset % 7;
 
   // there is almost certainly a sexier way to do this math
-  const alternateCorrectOffset = correctOffset > 0 ? correctOffset - 7 : 7 + correctOffset;
+  const alternateOffset = correctOffset > 0 ? correctOffset - 7 : 7 + correctOffset;
 
   const onClick = (clickedOffset: number) => {
     const guessIsCorrect = clickedOffset === correctOffset;
-    const alternateCorrect = clickedOffset === alternateCorrectOffset;
+    const alternateCorrect = clickedOffset === alternateOffset;
     setAnswerIsCorrect(guessIsCorrect || alternateCorrect);
     onAnswer(guessIsCorrect || alternateCorrect);
     setSelectedOffset(clickedOffset);
@@ -93,7 +93,7 @@ export const OffsetGuesser = ({
             {correctOffset !== 0 && (
               <>
                 &nbsp;or&nbsp;
-                <strong>{alternateCorrectOffset}</strong>
+                <strong>{alternateOffset}</strong>
               </>
             )}
           </>
@@ -107,10 +107,14 @@ export const OffsetGuesser = ({
           <Button
             className={clsx([
               'h-20 px-3 text-center',
-              isAnswered && correctOffset === offset && makeClassNameColor(600),
-              isAnswered && alternateCorrectOffset === offset && makeClassNameColor(800),
-              isAnswered && selectedOffset === offset && 'bg-red-900 disabled:bg-red-900',
-              // thisDayIsCorrect && 'active:text-black disabled:bg-green-600 disabled:text-black'
+              isAnswered && [
+                correctOffset === offset && makeButtonClassName('bg-green-600'),
+                alternateOffset === offset && makeButtonClassName('bg-green-800'),
+                answerIsCorrect === false &&
+                  selectedOffset === offset &&
+                  makeButtonClassName('bg-red-900'),
+                // TODO: Show border on selected
+              ],
             ])}
             key={offset}
             onClick={() => onClick(offset)}
@@ -124,5 +128,38 @@ export const OffsetGuesser = ({
   );
 };
 
-const makeClassNameColor = (numbo: number) =>
-  `bg-green-${numbo} hover:bg-green-${numbo} focus:bg-green-${numbo} active:bg-green-${numbo}`;
+const makeButtonClassName = (bgClassName: string) =>
+  `${bgClassName} hover:${bgClassName} focus:${bgClassName} active:${bgClassName} disabled:${bgClassName}`;
+
+const AwareButton = ({
+  isAnswered,
+  correctOffset,
+  alternateOffset,
+  selectedOffset,
+}: {
+  isAnswered: boolean;
+  correctOffset: number;
+  alternateOffset: number;
+  selectedOffset: number;
+}) => {
+  const answerIsCorrect = selectedOffset === correctOffset;
+  const answerIsAlternateCorrect = selectedOffset === alternateOffset;
+  const answerIsWrong = !answerIsCorrect && !answerIsAlternateCorrect;
+  return (
+    <Button
+      className={clsx([
+        'h-20 px-3 text-center',
+        isAnswered && [
+          answerIsCorrect && makeButtonClassName('bg-green-600'),
+          answerIsAlternateCorrect && makeButtonClassName('bg-green-800'),
+          answerIsWrong && makeButtonClassName('bg-red-900'),
+          // TODO: Show border on selected
+        ],
+      ])}
+      key={offset}
+      onClick={() => onClick(offset)}
+    >
+      {offset}
+    </Button>
+  );
+};
