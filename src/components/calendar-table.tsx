@@ -9,11 +9,13 @@ const CalendarTable = ({
   chunkedDayArray,
   getButtonClassName,
   handleDayClick,
+  hideYear,
 }: {
   baseCellClassName?: string;
   chunkedDayArray: Array<Array<CalendarDay>>;
   getButtonClassName: (day: CalendarDay) => string;
   handleDayClick?: (day: CalendarDay) => void;
+  hideYear?: boolean;
 }) => {
   console.log('allDaysFromMnemonics', allDaysFromMnemonics);
   return (
@@ -33,7 +35,7 @@ const CalendarTable = ({
           const chunkContainsFirstOfYear = weekArray.find(
             (day) => day.dayNumber === 1 && day.month === 1
           );
-          if (weekArray.length > 0 && chunkContainsFirstOfYear) {
+          if (!hideYear && weekArray.length > 0 && chunkContainsFirstOfYear) {
             const lastDayInArray = [...weekArray].pop();
             rowsToAdd.push(
               <tr key={`week${lastDayInArray?.cellNumber}`}>

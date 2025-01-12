@@ -48,6 +48,16 @@ export const monthNames = [
   'December',
 ];
 
+export const getRandomMonthName = (ignoreLeap = false) => {
+  if (ignoreLeap) {
+    const fixedMonths = monthNames.filter(
+      (monthName) => !['January', 'February'].includes(monthName)
+    );
+    return fixedMonths[Math.random() * fixedMonths.length];
+  }
+  return monthNames[Math.random() * monthNames.length];
+};
+
 export type Day = 'Sun' | 'Mon' | 'Tue' | 'Wed' | 'Thu' | 'Fri' | 'Sat';
 export const daysOfWeek: Array<Day> = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
 
@@ -167,6 +177,17 @@ export const mnemonics: Array<Mnemonic> = [
     memeticHandle: sharedMemeticHandles.doubles,
   },
 ];
+
+export const getRandomMnemonic = (ignoreLeap = false) => {
+  if (ignoreLeap) {
+    const fixedMonths = mnemonics.filter(
+      ({ monthName }) => !['January', 'February'].includes(monthName)
+    );
+    return fixedMonths[Math.trunc(Math.random() * fixedMonths.length)];
+  }
+  const randomIndex = Math.trunc(Math.random() * mnemonics.length);
+  return mnemonics[randomIndex];
+};
 
 // eslint-disable-next-line unicorn/no-array-reduce
 export const allDaysFromMnemonics = mnemonics.reduce(

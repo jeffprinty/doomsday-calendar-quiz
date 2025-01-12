@@ -2,12 +2,13 @@ import React, { useState } from 'react';
 
 import { mnemonics } from './common';
 import Button from './components/button';
+import MonthDoomsdayCalendar from './components/month-doomsday-calendar';
 
 const StepOne = () => {
   const [step, setStep] = useState(1);
   console.log('step', step);
   return (
-    <div className='md:w-1/2' id='page__step-one'>
+    <div className='' id='page__step-one'>
       <div>
         <a href='https://en.wikipedia.org/wiki/Doomsday_rule#Memorable_dates_that_always_land_on_Doomsday'>
           wikipedia: Memorable Dates table
@@ -39,7 +40,13 @@ const StepOne = () => {
         </tbody>
       </table>
       <div className='steps-wrapper'>
-        <div></div>
+        <div>
+          <MonthDoomsdayCalendar />
+        </div>
+        <div>
+          This will help you improve at converting the English word for the month to the month
+          number.
+        </div>
         <Button onClick={() => setStep((previous) => previous + 1)}>Next</Button>
       </div>
       <div>

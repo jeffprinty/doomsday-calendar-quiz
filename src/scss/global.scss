@@ -62,8 +62,8 @@
     right: 0;
     text-align: center;
   }
-  // &[data-correct-day="true"] {
-  //   background-color: limegreen !important;
-  //   color: black !important;
-  // }
+}
+
+body {
+  @apply bg-primary;
 }
