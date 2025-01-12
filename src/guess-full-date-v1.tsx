@@ -85,7 +85,7 @@ const GuessFullDateV1 = () => {
   };
 
   return (
-    <div id='page__guess-full-date' className='w-full md:w-2/3 lg:w-96'>
+    <div id='page__guess-full-date' className='w-full'>
       <GuessDisplay
         questionText={lastAnswerCorrect ? 'Correct! The doomsday for' : 'What is the doomsday for:'}
         guessText={guessingDate.toFormat(guessDateFormat)}

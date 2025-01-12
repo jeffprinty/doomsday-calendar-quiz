@@ -25,7 +25,7 @@ const Base = () => {
   return (
     <main className='flex h-screen max-w-full flex-col items-center justify-start bg-primary text-color'>
       <NavBar navItems={navLinks} />
-      <div className='flex max-w-full flex-col items-center justify-start sm:w-4/12 md:max-w-[1240px]'>
+      <div className='flex max-w-full flex-col items-center justify-start sm:w-1/2 md:max-w-[1240px]'>
         <Routes>
           <Route path='/' index element={<GuessDateDoomsdayWithinYear />} />
           <Route path='/step1' element={<StepOne />} />

@@ -2,7 +2,7 @@ import React from 'react';
 
 import clsx from 'clsx';
 
-import { allDaysFromMnemonics, CalendarDay, dayNames, fullDateWithWeekdayFormat } from '../common';
+import { CalendarDay, dayNames, fullDateWithWeekdayFormat } from '../common';
 
 const CalendarTable = ({
   baseCellClassName,
@@ -17,7 +17,6 @@ const CalendarTable = ({
   handleDayClick?: (day: CalendarDay) => void;
   hideYear?: boolean;
 }) => {
-  console.log('allDaysFromMnemonics', allDaysFromMnemonics);
   return (
     <table className=''>
       <thead>

@@ -41,6 +41,7 @@ export const GuesserStep = ({
 };
 
 export const GuessDisplay = ({
+  className,
   guessedCorrectly,
   guessText,
   guessTextClassName = 'text-4xl',
@@ -49,6 +50,7 @@ export const GuessDisplay = ({
   explainCorrect,
   explainIncorrect,
 }: {
+  className?: string;
   guessedCorrectly?: boolean;
   guessText: string | number;
   guessTextClassName?: string;
@@ -62,6 +64,7 @@ export const GuessDisplay = ({
     <div
       id='quiz__year-to-guess'
       className={clsx([
+        className,
         'my-4 flex w-full flex-col items-center justify-center pb-6 pt-4 text-center',
         guessedCorrectly === undefined && 'bg-gray-600',
         guessedCorrectly === true && correctColor,

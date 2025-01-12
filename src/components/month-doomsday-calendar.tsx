@@ -1,8 +1,11 @@
 import React, { useState } from 'react';
 
+import clsx from 'clsx';
+
 import {
   allDaysFromMnemonics,
   betterDaysTable,
+  CalendarDay,
   chunkArray,
   getRandomMnemonic,
   pickRandomlyFromArray,
@@ -21,7 +24,7 @@ const MonthDoomsdayCalendar = () => {
 
   const monthChunked = [...chunkedByWeek].slice(0, 5);
 
-  const { common, leap, monthName } = randomMnemonic;
+  const { common, leap, memeticHandle, monthName } = randomMnemonic;
   const correctOptions = [common];
   if (leap) {
     correctOptions.push(leap);
@@ -30,6 +33,15 @@ const MonthDoomsdayCalendar = () => {
   const incorrectOptions = pickRandomlyFromArray(allIncorrectOptions, 3);
 
   const combinedOptions = new Set([...correctOptions, ...incorrectOptions]);
+
+  const handleDayClick = ({ dayNumber }: CalendarDay) => {
+    if (!combinedOptions.has(dayNumber)) {
+      return;
+    }
+    setAnswerClicked(dayNumber);
+    setLastAnswerCorrect(correctOptions.includes(dayNumber));
+    setTimeout(() => heroClick(), 2000);
+  };
 
   const heroClick = () => {
     setRandomMnemonic(getRandomMnemonic());
@@ -40,6 +52,8 @@ const MonthDoomsdayCalendar = () => {
   return (
     <div className='long-calendar flex w-full flex-col items-start justify-center'>
       <GuessDisplay
+        className={clsx(!!answerClicked && 'animate-pulse')}
+        explainCorrect={memeticHandle}
         questionText='What is the doomsday for:'
         guessText={monthName}
         guessedCorrectly={lastAnswerCorrect}
@@ -66,13 +80,7 @@ const MonthDoomsdayCalendar = () => {
             }
             return 'text-gray-100';
           }}
-          handleDayClick={({ dayNumber }) => {
-            if (!combinedOptions.has(dayNumber)) {
-              return;
-            }
-            setAnswerClicked(dayNumber);
-            setLastAnswerCorrect(correctOptions.includes(dayNumber));
-          }}
+          handleDayClick={handleDayClick}
           hideYear
         />
       </div>
