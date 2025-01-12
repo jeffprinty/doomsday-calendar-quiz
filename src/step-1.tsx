@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
 
 import { mnemonics } from './common';
+import Button from './components/button';
 
 const StepOne = () => {
-  const [step, setStep] = useState();
+  const [step, setStep] = useState(1);
+  console.log('step', step);
   return (
     <div className='md:w-1/2' id='page__step-one'>
       <div>
@@ -38,6 +40,7 @@ const StepOne = () => {
       </table>
       <div className='steps-wrapper'>
         <div></div>
+        <Button onClick={() => setStep((previous) => previous + 1)}>Next</Button>
       </div>
       <div>
         <p>

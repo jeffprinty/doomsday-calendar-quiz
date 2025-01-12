@@ -5,12 +5,14 @@ import clsx from 'clsx';
 import { allDaysFromMnemonics, CalendarDay, dayNames, fullDateWithWeekdayFormat } from '../common';
 
 const CalendarTable = ({
+  baseCellClassName,
   chunkedDayArray,
-  getCellClassName,
+  getButtonClassName,
   handleDayClick,
 }: {
+  baseCellClassName?: string;
   chunkedDayArray: Array<Array<CalendarDay>>;
-  getCellClassName: (day: CalendarDay) => string;
+  getButtonClassName: (day: CalendarDay) => string;
   handleDayClick?: (day: CalendarDay) => void;
 }) => {
   console.log('allDaysFromMnemonics', allDaysFromMnemonics);
@@ -46,15 +48,16 @@ const CalendarTable = ({
             <tr key={JSON.stringify(firstDayInWeek)}>
               {weekArray.map((day) => {
                 const { cellNumber, date, dayNumber, isDoomsday, weekday } = day;
-                const cellClassName = getCellClassName(day);
+                const cellClassName = getButtonClassName(day);
                 return (
                   <td
-                    className={clsx('wx-3 text-center leading-none', cellClassName)}
+                    className={clsx('wx-4 text-center leading-none', baseCellClassName)}
                     key={cellNumber}
                     data-weekday={weekday}
                     data-is-doomsday={isDoomsday}
                   >
                     <button
+                      className={clsx('wx-3 rounded-xl px-2 text-xl', cellClassName)}
                       title={date.toFormat(fullDateWithWeekdayFormat)}
                       onClick={() => !!handleDayClick && handleDayClick(day)}
                     >
