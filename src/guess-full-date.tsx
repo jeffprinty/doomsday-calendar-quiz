@@ -4,10 +4,10 @@ import { DateTime, Interval } from 'luxon';
 
 import { Day, getRandomDateInYear, getRandomYear, guessDateFormat, PastAnswer } from './common';
 import Button from './components/button';
+import OffsetGuesser from './components/offset-guesser';
 import QuizResults from './components/quiz-results';
 import { DayOfWeekGuesser, GuessDisplay, GuesserStep } from './components/shared';
 import YearGuessingHelper from './components/year-guessing-helper';
-import { OffsetGuesser } from './guess-only-date';
 
 const GuessFullDate = () => {
   const initYear = getRandomYear();

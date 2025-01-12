@@ -78,6 +78,7 @@ export interface Mnemonic {
   monthNumber: number;
   common: number;
   leap?: number;
+  daysInMonth: 28 | 29 | 30 | 31;
 }
 
 export interface CalendarDay {
@@ -98,6 +99,7 @@ export const mnemonics: Array<Mnemonic> = [
     monthNumber: 1,
     common: 3,
     leap: 4,
+    daysInMonth: 31,
   },
   {
     month: 'feb',
@@ -105,6 +107,7 @@ export const mnemonics: Array<Mnemonic> = [
     monthNumber: 2,
     common: 28,
     leap: 29,
+    daysInMonth: 28,
   },
   {
     month: 'mar',
@@ -112,6 +115,7 @@ export const mnemonics: Array<Mnemonic> = [
     monthNumber: 3,
     common: 14,
     memeticHandle: 'pi day',
+    daysInMonth: 31,
   },
   {
     month: 'apr',
@@ -119,6 +123,7 @@ export const mnemonics: Array<Mnemonic> = [
     monthNumber: 4,
     common: 4,
     memeticHandle: sharedMemeticHandles.doubles,
+    daysInMonth: 30,
   },
   {
     month: 'may',
@@ -126,6 +131,7 @@ export const mnemonics: Array<Mnemonic> = [
     monthNumber: 5,
     common: 9,
     memeticHandle: sharedMemeticHandles.nineToFive,
+    daysInMonth: 31,
   },
   {
     month: 'jun',
@@ -133,6 +139,7 @@ export const mnemonics: Array<Mnemonic> = [
     monthNumber: 6,
     common: 6,
     memeticHandle: sharedMemeticHandles.doubles,
+    daysInMonth: 30,
   },
   {
     month: 'jul',
@@ -140,6 +147,7 @@ export const mnemonics: Array<Mnemonic> = [
     monthNumber: 7,
     common: 11,
     memeticHandle: sharedMemeticHandles.nineToFive,
+    daysInMonth: 31,
   },
   {
     month: 'aug',
@@ -147,6 +155,7 @@ export const mnemonics: Array<Mnemonic> = [
     monthNumber: 8,
     common: 8,
     memeticHandle: sharedMemeticHandles.doubles,
+    daysInMonth: 31,
   },
   {
     month: 'sep',
@@ -154,6 +163,7 @@ export const mnemonics: Array<Mnemonic> = [
     monthNumber: 9,
     common: 5,
     memeticHandle: sharedMemeticHandles.nineToFive,
+    daysInMonth: 30,
   },
   {
     month: 'oct',
@@ -161,6 +171,7 @@ export const mnemonics: Array<Mnemonic> = [
     monthNumber: 10,
     common: 10,
     memeticHandle: sharedMemeticHandles.doubles,
+    daysInMonth: 31,
   },
   {
     month: 'nov',
@@ -168,6 +179,7 @@ export const mnemonics: Array<Mnemonic> = [
     monthNumber: 11,
     common: 7,
     memeticHandle: sharedMemeticHandles.nineToFive,
+    daysInMonth: 30,
   },
   {
     month: 'dec',
@@ -175,6 +187,7 @@ export const mnemonics: Array<Mnemonic> = [
     monthNumber: 12,
     common: 12,
     memeticHandle: sharedMemeticHandles.doubles,
+    daysInMonth: 31,
   },
 ];
 
@@ -187,6 +200,16 @@ export const getRandomMnemonic = (ignoreLeap = false) => {
   }
   const randomIndex = Math.trunc(Math.random() * mnemonics.length);
   return mnemonics[randomIndex];
+};
+
+export const getRandomDateInMonth = ({ daysInMonth, monthNumber }: Mnemonic) => {
+  const randomDay = Math.trunc(Math.random() * daysInMonth);
+  console.log('randomDay', randomDay);
+  return DateTime.fromObject({
+    day: randomDay,
+    year: 2025,
+    month: monthNumber,
+  });
 };
 
 // eslint-disable-next-line unicorn/no-array-reduce
