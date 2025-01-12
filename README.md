@@ -33,3 +33,13 @@ This is useful:
   | Oct   | 10/10        |                |
   | Nov   | 11/7         | 9-to-5 at 7-11 |
   | Dec   | 12/12        |                |
+
+
+Learn the doomsday for every month
+  Show month, pick day
+  If you only remember one thing, this is useful information
+
+Remember the doomsday for useful years, this year, next year
+
+Get weekday for month/day in same year
+

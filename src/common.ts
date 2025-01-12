@@ -48,8 +48,6 @@ export const monthNames = [
   'December',
 ];
 
-export const twoLetterDays = ['Su', 'Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa'];
-
 export type Day = 'Sun' | 'Mon' | 'Tue' | 'Wed' | 'Thu' | 'Fri' | 'Sat';
 export const daysOfWeek: Array<Day> = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
 
@@ -63,7 +61,27 @@ export const dayNames = [
   'Saturday',
 ];
 
-export const mnemonics = [
+export interface Mnemonic {
+  memeticHandle?: string;
+  month: string;
+  monthName: string;
+  monthNumber: number;
+  common: number;
+  leap?: number;
+}
+
+export interface CalendarDay {
+  cellNumber: number;
+  date: DateTime;
+  dayNumber: number;
+  isDoomsday: boolean;
+  month: number;
+  weekday: number;
+  year: number;
+  sameWeekdayAsDoomsday: boolean;
+}
+
+export const mnemonics: Array<Mnemonic> = [
   {
     month: 'jan',
     monthName: 'January',
@@ -83,7 +101,6 @@ export const mnemonics = [
     monthName: 'March',
     monthNumber: 3,
     common: 14,
-    leap: 14,
     memeticHandle: 'pi day',
   },
   {
@@ -91,7 +108,6 @@ export const mnemonics = [
     monthName: 'April',
     monthNumber: 4,
     common: 4,
-    leap: 4,
     memeticHandle: sharedMemeticHandles.doubles,
   },
   {
@@ -99,7 +115,6 @@ export const mnemonics = [
     monthName: 'May',
     monthNumber: 5,
     common: 9,
-    leap: 9,
     memeticHandle: sharedMemeticHandles.nineToFive,
   },
   {
@@ -107,7 +122,6 @@ export const mnemonics = [
     monthName: 'June',
     monthNumber: 6,
     common: 6,
-    leap: 6,
     memeticHandle: sharedMemeticHandles.doubles,
   },
   {
@@ -115,7 +129,6 @@ export const mnemonics = [
     monthName: 'July',
     monthNumber: 7,
     common: 11,
-    leap: 11,
     memeticHandle: sharedMemeticHandles.nineToFive,
   },
   {
@@ -123,7 +136,6 @@ export const mnemonics = [
     monthName: 'August',
     monthNumber: 8,
     common: 8,
-    leap: 8,
     memeticHandle: sharedMemeticHandles.doubles,
   },
   {
@@ -131,7 +143,6 @@ export const mnemonics = [
     monthName: 'September',
     monthNumber: 9,
     common: 5,
-    leap: 5,
     memeticHandle: sharedMemeticHandles.nineToFive,
   },
   {
@@ -139,7 +150,6 @@ export const mnemonics = [
     monthName: 'October',
     monthNumber: 10,
     common: 10,
-    leap: 10,
     memeticHandle: sharedMemeticHandles.doubles,
   },
   {
@@ -147,7 +157,6 @@ export const mnemonics = [
     monthName: 'November',
     monthNumber: 11,
     common: 7,
-    leap: 7,
     memeticHandle: sharedMemeticHandles.nineToFive,
   },
   {
@@ -155,10 +164,23 @@ export const mnemonics = [
     monthName: 'December',
     monthNumber: 12,
     common: 12,
-    leap: 12,
     memeticHandle: sharedMemeticHandles.doubles,
   },
 ];
+
+// eslint-disable-next-line unicorn/no-array-reduce
+export const allDaysFromMnemonics = mnemonics.reduce(
+  (allDoomsdays: Array<number>, { common, leap }) => {
+    if (!allDoomsdays.includes(common)) {
+      allDoomsdays.push(common);
+    }
+    if (leap && !allDoomsdays.includes(leap)) {
+      allDoomsdays.push(leap);
+    }
+    return allDoomsdays;
+  },
+  []
+);
 
 export const guessDateFormat = 'MMMM dd, yyyy';
 export const fullDateWithWeekdayFormat = 'cccc MMMM dd, yyyy';
@@ -211,4 +233,70 @@ export const getRandomDateInYear = (year: number) => {
     year,
     ordinal: randomDayOfYear,
   });
+};
+
+export const getDoomsdayForYear = (year: number) =>
+  DateTime.fromObject({
+    year,
+    month: 4,
+    day: 4,
+  });
+
+export function pickRandomlyFromArray<T>(array: Array<T>, n: number) {
+  // eslint-disable-next-line unicorn/no-new-array
+  const result = new Array(n);
+  let length_ = array.length;
+  // eslint-disable-next-line unicorn/no-new-array
+  const taken = new Array(length_);
+  if (n > length_) throw new RangeError('getRandom: more elements taken than available');
+  while (n--) {
+    const x = Math.floor(Math.random() * length_);
+    result[n] = array[x in taken ? taken[x] : x];
+    taken[x] = --length_ in taken ? taken[length_] : length_;
+  }
+  return result;
+}
+
+export const betterDaysTable = (howManyDays = 360) => {
+  const startingYear = 2024;
+  // locale weeks: https://moment.github.io/luxon/#/intl?id=locale-based-weeks
+  const firstDayToDisplay = DateTime.local(startingYear, 1, 1, { locale: 'en-US' }).startOf(
+    'week',
+    { useLocaleWeeks: true }
+  );
+  const daysArray = [];
+  let doomsdayForYear = getDoomsdayForYear(startingYear);
+  let yearWeIn = startingYear;
+  for (let day = 0; day < howManyDays; day++) {
+    const dayy = firstDayToDisplay.plus({ days: day });
+    const dayYear = dayy.get('year');
+    if (dayYear !== yearWeIn) {
+      doomsdayForYear = getDoomsdayForYear(dayYear);
+      yearWeIn = dayYear;
+    }
+    const dayNumber = dayy.get('day');
+    const month = dayy.get('month');
+    const weekday = dayy.get('weekday');
+    const monthMnemonic = mnemonics.find((mne) => mne.monthNumber === month) as Mnemonic;
+    const { common, leap } = monthMnemonic;
+    let doomsdayDay = common;
+    if (dayy.isInLeapYear && leap) {
+      doomsdayDay = leap;
+    }
+    const isDoomsday = doomsdayDay === dayNumber;
+    const sameWeekdayAsDoomsday = doomsdayForYear.get('weekday') === weekday;
+    // console.log('weekday', weekday, dayy.toFormat('ccc'));
+    const dayObject: CalendarDay = {
+      date: dayy,
+      month,
+      dayNumber,
+      weekday, // NOTE: this is luxon weekday, sunday = 1
+      cellNumber: day,
+      year: dayYear,
+      isDoomsday,
+      sameWeekdayAsDoomsday,
+    };
+    daysArray.push(dayObject);
+  }
+  return daysArray;
 };
