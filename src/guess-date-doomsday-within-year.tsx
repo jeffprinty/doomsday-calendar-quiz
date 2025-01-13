@@ -5,21 +5,10 @@ import { DateTime } from 'luxon';
 import { Day, getRandomDateInYear, guessDateFormat } from './common';
 import Button from './components/button';
 import QuizResults from './components/quiz-results';
-import { DayOfWeekGuesser, GuessDisplay } from './components/shared';
+import { GuessDisplay } from './components/shared';
 import useAnswerHistory from './hooks/use-answer-history';
-
-const useDayOfWeekGuesser = () => {
-  const [correctDay, setCorrectDay] = useState<Day>();
-  const [daySelected, setDaySelected] = useState<Day>();
-  const onNewDayGuess = () => {
-    setCorrectDay(undefined);
-  };
-  const onDayClick = (clickedDay: Day, correctDay: Day) => {
-    setDaySelected(clickedDay);
-    setCorrectDay(correctDay);
-  };
-  return { correctDay, daySelected, onDayClick, onNewDayGuess };
-};
+import useDayOfWeekGuesser from './hooks/use-day-of-week-guesser';
+import DayOfWeekGuesser from './modules/day-of-week-guesser';
 
 const GuessDateDoomsdayWithinYear = ({
   dateToGuess,

@@ -5,9 +5,10 @@ import { DateTime } from 'luxon';
 import { Day, getRandomDateInYear, getRandomYear, guessDateFormat } from './common';
 import Button from './components/button';
 import QuizResults from './components/quiz-results';
-import { DayOfWeekGuesser, GuessDisplay } from './components/shared';
+import { GuessDisplay } from './components/shared';
 import YearGuessingHelper from './components/year-guessing-helper';
 import useAnswerHistory from './hooks/use-answer-history';
+import DayOfWeekGuesser, { DayOfWeekGuesserSelfContained } from './modules/day-of-week-guesser';
 
 const GuessFullDateV1 = () => {
   const initYear = getRandomYear();
@@ -22,7 +23,6 @@ const GuessFullDateV1 = () => {
 
   const { lastAnswerCorrect, onAnswer, onNewQuestion, pastAnswers, startTime } = useAnswerHistory();
 
-  const [correctDoomsdayForYear, setCorrectDoomsdayForYear] = useState<Day>();
   const [selectedDoomsdayForYear, setSelectedDoomsdayForYear] = useState<Day>();
 
   const [correctWeekdayForDate, setCorrectWeekdayForDate] = useState<Day>();
@@ -44,7 +44,6 @@ const GuessFullDateV1 = () => {
     setGuessingDate(randomDateWithinYear);
     onNewQuestion();
 
-    setCorrectDoomsdayForYear(undefined);
     setSelectedDoomsdayForYear(undefined);
 
     setCorrectWeekdayForDate(undefined);
@@ -52,12 +51,6 @@ const GuessFullDateV1 = () => {
 
     setShowYearHints(false);
     setShowAllAnswers(false);
-  };
-
-  const handleYearDoomsdayGuess = (guess: Day) => {
-    setSelectedDoomsdayForYear(guess);
-    setCorrectDoomsdayForYear(correctDoomsday);
-    setShowAllAnswers(true);
   };
 
   const handleDateWeekdayGuess = (guess: Day) => {
@@ -98,6 +91,14 @@ const GuessFullDateV1 = () => {
           </button>
           )
         </div>
+        <DayOfWeekGuesserSelfContained
+          correctDay={correctDoomsday}
+          key={`year_${startTime}`}
+          onGuess={() => {
+            setShowAllAnswers(true);
+          }}
+        />
+        {/*
         <DayOfWeekGuesser
           key={`year_${startTime}`}
           correctDay={correctDoomsdayForYear}
@@ -105,6 +106,7 @@ const GuessFullDateV1 = () => {
           onDayClick={handleYearDoomsdayGuess}
           disabled={selectedDoomsdayForYear !== undefined}
         />
+        */}
       </div>
       <div id='guess-weekday-for-date'>
         <div className='text-center'>Doomsday for Date</div>

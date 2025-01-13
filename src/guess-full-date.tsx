@@ -6,9 +6,10 @@ import { Day, getRandomDateInYear, getRandomYear, guessDateFormat } from './comm
 import Button from './components/button';
 import OffsetGuesser from './components/offset-guesser';
 import QuizResults from './components/quiz-results';
-import { DayOfWeekGuesser, GuessDisplay, GuesserStep } from './components/shared';
+import { GuessDisplay, GuesserStep } from './components/shared';
 import YearGuessingHelper from './components/year-guessing-helper';
 import useAnswerHistory from './hooks/use-answer-history';
+import DayOfWeekGuesser from './modules/day-of-week-guesser';
 
 const GuessFullDate = () => {
   const initYear = getRandomYear();

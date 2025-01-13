@@ -5,8 +5,9 @@ import { DateTime } from 'luxon';
 import { Day, getRandomYear, mnemonics } from './common';
 import Button from './components/button';
 import QuizResults from './components/quiz-results';
-import { DayOfWeekGuesser, GuessDisplay, YearStepHelperHorizontal } from './components/shared';
+import { GuessDisplay, YearStepHelperHorizontal } from './components/shared';
 import useAnswerHistory from './hooks/use-answer-history';
+import DayOfWeekGuesser from './modules/day-of-week-guesser';
 
 const GuessYearDoomsday = () => {
   const initYear = getRandomYear();
