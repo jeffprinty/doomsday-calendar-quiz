@@ -1,13 +1,14 @@
 import React, { useState } from 'react';
 
-import { DateTime, Interval } from 'luxon';
+import { DateTime } from 'luxon';
 
-import { Day, getRandomDateInYear, getRandomYear, guessDateFormat, PastAnswer } from './common';
+import { Day, getRandomDateInYear, getRandomYear, guessDateFormat } from './common';
 import Button from './components/button';
 import OffsetGuesser from './components/offset-guesser';
 import QuizResults from './components/quiz-results';
 import { DayOfWeekGuesser, GuessDisplay, GuesserStep } from './components/shared';
 import YearGuessingHelper from './components/year-guessing-helper';
+import useAnswerHistory from './hooks/use-answer-history';
 
 const GuessFullDate = () => {
   const initYear = getRandomYear();
@@ -20,8 +21,7 @@ const GuessFullDate = () => {
   const [showResults, setShowResults] = useState(false);
   const [showYearHints, setShowYearHints] = useState(false);
 
-  const [startTime, setStartTime] = useState<DateTime>(DateTime.now());
-  const [pastAnswers, setPastAnswers] = useState<Array<PastAnswer>>([]);
+  const { lastAnswerCorrect, onAnswer, onNewQuestion, pastAnswers, startTime } = useAnswerHistory();
 
   const [currentStep, setCurrentStep] = useState(0);
 
@@ -32,8 +32,6 @@ const GuessFullDate = () => {
 
   const [correctWeekdayForDate, setCorrectWeekdayForDate] = useState<Day>();
   const [selectedWeekdayForDate, setSelectedWeekdayForDate] = useState<Day>();
-
-  const [lastAnswerCorrect, setLastAnswerCorrect] = useState<boolean | undefined>();
 
   const [showAllAnswers, setShowAllAnswers] = useState(false);
 
@@ -49,7 +47,7 @@ const GuessFullDate = () => {
     const randomYearAsInt = getRandomYear();
     const randomDateWithinYear = getRandomDateInYear(randomYearAsInt);
     setGuessingDate(randomDateWithinYear);
-    setLastAnswerCorrect(undefined);
+    onNewQuestion();
 
     setCorrectDoomsdayForYear(undefined);
     setSelectedDoomsdayForYear(undefined);
@@ -57,7 +55,6 @@ const GuessFullDate = () => {
     setCorrectWeekdayForDate(undefined);
     setSelectedWeekdayForDate(undefined);
 
-    setStartTime(DateTime.now());
     setShowYearHints(false);
     setShowAllAnswers(false);
     setCurrentStep(0);
@@ -75,20 +72,9 @@ const GuessFullDate = () => {
     setCorrectWeekdayForDate(correctWeekdayForDate);
 
     const dayWeekdayGuessedCorrectly = guess === correctWeekdayForDate;
-    setLastAnswerCorrect(dayWeekdayGuessedCorrectly);
 
+    onAnswer(doomsdayOnYear, dayWeekdayGuessedCorrectly);
     setShowAllAnswers(true);
-
-    if (startTime) {
-      const interval = Interval.fromDateTimes(startTime, DateTime.now());
-      const intervalInSeconds = interval.length('seconds');
-      if (intervalInSeconds) {
-        setPastAnswers((previous) => [
-          ...previous,
-          [intervalInSeconds, dayWeekdayGuessedCorrectly, doomsdayOnYear],
-        ]);
-      }
-    }
   };
 
   return (
