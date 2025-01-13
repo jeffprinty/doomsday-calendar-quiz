@@ -7,6 +7,27 @@ import Button from './components/button';
 import QuizResults from './components/quiz-results';
 import { DayOfWeekGuesser, GuessDisplay } from './components/shared';
 
+const useAnswerHistory = () => {
+  const [lastAnswerCorrect, setLastAnswerCorrect] = useState<boolean | undefined>();
+  const [pastAnswers, setPastAnswers] = useState<Array<PastAnswer<DateTime>>>([]);
+  const [startTime, setStartTime] = useState<DateTime>(DateTime.now());
+  const onNewQuestion = () => {
+    setStartTime(DateTime.now());
+    setLastAnswerCorrect(undefined);
+  };
+  // TODO: Handle other kinds of answers
+  const onAnswer = (answerValue: DateTime, answerCorrect: boolean) => {
+    setLastAnswerCorrect(answerCorrect);
+
+    const interval = Interval.fromDateTimes(startTime, DateTime.now());
+    const intervalInSeconds = interval.length('seconds');
+    if (intervalInSeconds) {
+      setPastAnswers((previous) => [...previous, [intervalInSeconds, answerCorrect, answerValue]]);
+    }
+  };
+  return { lastAnswerCorrect, onAnswer, onNewQuestion, pastAnswers };
+};
+
 const GuessDateDoomsdayWithinYear = ({
   dateToGuess,
   getNextDate,
@@ -18,11 +39,12 @@ const GuessDateDoomsdayWithinYear = ({
   onIncorrectGuess: (dateGuessed: DateTime) => void;
   updateYear: (updatedYear: number) => void;
 }) => {
+  const [lastAnswerCorrect, setLastAnswerCorrect] = useState<boolean | undefined>();
+  const [pastAnswers, setPastAnswers] = useState<Array<PastAnswer<DateTime>>>([]);
   const [startTime, setStartTime] = useState<DateTime>(DateTime.now());
-  const [pastAnswers, setPastAnswers] = useState<Array<PastAnswer>>([]);
+
   const [correctDay, setCorrectDay] = useState<Day>();
   const [daySelected, setDaySelected] = useState<Day>();
-  const [lastAnswerCorrect, setLastAnswerCorrect] = useState<boolean | undefined>();
   const [enableDayClick, setEnableDayClick] = useState(true);
   const [showSettings, setShowSettings] = useState(false);
 

@@ -15,7 +15,7 @@ export type Steps = 'stepOne' | 'stepTwo' | 'stepThree' | 'stepFour' | 'stepFive
 
 export type AnchorDayCentury = '18' | '19' | '20' | '21';
 
-export type PastAnswer = [number, boolean, DateTime];
+export type PastAnswer<T> = [number, boolean, T];
 
 export const anchorDays = {
   '18': 5,

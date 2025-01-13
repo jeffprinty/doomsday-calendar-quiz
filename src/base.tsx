@@ -20,6 +20,27 @@ const navLinks = [
   { to: '/doomsday-calendar-quiz/date-offset', text: 'offset' },
 ];
 
+const AllPages = () => {
+  return (
+    <div className='flex flex-col'>
+      <h2>GuessDateDoomsdayWithinYear</h2>
+      <GuessDateDoomsdayWithinYear />
+      <h2>StepOne</h2>
+      <StepOne />
+      <h2>GuessYearDoomsday</h2>
+      <GuessYearDoomsday />
+      <h2>GuessFullDateV1</h2>
+      <GuessFullDateV1 />
+      <h2>GuessFullDate</h2>
+      <GuessFullDate />
+      <h2>LongCalendar</h2>
+      <LongCalendar />
+      <h2>GuessOnlyDate</h2>
+      <GuessOnlyDate />
+    </div>
+  );
+};
+
 // I want to be able to feed it random dates OR feed it a list of previously incorrect guesses
 const Base = () => {
   return (
@@ -27,7 +48,8 @@ const Base = () => {
       <NavBar navItems={navLinks} />
       <div className='flex max-w-full flex-col items-center justify-start sm:w-1/2 md:max-w-[1240px]'>
         <Routes>
-          <Route path='/' index element={<GuessDateDoomsdayWithinYear />} />
+          <Route path='/' index element={<AllPages />} />
+          <Route path='/within' element={<GuessDateDoomsdayWithinYear />} />
           <Route path='/step1' element={<StepOne />} />
           <Route path='/year' element={<GuessYearDoomsday />} />
           <Route path='/full' element={<GuessFullDateV1 />} />

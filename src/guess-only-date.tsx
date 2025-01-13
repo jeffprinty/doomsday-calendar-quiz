@@ -6,11 +6,6 @@ import OffsetGuesser from './components/offset-guesser';
 
 const GuessOnlyDate = ({ auto }: { auto?: boolean }) => {
   const initRandomDateWithinYear = getRandomDateInYear(2025);
-  // const initRandomDateWithinYear = DateTime.fromObject({
-  //   year: 2025,
-  //   month: 4,
-  //   day: 4
-  // });
 
   const [guessingDate, setGuessingDate] = useState(initRandomDateWithinYear);
 
