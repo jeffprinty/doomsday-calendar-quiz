@@ -7,7 +7,7 @@ import Button from './components/button';
 import QuizResults from './components/quiz-results';
 import { GuessDisplay, YearStepHelperHorizontal } from './components/shared';
 import useAnswerHistory from './hooks/use-answer-history';
-import DayOfWeekGuesser from './modules/day-of-week-guesser';
+import { DayOfWeekGuesserSelfContained } from './modules/day-of-week-guesser';
 
 const GuessYearDoomsday = () => {
   const initYear = getRandomYear();
@@ -18,9 +18,6 @@ const GuessYearDoomsday = () => {
   const [guessingYear, setGuessingYear] = useState(initYear);
 
   const { lastAnswerCorrect, onAnswer, onNewQuestion, pastAnswers } = useAnswerHistory();
-
-  const [correctDay, setCorrectDay] = useState<Day>();
-  const [daySelected, setSelectedDay] = useState<Day>();
 
   const doomsdayOnYear = DateTime.fromObject({
     year: guessingYear,
@@ -33,16 +30,7 @@ const GuessYearDoomsday = () => {
   const getNewYear = () => {
     const randomYearAsInt = getRandomYear();
     setGuessingYear(randomYearAsInt);
-    setCorrectDay(undefined);
-    setSelectedDay(undefined);
     onNewQuestion();
-  };
-
-  const handleDayGuess = (guess: Day) => {
-    setSelectedDay(guess);
-    setCorrectDay(correctDoomsday);
-    const dayGuessedCorrectly = guess === correctDoomsday;
-    onAnswer(doomsdayOnYear, dayGuessedCorrectly);
   };
 
   return (
@@ -54,11 +42,12 @@ const GuessYearDoomsday = () => {
         guessTextClassName='text-6xl'
       />
       <YearStepHelperHorizontal key={guessingYear} />
-      <DayOfWeekGuesser
+      <DayOfWeekGuesserSelfContained
+        correctDay={correctDoomsday}
         key={`week_${guessingYear}`}
-        correctDay={correctDay}
-        daySelected={daySelected}
-        onDayClick={handleDayGuess}
+        onGuess={(answer, isCorrect) => {
+          onAnswer(doomsdayOnYear, isCorrect);
+        }}
       />
       <Button onClick={getNewYear} className='my-2 h-16 w-full'>
         Random Year

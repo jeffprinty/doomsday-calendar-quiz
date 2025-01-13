@@ -13,6 +13,7 @@ import StepOne from './step-1';
 
 const navLinks = [
   { to: '/doomsday-calendar-quiz/', text: 'home', end: true },
+  { to: '/doomsday-calendar-quiz/within', text: 'within' },
   { to: '/doomsday-calendar-quiz/year', text: 'year' },
   { to: '/doomsday-calendar-quiz/full', text: 'full' },
   { to: '/doomsday-calendar-quiz/progressive', text: 'progressive' },
