@@ -7,8 +7,7 @@ import Button from './components/button';
 import QuizResults from './components/quiz-results';
 import { GuessDisplay } from './components/shared';
 import useAnswerHistory from './hooks/use-answer-history';
-import useDayOfWeekGuesser from './hooks/use-day-of-week-guesser';
-import DayOfWeekGuesser from './modules/day-of-week-guesser';
+import { DayOfWeekGuesserSelfContained } from './modules/day-of-week-guesser';
 
 const GuessDateDoomsdayWithinYear = ({
   dateToGuess,
@@ -16,13 +15,12 @@ const GuessDateDoomsdayWithinYear = ({
   onIncorrectGuess,
   updateYear,
 }: {
-  dateToGuess?: DateTime;
+  dateToGuess: DateTime;
   getNextDate: () => DateTime;
   onIncorrectGuess: (dateGuessed: DateTime) => void;
   updateYear: (updatedYear: number) => void;
 }) => {
-  const { lastAnswerCorrect, onAnswer, onNewQuestion, pastAnswers } = useAnswerHistory();
-  const { correctDay, daySelected, onDayClick, onNewDayGuess } = useDayOfWeekGuesser();
+  const { lastAnswerCorrect, onAnswer, onNewQuestion, pastAnswers, startTime } = useAnswerHistory();
 
   const [enableDayClick, setEnableDayClick] = useState(true);
   const [showSettings, setShowSettings] = useState(false);
@@ -33,22 +31,7 @@ const GuessDateDoomsdayWithinYear = ({
     const randomDate = getNextDate();
     console.log('TODO, do I need this?', randomDate.toISO());
     setEnableDayClick(true);
-    onNewDayGuess();
     onNewQuestion();
-  };
-
-  const handleDayClick = (day: Day) => {
-    if (!dateToGuess) {
-      return;
-    }
-    const dayShortName = dateToGuess.toFormat('ccc') as Day;
-    onDayClick(day, dayShortName);
-    const correctDayGuessed = dayShortName === day;
-    onAnswer(dateToGuess, correctDayGuessed);
-    if (!correctDayGuessed) {
-      onIncorrectGuess(dateToGuess);
-    }
-    setEnableDayClick(false);
   };
 
   return (
@@ -71,10 +54,16 @@ const GuessDateDoomsdayWithinYear = ({
           </button>
         </div>
         <div id='quiz__actions'>
-          <DayOfWeekGuesser
-            correctDay={correctDay}
-            daySelected={daySelected}
-            onDayClick={handleDayClick}
+          <DayOfWeekGuesserSelfContained
+            correctDay={dateToGuess.toFormat('ccc') as Day}
+            key={`date_${startTime}`}
+            onGuess={(answer, isCorrect) => {
+              onAnswer(dateToGuess, isCorrect);
+              if (!isCorrect) {
+                onIncorrectGuess(dateToGuess);
+              }
+              setEnableDayClick(false);
+            }}
           />
           <div className='flex-row items-center justify-center p-2'>
             <Button
