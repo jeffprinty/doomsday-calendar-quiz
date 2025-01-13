@@ -39,9 +39,7 @@ const GuessDateDoomsdayWithinYear = ({
   onIncorrectGuess: (dateGuessed: DateTime) => void;
   updateYear: (updatedYear: number) => void;
 }) => {
-  const [lastAnswerCorrect, setLastAnswerCorrect] = useState<boolean | undefined>();
-  const [pastAnswers, setPastAnswers] = useState<Array<PastAnswer<DateTime>>>([]);
-  const [startTime, setStartTime] = useState<DateTime>(DateTime.now());
+  const { lastAnswerCorrect, onAnswer, onNewQuestion, pastAnswers } = useAnswerHistory();
 
   const [correctDay, setCorrectDay] = useState<Day>();
   const [daySelected, setDaySelected] = useState<Day>();
@@ -53,10 +51,9 @@ const GuessDateDoomsdayWithinYear = ({
   const generateRandomDate = () => {
     const randomDate = getNextDate();
     console.log('TODO, do I need this?', randomDate.toISO());
-    setStartTime(DateTime.now());
     setEnableDayClick(true);
     setCorrectDay(undefined);
-    setLastAnswerCorrect(undefined);
+    onNewQuestion();
   };
 
   const handleDayClick = (day: Day) => {
@@ -66,19 +63,9 @@ const GuessDateDoomsdayWithinYear = ({
     setDaySelected(day);
     const dayShortName = dateToGuess.toFormat('ccc') as Day;
     const correctDayGuessed = dayShortName === day;
-    setLastAnswerCorrect(correctDayGuessed);
+    onAnswer(dateToGuess, correctDayGuessed);
     if (!correctDayGuessed) {
       onIncorrectGuess(dateToGuess);
-    }
-    if (startTime) {
-      const interval = Interval.fromDateTimes(startTime, DateTime.now());
-      const intervalInSeconds = interval.length('seconds');
-      if (intervalInSeconds) {
-        setPastAnswers((previous) => [
-          ...previous,
-          [intervalInSeconds, correctDayGuessed, dateToGuess],
-        ]);
-      }
     }
     setEnableDayClick(false);
     setCorrectDay(dayShortName);
