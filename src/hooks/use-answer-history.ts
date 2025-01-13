@@ -22,7 +22,7 @@ const useAnswerHistory = () => {
       setPastAnswers((previous) => [...previous, [intervalInSeconds, answerCorrect, answerValue]]);
     }
   };
-  return { lastAnswerCorrect, onAnswer, onNewQuestion, pastAnswers };
+  return { lastAnswerCorrect, onAnswer, onNewQuestion, pastAnswers, startTime };
 };
 
 export default useAnswerHistory;

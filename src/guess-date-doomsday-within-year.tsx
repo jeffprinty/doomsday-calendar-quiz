@@ -1,32 +1,12 @@
 import React, { useState } from 'react';
 
-import { DateTime, Interval } from 'luxon';
+import { DateTime } from 'luxon';
 
-import { Day, getRandomDateInYear, guessDateFormat, PastAnswer } from './common';
+import { Day, getRandomDateInYear, guessDateFormat } from './common';
 import Button from './components/button';
 import QuizResults from './components/quiz-results';
 import { DayOfWeekGuesser, GuessDisplay } from './components/shared';
-
-const useAnswerHistory = () => {
-  const [lastAnswerCorrect, setLastAnswerCorrect] = useState<boolean | undefined>();
-  const [pastAnswers, setPastAnswers] = useState<Array<PastAnswer<DateTime>>>([]);
-  const [startTime, setStartTime] = useState<DateTime>(DateTime.now());
-  const onNewQuestion = () => {
-    setStartTime(DateTime.now());
-    setLastAnswerCorrect(undefined);
-  };
-  // TODO: Handle other kinds of answers
-  const onAnswer = (answerValue: DateTime, answerCorrect: boolean) => {
-    setLastAnswerCorrect(answerCorrect);
-
-    const interval = Interval.fromDateTimes(startTime, DateTime.now());
-    const intervalInSeconds = interval.length('seconds');
-    if (intervalInSeconds) {
-      setPastAnswers((previous) => [...previous, [intervalInSeconds, answerCorrect, answerValue]]);
-    }
-  };
-  return { lastAnswerCorrect, onAnswer, onNewQuestion, pastAnswers };
-};
+import useAnswerHistory from './hooks/use-answer-history';
 
 const GuessDateDoomsdayWithinYear = ({
   dateToGuess,
