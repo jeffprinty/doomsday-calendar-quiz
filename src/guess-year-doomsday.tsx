@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
 
-import { DateTime, Interval } from 'luxon';
+import { DateTime } from 'luxon';
 
-import { Day, getRandomYear, mnemonics, PastAnswer } from './common';
+import { Day, getRandomYear, mnemonics } from './common';
 import Button from './components/button';
 import QuizResults from './components/quiz-results';
 import { DayOfWeekGuesser, GuessDisplay, YearStepHelperHorizontal } from './components/shared';
+import useAnswerHistory from './hooks/use-answer-history';
 
 const GuessYearDoomsday = () => {
   const initYear = getRandomYear();
@@ -15,13 +16,10 @@ const GuessYearDoomsday = () => {
   // TODO: Allow set year
   const [guessingYear, setGuessingYear] = useState(initYear);
 
-  const [startTime, setStartTime] = useState<DateTime>(DateTime.now());
-  const [pastAnswers, setPastAnswers] = useState<Array<PastAnswer>>([]);
+  const { lastAnswerCorrect, onAnswer, onNewQuestion, pastAnswers } = useAnswerHistory();
 
   const [correctDay, setCorrectDay] = useState<Day>();
   const [daySelected, setSelectedDay] = useState<Day>();
-
-  const [lastAnswerCorrect, setLastAnswerCorrect] = useState<boolean | undefined>();
 
   const doomsdayOnYear = DateTime.fromObject({
     year: guessingYear,
@@ -33,29 +31,17 @@ const GuessYearDoomsday = () => {
 
   const getNewYear = () => {
     const randomYearAsInt = getRandomYear();
-    setLastAnswerCorrect(undefined);
     setGuessingYear(randomYearAsInt);
     setCorrectDay(undefined);
     setSelectedDay(undefined);
-    setStartTime(DateTime.now());
+    onNewQuestion();
   };
 
   const handleDayGuess = (guess: Day) => {
     setSelectedDay(guess);
     setCorrectDay(correctDoomsday);
     const dayGuessedCorrectly = guess === correctDoomsday;
-    setLastAnswerCorrect(dayGuessedCorrectly);
-
-    if (startTime) {
-      const interval = Interval.fromDateTimes(startTime, DateTime.now());
-      const intervalInSeconds = interval.length('seconds');
-      if (intervalInSeconds) {
-        setPastAnswers((previous) => [
-          ...previous,
-          [intervalInSeconds, dayGuessedCorrectly, doomsdayOnYear],
-        ]);
-      }
-    }
+    onAnswer(doomsdayOnYear, dayGuessedCorrectly);
   };
 
   return (
