@@ -9,7 +9,7 @@ import QuizResults from './components/quiz-results';
 import { GuessDisplay, GuesserStep } from './components/shared';
 import YearGuessingHelper from './components/year-guessing-helper';
 import useAnswerHistory from './hooks/use-answer-history';
-import DayOfWeekGuesser from './modules/day-of-week-guesser';
+import { DayOfWeekGuesserSelfContained } from './modules/day-of-week-guesser';
 
 const GuessFullDate = () => {
   const initYear = getRandomYear();
@@ -28,13 +28,9 @@ const GuessFullDate = () => {
 
   const nextStep = () => setCurrentStep((previous) => previous + 1);
 
-  const [correctDoomsdayForYear, setCorrectDoomsdayForYear] = useState<Day>();
-  const [selectedDoomsdayForYear, setSelectedDoomsdayForYear] = useState<Day>();
-
-  const [correctWeekdayForDate, setCorrectWeekdayForDate] = useState<Day>();
-  const [selectedWeekdayForDate, setSelectedWeekdayForDate] = useState<Day>();
-
   const [showAllAnswers, setShowAllAnswers] = useState(false);
+  const [yearDoomsdayGuessed, setYearDoomsdayGuessed] = useState(false);
+  const [dateWeekdayGuessed, setDateWeekdayGuessed] = useState(false);
 
   const doomsdayOnYear = DateTime.fromObject({
     year: guessingDate.get('year'),
@@ -50,33 +46,14 @@ const GuessFullDate = () => {
     setGuessingDate(randomDateWithinYear);
     onNewQuestion();
 
-    setCorrectDoomsdayForYear(undefined);
-    setSelectedDoomsdayForYear(undefined);
-
-    setCorrectWeekdayForDate(undefined);
-    setSelectedWeekdayForDate(undefined);
-
+    setYearDoomsdayGuessed(false);
+    setDateWeekdayGuessed(false);
     setShowYearHints(false);
     setShowAllAnswers(false);
     setCurrentStep(0);
   };
 
-  const handleYearDoomsdayGuess = (guess: Day) => {
-    setSelectedDoomsdayForYear(guess);
-    setCorrectDoomsdayForYear(correctDoomsday);
-    setShowAllAnswers(true);
-    nextStep();
-  };
-
-  const handleDateWeekdayGuess = (guess: Day) => {
-    const correctWeekdayForDate = guessingDate.toFormat('ccc') as Day;
-    setCorrectWeekdayForDate(correctWeekdayForDate);
-
-    const dayWeekdayGuessedCorrectly = guess === correctWeekdayForDate;
-
-    onAnswer(doomsdayOnYear, dayWeekdayGuessedCorrectly);
-    setShowAllAnswers(true);
-  };
+  const correctWeekdayForDate = guessingDate.toFormat('ccc') as Day;
 
   return (
     <div id='page__guess-full-date' className='w-full'>
@@ -121,25 +98,33 @@ const GuessFullDate = () => {
             </button>
             )
           </div>
-          <span>beef</span>
-          <DayOfWeekGuesser
+          <DayOfWeekGuesserSelfContained
+            correctDay={correctDoomsday}
+            disabled={yearDoomsdayGuessed}
             key={`year_${startTime}`}
-            correctDay={correctDoomsdayForYear}
-            daySelected={selectedDoomsdayForYear}
-            onDayClick={handleYearDoomsdayGuess}
-            disabled={selectedDoomsdayForYear !== undefined}
+            onGuess={() => {
+              setShowAllAnswers(true);
+              setYearDoomsdayGuessed(true);
+              nextStep();
+            }}
           />
         </div>
       </GuesserStep>
       <GuesserStep show={currentStep > 1}>
         <div id='guess-weekday-for-date'>
           <div className='text-center'>Doomsday for Date</div>
-          <DayOfWeekGuesser
-            key={`date_${startTime}`}
+          <DayOfWeekGuesserSelfContained
             correctDay={correctWeekdayForDate}
-            daySelected={selectedWeekdayForDate}
-            onDayClick={handleDateWeekdayGuess}
-            disabled={selectedDoomsdayForYear === undefined}
+            disabled={dateWeekdayGuessed}
+            key={`date_${startTime}`}
+            onGuess={(answer, isCorrect) => {
+              console.log('answer', answer);
+              setShowAllAnswers(true);
+              setDateWeekdayGuessed(true);
+              // TODO: handle string answer
+              onAnswer(doomsdayOnYear, isCorrect);
+              nextStep();
+            }}
           />
         </div>
       </GuesserStep>

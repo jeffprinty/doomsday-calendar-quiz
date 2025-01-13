@@ -23,12 +23,11 @@ const GuessFullDateV1 = () => {
 
   const { lastAnswerCorrect, onAnswer, onNewQuestion, pastAnswers, startTime } = useAnswerHistory();
 
-  const [selectedDoomsdayForYear, setSelectedDoomsdayForYear] = useState<Day>();
-
   const [correctWeekdayForDate, setCorrectWeekdayForDate] = useState<Day>();
   const [selectedWeekdayForDate, setSelectedWeekdayForDate] = useState<Day>();
 
   const [showAllAnswers, setShowAllAnswers] = useState(false);
+  const [yearDoomsdayGuessed, setYearDoomsdayGuessed] = useState(false);
 
   const doomsdayOnYear = DateTime.fromObject({
     year: guessingDate.get('year'),
@@ -44,13 +43,13 @@ const GuessFullDateV1 = () => {
     setGuessingDate(randomDateWithinYear);
     onNewQuestion();
 
-    setSelectedDoomsdayForYear(undefined);
-
     setCorrectWeekdayForDate(undefined);
     setSelectedWeekdayForDate(undefined);
 
     setShowYearHints(false);
     setShowAllAnswers(false);
+
+    setYearDoomsdayGuessed(false);
   };
 
   const handleDateWeekdayGuess = (guess: Day) => {
@@ -96,6 +95,7 @@ const GuessFullDateV1 = () => {
           key={`year_${startTime}`}
           onGuess={() => {
             setShowAllAnswers(true);
+            setYearDoomsdayGuessed(true);
           }}
         />
         {/*
@@ -115,7 +115,7 @@ const GuessFullDateV1 = () => {
           correctDay={correctWeekdayForDate}
           daySelected={selectedWeekdayForDate}
           onDayClick={handleDateWeekdayGuess}
-          disabled={selectedDoomsdayForYear === undefined}
+          disabled={!yearDoomsdayGuessed}
         />
       </div>
       <Button onClick={getNewGuess} className='my-2 h-16 w-full'>

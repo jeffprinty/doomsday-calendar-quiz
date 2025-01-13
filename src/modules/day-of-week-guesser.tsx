@@ -44,7 +44,7 @@ const DayOfWeekGuesser = ({
   return (
     <div className='grid w-full grid-cols-7 pt-6'>
       {daysOfWeek.map((day: Day) => {
-        const thisDayIsCorrect = correctDay === day;
+        const thisDayIsCorrect = daySelected !== undefined && correctDay === day;
         const thisDayWasSelected = daySelected === day;
         const incorrectSelection = daySelected !== correctDay;
         return (
