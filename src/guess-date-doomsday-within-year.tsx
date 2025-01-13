@@ -8,6 +8,19 @@ import QuizResults from './components/quiz-results';
 import { DayOfWeekGuesser, GuessDisplay } from './components/shared';
 import useAnswerHistory from './hooks/use-answer-history';
 
+const useDayOfWeekGuesser = () => {
+  const [correctDay, setCorrectDay] = useState<Day>();
+  const [daySelected, setDaySelected] = useState<Day>();
+  const onNewDayGuess = () => {
+    setCorrectDay(undefined);
+  };
+  const onDayClick = (clickedDay: Day, correctDay: Day) => {
+    setDaySelected(clickedDay);
+    setCorrectDay(correctDay);
+  };
+  return { correctDay, daySelected, onDayClick, onNewDayGuess };
+};
+
 const GuessDateDoomsdayWithinYear = ({
   dateToGuess,
   getNextDate,
@@ -20,9 +33,8 @@ const GuessDateDoomsdayWithinYear = ({
   updateYear: (updatedYear: number) => void;
 }) => {
   const { lastAnswerCorrect, onAnswer, onNewQuestion, pastAnswers } = useAnswerHistory();
+  const { correctDay, daySelected, onDayClick, onNewDayGuess } = useDayOfWeekGuesser();
 
-  const [correctDay, setCorrectDay] = useState<Day>();
-  const [daySelected, setDaySelected] = useState<Day>();
   const [enableDayClick, setEnableDayClick] = useState(true);
   const [showSettings, setShowSettings] = useState(false);
 
@@ -32,7 +44,7 @@ const GuessDateDoomsdayWithinYear = ({
     const randomDate = getNextDate();
     console.log('TODO, do I need this?', randomDate.toISO());
     setEnableDayClick(true);
-    setCorrectDay(undefined);
+    onNewDayGuess();
     onNewQuestion();
   };
 
@@ -40,15 +52,14 @@ const GuessDateDoomsdayWithinYear = ({
     if (!dateToGuess) {
       return;
     }
-    setDaySelected(day);
     const dayShortName = dateToGuess.toFormat('ccc') as Day;
+    onDayClick(day, dayShortName);
     const correctDayGuessed = dayShortName === day;
     onAnswer(dateToGuess, correctDayGuessed);
     if (!correctDayGuessed) {
       onIncorrectGuess(dateToGuess);
     }
     setEnableDayClick(false);
-    setCorrectDay(dayShortName);
   };
 
   return (
