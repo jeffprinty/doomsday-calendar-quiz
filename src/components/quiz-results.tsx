@@ -1,6 +1,7 @@
 import React from 'react';
 
 import clsx from 'clsx';
+import { DateTime } from 'luxon';
 import { PieChart } from 'react-minimal-pie-chart';
 
 import { correctColor, guessDateFormat, incorrectColor, PastAnswer } from '../common';
@@ -10,7 +11,7 @@ const QuizResults = ({
   currentGuess,
   dateFormat = 'MMM dd, yy',
 }: {
-  answers: Array<PastAnswer>;
+  answers: Array<PastAnswer<DateTime>>;
   currentGuess: string;
   dateFormat?: string;
 }) => {
