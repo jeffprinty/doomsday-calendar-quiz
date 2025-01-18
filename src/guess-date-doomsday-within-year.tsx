@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 
+import clsx from 'clsx';
 import { DateTime } from 'luxon';
+import { MdBolt } from 'react-icons/md';
 
 import { Day, getRandomDateInYear, guessDateFormat } from './common';
 import Button from './components/button';
@@ -24,6 +26,7 @@ const GuessDateDoomsdayWithinYear = ({
 
   const [enableDayClick, setEnableDayClick] = useState(true);
   const [showSettings, setShowSettings] = useState(false);
+  const [autoNext, setAutoNext] = useState(false);
 
   const dateStringToGuess = dateToGuess?.toFormat(guessDateFormat) || '';
 
@@ -32,6 +35,19 @@ const GuessDateDoomsdayWithinYear = ({
     console.log('TODO, do I need this?', randomDate.toISO());
     setEnableDayClick(true);
     onNewQuestion();
+  };
+
+  const handleGuess = (answer: Day, isCorrect: boolean) => {
+    onAnswer(dateToGuess, isCorrect);
+    if (!isCorrect) {
+      onIncorrectGuess(dateToGuess);
+    }
+    setEnableDayClick(false);
+    if (autoNext) {
+      setTimeout(() => {
+        generateRandomDate();
+      }, 1000);
+    }
   };
 
   return (
@@ -46,32 +62,38 @@ const GuessDateDoomsdayWithinYear = ({
             guessText={dateStringToGuess}
             guessedCorrectly={lastAnswerCorrect}
           />
+          {autoNext && (
+            <div className='absolute right-2 top-2'>
+              <MdBolt className='h-6 w-6' />
+            </div>
+          )}
           <button
-            className='absolute bottom-2 right-2'
+            className='absolute bottom-2 right-2 hidden'
             onClick={() => setShowSettings(!showSettings)}
           >
             Cog
           </button>
         </div>
-        <div id='quiz__actions'>
+        <div className='pt-3' id='quiz__actions'>
           <DayOfWeekGuesserSelfContained
             correctDay={dateToGuess.toFormat('ccc') as Day}
             key={`date_${startTime}`}
-            onGuess={(answer, isCorrect) => {
-              onAnswer(dateToGuess, isCorrect);
-              if (!isCorrect) {
-                onIncorrectGuess(dateToGuess);
-              }
-              setEnableDayClick(false);
-            }}
+            onGuess={handleGuess}
           />
-          <div className='flex-row items-center justify-center p-2'>
+          <div className='row grid grid-cols-3 flex-row items-center justify-center gap-3 p-2'>
             <Button
-              className='my-2 h-16 w-full'
+              className='col-span-2 my-2 h-16 w-full px-1'
               disabled={enableDayClick}
               onClick={generateRandomDate}
             >
               New Date
+            </Button>
+            <Button
+              className={clsx('col-span-1 my-2 h-16 w-full')}
+              onClick={() => setAutoNext(!autoNext)}
+              selected={autoNext}
+            >
+              Auto
             </Button>
           </div>
         </div>

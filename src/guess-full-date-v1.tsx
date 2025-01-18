@@ -8,7 +8,7 @@ import QuizResults from './components/quiz-results';
 import { GuessDisplay } from './components/shared';
 import YearGuessingHelper from './components/year-guessing-helper';
 import useAnswerHistory from './hooks/use-answer-history';
-import DayOfWeekGuesser, { DayOfWeekGuesserSelfContained } from './modules/day-of-week-guesser';
+import { DayOfWeekGuesserSelfContained } from './modules/day-of-week-guesser';
 
 const GuessFullDateV1 = () => {
   const initYear = getRandomYear();
@@ -23,11 +23,10 @@ const GuessFullDateV1 = () => {
 
   const { lastAnswerCorrect, onAnswer, onNewQuestion, pastAnswers, startTime } = useAnswerHistory();
 
-  const [correctWeekdayForDate, setCorrectWeekdayForDate] = useState<Day>();
-  const [selectedWeekdayForDate, setSelectedWeekdayForDate] = useState<Day>();
-
-  const [showAllAnswers, setShowAllAnswers] = useState(false);
+  const [showAllYearAnswers, setShowAllYearAnswers] = useState(false);
   const [yearDoomsdayGuessed, setYearDoomsdayGuessed] = useState(false);
+  const [weekdayGuessed, setWeekdayGuessed] = useState(false);
+  console.log('weekdayGuessed', weekdayGuessed);
 
   const doomsdayOnYear = DateTime.fromObject({
     year: guessingDate.get('year'),
@@ -36,6 +35,7 @@ const GuessFullDateV1 = () => {
   });
 
   const correctDoomsday = doomsdayOnYear.toFormat('ccc') as Day;
+  const correctWeekday = guessingDate.toFormat('ccc') as Day;
 
   const getNewGuess = () => {
     const randomYearAsInt = getRandomYear();
@@ -43,22 +43,11 @@ const GuessFullDateV1 = () => {
     setGuessingDate(randomDateWithinYear);
     onNewQuestion();
 
-    setCorrectWeekdayForDate(undefined);
-    setSelectedWeekdayForDate(undefined);
-
     setShowYearHints(false);
-    setShowAllAnswers(false);
+    setShowAllYearAnswers(false);
 
     setYearDoomsdayGuessed(false);
-  };
-
-  const handleDateWeekdayGuess = (guess: Day) => {
-    const correctWeekdayForDate = guessingDate.toFormat('ccc') as Day;
-    setCorrectWeekdayForDate(correctWeekdayForDate);
-
-    const dayWeekdayGuessedCorrectly = guess === correctWeekdayForDate;
-    onAnswer(doomsdayOnYear, dayWeekdayGuessedCorrectly);
-    setShowAllAnswers(true);
+    setWeekdayGuessed(false);
   };
 
   return (
@@ -78,7 +67,7 @@ const GuessFullDateV1 = () => {
         <YearGuessingHelper
           key={`hints_${guessingYear}`}
           year={guessingYear}
-          showAnswers={showAllAnswers}
+          showAnswers={showAllYearAnswers}
         />
         <div className='text-center'>
           <span>Doomsday for Year</span>&nbsp; (
@@ -92,30 +81,25 @@ const GuessFullDateV1 = () => {
         </div>
         <DayOfWeekGuesserSelfContained
           correctDay={correctDoomsday}
+          disabled={yearDoomsdayGuessed}
           key={`year_${startTime}`}
           onGuess={() => {
-            setShowAllAnswers(true);
+            setShowAllYearAnswers(true);
             setYearDoomsdayGuessed(true);
           }}
         />
-        {/*
-        <DayOfWeekGuesser
-          key={`year_${startTime}`}
-          correctDay={correctDoomsdayForYear}
-          daySelected={selectedDoomsdayForYear}
-          onDayClick={handleYearDoomsdayGuess}
-          disabled={selectedDoomsdayForYear !== undefined}
-        />
-        */}
       </div>
       <div id='guess-weekday-for-date'>
         <div className='text-center'>Doomsday for Date</div>
-        <DayOfWeekGuesser
+        <DayOfWeekGuesserSelfContained
+          correctDay={correctWeekday}
+          disabled={!yearDoomsdayGuessed || weekdayGuessed}
           key={`date_${startTime}`}
-          correctDay={correctWeekdayForDate}
-          daySelected={selectedWeekdayForDate}
-          onDayClick={handleDateWeekdayGuess}
-          disabled={!yearDoomsdayGuessed}
+          onGuess={(guessedDay) => {
+            const dayWeekdayGuessedCorrectly = guessedDay === correctWeekday;
+            onAnswer(doomsdayOnYear, dayWeekdayGuessedCorrectly);
+            setWeekdayGuessed(true);
+          }}
         />
       </div>
       <Button onClick={getNewGuess} className='my-2 h-16 w-full'>

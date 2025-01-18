@@ -52,7 +52,7 @@ const DayOfWeekGuesser = ({
             className={clsx([
               'quiz__day-of-week mx-1 h-24 px-1 text-center',
               incorrectSelection && thisDayWasSelected && 'disabled:bg-red-900',
-              thisDayIsCorrect && 'active:text-black disabled:bg-green-600 disabled:text-black',
+              thisDayIsCorrect && 'active:text-black disabled:bg-green-600 disabled:text-white',
             ])}
             data-correct-day={thisDayIsCorrect}
             disabled={disabled}
