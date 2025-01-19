@@ -54,7 +54,7 @@ export const GuessDisplay = ({
       id='quiz__year-to-guess'
       className={clsx([
         className,
-        'my-4 flex w-full flex-col items-center justify-center pb-6 pt-4 text-center',
+        'flex w-full flex-col items-center justify-center pb-6 pt-4 text-center',
         guessedCorrectly === undefined && 'bg-gray-600',
         guessedCorrectly === true && correctColor,
         guessedCorrectly === false && incorrectColor,

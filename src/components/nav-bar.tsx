@@ -33,7 +33,7 @@ const NavBar = ({ navItems }: { navItems: Array<NavItem> }) => {
 
   return (
     <div className='mx-auto flex h-20 w-full items-center justify-between bg-black px-4 text-white'>
-      <h1 className='w-full text-3xl font-bold text-[#00df9a]'>{menuTitle}</h1>
+      <h1 className='w-full py-3 text-2xl font-bold text-[#00df9a]'>{menuTitle}</h1>
 
       {/* Desktop Navigation */}
       <ul className='hidden md:flex'>

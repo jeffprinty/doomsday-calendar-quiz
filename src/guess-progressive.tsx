@@ -58,6 +58,7 @@ const GuessFullDate = () => {
   return (
     <div id='page__guess-full-date' className='w-full'>
       <GuessDisplay
+        className='mb-4'
         questionText={lastAnswerCorrect ? 'Correct! The doomsday for' : 'What is the doomsday for:'}
         guessText={guessingDate.toFormat(guessDateFormat)}
         guessedCorrectly={lastAnswerCorrect}
@@ -78,6 +79,7 @@ const GuessFullDate = () => {
       <GuesserStep show={currentStep > 0}>
         <div id='guess-doomsday-for-year'>
           <GuessDisplay
+            className='mb-4'
             questionText='Now we get the doomsday for the year:'
             guessText={guessingDate.toFormat('yyyy')}
             guessedCorrectly={lastAnswerCorrect}

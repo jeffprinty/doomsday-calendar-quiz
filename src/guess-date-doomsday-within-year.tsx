@@ -27,6 +27,7 @@ const GuessDateDoomsdayWithinYear = ({
   const [enableDayClick, setEnableDayClick] = useState(true);
   const [showSettings, setShowSettings] = useState(false);
   const [autoNext, setAutoNext] = useState(false);
+  const [nextGuessIncoming, setNextGuessIncoming] = useState(false);
 
   const dateStringToGuess = dateToGuess?.toFormat(guessDateFormat) || '';
 
@@ -34,6 +35,7 @@ const GuessDateDoomsdayWithinYear = ({
     const randomDate = getNextDate();
     console.log('TODO, do I need this?', randomDate.toISO());
     setEnableDayClick(true);
+    setNextGuessIncoming(false);
     onNewQuestion();
   };
 
@@ -44,6 +46,7 @@ const GuessDateDoomsdayWithinYear = ({
     }
     setEnableDayClick(false);
     if (autoNext) {
+      setNextGuessIncoming(true);
       setTimeout(() => {
         generateRandomDate();
       }, 1000);
@@ -51,29 +54,41 @@ const GuessDateDoomsdayWithinYear = ({
   };
 
   return (
-    <div id='page__guess-date-within-year'>
-      <div id='quiz__top-bit'>
+    <div
+      className='md:min-h-1/2 flex h-dvh min-h-dvh flex-col justify-between md:h-1/2'
+      id='page__guess-date-within-year'
+    >
+      <div className='' id='quiz__top-bit'>
         <QuizResults answers={pastAnswers} currentGuess={dateStringToGuess} />
-      </div>
-      <div id='quiz__bottom-bit' className=''>
         <div className='relative'>
           <GuessDisplay
+            explainIncorrect={`is on ${dateToGuess.toFormat('cccc')}`}
             questionText='What day of the week is:'
             guessText={dateStringToGuess}
             guessedCorrectly={lastAnswerCorrect}
           />
           {autoNext && (
-            <div className='absolute right-2 top-2'>
+            <div
+              className={clsx(
+                'absolute right-2 top-2',
+                autoNext && nextGuessIncoming && 'animate-spin duration-150'
+              )}
+            >
               <MdBolt className='h-6 w-6' />
             </div>
           )}
           <button
-            className='absolute bottom-2 right-2 hidden'
+            className='absolute bottom-2 right-2'
             onClick={() => setShowSettings(!showSettings)}
           >
             Cog
           </button>
         </div>
+        {showSettings && (
+          <YearInput onSubmit={updateYear} initYear={Number(dateToGuess?.toFormat('yyyy'))} />
+        )}
+      </div>
+      <div id='quiz__bottom-bit' className='h-72'>
         <div className='pt-3' id='quiz__actions'>
           <DayOfWeekGuesserSelfContained
             correctDay={dateToGuess.toFormat('ccc') as Day}
@@ -97,9 +112,6 @@ const GuessDateDoomsdayWithinYear = ({
             </Button>
           </div>
         </div>
-        {showSettings && (
-          <YearInput onSubmit={updateYear} initYear={Number(dateToGuess?.toFormat('yyyy'))} />
-        )}
       </div>
     </div>
   );

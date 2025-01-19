@@ -4,7 +4,7 @@ import clsx from 'clsx';
 import { DateTime } from 'luxon';
 import { PieChart } from 'react-minimal-pie-chart';
 
-import { correctColor, guessDateFormat, incorrectColor, PastAnswer } from '../common';
+import { colors, correctColor, guessDateFormat, incorrectColor, PastAnswer } from '../common';
 
 const QuizResults = ({
   answers,
@@ -20,22 +20,24 @@ const QuizResults = ({
   return (
     <div
       id='quiz-results'
-      className='grid h-48 w-full grid-cols-2 flex-row items-start justify-between bg-indigo-800 bg-opacity-40'
+      className='grid h-32 max-h-32 w-full grid-cols-2 flex-row items-start justify-between bg-indigo-800 bg-opacity-40'
     >
-      <div className='flex h-48 flex-col items-center justify-center px-8'>
+      <div className='w-18 flex h-32 max-h-32 flex-col items-center justify-center overflow-hidden p-3'>
         <PieChart
           label={({ dataEntry }) => `${Math.round(dataEntry.percentage)}%`}
+          labelStyle={{ fill: '#FFFFFF' }}
+          background='#1C1A37'
           data={[
             {
               title: 'Correct',
               value: correctValue,
-              color: 'rgb(22 163 74/var(--tw-bg-opacity,1))',
+              color: colors.correctGreen,
             },
-            { title: 'Incorrect', value: incorrectValue, color: '#C13C37' },
+            { title: 'Incorrect', value: incorrectValue, color: colors.incorrectRed },
           ]}
         />
       </div>
-      <div className='flex h-48 flex-col justify-start overflow-y-auto'>
+      <div className='flex h-32 max-h-32 flex-col justify-start overflow-y-auto'>
         <ul className='w-full'>
           {[...answers].reverse().map(([timeInSeconds, isCorrect, dateGuessed]) => (
             <li

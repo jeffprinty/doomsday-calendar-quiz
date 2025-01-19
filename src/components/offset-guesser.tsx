@@ -51,7 +51,7 @@ export const OffsetGuesser = ({
   return (
     <div id='offset-guesser'>
       <GuessDisplay
-        className={clsx(indicate && 'animate-pulse')}
+        className={clsx(indicate && 'animate-pulse', 'mb-4')}
         questionText={answerIsCorrect ? 'Correct! The offset for' : 'What is the day offset for:'}
         guessText={guessingDate.toFormat('MMMM dd')}
         guessedCorrectly={answerIsCorrect}

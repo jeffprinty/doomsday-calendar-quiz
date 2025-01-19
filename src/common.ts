@@ -24,6 +24,11 @@ export const anchorDays = {
   '21': 0,
 };
 
+export const colors = {
+  correctGreen: '#16A34A', // bg-green-600
+  incorrectRed: '#991B1B', // bg-red-800
+};
+
 export const getAnchorDayForCentury = (century: AnchorDayCentury) => {
   return anchorDays[century];
 };

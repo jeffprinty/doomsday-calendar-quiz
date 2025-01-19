@@ -5,9 +5,9 @@ import { Route, Routes } from 'react-router-dom';
 import LongCalendar from './components/long-calendar';
 import NavBar from './components/nav-bar';
 import GuessDateDoomsdayWithinYear from './guess-date-doomsday-within-year';
-import GuessFullDate from './guess-full-date';
 import GuessFullDateV1 from './guess-full-date-v1';
 import GuessOnlyDate from './guess-only-date';
+import GuessProgressive from './guess-progressive';
 import GuessYearDoomsday from './guess-year-doomsday';
 import StepOne from './step-1';
 
@@ -32,8 +32,8 @@ const AllPages = () => {
       <GuessYearDoomsday />
       <h2>GuessFullDateV1</h2>
       <GuessFullDateV1 />
-      <h2>GuessFullDate</h2>
-      <GuessFullDate />
+      <h2>GuessProgressive</h2>
+      <GuessProgressive />
       <h2>LongCalendar</h2>
       <LongCalendar />
       <h2>GuessOnlyDate</h2>
@@ -54,7 +54,7 @@ const Base = () => {
           <Route path='/step1' element={<StepOne />} />
           <Route path='/year' element={<GuessYearDoomsday />} />
           <Route path='/full' element={<GuessFullDateV1 />} />
-          <Route path='/progressive' element={<GuessFullDate />} />
+          <Route path='/progressive' element={<GuessProgressive />} />
           <Route path='/info/long' element={<LongCalendar />} />
           <Route path='/date-offset' element={<GuessOnlyDate />} />
         </Routes>
