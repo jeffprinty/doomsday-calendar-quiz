@@ -121,7 +121,7 @@ const StepOne = () => {
           </table>
         </StepDisplay>
         <StepDisplay>
-          <GuessOnlyDate auto />
+          <GuessOnlyDate />
         </StepDisplay>
         <StepDisplay>
           <MonthDoomsdayCalendar />

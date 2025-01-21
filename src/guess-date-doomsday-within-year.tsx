@@ -2,12 +2,11 @@ import React, { useState } from 'react';
 
 import clsx from 'clsx';
 import { DateTime } from 'luxon';
-import { MdBolt } from 'react-icons/md';
+import { MdBolt, MdSettings } from 'react-icons/md';
 
 import { Day, getRandomDateInYear, guessDateFormat } from './common';
-import Button from './components/button';
 import QuizResults from './components/quiz-results';
-import { GuessDisplay } from './components/shared';
+import { GuessActions, GuessDisplay } from './components/shared';
 import useAnswerHistory from './hooks/use-answer-history';
 import { DayOfWeekGuesserSelfContained } from './modules/day-of-week-guesser';
 
@@ -55,7 +54,7 @@ const GuessDateDoomsdayWithinYear = ({
 
   return (
     <div
-      className='md:min-h-1/2 flex h-dvh min-h-dvh flex-col justify-between md:h-1/2'
+      className='md:min-h-1/2 flex h-dvh min-h-dvh flex-col justify-between md:h-1/2 md:justify-start'
       id='page__guess-date-within-year'
     >
       <div className='' id='quiz__top-bit'>
@@ -71,17 +70,17 @@ const GuessDateDoomsdayWithinYear = ({
             <div
               className={clsx(
                 'absolute right-2 top-2',
-                autoNext && nextGuessIncoming && 'animate-spin duration-150'
+                autoNext && nextGuessIncoming && 'animate-spin'
               )}
             >
               <MdBolt className='h-6 w-6' />
             </div>
           )}
           <button
-            className='absolute bottom-2 right-2'
+            className={clsx('absolute bottom-2 right-2', showSettings && 'text-indigo-300')}
             onClick={() => setShowSettings(!showSettings)}
           >
-            Cog
+            <MdSettings />
           </button>
         </div>
         {showSettings && (
@@ -95,22 +94,12 @@ const GuessDateDoomsdayWithinYear = ({
             key={`date_${startTime}`}
             onGuess={handleGuess}
           />
-          <div className='row grid grid-cols-3 flex-row items-center justify-center gap-3 p-2'>
-            <Button
-              className='col-span-2 my-2 h-16 w-full px-1'
-              disabled={enableDayClick}
-              onClick={generateRandomDate}
-            >
-              New Date
-            </Button>
-            <Button
-              className={clsx('col-span-1 my-2 h-16 w-full')}
-              onClick={() => setAutoNext(!autoNext)}
-              selected={autoNext}
-            >
-              Auto
-            </Button>
-          </div>
+          <GuessActions
+            disabled={enableDayClick}
+            onClick={generateRandomDate}
+            selected={autoNext}
+            toggleSelected={() => setAutoNext(!autoNext)}
+          />
         </div>
       </div>
     </div>

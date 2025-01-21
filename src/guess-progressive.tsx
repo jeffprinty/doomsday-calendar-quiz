@@ -69,15 +69,15 @@ const GuessFullDate = () => {
           </>
         }
       />
-      <GuesserStep>
+      <GuesserStep description='Guess the day offset for the date.'>
         <OffsetGuesser
           guessingDate={guessingDate}
           key={`offset-guesser__${guessingYear}`}
           onAnswer={() => nextStep()}
         />
       </GuesserStep>
-      <GuesserStep show={currentStep > 0}>
-        <div id='guess-doomsday-for-year'>
+      <GuesserStep show={currentStep > 0} description='Figure out the doomsday for the year'>
+        <div id='guess-doomsday-for-year' className='mt-4'>
           <GuessDisplay
             className='mb-4'
             questionText='Now we get the doomsday for the year:'
@@ -112,7 +112,7 @@ const GuessFullDate = () => {
           />
         </div>
       </GuesserStep>
-      <GuesserStep show={currentStep > 1}>
+      <GuesserStep show={currentStep > 1} description='Guess the doomsday for the full date.'>
         <div id='guess-weekday-for-date'>
           <div className='text-center'>Doomsday for Date</div>
           <DayOfWeekGuesserSelfContained

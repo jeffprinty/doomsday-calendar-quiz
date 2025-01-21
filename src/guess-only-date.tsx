@@ -1,24 +1,25 @@
 import React, { useState } from 'react';
 
 import { getRandomDateInYear } from './common';
-import Button from './components/button';
 import OffsetGuesser from './components/offset-guesser';
+import { GuessActions } from './components/shared';
 
-const GuessOnlyDate = ({ auto }: { auto?: boolean }) => {
+const GuessOnlyDate = () => {
   const initRandomDateWithinYear = getRandomDateInYear(2025);
 
   const [guessingDate, setGuessingDate] = useState(initRandomDateWithinYear);
 
+  const [autoNext, setAutoNext] = useState(false);
+  const [nextGuessIncoming, setNextGuessIncoming] = useState(false);
   // const [startTime, setStartTime] = useState<DateTime>(DateTime.now());
 
   const [lastAnswerCorrect, setLastAnswerCorrect] = useState<boolean | undefined>();
-  const [selected, setSelected] = useState<boolean>(false);
   console.log('lastAnswerCorrect', lastAnswerCorrect);
 
   const handleAnswer = (isCorrect: boolean) => {
     setLastAnswerCorrect(isCorrect);
-    setSelected(true);
-    if (auto) {
+    if (autoNext) {
+      setNextGuessIncoming(true);
       setTimeout(() => {
         getNewGuess();
       }, 1000);
@@ -28,20 +29,23 @@ const GuessOnlyDate = ({ auto }: { auto?: boolean }) => {
   const getNewGuess = () => {
     setGuessingDate(getRandomDateInYear(2025));
     setLastAnswerCorrect(undefined);
-    setSelected(false);
+    setNextGuessIncoming(false);
   };
 
   return (
     <div id='page__guess-only-date' className='w-full'>
       <OffsetGuesser
-        indicate={auto && selected}
+        indicate={nextGuessIncoming}
         onAnswer={handleAnswer}
         guessingDate={guessingDate}
         key={guessingDate.toISO()}
       />
-      <Button onClick={getNewGuess} className='my-2 h-16 w-full'>
-        Random Date
-      </Button>
+      <GuessActions
+        btnLabel='Random Date'
+        onClick={getNewGuess}
+        selected={autoNext}
+        toggleSelected={() => setAutoNext(!autoNext)}
+      />
     </div>
   );
 };

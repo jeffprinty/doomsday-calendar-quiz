@@ -17,16 +17,23 @@ export const PageContainer = ({ children, id }: { children: React.ReactNode; id:
 };
 
 export const GuesserStep = ({
-  show = true,
   children,
+  description,
+  show = true,
 }: {
-  show?: boolean;
   children: React.ReactNode;
+  description?: string | React.ReactNode;
+  show?: boolean;
 }) => {
   if (!show) {
     return <></>;
   }
-  return <>{children}</>;
+  return (
+    <>
+      {!!description && <span className='hidden'>{description}</span>}
+      {children}
+    </>
+  );
 };
 
 export const GuessDisplay = ({
@@ -169,5 +176,41 @@ export function GuesserButton({
     >
       {children}
     </Button>
+  );
+}
+
+export function GuessActions({
+  btnLabel,
+  className,
+  disabled,
+  onClick,
+  toggleSelected,
+  selected,
+}: {
+  btnLabel?: string | React.ReactNode;
+  className?: string;
+  disabled?: boolean;
+  onClick: () => void;
+  toggleSelected: (selected: boolean) => void;
+  selected: boolean;
+}) {
+  return (
+    <div
+      className={clsx(
+        'row grid grid-cols-3 flex-row items-center justify-center gap-3 pt-2',
+        className
+      )}
+    >
+      <Button
+        className={clsx('col-span-1 my-2 h-16 w-full')}
+        onClick={() => toggleSelected(!selected)}
+        selected={selected}
+      >
+        Auto
+      </Button>
+      <Button className='col-span-2 my-2 h-16 w-full px-1' disabled={disabled} onClick={onClick}>
+        {btnLabel || <>New Date</>}
+      </Button>
+    </div>
   );
 }
