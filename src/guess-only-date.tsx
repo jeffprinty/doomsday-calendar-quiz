@@ -43,8 +43,8 @@ const GuessOnlyDate = () => {
       <GuessActions
         btnLabel='Random Date'
         onClick={getNewGuess}
-        selected={autoNext}
-        toggleSelected={() => setAutoNext(!autoNext)}
+        autoEnabled={autoNext}
+        toggleAuto={() => setAutoNext(!autoNext)}
       />
     </div>
   );

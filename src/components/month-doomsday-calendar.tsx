@@ -94,8 +94,8 @@ const MonthDoomsdayCalendar = () => {
       <GuessActions
         btnLabel='Random Month'
         onClick={heroClick}
-        selected={autoNext}
-        toggleSelected={() => setAutoNext(!autoNext)}
+        autoEnabled={autoNext}
+        toggleAuto={() => setAutoNext(!autoNext)}
       />
     </div>
   );

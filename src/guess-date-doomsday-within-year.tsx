@@ -98,8 +98,8 @@ const GuessDateDoomsdayWithinYear = ({
           <GuessActions
             disabled={enableDayClick}
             onClick={generateRandomDate}
-            selected={autoNext}
-            toggleSelected={() => setAutoNext(!autoNext)}
+            autoEnabled={autoNext}
+            toggleAuto={() => setAutoNext(!autoNext)}
           />
         </div>
       </div>

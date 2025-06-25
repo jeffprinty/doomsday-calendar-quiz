@@ -184,15 +184,15 @@ export function GuessActions({
   className,
   disabled,
   onClick,
-  toggleSelected,
-  selected,
+  toggleAuto,
+  autoEnabled,
 }: {
   btnLabel?: string | React.ReactNode;
   className?: string;
   disabled?: boolean;
   onClick: () => void;
-  toggleSelected: (selected: boolean) => void;
-  selected: boolean;
+  toggleAuto: (selected: boolean) => void;
+  autoEnabled: boolean;
 }) {
   return (
     <div
@@ -203,8 +203,8 @@ export function GuessActions({
     >
       <Button
         className={clsx('col-span-1 my-2 h-16 w-full')}
-        onClick={() => toggleSelected(!selected)}
-        selected={selected}
+        onClick={() => toggleAuto(!autoEnabled)}
+        selected={autoEnabled}
       >
         Auto
       </Button>
