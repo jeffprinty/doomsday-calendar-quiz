@@ -2,11 +2,12 @@ import React, { useState } from 'react';
 
 import { DateTime } from 'luxon';
 
-import { Day, getRandomYear, mnemonics } from './common';
+import { Day, getRandomYear } from './common';
 import Button from './components/button';
 import QuizResults from './components/quiz-results';
 import { GuessDisplay, YearStepHelperHorizontal } from './components/shared';
 import useAnswerHistory from './hooks/use-answer-history';
+import { mnemonics } from './mnemonics';
 import { DayOfWeekGuesserSelfContained } from './modules/day-of-week-guesser';
 
 const GuessYearDoomsday = () => {

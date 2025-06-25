@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import clsx from 'clsx';
 import { DateTime } from 'luxon';
 
-import { mnemonics } from '../common';
+import { mnemonics } from '../mnemonics';
 import Button from './button';
 import { GuessDisplay } from './shared';
 

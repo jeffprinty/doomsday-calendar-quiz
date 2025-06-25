@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 
-import { getRandomMnemonic, mnemonics } from './common';
 import Button from './components/button';
 import MonthDoomsdayCalendar from './components/month-doomsday-calendar';
 import GuessOnlyDate from './guess-only-date';
+import { getRandomMnemonic, mnemonics } from './mnemonics';
 
 const StepDisplay = ({
   children,

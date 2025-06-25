@@ -1,15 +1,9 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 
 import clsx from 'clsx';
 
-import {
-  allDaysFromMnemonics,
-  betterDaysTable,
-  CalendarDay,
-  chunkArray,
-  getRandomMnemonic,
-  pickRandomlyFromArray,
-} from '../common';
+import { betterDaysTable, CalendarDay, chunkArray, pickRandomlyFromArray } from '../common';
+import { allDaysFromMnemonics, getRandomMnemonic } from '../mnemonics';
 import CalendarTable from './calendar-table';
 import { PageDescribe } from './page-describe';
 import { GuessActions, GuessDisplay } from './shared';
