@@ -197,7 +197,7 @@ export function GuessActions({
   return (
     <div
       className={clsx(
-        'row grid grid-cols-3 flex-row items-center justify-center gap-3 pt-2',
+        'row grid w-full grid-cols-3 flex-row items-center justify-center gap-3 pt-2',
         className
       )}
     >

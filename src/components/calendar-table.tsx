@@ -9,17 +9,19 @@ const CalendarTable = ({
   chunkedDayArray,
   getButtonClassName,
   handleDayClick,
+  hideHeader,
   hideYear,
 }: {
   baseCellClassName?: string;
   chunkedDayArray: Array<Array<CalendarDay>>;
   getButtonClassName: (day: CalendarDay) => string;
   handleDayClick?: (day: CalendarDay) => void;
+  hideHeader?: boolean;
   hideYear?: boolean;
 }) => {
   return (
     <table className=''>
-      <thead>
+      <thead className={clsx(hideHeader && 'hidden')}>
         <tr>
           {dayNames.map((dayName) => (
             <th key={dayName} className='wx-3 text-center'>

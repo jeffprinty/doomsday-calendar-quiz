@@ -10,9 +10,8 @@ import {
   getRandomMnemonic,
   pickRandomlyFromArray,
 } from '../common';
-import Button from './button';
 import CalendarTable from './calendar-table';
-import { GuessDisplay } from './shared';
+import { GuessActions, GuessDisplay } from './shared';
 
 const MonthDoomsdayCalendar = () => {
   const daysTable = betterDaysTable(32);
@@ -20,8 +19,10 @@ const MonthDoomsdayCalendar = () => {
   const [randomMnemonic, setRandomMnemonic] = useState(initRandomMnemonic);
   const [lastAnswerCorrect, setLastAnswerCorrect] = useState<boolean | undefined>();
   const [answerClicked, setAnswerClicked] = useState<number | undefined>();
-  const chunkedByWeek = chunkArray(daysTable, 7);
 
+  const [autoNext, setAutoNext] = useState(false);
+
+  const chunkedByWeek = chunkArray(daysTable, 7);
   const monthChunked = [...chunkedByWeek].slice(0, 5);
 
   const { common, leap, memeticHandle, monthName } = randomMnemonic;
@@ -82,11 +83,15 @@ const MonthDoomsdayCalendar = () => {
           }}
           handleDayClick={handleDayClick}
           hideYear
+          hideHeader
         />
       </div>
-      <Button className='mt-4 w-full py-4 text-center' onClick={heroClick}>
-        Get Random Month
-      </Button>
+      <GuessActions
+        btnLabel='Random Month'
+        onClick={heroClick}
+        selected={autoNext}
+        toggleSelected={() => setAutoNext(!autoNext)}
+      />
     </div>
   );
 };

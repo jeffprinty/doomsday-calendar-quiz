@@ -73,7 +73,7 @@ const GuessFullDateV1 = () => {
           <span>Doomsday for Year</span>&nbsp; (
           <button
             onClick={() => setShowYearHints((previous) => !previous)}
-            className='text-blue-400'
+            className='hide text-blue-400'
           >
             {showYearHints ? 'hide' : 'show'} hints
           </button>

@@ -3,6 +3,7 @@ import React from 'react';
 import { Route, Routes } from 'react-router-dom';
 
 import LongCalendar from './components/long-calendar';
+import MonthDoomsdayCalendar from './components/month-doomsday-calendar';
 import NavBar from './components/nav-bar';
 import GuessDateDoomsdayWithinYear from './guess-date-doomsday-within-year';
 import GuessFullDateV1 from './guess-full-date-v1';
@@ -13,6 +14,7 @@ import StepOne from './step-1';
 
 const navLinks = [
   { to: '/doomsday-calendar-quiz/', text: 'home', end: true },
+  { to: '/doomsday-calendar-quiz/learn/doomsday', text: 'doomsday' },
   { to: '/doomsday-calendar-quiz/within', text: 'within' },
   { to: '/doomsday-calendar-quiz/year', text: 'year' },
   { to: '/doomsday-calendar-quiz/full', text: 'full' },
@@ -50,6 +52,7 @@ const Base = () => {
       <div className='flex max-w-full flex-col items-center justify-start sm:w-1/2 md:max-w-[1240px]'>
         <Routes>
           <Route path='/' index element={<AllPages />} />
+          <Route path='/learn/doomsday' element={<MonthDoomsdayCalendar />} />
           <Route path='/within' element={<GuessDateDoomsdayWithinYear />} />
           <Route path='/step1' element={<StepOne />} />
           <Route path='/year' element={<GuessYearDoomsday />} />
