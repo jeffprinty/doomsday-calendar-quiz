@@ -14,13 +14,13 @@ import StepOne from './step-1';
 
 const navLinks = [
   { to: '/doomsday-calendar-quiz/', text: 'home', end: true },
+  { to: '/doomsday-calendar-quiz/date-offset', text: 'offset' },
   { to: '/doomsday-calendar-quiz/learn/doomsday', text: 'doomsday' },
   { to: '/doomsday-calendar-quiz/within', text: 'within' },
-  { to: '/doomsday-calendar-quiz/year', text: 'year' },
+  // { to: '/doomsday-calendar-quiz/year', text: 'year' }, // superseded by full
   { to: '/doomsday-calendar-quiz/full', text: 'full' },
   { to: '/doomsday-calendar-quiz/progressive', text: 'progressive' },
   // { to: '/doomsday-calendar-quiz/info/long', text: 'long' },
-  { to: '/doomsday-calendar-quiz/date-offset', text: 'offset' },
 ];
 
 const AllPages = () => {
