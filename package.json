@@ -1,10 +1,12 @@
 {
-  "private": true,
+  "name": "doomsday-calendar-quiz",
+  "version": "1.0.1",
   "author": {
     "name": "Jeff Printy",
     "email": "jeff@printy.us",
     "url": "https://drwicked.com"
   },
+  "private": true,
   "homepage": "https://jeffprinty.github.io/doomsday-calendar-quiz/",
   "repository": {
     "type": "git",
