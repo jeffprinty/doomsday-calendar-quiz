@@ -17,12 +17,15 @@ import {
 } from '../common';
 
 interface RememberRow {
+  hint?: React.ReactNode;
   id: Steps;
   stepClassName: string;
   stepText: string;
   answer: number;
   equation: React.ReactNode;
 }
+
+const twelves = Array.from({ length: 8 }, (x, index) => (index + 1) * 12);
 
 const YearGuessingHelper = ({ showAnswers, year }: { showAnswers?: boolean; year: number }) => {
   // <YEAR MATH>
@@ -44,6 +47,22 @@ const YearGuessingHelper = ({ showAnswers, year }: { showAnswers?: boolean; year
 
   const rememberRowWithAnswers: Array<RememberRow> = [
     {
+      hint: (
+        <table>
+          <thead>
+            {twelves.map((multiple, index) => (
+              <th key={`th_${multiple}`}>{index + 1}</th>
+            ))}
+          </thead>
+          <tbody>
+            <tr>
+              {twelves.map((multiple) => (
+                <td key={`td_${multiple}`}>{multiple}</td>
+              ))}
+            </tr>
+          </tbody>
+        </table>
+      ),
       id: 'stepOne',
       stepClassName: step1,
       stepText: 'How many twelves?',
@@ -148,18 +167,18 @@ const YearGuessingHelper = ({ showAnswers, year }: { showAnswers?: boolean; year
 export default YearGuessingHelper;
 
 const HelperRow = ({ data, showAllAnswers }: { data: RememberRow; showAllAnswers?: boolean }) => {
-  const { id, stepClassName, stepText, equation, answer } = data;
+  const { id, stepClassName, stepText, equation, answer, hint } = data;
   const [hintExpanded, setHintExpanded] = useState(false);
   const [mathExpanded, setMathExpanded] = useState(false);
   const [inputValue, setInputValue] = useState<number>();
   const [answerRevealed, setAnswerRevealed] = useState(false);
   return (
-    <React.Fragment>
-      <div key={id} className={clsx('mb-2 flex flex-row items-center justify-between')}>
+    <>
+      <div className={clsx('mb-2 flex flex-row items-center justify-between')} data-stepid={id}>
         <div className={clsx(stepClassName, 'row flex-row items-center justify-start pr-4')}>
           <span>{stepText}</span>
           <button
-            className='ml-2 transition-all duration-300 ease-in-out'
+            className={clsx('ml-2 transition-all duration-300 ease-in-out', !hint && 'hidden')}
             onClick={() => setHintExpanded(!hintExpanded)}
           >
             <BiSolidInfoCircle />
@@ -178,7 +197,7 @@ const HelperRow = ({ data, showAllAnswers }: { data: RememberRow; showAllAnswers
           <input
             type='number'
             className={clsx(stepClassName, 'w-10 rounded-lg bg-indigo-900 py-2 text-center')}
-            value={showAllAnswers ? answer : inputValue}
+            value={showAllAnswers || answerRevealed ? answer : inputValue}
             onChange={({ target: { value } }) => setInputValue(Number(value))}
           />
           <button
@@ -192,6 +211,7 @@ const HelperRow = ({ data, showAllAnswers }: { data: RememberRow; showAllAnswers
           </button>
         </div>
       </div>
-    </React.Fragment>
+      {hintExpanded && !!hint && <div className='hint-expando'>{hint}</div>}
+    </>
   );
 };

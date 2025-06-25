@@ -70,14 +70,17 @@ const GuessFullDateV1 = () => {
           showAnswers={showAllYearAnswers}
         />
         <div className='text-center'>
-          <span>Doomsday for Year</span>&nbsp; (
-          <button
-            onClick={() => setShowYearHints((previous) => !previous)}
-            className='hide text-blue-400'
-          >
-            {showYearHints ? 'hide' : 'show'} hints
-          </button>
-          )
+          <span>Doomsday for Year</span>&nbsp;
+          <span className='hidden'>
+            (
+            <button
+              onClick={() => setShowYearHints((previous) => !previous)}
+              className='text-blue-400'
+            >
+              {showYearHints ? 'hide' : 'show'} hints
+            </button>
+            )
+          </span>
         </div>
         <DayOfWeekGuesserSelfContained
           correctDay={correctDoomsday}
