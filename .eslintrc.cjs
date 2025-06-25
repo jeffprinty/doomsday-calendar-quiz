@@ -3,7 +3,7 @@ module.exports = {
   env: {
     browser: true,
     es2021: true,
-    node: true
+    node: true,
   },
   plugins: [],
   extends: [
@@ -15,30 +15,30 @@ module.exports = {
     'plugin:react/recommended',
     'plugin:react-hooks/recommended',
     'plugin:jsx-a11y/recommended',
-    'plugin:@typescript-eslint/recommended'
+    'plugin:@typescript-eslint/recommended',
   ],
   parser: '@typescript-eslint/parser',
   parserOptions: {
     ecmaVersion: 'latest',
-    sourceType: 'module'
+    sourceType: 'module',
   },
   settings: {
     'import/parsers': {
-      '@typescript-eslint/parser': ['.ts', '.tsx']
+      '@typescript-eslint/parser': ['.ts', '.tsx'],
     },
     'import/resolver': {
       node: {
         extensions: ['.ts', '.tsx'],
-        moduleDirectory: ['node_modules', 'src/']
+        moduleDirectory: ['node_modules', 'src/'],
       },
       typescript: {
-        alwaysTryTypes: true
-      }
+        alwaysTryTypes: true,
+      },
     },
     react: {
       pragma: 'React',
-      version: 'detect'
-    }
+      version: 'detect',
+    },
   },
   ignorePatterns: ['**/*.html'],
   rules: {
@@ -48,7 +48,7 @@ module.exports = {
     quotes: ['error', 'single'],
     semi: ['error', 'always'],
     // end
-
+    'react/react-in-jsx-scope': 0,
     // prettier
     'arrow-body-style': 'off',
     'prefer-arrow-callback': 'off',
@@ -65,9 +65,9 @@ module.exports = {
         bracketSpacing: true,
         bracketSameLine: false,
         arrowParens: 'always',
-        endOfLine: 'lf'
-      }
-    ]
+        endOfLine: 'lf',
+      },
+    ],
     // end prettier
-  }
+  },
 };

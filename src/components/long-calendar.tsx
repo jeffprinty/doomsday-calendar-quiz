@@ -1,7 +1,6 @@
-import React from 'react';
-
 import { betterDaysTable, chunkArray } from '../common';
 import CalendarTable from './calendar-table';
+import { PageDescribe } from './page-describe';
 
 const LongCalendar = () => {
   const daysTable = betterDaysTable(1000);
@@ -9,6 +8,9 @@ const LongCalendar = () => {
 
   return (
     <div className='long-calendar flex w-full flex-col items-start justify-center'>
+      <PageDescribe>
+        This is a helper to memorize other days of a year that line up with the doomsday
+      </PageDescribe>
       <CalendarTable
         chunkedDayArray={chunkedByWeek}
         getButtonClassName={({ isDoomsday, sameWeekdayAsDoomsday }) => {

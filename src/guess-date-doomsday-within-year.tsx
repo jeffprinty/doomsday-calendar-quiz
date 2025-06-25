@@ -5,6 +5,7 @@ import { DateTime } from 'luxon';
 import { MdBolt, MdSettings } from 'react-icons/md';
 
 import { Day, getRandomDateInYear, guessDateFormat } from './common';
+import { PageDescribe } from './components/page-describe';
 import QuizResults from './components/quiz-results';
 import { GuessActions, GuessDisplay } from './components/shared';
 import useAnswerHistory from './hooks/use-answer-history';
@@ -54,7 +55,7 @@ const GuessDateDoomsdayWithinYear = ({
 
   return (
     <div
-      className='md:min-h-1/2 flex h-dvh min-h-dvh flex-col justify-between md:h-1/2 md:justify-start'
+      className='md:min-h-1/2 flex h-dvh min-h-dvh w-full flex-col justify-between md:h-1/2 md:justify-start'
       id='page__guess-date-within-year'
     >
       <div className='' id='quiz__top-bit'>
@@ -129,10 +130,10 @@ const YearInput = ({
 };
 
 const GuessDateWithinYearWrap = () => {
-  const initYear = 2025;
+  const initYear = DateTime.now().year;
   const startWithTimeAlready = getRandomDateInYear(initYear);
   // TODO: Allow set year
-  const [guessingYear, setGuessingYear] = useState(2025);
+  const [guessingYear, setGuessingYear] = useState(initYear);
   const [guessingAgain, setGuessingAgain] = useState(false);
 
   const [currentDateToGuess, setCurrentDateToGuess] = useState<DateTime>(startWithTimeAlready);
@@ -160,12 +161,18 @@ const GuessDateWithinYearWrap = () => {
     setWronglyGuessedDates((previous) => [...previous, dateGuessed]);
   };
   return (
-    <GuessDateDoomsdayWithinYear
-      dateToGuess={currentDateToGuess}
-      getNextDate={getNextDate}
-      onIncorrectGuess={handleIncorrectGuess}
-      updateYear={setGuessingYear}
-    />
+    <>
+      <PageDescribe>
+        Guess a given date within the current year. Use this once you&apos;ve committed the doomsday
+        for {guessingYear} to memory.
+      </PageDescribe>
+      <GuessDateDoomsdayWithinYear
+        dateToGuess={currentDateToGuess}
+        getNextDate={getNextDate}
+        onIncorrectGuess={handleIncorrectGuess}
+        updateYear={setGuessingYear}
+      />
+    </>
   );
 };
 

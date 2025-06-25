@@ -11,6 +11,7 @@ import {
   pickRandomlyFromArray,
 } from '../common';
 import CalendarTable from './calendar-table';
+import { PageDescribe } from './page-describe';
 import { GuessActions, GuessDisplay } from './shared';
 
 const MonthDoomsdayCalendar = () => {
@@ -52,6 +53,10 @@ const MonthDoomsdayCalendar = () => {
 
   return (
     <div className='long-calendar flex w-full flex-col items-start justify-center'>
+      <PageDescribe title='Month Doomsday Practice'>
+        Use this page to practice recalling the doomsday for a given month. You will be prompted
+        with a month and a calendar with 4 highlighted dates, choose the correct doomsday date.
+      </PageDescribe>
       <GuessDisplay
         className={clsx(!!answerClicked && 'animate-pulse')}
         explainCorrect={memeticHandle}
