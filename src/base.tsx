@@ -1,7 +1,6 @@
-import React from 'react';
-
 import { Route, Routes } from 'react-router-dom';
 
+import { Home } from './components/home';
 import LongCalendar from './components/long-calendar';
 import MonthDoomsdayCalendar from './components/month-doomsday-calendar';
 import NavBar from './components/nav-bar';
@@ -12,14 +11,16 @@ import GuessProgressive from './guess-progressive';
 import GuessYearDoomsday from './guess-year-doomsday';
 import StepOne from './step-1';
 
+const baseUrl = import.meta.env.BASE_URL;
+
 const navLinks = [
-  { to: '/doomsday-calendar-quiz/', text: 'home', end: true },
-  { to: '/doomsday-calendar-quiz/date-offset', text: 'offset' },
-  { to: '/doomsday-calendar-quiz/learn/doomsday', text: 'doomsday' },
-  { to: '/doomsday-calendar-quiz/within', text: 'within' },
-  // { to: '/doomsday-calendar-quiz/year', text: 'year' }, // superseded by full
-  { to: '/doomsday-calendar-quiz/full', text: 'full' },
-  { to: '/doomsday-calendar-quiz/progressive', text: 'progressive' },
+  { to: `${baseUrl}/`, text: 'home', end: true },
+  { to: `${baseUrl}/date-offset`, text: 'offset' },
+  { to: `${baseUrl}/learn/doomsday`, text: 'doomsday' },
+  { to: `${baseUrl}/within`, text: 'within' },
+  // { to: `${baseUrl}/year`, text: 'year' }, // superseded by full
+  { to: `${baseUrl}/full`, text: 'full' },
+  { to: `${baseUrl}/progressive`, text: 'progressive' },
   // { to: '/doomsday-calendar-quiz/info/long', text: 'long' },
 ];
 
@@ -51,7 +52,8 @@ const Base = () => {
       <NavBar navItems={navLinks} />
       <div className='flex max-w-full flex-col items-center justify-start sm:w-1/2 md:max-w-[1240px]'>
         <Routes>
-          <Route path='/' index element={<AllPages />} />
+          <Route path='/' index element={<Home />} />
+          <Route path='/all' element={<AllPages />} />
           <Route path='/learn/doomsday' element={<MonthDoomsdayCalendar />} />
           <Route path='/within' element={<GuessDateDoomsdayWithinYear />} />
           <Route path='/step1' element={<StepOne />} />

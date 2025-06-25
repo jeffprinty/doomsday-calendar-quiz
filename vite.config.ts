@@ -13,4 +13,11 @@ export default defineConfig({
     })
   ],
   base: '/doomsday-calendar-quiz',
+  css: {
+    preprocessorOptions: {
+      scss: {
+        api: 'modern'
+      }
+    }
+  }
 });
