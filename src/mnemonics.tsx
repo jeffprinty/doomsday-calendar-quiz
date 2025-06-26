@@ -1,41 +1,21 @@
+import { ReactNode } from 'react';
+
+import { FullMonthName, ShortMonthName } from './common';
+
 export const sharedMemeticHandles = {
   doubles: '4/4, 6/6, 8/8, 10/10, 12/12',
   nineToFive: '9-to-5 at 7-11',
 };
 
-export const monthNames = [
-  'January',
-  'February',
-  'March',
-  'April',
-  'May',
-  'June',
-  'July',
-  'August',
-  'September',
-  'October',
-  'November',
-  'December',
-];
-
-export const dayNames = [
-  'Sunday',
-  'Monday',
-  'Tuesday',
-  'Wednesday',
-  'Thursday',
-  'Friday',
-  'Saturday',
-];
-
 export interface Mnemonic {
-  memeticHandle?: string;
-  month: string;
-  monthName: string;
-  monthNumber: number;
   common: number;
-  leap?: number;
   daysInMonth: 28 | 29 | 30 | 31;
+  leap?: number;
+  memeticHandle?: string;
+  month: ShortMonthName;
+  monthName: FullMonthName;
+  monthNumber: number;
+  explanation?: ReactNode;
 }
 
 export const mnemonics: Array<Mnemonic> = [

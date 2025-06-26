@@ -1,7 +1,7 @@
 import { DateTime } from 'luxon';
 import randomInteger from 'random-int';
 
-import { mnemonics } from './mnemonics';
+import { Mnemonic, mnemonics } from './mnemonics';
 
 export const correctColor = 'bg-green-600';
 export const incorrectColor = 'bg-red-900';
@@ -26,6 +26,15 @@ export const anchorDays = {
   '21': 0,
 };
 
+export const getAnchorDay = (century?: number) => {
+  if (century === 19) {
+    return 3;
+  }
+  if (century === 20) {
+    return 2;
+  }
+};
+
 export const colors = {
   correctGreen: '#16A34A', // bg-green-600
   incorrectRed: '#991B1B', // bg-red-800
@@ -33,11 +42,6 @@ export const colors = {
 
 export const getAnchorDayForCentury = (century: AnchorDayCentury) => {
   return anchorDays[century];
-};
-
-export const sharedMemeticHandles = {
-  doubles: '4/4, 6/6, 8/8, 10/10, 12/12',
-  nineToFive: '9-to-5 at 7-11',
 };
 
 export const monthNames = [
@@ -54,6 +58,33 @@ export const monthNames = [
   'November',
   'December',
 ];
+
+export type FullMonthName =
+  | 'January'
+  | 'February'
+  | 'March'
+  | 'April'
+  | 'May'
+  | 'June'
+  | 'July'
+  | 'August'
+  | 'September'
+  | 'October'
+  | 'November'
+  | 'December';
+export type ShortMonthName =
+  | 'jan'
+  | 'feb'
+  | 'mar'
+  | 'apr'
+  | 'may'
+  | 'jun'
+  | 'jul'
+  | 'aug'
+  | 'sep'
+  | 'oct'
+  | 'nov'
+  | 'dec';
 
 export const getRandomMonthName = (ignoreLeap = false) => {
   if (ignoreLeap) {
@@ -77,16 +108,6 @@ export const dayNames = [
   'Friday',
   'Saturday',
 ];
-
-export interface Mnemonic {
-  memeticHandle?: string;
-  month: string;
-  monthName: string;
-  monthNumber: number;
-  common: number;
-  leap?: number;
-  daysInMonth: 28 | 29 | 30 | 31;
-}
 
 export interface CalendarDay {
   cellNumber: number;
@@ -158,6 +179,17 @@ export const getDoomsdayForYear = (year: number) =>
     month: 4,
     day: 4,
   });
+
+export const getDoomsdayForYearV2 = (year?: number) => {
+  if (!year) {
+    return;
+  }
+  return DateTime.fromObject({
+    year,
+    month: 4,
+    day: 4,
+  }).toFormat('ccc');
+};
 
 export function pickRandomlyFromArray<T>(array: Array<T>, n: number) {
   // eslint-disable-next-line unicorn/no-new-array

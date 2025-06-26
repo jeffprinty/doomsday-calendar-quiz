@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 
 import { DateTime } from 'luxon';
 
@@ -7,7 +7,6 @@ import Button from './components/button';
 import QuizResults from './components/quiz-results';
 import { GuessDisplay, YearStepHelperHorizontal } from './components/shared';
 import useAnswerHistory from './hooks/use-answer-history';
-import { mnemonics } from './mnemonics';
 import { DayOfWeekGuesserSelfContained } from './modules/day-of-week-guesser';
 
 const GuessYearDoomsday = () => {
@@ -63,19 +62,6 @@ const GuessYearDoomsday = () => {
           dateFormat='yyyy'
         />
       )}
-      <div className='explainer hidden'>
-        {mnemonics.map(({ monthName, common }, index) => {
-          const hackyMonthNumber = index + 1;
-          return (
-            <div key={monthName} className='flex flex-row items-center justify-between text-center'>
-              {monthName}
-              <div className=''>
-                {hackyMonthNumber}/{common}
-              </div>
-            </div>
-          );
-        })}
-      </div>
     </div>
   );
 };
