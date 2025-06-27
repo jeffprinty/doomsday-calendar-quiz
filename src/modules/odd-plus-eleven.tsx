@@ -5,7 +5,6 @@ import { IoMdEye, IoMdEyeOff, IoMdRefresh } from 'react-icons/io';
 
 import { Day, getAnchorDay, getDoomsdayForYearV2, getRandomYear } from '../common';
 import Button from '../components/button';
-import NumberInput from '../components/number-input';
 import YearInput from '../components/year-input';
 import { DayOfWeekGuesserSelfContained } from './day-of-week-guesser';
 
