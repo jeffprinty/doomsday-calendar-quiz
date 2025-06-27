@@ -1,10 +1,12 @@
 import { ReactNode, useEffect, useState } from 'react';
 
 import clsx from 'clsx';
+import { IoMdEye, IoMdEyeOff, IoMdRefresh } from 'react-icons/io';
 
 import { Day, getAnchorDay, getDoomsdayForYearV2, getRandomYear } from '../common';
 import Button from '../components/button';
 import NumberInput from '../components/number-input';
+import YearInput from '../components/year-input';
 import { DayOfWeekGuesserSelfContained } from './day-of-week-guesser';
 
 // const Step = ({
@@ -42,8 +44,21 @@ const Fork = ({
   );
 };
 
-const Revealable = ({ children, className }: { children: ReactNode; className?: string }) => {
+const Revealable = ({
+  children,
+  className,
+  forceShow = false,
+}: {
+  children: ReactNode;
+  className?: string;
+  forceShow?: boolean;
+}) => {
   const [revealed, setRevealed] = useState(false);
+  useEffect(() => {
+    if (!revealed && forceShow) {
+      setRevealed(true);
+    }
+  }, [forceShow]);
   return (
     <button
       className={clsx(className, 'revealable', !revealed && 'blur-sm')}
@@ -55,10 +70,12 @@ const Revealable = ({ children, className }: { children: ReactNode; className?: 
 };
 
 const OddPlusEleven = () => {
+  const [showWork, setShowWork] = useState(true);
+  const [revealAll, setRevealAll] = useState(false);
   const [fullYearValue, setFullYearValue] = useState<number>();
   const [[century, year], setYearParts] = useState<[number, number]>([0, 0]);
+  const yearPadded = year.toString().padStart(2, '0');
   const correctDoomsday = getDoomsdayForYearV2(fullYearValue);
-  console.log('correctDoomsday', correctDoomsday);
   useEffect(() => {
     if (fullYearValue?.toString().length === 4) {
       const stringified = fullYearValue.toString();
@@ -70,11 +87,15 @@ const OddPlusEleven = () => {
   }, [fullYearValue]);
 
   const handleClick = () => {
+    setRevealAll(false);
     const rando = getRandomYear();
     setFullYearValue(rando);
   };
 
   const stepRow = 'flex flex-row items-center justify-around';
+  const yearStyle = 'text-yellow-400';
+  const centuryStyle = 'text-green-400';
+  const iconButtonStyle = 'flex flex-row items-center justify-center w-8';
 
   const yearIsEven = year % 2 === 0;
   const firstResult = yearIsEven ? year / 2 : year + 11;
@@ -92,28 +113,35 @@ const OddPlusEleven = () => {
 
   return (
     <div>
-      Year: <NumberInput value={fullYearValue} setValue={setFullYearValue} />
-      <Button onClick={handleClick}>Random Year</Button>
-      {century && correctDoomsday && (
+      <div className='flex flex-row items-center justify-center'>
+        <YearInput value={fullYearValue} setValue={setFullYearValue} />
+        <Button className={iconButtonStyle} onClick={handleClick}>
+          <IoMdRefresh />
+        </Button>
+        <Button className={iconButtonStyle} onClick={() => setShowWork(!showWork)}>
+          {showWork ? <IoMdEyeOff /> : <IoMdEye />}
+        </Button>
+      </div>
+      {century && correctDoomsday && showWork && (
         <div key={fullYearValue}>
-          <div>
-            {century && <div>Century: {century}</div>}
-            {year && <div>year: {year}</div>}
+          <div className='flex flex-row items-center justify-center text-2xl'>
+            {century && <div className={centuryStyle}>{century}</div>}
+            {year && <div className={yearStyle}>{yearPadded}</div>}
           </div>
-          <div className={stepRow}>{year}</div>
+          <div className={clsx(stepRow, yearStyle)}>{yearPadded}</div>
           <div className={stepRow}>
             <Fork highlight={yearIsEven}>/ 2</Fork>
             <Fork highlight={!yearIsEven}>+11</Fork>
           </div>
           <div className={stepRow}>
-            <Revealable>{firstResult}</Revealable>
+            <Revealable forceShow={revealAll}>{firstResult}</Revealable>
           </div>
           <div className={stepRow}>
             <Fork highlight={firstResultIsEven}>/ 2</Fork>
             <Fork highlight={!firstResultIsEven}>+11</Fork>
           </div>
           <div className={stepRow}>
-            <Revealable>{secondResult}</Revealable>
+            <Revealable forceShow={revealAll}>{secondResult}</Revealable>
           </div>
           {secondResultIsOdd && (
             <>
@@ -122,23 +150,26 @@ const OddPlusEleven = () => {
                 <Fork highlight>+11</Fork>
               </div>
               <div className={stepRow}>
-                <Revealable>{thirdResult}</Revealable>
+                <Revealable forceShow={revealAll}>{thirdResult}</Revealable>
               </div>
             </>
           )}
           <div className={stepRow}>Modulo 7</div>
           <div className={stepRow}>
-            <Revealable>{afterModulo}</Revealable>
+            <Revealable forceShow={revealAll}>{afterModulo}</Revealable>
           </div>
           <div className={stepRow}>Subtract Modulo from 7</div>
           <div className={stepRow}>
-            <Revealable>{moduloFromSeven}</Revealable>
+            <Revealable forceShow={revealAll}>{moduloFromSeven}</Revealable>
           </div>
           <div className={stepRow}>
-            Anchor day for {century}00s is {centuryAnchorDay}
+            <p>
+              Anchor day for <span className={centuryStyle}>{century}</span>00s is{' '}
+              {centuryAnchorDay}
+            </p>
           </div>
           <div className={stepRow}>
-            <Revealable>
+            <Revealable forceShow={revealAll}>
               {moduloFromSeven} + {centuryAnchorDay} = {moduloFromSeven + Number(centuryAnchorDay)}
             </Revealable>
           </div>
@@ -148,6 +179,7 @@ const OddPlusEleven = () => {
             key={`week_${fullYearValue}`}
             onGuess={(answer, isCorrect) => {
               console.log('answer, isCorrect', answer, isCorrect);
+              setRevealAll(true);
             }}
           />
         </div>
