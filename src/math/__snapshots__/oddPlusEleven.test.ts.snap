@@ -1,0 +1,2001 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`tests oddPlusElevenFull for 2000 1`] = `
+{
+  "firstResult": 0,
+  "moduloFromSeven": 0,
+  "moduloResult": 0,
+  "secondResult": 0,
+  "yearIsEven": true,
+}
+`;
+
+exports[`tests oddPlusElevenFull for 2001 1`] = `
+{
+  "firstResult": 6,
+  "moduloFromSeven": 1,
+  "moduloResult": 6,
+  "secondResult": 6,
+  "yearIsEven": false,
+}
+`;
+
+exports[`tests oddPlusElevenFull for 2002 1`] = `
+{
+  "firstResult": 1,
+  "moduloFromSeven": 2,
+  "moduloResult": 5,
+  "secondResult": 12,
+  "yearIsEven": true,
+}
+`;
+
+exports[`tests oddPlusElevenFull for 2003 1`] = `
+{
+  "firstResult": 7,
+  "moduloFromSeven": 3,
+  "moduloResult": 4,
+  "secondResult": 18,
+  "yearIsEven": false,
+}
+`;
+
+exports[`tests oddPlusElevenFull for 2004 1`] = `
+{
+  "firstResult": 2,
+  "moduloFromSeven": 5,
+  "moduloResult": 2,
+  "secondResult": 2,
+  "yearIsEven": true,
+}
+`;
+
+exports[`tests oddPlusElevenFull for 2005 1`] = `
+{
+  "firstResult": 8,
+  "moduloFromSeven": 6,
+  "moduloResult": 1,
+  "secondResult": 8,
+  "yearIsEven": false,
+}
+`;
+
+exports[`tests oddPlusElevenFull for 2006 1`] = `
+{
+  "firstResult": 3,
+  "moduloFromSeven": 0,
+  "moduloResult": 0,
+  "secondResult": 14,
+  "yearIsEven": true,
+}
+`;
+
+exports[`tests oddPlusElevenFull for 2007 1`] = `
+{
+  "firstResult": 9,
+  "moduloFromSeven": 1,
+  "moduloResult": 6,
+  "secondResult": 20,
+  "yearIsEven": false,
+}
+`;
+
+exports[`tests oddPlusElevenFull for 2008 1`] = `
+{
+  "firstResult": 4,
+  "moduloFromSeven": 3,
+  "moduloResult": 4,
+  "secondResult": 4,
+  "yearIsEven": true,
+}
+`;
+
+exports[`tests oddPlusElevenFull for 2009 1`] = `
+{
+  "firstResult": 10,
+  "moduloFromSeven": 4,
+  "moduloResult": 3,
+  "secondResult": 10,
+  "yearIsEven": false,
+}
+`;
+
+exports[`tests oddPlusElevenFull for 2010 1`] = `
+{
+  "firstResult": 5,
+  "moduloFromSeven": 5,
+  "moduloResult": 2,
+  "secondResult": 16,
+  "yearIsEven": true,
+}
+`;
+
+exports[`tests oddPlusElevenFull for 2011 1`] = `
+{
+  "firstResult": 11,
+  "moduloFromSeven": 6,
+  "moduloResult": 1,
+  "secondResult": 22,
+  "yearIsEven": false,
+}
+`;
+
+exports[`tests oddPlusElevenFull for 2012 1`] = `
+{
+  "firstResult": 6,
+  "moduloFromSeven": 1,
+  "moduloResult": 6,
+  "secondResult": 6,
+  "yearIsEven": true,
+}
+`;
+
+exports[`tests oddPlusElevenFull for 2013 1`] = `
+{
+  "firstResult": 12,
+  "moduloFromSeven": 2,
+  "moduloResult": 5,
+  "secondResult": 12,
+  "yearIsEven": false,
+}
+`;
+
+exports[`tests oddPlusElevenFull for 2014 1`] = `
+{
+  "firstResult": 7,
+  "moduloFromSeven": 3,
+  "moduloResult": 4,
+  "secondResult": 18,
+  "yearIsEven": true,
+}
+`;
+
+exports[`tests oddPlusElevenFull for 2015 1`] = `
+{
+  "firstResult": 13,
+  "moduloFromSeven": 4,
+  "moduloResult": 3,
+  "secondResult": 24,
+  "yearIsEven": false,
+}
+`;
+
+exports[`tests oddPlusElevenFull for 2016 1`] = `
+{
+  "firstResult": 8,
+  "moduloFromSeven": 6,
+  "moduloResult": 1,
+  "secondResult": 8,
+  "yearIsEven": true,
+}
+`;
+
+exports[`tests oddPlusElevenFull for 2017 1`] = `
+{
+  "firstResult": 14,
+  "moduloFromSeven": 0,
+  "moduloResult": 0,
+  "secondResult": 14,
+  "yearIsEven": false,
+}
+`;
+
+exports[`tests oddPlusElevenFull for 2018 1`] = `
+{
+  "firstResult": 9,
+  "moduloFromSeven": 1,
+  "moduloResult": 6,
+  "secondResult": 20,
+  "yearIsEven": true,
+}
+`;
+
+exports[`tests oddPlusElevenFull for 2019 1`] = `
+{
+  "firstResult": 15,
+  "moduloFromSeven": 2,
+  "moduloResult": 5,
+  "secondResult": 26,
+  "yearIsEven": false,
+}
+`;
+
+exports[`tests oddPlusElevenFull for 2020 1`] = `
+{
+  "firstResult": 10,
+  "moduloFromSeven": 4,
+  "moduloResult": 3,
+  "secondResult": 10,
+  "yearIsEven": true,
+}
+`;
+
+exports[`tests oddPlusElevenFull for 2021 1`] = `
+{
+  "firstResult": 16,
+  "moduloFromSeven": 5,
+  "moduloResult": 2,
+  "secondResult": 16,
+  "yearIsEven": false,
+}
+`;
+
+exports[`tests oddPlusElevenFull for 2022 1`] = `
+{
+  "firstResult": 11,
+  "moduloFromSeven": 6,
+  "moduloResult": 1,
+  "secondResult": 22,
+  "yearIsEven": true,
+}
+`;
+
+exports[`tests oddPlusElevenFull for 2023 1`] = `
+{
+  "firstResult": 17,
+  "moduloFromSeven": 0,
+  "moduloResult": 0,
+  "secondResult": 28,
+  "yearIsEven": false,
+}
+`;
+
+exports[`tests oddPlusElevenFull for 2024 1`] = `
+{
+  "firstResult": 12,
+  "moduloFromSeven": 2,
+  "moduloResult": 5,
+  "secondResult": 12,
+  "yearIsEven": true,
+}
+`;
+
+exports[`tests oddPlusElevenFull for 2025 1`] = `
+{
+  "firstResult": 18,
+  "moduloFromSeven": 3,
+  "moduloResult": 4,
+  "secondResult": 18,
+  "yearIsEven": false,
+}
+`;
+
+exports[`tests oddPlusElevenFull for 2026 1`] = `
+{
+  "firstResult": 13,
+  "moduloFromSeven": 4,
+  "moduloResult": 3,
+  "secondResult": 24,
+  "yearIsEven": true,
+}
+`;
+
+exports[`tests oddPlusElevenFull for 2027 1`] = `
+{
+  "firstResult": 19,
+  "moduloFromSeven": 5,
+  "moduloResult": 2,
+  "secondResult": 30,
+  "yearIsEven": false,
+}
+`;
+
+exports[`tests oddPlusElevenFull for 2028 1`] = `
+{
+  "firstResult": 14,
+  "moduloFromSeven": 0,
+  "moduloResult": 0,
+  "secondResult": 14,
+  "yearIsEven": true,
+}
+`;
+
+exports[`tests oddPlusElevenFull for 2029 1`] = `
+{
+  "firstResult": 20,
+  "moduloFromSeven": 1,
+  "moduloResult": 6,
+  "secondResult": 20,
+  "yearIsEven": false,
+}
+`;
+
+exports[`tests oddPlusElevenFull for 2030 1`] = `
+{
+  "firstResult": 15,
+  "moduloFromSeven": 2,
+  "moduloResult": 5,
+  "secondResult": 26,
+  "yearIsEven": true,
+}
+`;
+
+exports[`tests oddPlusElevenFull for 2031 1`] = `
+{
+  "firstResult": 21,
+  "moduloFromSeven": 3,
+  "moduloResult": 4,
+  "secondResult": 32,
+  "yearIsEven": false,
+}
+`;
+
+exports[`tests oddPlusElevenFull for 2032 1`] = `
+{
+  "firstResult": 16,
+  "moduloFromSeven": 5,
+  "moduloResult": 2,
+  "secondResult": 16,
+  "yearIsEven": true,
+}
+`;
+
+exports[`tests oddPlusElevenFull for 2033 1`] = `
+{
+  "firstResult": 22,
+  "moduloFromSeven": 6,
+  "moduloResult": 1,
+  "secondResult": 22,
+  "yearIsEven": false,
+}
+`;
+
+exports[`tests oddPlusElevenFull for 2034 1`] = `
+{
+  "firstResult": 17,
+  "moduloFromSeven": 0,
+  "moduloResult": 0,
+  "secondResult": 28,
+  "yearIsEven": true,
+}
+`;
+
+exports[`tests oddPlusElevenFull for 2035 1`] = `
+{
+  "firstResult": 23,
+  "moduloFromSeven": 1,
+  "moduloResult": 6,
+  "secondResult": 34,
+  "yearIsEven": false,
+}
+`;
+
+exports[`tests oddPlusElevenFull for 2036 1`] = `
+{
+  "firstResult": 18,
+  "moduloFromSeven": 3,
+  "moduloResult": 4,
+  "secondResult": 18,
+  "yearIsEven": true,
+}
+`;
+
+exports[`tests oddPlusElevenFull for 2037 1`] = `
+{
+  "firstResult": 24,
+  "moduloFromSeven": 4,
+  "moduloResult": 3,
+  "secondResult": 24,
+  "yearIsEven": false,
+}
+`;
+
+exports[`tests oddPlusElevenFull for 2038 1`] = `
+{
+  "firstResult": 19,
+  "moduloFromSeven": 5,
+  "moduloResult": 2,
+  "secondResult": 30,
+  "yearIsEven": true,
+}
+`;
+
+exports[`tests oddPlusElevenFull for 2039 1`] = `
+{
+  "firstResult": 25,
+  "moduloFromSeven": 6,
+  "moduloResult": 1,
+  "secondResult": 36,
+  "yearIsEven": false,
+}
+`;
+
+exports[`tests oddPlusElevenFull for 2040 1`] = `
+{
+  "firstResult": 20,
+  "moduloFromSeven": 1,
+  "moduloResult": 6,
+  "secondResult": 20,
+  "yearIsEven": true,
+}
+`;
+
+exports[`tests oddPlusElevenFull for 2041 1`] = `
+{
+  "firstResult": 26,
+  "moduloFromSeven": 2,
+  "moduloResult": 5,
+  "secondResult": 26,
+  "yearIsEven": false,
+}
+`;
+
+exports[`tests oddPlusElevenFull for 2042 1`] = `
+{
+  "firstResult": 21,
+  "moduloFromSeven": 3,
+  "moduloResult": 4,
+  "secondResult": 32,
+  "yearIsEven": true,
+}
+`;
+
+exports[`tests oddPlusElevenFull for 2043 1`] = `
+{
+  "firstResult": 27,
+  "moduloFromSeven": 4,
+  "moduloResult": 3,
+  "secondResult": 38,
+  "yearIsEven": false,
+}
+`;
+
+exports[`tests oddPlusElevenFull for 2044 1`] = `
+{
+  "firstResult": 22,
+  "moduloFromSeven": 6,
+  "moduloResult": 1,
+  "secondResult": 22,
+  "yearIsEven": true,
+}
+`;
+
+exports[`tests oddPlusElevenFull for 2045 1`] = `
+{
+  "firstResult": 28,
+  "moduloFromSeven": 0,
+  "moduloResult": 0,
+  "secondResult": 28,
+  "yearIsEven": false,
+}
+`;
+
+exports[`tests oddPlusElevenFull for 2046 1`] = `
+{
+  "firstResult": 23,
+  "moduloFromSeven": 1,
+  "moduloResult": 6,
+  "secondResult": 34,
+  "yearIsEven": true,
+}
+`;
+
+exports[`tests oddPlusElevenFull for 2047 1`] = `
+{
+  "firstResult": 29,
+  "moduloFromSeven": 2,
+  "moduloResult": 5,
+  "secondResult": 40,
+  "yearIsEven": false,
+}
+`;
+
+exports[`tests oddPlusElevenFull for 2048 1`] = `
+{
+  "firstResult": 24,
+  "moduloFromSeven": 4,
+  "moduloResult": 3,
+  "secondResult": 24,
+  "yearIsEven": true,
+}
+`;
+
+exports[`tests oddPlusElevenFull for 2049 1`] = `
+{
+  "firstResult": 30,
+  "moduloFromSeven": 5,
+  "moduloResult": 2,
+  "secondResult": 30,
+  "yearIsEven": false,
+}
+`;
+
+exports[`tests oddPlusElevenFull for 2050 1`] = `
+{
+  "firstResult": 25,
+  "moduloFromSeven": 6,
+  "moduloResult": 1,
+  "secondResult": 36,
+  "yearIsEven": true,
+}
+`;
+
+exports[`tests oddPlusElevenFull for 2051 1`] = `
+{
+  "firstResult": 31,
+  "moduloFromSeven": 0,
+  "moduloResult": 0,
+  "secondResult": 42,
+  "yearIsEven": false,
+}
+`;
+
+exports[`tests oddPlusElevenFull for 2052 1`] = `
+{
+  "firstResult": 26,
+  "moduloFromSeven": 2,
+  "moduloResult": 5,
+  "secondResult": 26,
+  "yearIsEven": true,
+}
+`;
+
+exports[`tests oddPlusElevenFull for 2053 1`] = `
+{
+  "firstResult": 32,
+  "moduloFromSeven": 3,
+  "moduloResult": 4,
+  "secondResult": 32,
+  "yearIsEven": false,
+}
+`;
+
+exports[`tests oddPlusElevenFull for 2054 1`] = `
+{
+  "firstResult": 27,
+  "moduloFromSeven": 4,
+  "moduloResult": 3,
+  "secondResult": 38,
+  "yearIsEven": true,
+}
+`;
+
+exports[`tests oddPlusElevenFull for 2055 1`] = `
+{
+  "firstResult": 33,
+  "moduloFromSeven": 5,
+  "moduloResult": 2,
+  "secondResult": 44,
+  "yearIsEven": false,
+}
+`;
+
+exports[`tests oddPlusElevenFull for 2056 1`] = `
+{
+  "firstResult": 28,
+  "moduloFromSeven": 0,
+  "moduloResult": 0,
+  "secondResult": 28,
+  "yearIsEven": true,
+}
+`;
+
+exports[`tests oddPlusElevenFull for 2057 1`] = `
+{
+  "firstResult": 34,
+  "moduloFromSeven": 1,
+  "moduloResult": 6,
+  "secondResult": 34,
+  "yearIsEven": false,
+}
+`;
+
+exports[`tests oddPlusElevenFull for 2058 1`] = `
+{
+  "firstResult": 29,
+  "moduloFromSeven": 2,
+  "moduloResult": 5,
+  "secondResult": 40,
+  "yearIsEven": true,
+}
+`;
+
+exports[`tests oddPlusElevenFull for 2059 1`] = `
+{
+  "firstResult": 35,
+  "moduloFromSeven": 3,
+  "moduloResult": 4,
+  "secondResult": 46,
+  "yearIsEven": false,
+}
+`;
+
+exports[`tests oddPlusElevenFull for 2060 1`] = `
+{
+  "firstResult": 30,
+  "moduloFromSeven": 5,
+  "moduloResult": 2,
+  "secondResult": 30,
+  "yearIsEven": true,
+}
+`;
+
+exports[`tests oddPlusElevenFull for 2061 1`] = `
+{
+  "firstResult": 36,
+  "moduloFromSeven": 6,
+  "moduloResult": 1,
+  "secondResult": 36,
+  "yearIsEven": false,
+}
+`;
+
+exports[`tests oddPlusElevenFull for 2062 1`] = `
+{
+  "firstResult": 31,
+  "moduloFromSeven": 0,
+  "moduloResult": 0,
+  "secondResult": 42,
+  "yearIsEven": true,
+}
+`;
+
+exports[`tests oddPlusElevenFull for 2063 1`] = `
+{
+  "firstResult": 37,
+  "moduloFromSeven": 1,
+  "moduloResult": 6,
+  "secondResult": 48,
+  "yearIsEven": false,
+}
+`;
+
+exports[`tests oddPlusElevenFull for 2064 1`] = `
+{
+  "firstResult": 32,
+  "moduloFromSeven": 3,
+  "moduloResult": 4,
+  "secondResult": 32,
+  "yearIsEven": true,
+}
+`;
+
+exports[`tests oddPlusElevenFull for 2065 1`] = `
+{
+  "firstResult": 38,
+  "moduloFromSeven": 4,
+  "moduloResult": 3,
+  "secondResult": 38,
+  "yearIsEven": false,
+}
+`;
+
+exports[`tests oddPlusElevenFull for 2066 1`] = `
+{
+  "firstResult": 33,
+  "moduloFromSeven": 5,
+  "moduloResult": 2,
+  "secondResult": 44,
+  "yearIsEven": true,
+}
+`;
+
+exports[`tests oddPlusElevenFull for 2067 1`] = `
+{
+  "firstResult": 39,
+  "moduloFromSeven": 6,
+  "moduloResult": 1,
+  "secondResult": 50,
+  "yearIsEven": false,
+}
+`;
+
+exports[`tests oddPlusElevenFull for 2068 1`] = `
+{
+  "firstResult": 34,
+  "moduloFromSeven": 1,
+  "moduloResult": 6,
+  "secondResult": 34,
+  "yearIsEven": true,
+}
+`;
+
+exports[`tests oddPlusElevenFull for 2069 1`] = `
+{
+  "firstResult": 40,
+  "moduloFromSeven": 2,
+  "moduloResult": 5,
+  "secondResult": 40,
+  "yearIsEven": false,
+}
+`;
+
+exports[`tests oddPlusElevenFull for 2070 1`] = `
+{
+  "firstResult": 35,
+  "moduloFromSeven": 3,
+  "moduloResult": 4,
+  "secondResult": 46,
+  "yearIsEven": true,
+}
+`;
+
+exports[`tests oddPlusElevenFull for 2071 1`] = `
+{
+  "firstResult": 41,
+  "moduloFromSeven": 4,
+  "moduloResult": 3,
+  "secondResult": 52,
+  "yearIsEven": false,
+}
+`;
+
+exports[`tests oddPlusElevenFull for 2072 1`] = `
+{
+  "firstResult": 36,
+  "moduloFromSeven": 6,
+  "moduloResult": 1,
+  "secondResult": 36,
+  "yearIsEven": true,
+}
+`;
+
+exports[`tests oddPlusElevenFull for 2073 1`] = `
+{
+  "firstResult": 42,
+  "moduloFromSeven": 0,
+  "moduloResult": 0,
+  "secondResult": 42,
+  "yearIsEven": false,
+}
+`;
+
+exports[`tests oddPlusElevenFull for 2074 1`] = `
+{
+  "firstResult": 37,
+  "moduloFromSeven": 1,
+  "moduloResult": 6,
+  "secondResult": 48,
+  "yearIsEven": true,
+}
+`;
+
+exports[`tests oddPlusElevenFull for 2075 1`] = `
+{
+  "firstResult": 43,
+  "moduloFromSeven": 2,
+  "moduloResult": 5,
+  "secondResult": 54,
+  "yearIsEven": false,
+}
+`;
+
+exports[`tests oddPlusElevenFull for 2076 1`] = `
+{
+  "firstResult": 38,
+  "moduloFromSeven": 4,
+  "moduloResult": 3,
+  "secondResult": 38,
+  "yearIsEven": true,
+}
+`;
+
+exports[`tests oddPlusElevenFull for 2077 1`] = `
+{
+  "firstResult": 44,
+  "moduloFromSeven": 5,
+  "moduloResult": 2,
+  "secondResult": 44,
+  "yearIsEven": false,
+}
+`;
+
+exports[`tests oddPlusElevenFull for 2078 1`] = `
+{
+  "firstResult": 39,
+  "moduloFromSeven": 6,
+  "moduloResult": 1,
+  "secondResult": 50,
+  "yearIsEven": true,
+}
+`;
+
+exports[`tests oddPlusElevenFull for 2079 1`] = `
+{
+  "firstResult": 45,
+  "moduloFromSeven": 0,
+  "moduloResult": 0,
+  "secondResult": 56,
+  "yearIsEven": false,
+}
+`;
+
+exports[`tests oddPlusElevenFull for 2080 1`] = `
+{
+  "firstResult": 40,
+  "moduloFromSeven": 2,
+  "moduloResult": 5,
+  "secondResult": 40,
+  "yearIsEven": true,
+}
+`;
+
+exports[`tests oddPlusElevenFull for 2081 1`] = `
+{
+  "firstResult": 46,
+  "moduloFromSeven": 3,
+  "moduloResult": 4,
+  "secondResult": 46,
+  "yearIsEven": false,
+}
+`;
+
+exports[`tests oddPlusElevenFull for 2082 1`] = `
+{
+  "firstResult": 41,
+  "moduloFromSeven": 4,
+  "moduloResult": 3,
+  "secondResult": 52,
+  "yearIsEven": true,
+}
+`;
+
+exports[`tests oddPlusElevenFull for 2083 1`] = `
+{
+  "firstResult": 47,
+  "moduloFromSeven": 5,
+  "moduloResult": 2,
+  "secondResult": 58,
+  "yearIsEven": false,
+}
+`;
+
+exports[`tests oddPlusElevenFull for 2084 1`] = `
+{
+  "firstResult": 42,
+  "moduloFromSeven": 0,
+  "moduloResult": 0,
+  "secondResult": 42,
+  "yearIsEven": true,
+}
+`;
+
+exports[`tests oddPlusElevenFull for 2085 1`] = `
+{
+  "firstResult": 48,
+  "moduloFromSeven": 1,
+  "moduloResult": 6,
+  "secondResult": 48,
+  "yearIsEven": false,
+}
+`;
+
+exports[`tests oddPlusElevenFull for 2086 1`] = `
+{
+  "firstResult": 43,
+  "moduloFromSeven": 2,
+  "moduloResult": 5,
+  "secondResult": 54,
+  "yearIsEven": true,
+}
+`;
+
+exports[`tests oddPlusElevenFull for 2087 1`] = `
+{
+  "firstResult": 49,
+  "moduloFromSeven": 3,
+  "moduloResult": 4,
+  "secondResult": 60,
+  "yearIsEven": false,
+}
+`;
+
+exports[`tests oddPlusElevenFull for 2088 1`] = `
+{
+  "firstResult": 44,
+  "moduloFromSeven": 5,
+  "moduloResult": 2,
+  "secondResult": 44,
+  "yearIsEven": true,
+}
+`;
+
+exports[`tests oddPlusElevenFull for 2089 1`] = `
+{
+  "firstResult": 50,
+  "moduloFromSeven": 6,
+  "moduloResult": 1,
+  "secondResult": 50,
+  "yearIsEven": false,
+}
+`;
+
+exports[`tests oddPlusElevenFull for 2090 1`] = `
+{
+  "firstResult": 45,
+  "moduloFromSeven": 0,
+  "moduloResult": 0,
+  "secondResult": 56,
+  "yearIsEven": true,
+}
+`;
+
+exports[`tests oddPlusElevenFull for 2091 1`] = `
+{
+  "firstResult": 51,
+  "moduloFromSeven": 1,
+  "moduloResult": 6,
+  "secondResult": 62,
+  "yearIsEven": false,
+}
+`;
+
+exports[`tests oddPlusElevenFull for 2092 1`] = `
+{
+  "firstResult": 46,
+  "moduloFromSeven": 3,
+  "moduloResult": 4,
+  "secondResult": 46,
+  "yearIsEven": true,
+}
+`;
+
+exports[`tests oddPlusElevenFull for 2093 1`] = `
+{
+  "firstResult": 52,
+  "moduloFromSeven": 4,
+  "moduloResult": 3,
+  "secondResult": 52,
+  "yearIsEven": false,
+}
+`;
+
+exports[`tests oddPlusElevenFull for 2094 1`] = `
+{
+  "firstResult": 47,
+  "moduloFromSeven": 5,
+  "moduloResult": 2,
+  "secondResult": 58,
+  "yearIsEven": true,
+}
+`;
+
+exports[`tests oddPlusElevenFull for 2095 1`] = `
+{
+  "firstResult": 53,
+  "moduloFromSeven": 6,
+  "moduloResult": 1,
+  "secondResult": 64,
+  "yearIsEven": false,
+}
+`;
+
+exports[`tests oddPlusElevenFull for 2096 1`] = `
+{
+  "firstResult": 48,
+  "moduloFromSeven": 1,
+  "moduloResult": 6,
+  "secondResult": 48,
+  "yearIsEven": true,
+}
+`;
+
+exports[`tests oddPlusElevenFull for 2097 1`] = `
+{
+  "firstResult": 54,
+  "moduloFromSeven": 2,
+  "moduloResult": 5,
+  "secondResult": 54,
+  "yearIsEven": false,
+}
+`;
+
+exports[`tests oddPlusElevenFull for 2098 1`] = `
+{
+  "firstResult": 49,
+  "moduloFromSeven": 3,
+  "moduloResult": 4,
+  "secondResult": 60,
+  "yearIsEven": true,
+}
+`;
+
+exports[`tests oddPlusElevenFull for 2099 1`] = `
+{
+  "firstResult": 55,
+  "moduloFromSeven": 4,
+  "moduloResult": 3,
+  "secondResult": 66,
+  "yearIsEven": false,
+}
+`;
+
+exports[`tests oddPlusElevenTwo for 2000 1`] = `
+{
+  "firstResult": 0,
+  "moduloFromSeven": 0,
+  "moduloResult": 0,
+  "secondResult": 0,
+  "yearIsEven": true,
+}
+`;
+
+exports[`tests oddPlusElevenTwo for 2001 1`] = `
+{
+  "firstResult": 6,
+  "moduloFromSeven": 1,
+  "moduloResult": 6,
+  "secondResult": 6,
+  "yearIsEven": false,
+}
+`;
+
+exports[`tests oddPlusElevenTwo for 2002 1`] = `
+{
+  "firstResult": 1,
+  "moduloFromSeven": 2,
+  "moduloResult": 5,
+  "secondResult": 12,
+  "yearIsEven": true,
+}
+`;
+
+exports[`tests oddPlusElevenTwo for 2003 1`] = `
+{
+  "firstResult": 7,
+  "moduloFromSeven": 3,
+  "moduloResult": 4,
+  "secondResult": 18,
+  "yearIsEven": false,
+}
+`;
+
+exports[`tests oddPlusElevenTwo for 2004 1`] = `
+{
+  "firstResult": 2,
+  "moduloFromSeven": 5,
+  "moduloResult": 2,
+  "secondResult": 2,
+  "yearIsEven": true,
+}
+`;
+
+exports[`tests oddPlusElevenTwo for 2005 1`] = `
+{
+  "firstResult": 8,
+  "moduloFromSeven": 6,
+  "moduloResult": 1,
+  "secondResult": 8,
+  "yearIsEven": false,
+}
+`;
+
+exports[`tests oddPlusElevenTwo for 2006 1`] = `
+{
+  "firstResult": 3,
+  "moduloFromSeven": 0,
+  "moduloResult": 0,
+  "secondResult": 14,
+  "yearIsEven": true,
+}
+`;
+
+exports[`tests oddPlusElevenTwo for 2007 1`] = `
+{
+  "firstResult": 9,
+  "moduloFromSeven": 1,
+  "moduloResult": 6,
+  "secondResult": 20,
+  "yearIsEven": false,
+}
+`;
+
+exports[`tests oddPlusElevenTwo for 2008 1`] = `
+{
+  "firstResult": 4,
+  "moduloFromSeven": 3,
+  "moduloResult": 4,
+  "secondResult": 4,
+  "yearIsEven": true,
+}
+`;
+
+exports[`tests oddPlusElevenTwo for 2009 1`] = `
+{
+  "firstResult": 10,
+  "moduloFromSeven": 4,
+  "moduloResult": 3,
+  "secondResult": 10,
+  "yearIsEven": false,
+}
+`;
+
+exports[`tests oddPlusElevenTwo for 2010 1`] = `
+{
+  "firstResult": 5,
+  "moduloFromSeven": 5,
+  "moduloResult": 2,
+  "secondResult": 16,
+  "yearIsEven": true,
+}
+`;
+
+exports[`tests oddPlusElevenTwo for 2011 1`] = `
+{
+  "firstResult": 11,
+  "moduloFromSeven": 6,
+  "moduloResult": 1,
+  "secondResult": 22,
+  "yearIsEven": false,
+}
+`;
+
+exports[`tests oddPlusElevenTwo for 2012 1`] = `
+{
+  "firstResult": 6,
+  "moduloFromSeven": 1,
+  "moduloResult": 6,
+  "secondResult": 6,
+  "yearIsEven": true,
+}
+`;
+
+exports[`tests oddPlusElevenTwo for 2013 1`] = `
+{
+  "firstResult": 12,
+  "moduloFromSeven": 2,
+  "moduloResult": 5,
+  "secondResult": 12,
+  "yearIsEven": false,
+}
+`;
+
+exports[`tests oddPlusElevenTwo for 2014 1`] = `
+{
+  "firstResult": 7,
+  "moduloFromSeven": 3,
+  "moduloResult": 4,
+  "secondResult": 18,
+  "yearIsEven": true,
+}
+`;
+
+exports[`tests oddPlusElevenTwo for 2015 1`] = `
+{
+  "firstResult": 13,
+  "moduloFromSeven": 4,
+  "moduloResult": 3,
+  "secondResult": 24,
+  "yearIsEven": false,
+}
+`;
+
+exports[`tests oddPlusElevenTwo for 2016 1`] = `
+{
+  "firstResult": 8,
+  "moduloFromSeven": 6,
+  "moduloResult": 1,
+  "secondResult": 8,
+  "yearIsEven": true,
+}
+`;
+
+exports[`tests oddPlusElevenTwo for 2017 1`] = `
+{
+  "firstResult": 14,
+  "moduloFromSeven": 0,
+  "moduloResult": 0,
+  "secondResult": 14,
+  "yearIsEven": false,
+}
+`;
+
+exports[`tests oddPlusElevenTwo for 2018 1`] = `
+{
+  "firstResult": 9,
+  "moduloFromSeven": 1,
+  "moduloResult": 6,
+  "secondResult": 20,
+  "yearIsEven": true,
+}
+`;
+
+exports[`tests oddPlusElevenTwo for 2019 1`] = `
+{
+  "firstResult": 15,
+  "moduloFromSeven": 2,
+  "moduloResult": 5,
+  "secondResult": 26,
+  "yearIsEven": false,
+}
+`;
+
+exports[`tests oddPlusElevenTwo for 2020 1`] = `
+{
+  "firstResult": 10,
+  "moduloFromSeven": 4,
+  "moduloResult": 3,
+  "secondResult": 10,
+  "yearIsEven": true,
+}
+`;
+
+exports[`tests oddPlusElevenTwo for 2021 1`] = `
+{
+  "firstResult": 16,
+  "moduloFromSeven": 5,
+  "moduloResult": 2,
+  "secondResult": 16,
+  "yearIsEven": false,
+}
+`;
+
+exports[`tests oddPlusElevenTwo for 2022 1`] = `
+{
+  "firstResult": 11,
+  "moduloFromSeven": 6,
+  "moduloResult": 1,
+  "secondResult": 22,
+  "yearIsEven": true,
+}
+`;
+
+exports[`tests oddPlusElevenTwo for 2023 1`] = `
+{
+  "firstResult": 17,
+  "moduloFromSeven": 0,
+  "moduloResult": 0,
+  "secondResult": 28,
+  "yearIsEven": false,
+}
+`;
+
+exports[`tests oddPlusElevenTwo for 2024 1`] = `
+{
+  "firstResult": 12,
+  "moduloFromSeven": 2,
+  "moduloResult": 5,
+  "secondResult": 12,
+  "yearIsEven": true,
+}
+`;
+
+exports[`tests oddPlusElevenTwo for 2025 1`] = `
+{
+  "firstResult": 18,
+  "moduloFromSeven": 3,
+  "moduloResult": 4,
+  "secondResult": 18,
+  "yearIsEven": false,
+}
+`;
+
+exports[`tests oddPlusElevenTwo for 2026 1`] = `
+{
+  "firstResult": 13,
+  "moduloFromSeven": 4,
+  "moduloResult": 3,
+  "secondResult": 24,
+  "yearIsEven": true,
+}
+`;
+
+exports[`tests oddPlusElevenTwo for 2027 1`] = `
+{
+  "firstResult": 19,
+  "moduloFromSeven": 5,
+  "moduloResult": 2,
+  "secondResult": 30,
+  "yearIsEven": false,
+}
+`;
+
+exports[`tests oddPlusElevenTwo for 2028 1`] = `
+{
+  "firstResult": 14,
+  "moduloFromSeven": 0,
+  "moduloResult": 0,
+  "secondResult": 14,
+  "yearIsEven": true,
+}
+`;
+
+exports[`tests oddPlusElevenTwo for 2029 1`] = `
+{
+  "firstResult": 20,
+  "moduloFromSeven": 1,
+  "moduloResult": 6,
+  "secondResult": 20,
+  "yearIsEven": false,
+}
+`;
+
+exports[`tests oddPlusElevenTwo for 2030 1`] = `
+{
+  "firstResult": 15,
+  "moduloFromSeven": 2,
+  "moduloResult": 5,
+  "secondResult": 26,
+  "yearIsEven": true,
+}
+`;
+
+exports[`tests oddPlusElevenTwo for 2031 1`] = `
+{
+  "firstResult": 21,
+  "moduloFromSeven": 3,
+  "moduloResult": 4,
+  "secondResult": 32,
+  "yearIsEven": false,
+}
+`;
+
+exports[`tests oddPlusElevenTwo for 2032 1`] = `
+{
+  "firstResult": 16,
+  "moduloFromSeven": 5,
+  "moduloResult": 2,
+  "secondResult": 16,
+  "yearIsEven": true,
+}
+`;
+
+exports[`tests oddPlusElevenTwo for 2033 1`] = `
+{
+  "firstResult": 22,
+  "moduloFromSeven": 6,
+  "moduloResult": 1,
+  "secondResult": 22,
+  "yearIsEven": false,
+}
+`;
+
+exports[`tests oddPlusElevenTwo for 2034 1`] = `
+{
+  "firstResult": 17,
+  "moduloFromSeven": 0,
+  "moduloResult": 0,
+  "secondResult": 28,
+  "yearIsEven": true,
+}
+`;
+
+exports[`tests oddPlusElevenTwo for 2035 1`] = `
+{
+  "firstResult": 23,
+  "moduloFromSeven": 1,
+  "moduloResult": 6,
+  "secondResult": 34,
+  "yearIsEven": false,
+}
+`;
+
+exports[`tests oddPlusElevenTwo for 2036 1`] = `
+{
+  "firstResult": 18,
+  "moduloFromSeven": 3,
+  "moduloResult": 4,
+  "secondResult": 18,
+  "yearIsEven": true,
+}
+`;
+
+exports[`tests oddPlusElevenTwo for 2037 1`] = `
+{
+  "firstResult": 24,
+  "moduloFromSeven": 4,
+  "moduloResult": 3,
+  "secondResult": 24,
+  "yearIsEven": false,
+}
+`;
+
+exports[`tests oddPlusElevenTwo for 2038 1`] = `
+{
+  "firstResult": 19,
+  "moduloFromSeven": 5,
+  "moduloResult": 2,
+  "secondResult": 30,
+  "yearIsEven": true,
+}
+`;
+
+exports[`tests oddPlusElevenTwo for 2039 1`] = `
+{
+  "firstResult": 25,
+  "moduloFromSeven": 6,
+  "moduloResult": 1,
+  "secondResult": 36,
+  "yearIsEven": false,
+}
+`;
+
+exports[`tests oddPlusElevenTwo for 2040 1`] = `
+{
+  "firstResult": 20,
+  "moduloFromSeven": 1,
+  "moduloResult": 6,
+  "secondResult": 20,
+  "yearIsEven": true,
+}
+`;
+
+exports[`tests oddPlusElevenTwo for 2041 1`] = `
+{
+  "firstResult": 26,
+  "moduloFromSeven": 2,
+  "moduloResult": 5,
+  "secondResult": 26,
+  "yearIsEven": false,
+}
+`;
+
+exports[`tests oddPlusElevenTwo for 2042 1`] = `
+{
+  "firstResult": 21,
+  "moduloFromSeven": 3,
+  "moduloResult": 4,
+  "secondResult": 32,
+  "yearIsEven": true,
+}
+`;
+
+exports[`tests oddPlusElevenTwo for 2043 1`] = `
+{
+  "firstResult": 27,
+  "moduloFromSeven": 4,
+  "moduloResult": 3,
+  "secondResult": 38,
+  "yearIsEven": false,
+}
+`;
+
+exports[`tests oddPlusElevenTwo for 2044 1`] = `
+{
+  "firstResult": 22,
+  "moduloFromSeven": 6,
+  "moduloResult": 1,
+  "secondResult": 22,
+  "yearIsEven": true,
+}
+`;
+
+exports[`tests oddPlusElevenTwo for 2045 1`] = `
+{
+  "firstResult": 28,
+  "moduloFromSeven": 0,
+  "moduloResult": 0,
+  "secondResult": 28,
+  "yearIsEven": false,
+}
+`;
+
+exports[`tests oddPlusElevenTwo for 2046 1`] = `
+{
+  "firstResult": 23,
+  "moduloFromSeven": 1,
+  "moduloResult": 6,
+  "secondResult": 34,
+  "yearIsEven": true,
+}
+`;
+
+exports[`tests oddPlusElevenTwo for 2047 1`] = `
+{
+  "firstResult": 29,
+  "moduloFromSeven": 2,
+  "moduloResult": 5,
+  "secondResult": 40,
+  "yearIsEven": false,
+}
+`;
+
+exports[`tests oddPlusElevenTwo for 2048 1`] = `
+{
+  "firstResult": 24,
+  "moduloFromSeven": 4,
+  "moduloResult": 3,
+  "secondResult": 24,
+  "yearIsEven": true,
+}
+`;
+
+exports[`tests oddPlusElevenTwo for 2049 1`] = `
+{
+  "firstResult": 30,
+  "moduloFromSeven": 5,
+  "moduloResult": 2,
+  "secondResult": 30,
+  "yearIsEven": false,
+}
+`;
+
+exports[`tests oddPlusElevenTwo for 2050 1`] = `
+{
+  "firstResult": 25,
+  "moduloFromSeven": 6,
+  "moduloResult": 1,
+  "secondResult": 36,
+  "yearIsEven": true,
+}
+`;
+
+exports[`tests oddPlusElevenTwo for 2051 1`] = `
+{
+  "firstResult": 31,
+  "moduloFromSeven": 0,
+  "moduloResult": 0,
+  "secondResult": 42,
+  "yearIsEven": false,
+}
+`;
+
+exports[`tests oddPlusElevenTwo for 2052 1`] = `
+{
+  "firstResult": 26,
+  "moduloFromSeven": 2,
+  "moduloResult": 5,
+  "secondResult": 26,
+  "yearIsEven": true,
+}
+`;
+
+exports[`tests oddPlusElevenTwo for 2053 1`] = `
+{
+  "firstResult": 32,
+  "moduloFromSeven": 3,
+  "moduloResult": 4,
+  "secondResult": 32,
+  "yearIsEven": false,
+}
+`;
+
+exports[`tests oddPlusElevenTwo for 2054 1`] = `
+{
+  "firstResult": 27,
+  "moduloFromSeven": 4,
+  "moduloResult": 3,
+  "secondResult": 38,
+  "yearIsEven": true,
+}
+`;
+
+exports[`tests oddPlusElevenTwo for 2055 1`] = `
+{
+  "firstResult": 33,
+  "moduloFromSeven": 5,
+  "moduloResult": 2,
+  "secondResult": 44,
+  "yearIsEven": false,
+}
+`;
+
+exports[`tests oddPlusElevenTwo for 2056 1`] = `
+{
+  "firstResult": 28,
+  "moduloFromSeven": 0,
+  "moduloResult": 0,
+  "secondResult": 28,
+  "yearIsEven": true,
+}
+`;
+
+exports[`tests oddPlusElevenTwo for 2057 1`] = `
+{
+  "firstResult": 34,
+  "moduloFromSeven": 1,
+  "moduloResult": 6,
+  "secondResult": 34,
+  "yearIsEven": false,
+}
+`;
+
+exports[`tests oddPlusElevenTwo for 2058 1`] = `
+{
+  "firstResult": 29,
+  "moduloFromSeven": 2,
+  "moduloResult": 5,
+  "secondResult": 40,
+  "yearIsEven": true,
+}
+`;
+
+exports[`tests oddPlusElevenTwo for 2059 1`] = `
+{
+  "firstResult": 35,
+  "moduloFromSeven": 3,
+  "moduloResult": 4,
+  "secondResult": 46,
+  "yearIsEven": false,
+}
+`;
+
+exports[`tests oddPlusElevenTwo for 2060 1`] = `
+{
+  "firstResult": 30,
+  "moduloFromSeven": 5,
+  "moduloResult": 2,
+  "secondResult": 30,
+  "yearIsEven": true,
+}
+`;
+
+exports[`tests oddPlusElevenTwo for 2061 1`] = `
+{
+  "firstResult": 36,
+  "moduloFromSeven": 6,
+  "moduloResult": 1,
+  "secondResult": 36,
+  "yearIsEven": false,
+}
+`;
+
+exports[`tests oddPlusElevenTwo for 2062 1`] = `
+{
+  "firstResult": 31,
+  "moduloFromSeven": 0,
+  "moduloResult": 0,
+  "secondResult": 42,
+  "yearIsEven": true,
+}
+`;
+
+exports[`tests oddPlusElevenTwo for 2063 1`] = `
+{
+  "firstResult": 37,
+  "moduloFromSeven": 1,
+  "moduloResult": 6,
+  "secondResult": 48,
+  "yearIsEven": false,
+}
+`;
+
+exports[`tests oddPlusElevenTwo for 2064 1`] = `
+{
+  "firstResult": 32,
+  "moduloFromSeven": 3,
+  "moduloResult": 4,
+  "secondResult": 32,
+  "yearIsEven": true,
+}
+`;
+
+exports[`tests oddPlusElevenTwo for 2065 1`] = `
+{
+  "firstResult": 38,
+  "moduloFromSeven": 4,
+  "moduloResult": 3,
+  "secondResult": 38,
+  "yearIsEven": false,
+}
+`;
+
+exports[`tests oddPlusElevenTwo for 2066 1`] = `
+{
+  "firstResult": 33,
+  "moduloFromSeven": 5,
+  "moduloResult": 2,
+  "secondResult": 44,
+  "yearIsEven": true,
+}
+`;
+
+exports[`tests oddPlusElevenTwo for 2067 1`] = `
+{
+  "firstResult": 39,
+  "moduloFromSeven": 6,
+  "moduloResult": 1,
+  "secondResult": 50,
+  "yearIsEven": false,
+}
+`;
+
+exports[`tests oddPlusElevenTwo for 2068 1`] = `
+{
+  "firstResult": 34,
+  "moduloFromSeven": 1,
+  "moduloResult": 6,
+  "secondResult": 34,
+  "yearIsEven": true,
+}
+`;
+
+exports[`tests oddPlusElevenTwo for 2069 1`] = `
+{
+  "firstResult": 40,
+  "moduloFromSeven": 2,
+  "moduloResult": 5,
+  "secondResult": 40,
+  "yearIsEven": false,
+}
+`;
+
+exports[`tests oddPlusElevenTwo for 2070 1`] = `
+{
+  "firstResult": 35,
+  "moduloFromSeven": 3,
+  "moduloResult": 4,
+  "secondResult": 46,
+  "yearIsEven": true,
+}
+`;
+
+exports[`tests oddPlusElevenTwo for 2071 1`] = `
+{
+  "firstResult": 41,
+  "moduloFromSeven": 4,
+  "moduloResult": 3,
+  "secondResult": 52,
+  "yearIsEven": false,
+}
+`;
+
+exports[`tests oddPlusElevenTwo for 2072 1`] = `
+{
+  "firstResult": 36,
+  "moduloFromSeven": 6,
+  "moduloResult": 1,
+  "secondResult": 36,
+  "yearIsEven": true,
+}
+`;
+
+exports[`tests oddPlusElevenTwo for 2073 1`] = `
+{
+  "firstResult": 42,
+  "moduloFromSeven": 0,
+  "moduloResult": 0,
+  "secondResult": 42,
+  "yearIsEven": false,
+}
+`;
+
+exports[`tests oddPlusElevenTwo for 2074 1`] = `
+{
+  "firstResult": 37,
+  "moduloFromSeven": 1,
+  "moduloResult": 6,
+  "secondResult": 48,
+  "yearIsEven": true,
+}
+`;
+
+exports[`tests oddPlusElevenTwo for 2075 1`] = `
+{
+  "firstResult": 43,
+  "moduloFromSeven": 2,
+  "moduloResult": 5,
+  "secondResult": 54,
+  "yearIsEven": false,
+}
+`;
+
+exports[`tests oddPlusElevenTwo for 2076 1`] = `
+{
+  "firstResult": 38,
+  "moduloFromSeven": 4,
+  "moduloResult": 3,
+  "secondResult": 38,
+  "yearIsEven": true,
+}
+`;
+
+exports[`tests oddPlusElevenTwo for 2077 1`] = `
+{
+  "firstResult": 44,
+  "moduloFromSeven": 5,
+  "moduloResult": 2,
+  "secondResult": 44,
+  "yearIsEven": false,
+}
+`;
+
+exports[`tests oddPlusElevenTwo for 2078 1`] = `
+{
+  "firstResult": 39,
+  "moduloFromSeven": 6,
+  "moduloResult": 1,
+  "secondResult": 50,
+  "yearIsEven": true,
+}
+`;
+
+exports[`tests oddPlusElevenTwo for 2079 1`] = `
+{
+  "firstResult": 45,
+  "moduloFromSeven": 0,
+  "moduloResult": 0,
+  "secondResult": 56,
+  "yearIsEven": false,
+}
+`;
+
+exports[`tests oddPlusElevenTwo for 2080 1`] = `
+{
+  "firstResult": 40,
+  "moduloFromSeven": 2,
+  "moduloResult": 5,
+  "secondResult": 40,
+  "yearIsEven": true,
+}
+`;
+
+exports[`tests oddPlusElevenTwo for 2081 1`] = `
+{
+  "firstResult": 46,
+  "moduloFromSeven": 3,
+  "moduloResult": 4,
+  "secondResult": 46,
+  "yearIsEven": false,
+}
+`;
+
+exports[`tests oddPlusElevenTwo for 2082 1`] = `
+{
+  "firstResult": 41,
+  "moduloFromSeven": 4,
+  "moduloResult": 3,
+  "secondResult": 52,
+  "yearIsEven": true,
+}
+`;
+
+exports[`tests oddPlusElevenTwo for 2083 1`] = `
+{
+  "firstResult": 47,
+  "moduloFromSeven": 5,
+  "moduloResult": 2,
+  "secondResult": 58,
+  "yearIsEven": false,
+}
+`;
+
+exports[`tests oddPlusElevenTwo for 2084 1`] = `
+{
+  "firstResult": 42,
+  "moduloFromSeven": 0,
+  "moduloResult": 0,
+  "secondResult": 42,
+  "yearIsEven": true,
+}
+`;
+
+exports[`tests oddPlusElevenTwo for 2085 1`] = `
+{
+  "firstResult": 48,
+  "moduloFromSeven": 1,
+  "moduloResult": 6,
+  "secondResult": 48,
+  "yearIsEven": false,
+}
+`;
+
+exports[`tests oddPlusElevenTwo for 2086 1`] = `
+{
+  "firstResult": 43,
+  "moduloFromSeven": 2,
+  "moduloResult": 5,
+  "secondResult": 54,
+  "yearIsEven": true,
+}
+`;
+
+exports[`tests oddPlusElevenTwo for 2087 1`] = `
+{
+  "firstResult": 49,
+  "moduloFromSeven": 3,
+  "moduloResult": 4,
+  "secondResult": 60,
+  "yearIsEven": false,
+}
+`;
+
+exports[`tests oddPlusElevenTwo for 2088 1`] = `
+{
+  "firstResult": 44,
+  "moduloFromSeven": 5,
+  "moduloResult": 2,
+  "secondResult": 44,
+  "yearIsEven": true,
+}
+`;
+
+exports[`tests oddPlusElevenTwo for 2089 1`] = `
+{
+  "firstResult": 50,
+  "moduloFromSeven": 6,
+  "moduloResult": 1,
+  "secondResult": 50,
+  "yearIsEven": false,
+}
+`;
+
+exports[`tests oddPlusElevenTwo for 2090 1`] = `
+{
+  "firstResult": 45,
+  "moduloFromSeven": 0,
+  "moduloResult": 0,
+  "secondResult": 56,
+  "yearIsEven": true,
+}
+`;
+
+exports[`tests oddPlusElevenTwo for 2091 1`] = `
+{
+  "firstResult": 51,
+  "moduloFromSeven": 1,
+  "moduloResult": 6,
+  "secondResult": 62,
+  "yearIsEven": false,
+}
+`;
+
+exports[`tests oddPlusElevenTwo for 2092 1`] = `
+{
+  "firstResult": 46,
+  "moduloFromSeven": 3,
+  "moduloResult": 4,
+  "secondResult": 46,
+  "yearIsEven": true,
+}
+`;
+
+exports[`tests oddPlusElevenTwo for 2093 1`] = `
+{
+  "firstResult": 52,
+  "moduloFromSeven": 4,
+  "moduloResult": 3,
+  "secondResult": 52,
+  "yearIsEven": false,
+}
+`;
+
+exports[`tests oddPlusElevenTwo for 2094 1`] = `
+{
+  "firstResult": 47,
+  "moduloFromSeven": 5,
+  "moduloResult": 2,
+  "secondResult": 58,
+  "yearIsEven": true,
+}
+`;
+
+exports[`tests oddPlusElevenTwo for 2095 1`] = `
+{
+  "firstResult": 53,
+  "moduloFromSeven": 6,
+  "moduloResult": 1,
+  "secondResult": 64,
+  "yearIsEven": false,
+}
+`;
+
+exports[`tests oddPlusElevenTwo for 2096 1`] = `
+{
+  "firstResult": 48,
+  "moduloFromSeven": 1,
+  "moduloResult": 6,
+  "secondResult": 48,
+  "yearIsEven": true,
+}
+`;
+
+exports[`tests oddPlusElevenTwo for 2097 1`] = `
+{
+  "firstResult": 54,
+  "moduloFromSeven": 2,
+  "moduloResult": 5,
+  "secondResult": 54,
+  "yearIsEven": false,
+}
+`;
+
+exports[`tests oddPlusElevenTwo for 2098 1`] = `
+{
+  "firstResult": 49,
+  "moduloFromSeven": 3,
+  "moduloResult": 4,
+  "secondResult": 60,
+  "yearIsEven": true,
+}
+`;
+
+exports[`tests oddPlusElevenTwo for 2099 1`] = `
+{
+  "firstResult": 55,
+  "moduloFromSeven": 4,
+  "moduloResult": 3,
+  "secondResult": 66,
+  "yearIsEven": false,
+}
+`;

@@ -9,12 +9,14 @@ import GuessFullDateV1 from './guess-full-date-v1';
 import GuessOnlyDate from './guess-only-date';
 import GuessProgressive from './guess-progressive';
 import GuessYearDoomsday from './guess-year-doomsday';
+import OddPlusEleven from './modules/odd-plus-eleven';
 import StepOne from './step-1';
 
 const baseUrl = import.meta.env.BASE_URL;
 
 const navLinks = [
   { to: `${baseUrl}/`, text: 'home', end: true },
+  { to: `${baseUrl}/odd`, text: 'odd' },
   { to: `${baseUrl}/date-offset`, text: 'offset' },
   { to: `${baseUrl}/learn/doomsday`, text: 'doomsday' },
   { to: `${baseUrl}/within`, text: 'within' },
@@ -55,6 +57,7 @@ const Base = () => {
           <Route path='/' index element={<Home />} />
           <Route path='/all' element={<AllPages />} />
           <Route path='/learn/doomsday' element={<MonthDoomsdayCalendar />} />
+          <Route path='/odd' element={<OddPlusEleven />} />
           <Route path='/within' element={<GuessDateDoomsdayWithinYear />} />
           <Route path='/step1' element={<StepOne />} />
           <Route path='/year' element={<GuessYearDoomsday />} />

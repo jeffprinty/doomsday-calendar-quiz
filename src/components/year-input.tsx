@@ -12,7 +12,7 @@ export const YearInput = ({
   return (
     <input
       type='number'
-      className={clsx(className, 'w-28 rounded-xl bg-indigo-900 py-2 text-center text-4xl')}
+      className={clsx(className, 'w-36 rounded-xl bg-indigo-900 py-2 text-center text-5xl')}
       value={value || ''}
       onChange={({ target: { value } }) => setValue(Number(value))}
     />

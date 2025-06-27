@@ -6,6 +6,7 @@ import { IoMdEye, IoMdEyeOff, IoMdRefresh } from 'react-icons/io';
 import { Day, getAnchorDay, getDoomsdayForYearV2, getRandomYear } from '../common';
 import Button from '../components/button';
 import YearInput from '../components/year-input';
+import { oddPlusElevenFull } from '../math/doomsyear-odd-plus-eleven';
 import { DayOfWeekGuesserSelfContained } from './day-of-week-guesser';
 
 // const Step = ({
@@ -57,10 +58,10 @@ const Revealable = ({
     if (!revealed && forceShow) {
       setRevealed(true);
     }
-  }, [forceShow]);
+  }, [forceShow, revealed]);
   return (
     <button
-      className={clsx(className, 'revealable', !revealed && 'blur-sm')}
+      className={clsx(className, 'revealable', !revealed && 'blur-md')}
       onClick={() => setRevealed(!revealed)}
     >
       {children}
@@ -96,19 +97,15 @@ const OddPlusEleven = () => {
   const centuryStyle = 'text-green-400';
   const iconButtonStyle = 'flex flex-row items-center justify-center w-8';
 
-  const yearIsEven = year % 2 === 0;
-  const firstResult = yearIsEven ? year / 2 : year + 11;
+  const { yearIsEven, firstResult, secondResult, moduloResult, moduloFromSeven } =
+    oddPlusElevenFull(year);
+
   const firstResultIsEven = firstResult % 2 === 0;
-  const secondResult = firstResultIsEven ? firstResult / 2 : firstResult + 11;
-  const secondResultIsOdd = secondResult % 2 !== 0;
-  const thirdResult = secondResult + 11;
-
-  const beforeModule = secondResultIsOdd ? thirdResult : secondResult;
-
-  const afterModulo = beforeModule % 7;
-  const moduloFromSeven = afterModulo === 0 ? 0 : 7 - afterModulo;
 
   const centuryAnchorDay = getAnchorDay(century);
+
+  const allSevens = Array.from({ length: 14 }, (x, index) => (index + 1) * 7);
+  console.log('allSevens', allSevens);
 
   return (
     <div>
@@ -117,45 +114,37 @@ const OddPlusEleven = () => {
         <Button className={iconButtonStyle} onClick={handleClick}>
           <IoMdRefresh />
         </Button>
-        <Button className={iconButtonStyle} onClick={() => setShowWork(!showWork)}>
+        <Button className={clsx(iconButtonStyle, 'hidden')} onClick={() => setShowWork(!showWork)}>
           {showWork ? <IoMdEyeOff /> : <IoMdEye />}
         </Button>
       </div>
       {century && correctDoomsday && showWork && (
-        <div key={fullYearValue}>
-          <div className='flex flex-row items-center justify-center text-2xl'>
+        <div className='text-2xl' key={fullYearValue}>
+          <div className='flex flex-row items-center justify-center'>
             {century && <div className={centuryStyle}>{century}</div>}
             {year && <div className={yearStyle}>{yearPadded}</div>}
           </div>
           <div className={clsx(stepRow, yearStyle)}>{yearPadded}</div>
           <div className={stepRow}>
-            <Fork highlight={yearIsEven}>/ 2</Fork>
             <Fork highlight={!yearIsEven}>+11</Fork>
+            <Fork highlight>/ 2</Fork>
           </div>
           <div className={stepRow}>
             <Revealable forceShow={revealAll}>{firstResult}</Revealable>
           </div>
-          <div className={stepRow}>
-            <Fork highlight={firstResultIsEven}>/ 2</Fork>
-            <Fork highlight={!firstResultIsEven}>+11</Fork>
-          </div>
-          <div className={stepRow}>
-            <Revealable forceShow={revealAll}>{secondResult}</Revealable>
-          </div>
-          {secondResultIsOdd && (
+          {firstResult !== secondResult && (
             <>
-              <div className={stepRow}>Second Result is Odd</div>
               <div className={stepRow}>
-                <Fork highlight>+11</Fork>
+                <Fork highlight={!firstResultIsEven}>+ 11</Fork>
               </div>
               <div className={stepRow}>
-                <Revealable forceShow={revealAll}>{thirdResult}</Revealable>
+                <Revealable forceShow={revealAll}>{secondResult}</Revealable>
               </div>
             </>
           )}
           <div className={stepRow}>Modulo 7</div>
           <div className={stepRow}>
-            <Revealable forceShow={revealAll}>{afterModulo}</Revealable>
+            <Revealable forceShow={revealAll}>{moduloResult}</Revealable>
           </div>
           <div className={stepRow}>Subtract Modulo from 7</div>
           <div className={stepRow}>
@@ -164,7 +153,7 @@ const OddPlusEleven = () => {
           <div className={stepRow}>
             <p>
               Anchor day for <span className={centuryStyle}>{century}</span>00s is{' '}
-              {centuryAnchorDay}
+              <Revealable forceShow={revealAll}>{centuryAnchorDay}</Revealable>
             </p>
           </div>
           <div className={stepRow}>
