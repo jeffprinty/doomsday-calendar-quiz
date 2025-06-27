@@ -116,7 +116,7 @@ const OddPlusEleven = () => {
         <Button className={iconButtonStyle} onClick={handleClick}>
           <IoMdRefresh />
         </Button>
-        <Button className={clsx(iconButtonStyle, 'hidden')} onClick={() => setShowWork(!showWork)}>
+        <Button className={iconButtonStyle} onClick={() => setShowWork(!showWork)}>
           {showWork ? <IoMdEyeOff /> : <IoMdEye />}
         </Button>
       </div>
@@ -164,16 +164,16 @@ const OddPlusEleven = () => {
             </Revealable>
           </div>
           <br />
-          <DayOfWeekGuesserSelfContained
-            correctDay={correctDoomsday as Day}
-            key={`week_${fullYearValue}`}
-            onGuess={(answer, isCorrect) => {
-              console.log('answer, isCorrect', answer, isCorrect);
-              setRevealAll(true);
-            }}
-          />
         </div>
       )}
+      <DayOfWeekGuesserSelfContained
+        correctDay={correctDoomsday as Day}
+        key={`week_${fullYearValue}`}
+        onGuess={(answer, isCorrect) => {
+          console.log('answer, isCorrect', answer, isCorrect);
+          setRevealAll(true);
+        }}
+      />
     </div>
   );
 };
