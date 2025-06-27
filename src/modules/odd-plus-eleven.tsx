@@ -107,6 +107,8 @@ const OddPlusEleven = () => {
   const allSevens = Array.from({ length: 14 }, (x, index) => (index + 1) * 7);
   console.log('allSevens', allSevens);
 
+  const showGuts = !!century && !!correctDoomsday && showWork;
+
   return (
     <div>
       <div className='flex flex-row items-center justify-center'>
@@ -118,7 +120,7 @@ const OddPlusEleven = () => {
           {showWork ? <IoMdEyeOff /> : <IoMdEye />}
         </Button>
       </div>
-      {century && correctDoomsday && showWork && (
+      {showGuts && (
         <div className='text-2xl' key={fullYearValue}>
           <div className='flex flex-row items-center justify-center'>
             {century && <div className={centuryStyle}>{century}</div>}
