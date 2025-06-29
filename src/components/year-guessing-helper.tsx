@@ -3,18 +3,8 @@ import React, { useState } from 'react';
 import clsx from 'clsx';
 import { BiMath, BiSolidInfoCircle } from 'react-icons/bi';
 
-import {
-  AnchorDayCentury,
-  getAnchorDayForCentury,
-  step0,
-  step1,
-  step2,
-  step3,
-  step4,
-  step5,
-  step6,
-  Steps,
-} from '../common';
+import { step0, step1, step2, step3, step4, step5, step6, Steps } from '../common';
+import { AnchorDayCentury, getAnchorDayForCentury } from '../math/century';
 
 interface RememberRow {
   hint?: React.ReactNode;

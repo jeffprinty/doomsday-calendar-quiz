@@ -1,8 +1,7 @@
-import React from 'react';
-
 import clsx from 'clsx';
 
-import { CalendarDay, dayNames, fullDateWithWeekdayFormat } from '../common';
+import { CalendarDay, fullDateWithWeekdayFormat } from '../common';
+import { weekdayNames } from '../math/weekdays';
 
 const CalendarTable = ({
   baseCellClassName,
@@ -23,7 +22,7 @@ const CalendarTable = ({
     <table className=''>
       <thead className={clsx(hideHeader && 'hidden')}>
         <tr>
-          {dayNames.map((dayName) => (
+          {weekdayNames.map((dayName) => (
             <th key={dayName} className='wx-3 text-center'>
               {dayName.slice(0, 2)}
             </th>

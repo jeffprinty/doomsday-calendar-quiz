@@ -1,11 +1,12 @@
 import { useState } from 'react';
 
-import { Day, guessDateFormat } from './common';
+import { guessDateFormat } from './common';
 import Button from './components/button';
 import QuizResults from './components/quiz-results';
 import { GuessDisplay } from './components/shared';
 import YearGuessingHelper from './components/year-guessing-helper';
 import useAnswerHistory from './hooks/use-answer-history';
+import { Weekday } from './math/weekdays';
 import { getDoomsdayForYear, getRandomDateInYear, getRandomYear } from './math/year';
 import { DayOfWeekGuesserSelfContained } from './modules/day-of-week-guesser';
 
@@ -29,8 +30,8 @@ const GuessFullDateV1 = () => {
 
   const doomsdayOnYear = getDoomsdayForYear(guessingDate.get('year'));
 
-  const correctDoomsday = doomsdayOnYear.toFormat('ccc') as Day;
-  const correctWeekday = guessingDate.toFormat('ccc') as Day;
+  const correctDoomsday = doomsdayOnYear.toFormat('ccc') as Weekday;
+  const correctWeekday = guessingDate.toFormat('ccc') as Weekday;
 
   const getNewGuess = () => {
     const randomYearAsInt = getRandomYear();

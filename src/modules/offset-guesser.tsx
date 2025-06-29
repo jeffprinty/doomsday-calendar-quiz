@@ -5,7 +5,7 @@ import { DateTime } from 'luxon';
 
 import Button from '../components/button';
 import { GuessDisplay } from '../components/shared';
-import { mnemonics } from '../mnemonics/month-doomsdays';
+import { mnemonics } from '../math/month-doomsdays';
 
 const makeButtonClassName = (bgClassName: string) =>
   `${bgClassName} hover:${bgClassName} focus:${bgClassName} active:${bgClassName} disabled:${bgClassName}`;

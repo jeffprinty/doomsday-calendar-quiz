@@ -3,7 +3,7 @@ import { useState } from 'react';
 import clsx from 'clsx';
 
 import { betterDaysTable, CalendarDay, chunkArray, pickRandomlyFromArray } from '../common';
-import { allDaysFromMnemonics, getRandomMnemonic } from '../mnemonics/month-doomsdays';
+import { allDaysFromMnemonics, getRandomMnemonic } from '../math/month-doomsdays';
 import CalendarTable from './calendar-table';
 import { PageDescribe } from './page-describe';
 import { GuessActions, GuessDisplay } from './shared';

@@ -1,7 +1,7 @@
 import { DateTime } from 'luxon';
 
+import { Mnemonic, mnemonics } from './math/month-doomsdays';
 import { getDoomsdayForYear } from './math/year';
-import { Mnemonic, mnemonics } from './mnemonics/month-doomsdays';
 
 export const correctColor = 'bg-green-600';
 export const incorrectColor = 'bg-red-900';
@@ -15,108 +15,7 @@ export const step5 = 'text-blue-400';
 export const step6 = 'text-indigo-400';
 export type Steps = 'stepOne' | 'stepTwo' | 'stepThree' | 'stepFour' | 'stepFive' | 'stepSix';
 
-export type AnchorDayCentury = '18' | '19' | '20' | '21';
-
 export type PastAnswer<T> = [number, boolean, T];
-
-export const anchorDays = {
-  '18': 5,
-  '19': 3,
-  '20': 2,
-  '21': 0,
-};
-
-export interface Doomsyear {
-  century: number;
-  centuryFull: number;
-  anchorDay: number;
-  anchorWeekday: Day;
-}
-
-export const doomsyearExpanded: Array<Doomsyear> = [
-  {
-    century: 16,
-    centuryFull: 1600,
-    anchorDay: 2,
-    anchorWeekday: 'Tue',
-  },
-  {
-    century: 17,
-    centuryFull: 1700,
-    anchorDay: 0,
-    anchorWeekday: 'Sun',
-  },
-  {
-    century: 18,
-    centuryFull: 1800,
-    anchorDay: 5,
-    anchorWeekday: 'Fri',
-  },
-  {
-    century: 19,
-    centuryFull: 1900,
-    anchorDay: 3,
-    anchorWeekday: 'Wed',
-  },
-  {
-    century: 20,
-    centuryFull: 2000,
-    anchorDay: 2,
-    anchorWeekday: 'Tue',
-  },
-  {
-    century: 21,
-    centuryFull: 2100,
-    anchorDay: 0,
-    anchorWeekday: 'Sun',
-  },
-];
-
-export const weekdayNumberMnemonics = [
-  {
-    weekday: 'Sunday',
-    mnemonic: 'Noneday or Sansday',
-  },
-
-  {
-    weekday: 'Monday',
-    mnemonic: 'Oneday',
-  },
-
-  {
-    weekday: 'Tuesday',
-    mnemonic: 'Twosday',
-  },
-
-  {
-    weekday: 'Wednesday',
-    mnemonic: 'Treblesday',
-  },
-
-  {
-    weekday: 'Thursday',
-    mnemonic: 'Foursday',
-  },
-
-  {
-    weekday: 'Friday',
-    mnemonic: 'Fiveday',
-  },
-
-  {
-    weekday: 'Saturday',
-    mnemonic: 'Six-a-day',
-  },
-];
-
-export const getAnchorDay = (century?: number) => {
-  if (century === 19) {
-    return 3;
-  }
-  if (century === 20) {
-    return 2;
-  }
-};
 
 export const colors = {
   correctGreen: '#16A34A', // bg-green-600
@@ -129,76 +28,7 @@ export const commonStyles = {
   century: 'text-green-400',
 };
 
-export const getAnchorDayForCentury = (century: AnchorDayCentury) => {
-  return anchorDays[century];
-};
-
-export const monthNames = [
-  'January',
-  'February',
-  'March',
-  'April',
-  'May',
-  'June',
-  'July',
-  'August',
-  'September',
-  'October',
-  'November',
-  'December',
-];
-
-export type FullMonthName =
-  | 'January'
-  | 'February'
-  | 'March'
-  | 'April'
-  | 'May'
-  | 'June'
-  | 'July'
-  | 'August'
-  | 'September'
-  | 'October'
-  | 'November'
-  | 'December';
-export type ShortMonthName =
-  | 'jan'
-  | 'feb'
-  | 'mar'
-  | 'apr'
-  | 'may'
-  | 'jun'
-  | 'jul'
-  | 'aug'
-  | 'sep'
-  | 'oct'
-  | 'nov'
-  | 'dec';
-
-export const getRandomMonthName = (ignoreLeap = false) => {
-  if (ignoreLeap) {
-    const fixedMonths = monthNames.filter(
-      (monthName) => !['January', 'February'].includes(monthName)
-    );
-    return fixedMonths[Math.random() * fixedMonths.length];
-  }
-  return monthNames[Math.random() * monthNames.length];
-};
-
 export const getRandom = (range: number) => Math.trunc(Math.random() * range);
-
-export type Day = 'Sun' | 'Mon' | 'Tue' | 'Wed' | 'Thu' | 'Fri' | 'Sat';
-export const daysOfWeek: Array<Day> = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
-
-export const dayNames = [
-  'Sunday',
-  'Monday',
-  'Tuesday',
-  'Wednesday',
-  'Thursday',
-  'Friday',
-  'Saturday',
-];
 
 export interface CalendarDay {
   cellNumber: number;

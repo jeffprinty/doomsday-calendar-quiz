@@ -2,7 +2,7 @@ import { useState } from 'react';
 
 import { getRandom } from '../common';
 import Button from '../components/button';
-import { getRandomMnemonic } from '../mnemonics/month-doomsdays';
+import { getRandomMnemonic } from '../math/month-doomsdays';
 
 const OffsetIllustrated = () => {
   const initRandomMnemonic = getRandomMnemonic();

@@ -1,4 +1,4 @@
-import { mnemonics } from '../mnemonics/month-doomsdays';
+import { mnemonics } from '../math/month-doomsdays';
 
 const MnemonicsTable = () => {
   return (

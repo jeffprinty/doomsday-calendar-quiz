@@ -3,11 +3,13 @@ import { ReactNode, useEffect, useState } from 'react';
 import clsx from 'clsx';
 import { IoMdEye, IoMdEyeOff, IoMdRefresh } from 'react-icons/io';
 
-import { commonStyles, Day, getAnchorDay } from '../common';
+import { commonStyles } from '../common';
 import Button from '../components/button';
 import YearInput from '../components/year-input';
 import { isOdd } from '../math/basic';
+import { getAnchorDay } from '../math/century';
 import { oddPlusElevenFull } from '../math/doomsyear-odd-plus-eleven';
+import { Weekday } from '../math/weekdays';
 import { getDoomsdayForYearV2, getRandomYear } from '../math/year';
 import { DayOfWeekGuesserSelfContained } from './day-of-week-guesser';
 
@@ -97,7 +99,7 @@ const OddPlusEleven = () => {
     setShowWorkOnAnswer(false);
   };
 
-  const handleGuess = (answer: Day, isCorrect: boolean) => {
+  const handleGuess = (answer: Weekday, isCorrect: boolean) => {
     console.log('handleGuess', answer);
     setRevealAll(true);
     setShowWorkOnAnswer(true);
@@ -192,7 +194,7 @@ const OddPlusEleven = () => {
       <div className='pb-4'>
         <div className={stepRow}>What is the Doomsyear for {fullYearValue}</div>
         <DayOfWeekGuesserSelfContained
-          correctDay={correctDoomsday as Day}
+          correctDay={correctDoomsday as Weekday}
           disableOnGuess
           key={`week_${fullYearValue}`}
           onGuess={handleGuess}

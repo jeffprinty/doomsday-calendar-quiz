@@ -1,10 +1,10 @@
 import { useState } from 'react';
 
-import { Day } from './common';
 import Button from './components/button';
 import QuizResults from './components/quiz-results';
 import { GuessDisplay, YearStepHelperHorizontal } from './components/shared';
 import useAnswerHistory from './hooks/use-answer-history';
+import { Weekday } from './math/weekdays';
 import { getDoomsdayForYear, getRandomYear } from './math/year';
 import { DayOfWeekGuesserSelfContained } from './modules/day-of-week-guesser';
 
@@ -20,7 +20,7 @@ const GuessYearDoomsday = () => {
 
   const doomsdayOnYear = getDoomsdayForYear(guessingYear);
 
-  const correctDoomsday = doomsdayOnYear.toFormat('ccc') as Day;
+  const correctDoomsday = doomsdayOnYear.toFormat('ccc') as Weekday;
 
   const getNewYear = () => {
     const randomYearAsInt = getRandomYear();

@@ -4,11 +4,12 @@ import clsx from 'clsx';
 import { DateTime } from 'luxon';
 import { MdBolt, MdSettings } from 'react-icons/md';
 
-import { Day, guessDateFormat } from './common';
+import { guessDateFormat } from './common';
 import { PageDescribe } from './components/page-describe';
 import QuizResults from './components/quiz-results';
 import { GuessActions, GuessDisplay } from './components/shared';
 import useAnswerHistory from './hooks/use-answer-history';
+import { Weekday } from './math/weekdays';
 import { getRandomDateInYear } from './math/year';
 import { DayOfWeekGuesserSelfContained } from './modules/day-of-week-guesser';
 
@@ -40,7 +41,7 @@ const GuessDateDoomsdayWithinYear = ({
     onNewQuestion();
   };
 
-  const handleGuess = (answer: Day, isCorrect: boolean) => {
+  const handleGuess = (answer: Weekday, isCorrect: boolean) => {
     onAnswer(dateToGuess, isCorrect);
     if (!isCorrect) {
       onIncorrectGuess(dateToGuess);
@@ -92,7 +93,7 @@ const GuessDateDoomsdayWithinYear = ({
       <div id='quiz__bottom-bit' className='h-72'>
         <div className='pt-3' id='quiz__actions'>
           <DayOfWeekGuesserSelfContained
-            correctDay={dateToGuess.toFormat('ccc') as Day}
+            correctDay={dateToGuess.toFormat('ccc') as Weekday}
             key={`date_${startTime}`}
             onGuess={handleGuess}
           />

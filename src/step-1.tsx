@@ -4,7 +4,7 @@ import { getRandom } from './common';
 import Button from './components/button';
 import MonthDoomsdayCalendar from './components/month-doomsday-calendar';
 import GuessOnlyDate from './guess-only-date';
-import { getRandomMnemonic, mnemonics } from './mnemonics/month-doomsdays';
+import { getRandomMnemonic, mnemonics } from './math/month-doomsdays';
 
 const StepDisplay = ({
   children,

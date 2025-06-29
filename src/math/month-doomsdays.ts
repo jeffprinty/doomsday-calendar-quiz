@@ -1,6 +1,6 @@
 import { ReactNode } from 'react';
 
-import { FullMonthName, ShortMonthName } from '../common';
+import { FullMonthName, ShortMonthName } from '../math/months';
 
 export const sharedMemeticHandles = {
   doubles: '4/4, 6/6, 8/8, 10/10, 12/12',

@@ -3,10 +3,7 @@ import { useState } from 'react';
 import clsx from 'clsx';
 
 import {
-  AnchorDayCentury,
-  dayNames,
   fullDateWithWeekdayFormat,
-  getAnchorDayForCentury,
   step0,
   step1,
   step2,
@@ -15,6 +12,8 @@ import {
   step5,
   step6,
 } from '../common';
+import { AnchorDayCentury, getAnchorDayForCentury } from '../math/century';
+import { weekdayNames } from '../math/weekdays';
 import { getDoomsdayForYear } from '../math/year';
 import Button from './button';
 
@@ -39,7 +38,7 @@ const ProgressiveMathOld = ({ year }: { showAnswers?: boolean; year: number }) =
 
   const resultAfterSubtractingSevens = addedUp - howManySevens * 7;
 
-  const doomsdayIs = dayNames[resultAfterSubtractingSevens];
+  const doomsdayIs = weekdayNames[resultAfterSubtractingSevens];
   // </YEAR MATH>
 
   const doomsdayOnYear = getDoomsdayForYear(year);

@@ -2,8 +2,8 @@ import { useState } from 'react';
 
 import clsx from 'clsx';
 
-import { Day, daysOfWeek } from '../common';
 import Button from '../components/button';
+import { daysOfWeek, Weekday } from '../math/weekdays';
 import { OnGuess } from './module.types';
 
 export const DayOfWeekGuesserSelfContained = ({
@@ -12,13 +12,13 @@ export const DayOfWeekGuesserSelfContained = ({
   disableOnGuess,
   onGuess,
 }: {
-  correctDay: Day;
+  correctDay: Weekday;
   disabled?: boolean;
   disableOnGuess?: boolean;
-  onGuess: OnGuess<Day>;
+  onGuess: OnGuess<Weekday>;
 }) => {
-  const [daySelected, setDaySelected] = useState<Day>();
-  const handleDayClick = (dayClicked: Day) => {
+  const [daySelected, setDaySelected] = useState<Weekday>();
+  const handleDayClick = (dayClicked: Weekday) => {
     setDaySelected(dayClicked);
     onGuess(dayClicked, dayClicked === correctDay);
   };
@@ -38,14 +38,14 @@ const DayOfWeekGuesser = ({
   disabled = false,
   onDayClick,
 }: {
-  correctDay?: Day;
-  daySelected?: Day;
+  correctDay?: Weekday;
+  daySelected?: Weekday;
   disabled?: boolean;
-  onDayClick: (dayClicked: Day) => void;
+  onDayClick: (dayClicked: Weekday) => void;
 }) => {
   return (
     <div className='grid w-full grid-cols-7'>
-      {daysOfWeek.map((day: Day) => {
+      {daysOfWeek.map((day: Weekday) => {
         const thisDayIsCorrect = daySelected !== undefined && correctDay === day;
         const thisDayWasSelected = daySelected === day;
         const incorrectSelection = daySelected !== correctDay;
