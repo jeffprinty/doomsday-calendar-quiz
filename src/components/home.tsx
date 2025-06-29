@@ -1,6 +1,6 @@
 import { DateTime } from 'luxon';
 
-import { getDoomsdayForYear, getDoomsdayForYearV2 } from '../common';
+import { getDoomsdayForYear } from '../common';
 import { mnemonics } from '../mnemonics';
 import ExternalLink from './external-link';
 
@@ -63,19 +63,6 @@ export const Home = () => {
             </div>
           );
         })}
-      </div>
-      <div>
-        {Array.from({ length: 100 }, (x, index) => (
-          <div key={index}>
-            {2020 + index}:
-            {DateTime.fromObject({
-              year: 2020 + index,
-              month: 2,
-              day: 22,
-            }).toFormat('ccc')}
-            -{getDoomsdayForYearV2(2020 + index)}
-          </div>
-        ))}
       </div>
     </div>
   );

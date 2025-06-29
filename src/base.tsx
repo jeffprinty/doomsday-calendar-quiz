@@ -33,8 +33,6 @@ const AllPages = () => {
     <div className='flex flex-col'>
       <h2>GuessDateDoomsdayWithinYear</h2>
       <GuessDateDoomsdayWithinYear />
-      <h2>OddPlusEleven</h2>
-      <OddPlusEleven />
       <h2>StepOne</h2>
       <StepOne />
       <h2>GuessYearDoomsday</h2>

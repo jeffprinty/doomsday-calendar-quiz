@@ -88,7 +88,7 @@ const StepOne = () => {
     <div className='' id='page__step-one'>
       <OffsetIllustrated />
       <div className='steps-wrapper'>
-        <StepDisplay show={false}>
+        <StepDisplay>
           <div>
             <a href='https://en.wikipedia.org/wiki/Doomsday_rule#Memorable_dates_that_always_land_on_Doomsday'>
               wikipedia: Memorable Dates table
@@ -131,7 +131,7 @@ const StepOne = () => {
           </div>
           <Button onClick={() => setStep((previous) => previous + 1)}>Next</Button>
         </StepDisplay>
-        <StepDisplay show={false}>
+        <StepDisplay>
           <div>
             <p>
               First, you need to commit the month mnemonics to memory. They’re only 12 of them, and

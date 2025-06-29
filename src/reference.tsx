@@ -1,5 +1,6 @@
 import { doomsyearTable } from './common';
 import LongCalendar from './components/long-calendar';
+import MnemonicsTable from './components/mnemonics-table';
 
 const doomsyearColorCode = [
   'text-red-400',
@@ -14,7 +15,9 @@ const doomsyearColorCode = [
 const Reference = () => {
   return (
     <div id='page__reference' className='flex w-full flex-col'>
-      <div className=''>Other reference</div>
+      <div className='flex w-full flex-col items-center'>
+        <MnemonicsTable />
+      </div>
       <div className='long stuff flex w-full grid-cols-2 flex-row justify-around'>
         <div className=''>
           {doomsyearTable.map(([year, doomsyear]) => (

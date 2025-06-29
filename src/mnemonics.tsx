@@ -8,6 +8,8 @@ export const sharedMemeticHandles = {
 };
 
 export interface Mnemonic {
+  allDoomsdays: Array<number>;
+  allLeapYearDoomsdays?: Array<number>;
   common: number;
   daysInMonth: 28 | 29 | 30 | 31;
   leap?: number;
@@ -20,32 +22,38 @@ export interface Mnemonic {
 
 export const mnemonics: Array<Mnemonic> = [
   {
+    allDoomsdays: [3, 10, 17, 24, 31],
+    allLeapYearDoomsdays: [4, 11, 18, 25, 32],
     common: 3,
     daysInMonth: 31,
     leap: 4,
-    memeticHandle: '1/11',
+    memeticHandle: '3rd in 3 of 4, 4 in the 4th (leap year)',
     month: 'jan',
     monthName: 'January',
     monthNumber: 1,
   },
   {
+    allDoomsdays: [0, 7, 14, 21, 28],
+    allLeapYearDoomsdays: [1, 8, 15, 22, 29],
     common: 28,
     daysInMonth: 28,
     leap: 29,
-    memeticHandle: '2/22',
+    memeticHandle: 'last day of February',
     month: 'feb',
     monthName: 'February',
     monthNumber: 2,
   },
   {
+    allDoomsdays: [0, 7, 14, 21, 28],
     common: 14,
     daysInMonth: 31,
-    memeticHandle: 'pi day',
+    memeticHandle: 'pi day (3/14)',
     month: 'mar',
     monthName: 'March',
     monthNumber: 3,
   },
   {
+    allDoomsdays: [4, 11, 18, 25],
     common: 4,
     daysInMonth: 30,
     memeticHandle: sharedMemeticHandles.doubles,
@@ -54,6 +62,7 @@ export const mnemonics: Array<Mnemonic> = [
     monthNumber: 4,
   },
   {
+    allDoomsdays: [2, 9, 16, 23, 30],
     common: 9,
     daysInMonth: 31,
     memeticHandle: sharedMemeticHandles.nineToFive,
@@ -62,6 +71,7 @@ export const mnemonics: Array<Mnemonic> = [
     monthNumber: 5,
   },
   {
+    allDoomsdays: [6, 13, 20, 27],
     common: 6,
     daysInMonth: 30,
     memeticHandle: sharedMemeticHandles.doubles,
@@ -70,6 +80,7 @@ export const mnemonics: Array<Mnemonic> = [
     monthNumber: 6,
   },
   {
+    allDoomsdays: [4, 11, 18, 25],
     common: 11,
     daysInMonth: 31,
     memeticHandle: sharedMemeticHandles.nineToFive,
@@ -78,6 +89,7 @@ export const mnemonics: Array<Mnemonic> = [
     monthNumber: 7,
   },
   {
+    allDoomsdays: [1, 8, 15, 22, 29],
     common: 8,
     daysInMonth: 31,
     memeticHandle: sharedMemeticHandles.doubles,
@@ -86,6 +98,7 @@ export const mnemonics: Array<Mnemonic> = [
     monthNumber: 8,
   },
   {
+    allDoomsdays: [5, 12, 19, 26],
     common: 5,
     daysInMonth: 30,
     memeticHandle: sharedMemeticHandles.nineToFive,
@@ -94,6 +107,7 @@ export const mnemonics: Array<Mnemonic> = [
     monthNumber: 9,
   },
   {
+    allDoomsdays: [3, 10, 17, 24, 31],
     common: 10,
     daysInMonth: 31,
     memeticHandle: sharedMemeticHandles.doubles,
@@ -102,6 +116,7 @@ export const mnemonics: Array<Mnemonic> = [
     monthNumber: 10,
   },
   {
+    allDoomsdays: [7, 14, 21, 28],
     common: 7,
     daysInMonth: 30,
     memeticHandle: sharedMemeticHandles.nineToFive,
@@ -110,6 +125,7 @@ export const mnemonics: Array<Mnemonic> = [
     monthNumber: 11,
   },
   {
+    allDoomsdays: [5, 12, 19, 26],
     common: 12,
     daysInMonth: 31,
     memeticHandle: sharedMemeticHandles.doubles,

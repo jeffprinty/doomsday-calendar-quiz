@@ -47,9 +47,10 @@ const MonthDoomsdayCalendar = () => {
 
   return (
     <div className='long-calendar flex w-full flex-col items-start justify-center'>
-      <PageDescribe title='Month Doomsday Practice'>
-        Use this page to practice recalling the doomsday for a given month. You will be prompted
-        with a month and a calendar with 4 highlighted dates, choose the correct doomsday date.
+      <PageDescribe title='Month Doomsday Practice' className='text-sm'>
+        Use this page to practice recalling the doomsday month mnemonic for a given month. You will
+        be prompted with a month and a calendar with 4 highlighted dates, choose the correct
+        doomsday date.
       </PageDescribe>
       <GuessDisplay
         className={clsx(!!answerClicked && 'animate-pulse')}
