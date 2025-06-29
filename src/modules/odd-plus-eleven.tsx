@@ -13,25 +13,6 @@ import { Weekday } from '../math/weekdays';
 import { getDoomsdayForYearV2, getRandomYear } from '../math/year';
 import { DayOfWeekGuesserSelfContained } from './day-of-week-guesser';
 
-// const Step = ({
-//   children,
-//   className,
-//   show = true,
-//   step,
-//   stepId,
-// }: {
-//   children: ReactNode;
-//   className?: string;
-//   show?: boolean;
-//   step: number;
-//   stepId: number;
-// }) => {
-//   if (!show || step > stepId) {
-//     return <></>;
-//   }
-//   return <div className={clsx(className, 'step')}>{children}</div>;
-// };
-
 const Fork = ({
   children,
   className,
@@ -120,9 +101,6 @@ const OddPlusEleven = () => {
   const firstResultIsOdd = isOdd(firstResult);
 
   const centuryAnchorDay = getAnchorDay(century);
-
-  const allSevens = Array.from({ length: 14 }, (x, index) => (index + 1) * 7);
-  console.log('allSevens', allSevens);
 
   const showGuts = !!century && !!correctDoomsday && (showWork || showWorkOnAnswer);
 

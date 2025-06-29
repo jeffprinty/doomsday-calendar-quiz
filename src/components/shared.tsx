@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { ReactNode, useState } from 'react';
 
 import clsx from 'clsx';
 
@@ -214,3 +214,47 @@ export function GuessActions({
     </div>
   );
 }
+
+export const StepDisplay = ({
+  className,
+  children,
+  show = true,
+}: {
+  className?: string;
+  children: React.ReactNode | Array<React.ReactNode> | string;
+  show?: boolean;
+}) => {
+  if (!show) {
+    return <></>;
+  }
+  return <div className={clsx('step-display', className)}>{children}</div>;
+};
+
+export const Hint = ({ children }: { children: ReactNode | Array<ReactNode> }) => {
+  const [showHint, setShowHint] = useState(false);
+  return (
+    <div className='hint'>
+      <Button onClick={() => setShowHint(!showHint)}>{showHint ? 'Hide' : 'Show'} Hint</Button>
+      {showHint && <div className=''>{children}</div>}
+    </div>
+  );
+};
+
+export const StepAdvanced = ({
+  children,
+  className,
+  show = true,
+  step,
+  stepId,
+}: {
+  children: ReactNode;
+  className?: string;
+  show?: boolean;
+  step: number;
+  stepId: number;
+}) => {
+  if (!show || step > stepId) {
+    return <></>;
+  }
+  return <div className={clsx(className, 'step')}>{children}</div>;
+};

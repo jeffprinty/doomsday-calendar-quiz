@@ -1,10 +1,9 @@
-import React from 'react';
-
 import clsx from 'clsx';
 import { DateTime } from 'luxon';
 import { PieChart } from 'react-minimal-pie-chart';
+import colors from 'tailwindcss/colors';
 
-import { colors, correctColor, guessDateFormat, incorrectColor, PastAnswer } from '../common';
+import { correctColor, guessDateFormat, incorrectColor, PastAnswer } from '../common';
 
 const QuizResults = ({
   answers,
@@ -28,12 +27,8 @@ const QuizResults = ({
           labelStyle={{ fill: '#FFFFFF' }}
           background='#1C1A37'
           data={[
-            {
-              title: 'Correct',
-              value: correctValue,
-              color: colors.correctGreen,
-            },
-            { title: 'Incorrect', value: incorrectValue, color: colors.incorrectRed },
+            { title: 'Correct', value: correctValue, color: colors.green[600] },
+            { title: 'Incorrect', value: incorrectValue, color: colors.red[800] },
           ]}
         />
       </div>
