@@ -1,8 +1,7 @@
 import { DateTime } from 'luxon';
 
-import { getDoomsdayForYear } from '../common';
+import { getDoomsdayForYear, getDoomsdayForYearV2 } from '../common';
 import { mnemonics } from '../mnemonics';
-import OddPlusEleven from '../modules/odd-plus-eleven';
 import ExternalLink from './external-link';
 
 const links = [
@@ -22,8 +21,11 @@ const links = [
     href: 'https://www.youtube.com/watch?v=z2x3SSBVGJU',
     title: 'The Doomsday Algorithm - Numberphile',
   },
+  {
+    href: 'https://arxiv.org/abs/1010.0765',
+    title: "Methods for Accelerating Conway's Doomsday Algorithm",
+  },
 ];
-
 export const Home = () => {
   const now = DateTime.now();
   const doomsdayOnYear = getDoomsdayForYear(now.year).toFormat('cccc');
@@ -63,8 +65,17 @@ export const Home = () => {
         })}
       </div>
       <div>
-        <h2>Odd plus Eleven</h2>
-        <OddPlusEleven />
+        {Array.from({ length: 100 }, (x, index) => (
+          <div key={index}>
+            {2020 + index}:
+            {DateTime.fromObject({
+              year: 2020 + index,
+              month: 2,
+              day: 22,
+            }).toFormat('ccc')}
+            -{getDoomsdayForYearV2(2020 + index)}
+          </div>
+        ))}
       </div>
     </div>
   );

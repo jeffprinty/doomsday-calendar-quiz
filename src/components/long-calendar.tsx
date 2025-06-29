@@ -7,8 +7,8 @@ const LongCalendar = () => {
   const chunkedByWeek = chunkArray(daysTable, 7);
 
   return (
-    <div className='long-calendar flex w-full flex-col items-start justify-center'>
-      <PageDescribe>
+    <div className='long-calendar flex flex-col items-center justify-center'>
+      <PageDescribe className='max-w-md'>
         This is a helper to memorize other days of a year that line up with the doomsday
       </PageDescribe>
       <CalendarTable

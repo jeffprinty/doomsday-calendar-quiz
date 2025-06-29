@@ -54,7 +54,6 @@ export const oddPlusElevenFull = (twoDigitYear: number) => {
   const moduloResult = secondResult % 7;
   const moduloFromSeven = moduloResult === 0 ? 0 : 7 - moduloResult;
   return {
-    yearIsEven,
     firstResult,
     secondResult,
     moduloResult,

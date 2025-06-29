@@ -9,10 +9,12 @@ import { OnGuess } from './module.types';
 export const DayOfWeekGuesserSelfContained = ({
   correctDay,
   disabled,
+  disableOnGuess,
   onGuess,
 }: {
   correctDay: Day;
   disabled?: boolean;
+  disableOnGuess?: boolean;
   onGuess: OnGuess<Day>;
 }) => {
   const [daySelected, setDaySelected] = useState<Day>();
@@ -25,7 +27,7 @@ export const DayOfWeekGuesserSelfContained = ({
       correctDay={correctDay}
       daySelected={daySelected}
       onDayClick={handleDayClick}
-      disabled={disabled}
+      disabled={disabled || (disableOnGuess && !!daySelected)}
     />
   );
 };

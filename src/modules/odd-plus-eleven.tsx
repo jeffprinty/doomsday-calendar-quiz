@@ -6,6 +6,7 @@ import { IoMdEye, IoMdEyeOff, IoMdRefresh } from 'react-icons/io';
 import { Day, getAnchorDay, getDoomsdayForYearV2, getRandomYear } from '../common';
 import Button from '../components/button';
 import YearInput from '../components/year-input';
+import { isOdd } from '../math/basic';
 import { oddPlusElevenFull } from '../math/doomsyear-odd-plus-eleven';
 import { DayOfWeekGuesserSelfContained } from './day-of-week-guesser';
 
@@ -71,64 +72,86 @@ const Revealable = ({
 
 const OddPlusEleven = () => {
   const [showWork, setShowWork] = useState(true);
+  const [showWorkOnAnswer, setShowWorkOnAnswer] = useState(false);
   const [revealAll, setRevealAll] = useState(false);
-  const [fullYearValue, setFullYearValue] = useState<number>();
+  const initYear = getRandomYear();
+  const [fullYearValue, setFullYearValue] = useState<number>(initYear);
   const [[century, year], setYearParts] = useState<[number, number]>([0, 0]);
   const yearPadded = year.toString().padStart(2, '0');
   const correctDoomsday = getDoomsdayForYearV2(fullYearValue);
+
   useEffect(() => {
     if (fullYearValue?.toString().length === 4) {
       const stringified = fullYearValue.toString();
       const firstHalf = Number(stringified.slice(0, 2));
       const lastHalf = Number(stringified.slice(2, 4));
       setYearParts([firstHalf, lastHalf]);
-      // const [century, year] = stringified.
     }
   }, [fullYearValue]);
 
-  const handleClick = () => {
+  const startGuessing = () => {
     setRevealAll(false);
     const rando = getRandomYear();
     setFullYearValue(rando);
+    setShowWorkOnAnswer(false);
+  };
+
+  const handleGuess = (answer: Day, isCorrect: boolean) => {
+    console.log('handleGuess', answer);
+    setRevealAll(true);
+    setShowWorkOnAnswer(true);
+    if (isCorrect) {
+      setTimeout(() => {
+        startGuessing();
+      }, 2000);
+    }
   };
 
   const stepRow = 'flex flex-row items-center justify-around';
+  const explainRow = 'text-center text-base';
   const yearStyle = 'text-yellow-400';
   const centuryStyle = 'text-green-400';
   const iconButtonStyle = 'flex flex-row items-center justify-center w-8';
 
-  const { yearIsEven, firstResult, secondResult, moduloResult, moduloFromSeven } =
-    oddPlusElevenFull(year);
+  const { firstResult, secondResult, moduloResult, moduloFromSeven } = oddPlusElevenFull(year);
 
-  const firstResultIsEven = firstResult % 2 === 0;
+  const yearIsOdd = isOdd(year);
+  const firstResultIsOdd = isOdd(firstResult);
 
   const centuryAnchorDay = getAnchorDay(century);
 
   const allSevens = Array.from({ length: 14 }, (x, index) => (index + 1) * 7);
   console.log('allSevens', allSevens);
 
-  const showGuts = !!century && !!correctDoomsday && showWork;
+  const showGuts = !!century && !!correctDoomsday && (showWork || showWorkOnAnswer);
 
   return (
-    <div>
+    <div className='flex min-h-full flex-col items-center justify-between p-8'>
       <div className='flex flex-row items-center justify-center'>
-        <YearInput value={fullYearValue} setValue={setFullYearValue} />
-        <Button className={iconButtonStyle} onClick={handleClick}>
-          <IoMdRefresh />
-        </Button>
         <Button className={iconButtonStyle} onClick={() => setShowWork(!showWork)}>
           {showWork ? <IoMdEyeOff /> : <IoMdEye />}
         </Button>
+        <YearInput value={fullYearValue} setValue={setFullYearValue} />
+        <Button className={iconButtonStyle} onClick={startGuessing}>
+          <IoMdRefresh />
+        </Button>
       </div>
       {showGuts && (
-        <div className='text-2xl' key={fullYearValue}>
-          <div className='flex flex-row items-center justify-center'>
+        <div
+          className='rounded-3xl border-2 border-indigo-800 px-12 py-8 text-2xl'
+          key={fullYearValue}
+        >
+          <div className='flex flex-row items-center justify-center text-4xl'>
             {century && <div className={centuryStyle}>{century}</div>}
             {year && <div className={yearStyle}>{yearPadded}</div>}
           </div>
-          <div className={clsx(stepRow, yearStyle)}>{yearPadded}</div>
+          <div className={explainRow}>
+            <span className={yearStyle}>{yearPadded}</span> is {yearIsOdd ? 'odd' : 'even'} so we
+            {yearIsOdd ? ' add eleven and ' : ' '}
+            divide by 2
+          </div>
           <div className={stepRow}>
-            <Fork highlight={!yearIsEven}>+11</Fork>
+            <Fork highlight={yearIsOdd}>+11</Fork>
             <Fork highlight>/ 2</Fork>
           </div>
           <div className={stepRow}>
@@ -136,8 +159,9 @@ const OddPlusEleven = () => {
           </div>
           {firstResult !== secondResult && (
             <>
+              <div className={explainRow}>First result is odd, so we add 11</div>
               <div className={stepRow}>
-                <Fork highlight={!firstResultIsEven}>+ 11</Fork>
+                <Fork highlight={firstResultIsOdd}>+ 11</Fork>
               </div>
               <div className={stepRow}>
                 <Revealable forceShow={revealAll}>{secondResult}</Revealable>
@@ -163,17 +187,17 @@ const OddPlusEleven = () => {
               {moduloFromSeven} + {centuryAnchorDay} = {moduloFromSeven + Number(centuryAnchorDay)}
             </Revealable>
           </div>
-          <br />
         </div>
       )}
-      <DayOfWeekGuesserSelfContained
-        correctDay={correctDoomsday as Day}
-        key={`week_${fullYearValue}`}
-        onGuess={(answer, isCorrect) => {
-          console.log('answer, isCorrect', answer, isCorrect);
-          setRevealAll(true);
-        }}
-      />
+      <div className=''>
+        <div className={stepRow}>What is the Doomsyear for {fullYearValue}</div>
+        <DayOfWeekGuesserSelfContained
+          correctDay={correctDoomsday as Day}
+          disableOnGuess
+          key={`week_${fullYearValue}`}
+          onGuess={handleGuess}
+        />
+      </div>
     </div>
   );
 };

@@ -45,7 +45,7 @@ module.exports = {
     // base
     indent: ['error', 2, { SwitchCase: 1 }],
     'linebreak-style': ['error', 'unix'],
-    quotes: ['error', 'single'],
+    quotes: ['error', 'single', { avoidEscape: true }],
     semi: ['error', 'always'],
     // end
     'react/react-in-jsx-scope': 0,
