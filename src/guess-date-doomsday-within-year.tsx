@@ -49,9 +49,11 @@ const GuessDateDoomsdayWithinYear = ({
     setEnableDayClick(false);
     if (autoNext) {
       setNextGuessIncoming(true);
-      setTimeout(() => {
-        generateRandomDate();
-      }, 1000);
+      if (isCorrect) {
+        setTimeout(() => {
+          generateRandomDate();
+        }, 2000);
+      }
     }
   };
 

@@ -1,41 +1,36 @@
-import { useState } from 'react';
+import { Mnemonic } from '../math/month-doomsdays';
 
-import { getRandom } from '../common';
-import Button from '../components/button';
-import { getRandomMnemonic } from '../math/month-doomsdays';
-
-const OffsetIllustrated = () => {
-  const initRandomMnemonic = getRandomMnemonic();
-  const [randomMnemonic, setRandomMnemonic] = useState(initRandomMnemonic);
-  const { daysInMonth, common } = randomMnemonic;
-  const [randomDayInMonth, setRandomDayInMonth] = useState(getRandom(daysInMonth));
+const OffsetIllustrated = ({
+  mnemonic,
+  selectedDayInMonth,
+}: {
+  mnemonic: Mnemonic;
+  selectedDayInMonth: number;
+}) => {
+  const { daysInMonth, common } = mnemonic;
   const monthDayArray = Array.from({ length: daysInMonth }, (x, index) => index + 1);
 
   // figure out which direction we're mathing in
-  const doomsdayIsBeforeTargetDay = common < randomDayInMonth;
-  const doomsdayIsTargetDay = common === randomDayInMonth;
-
-  const newMonth = () => {
-    setRandomMnemonic(getRandomMnemonic());
-    setRandomDayInMonth(getRandom(daysInMonth));
-  };
+  const doomsdayIsBeforeTargetDay = common < selectedDayInMonth;
 
   const getCellClass = (dayNumber: number) => {
-    if (dayNumber === common) {
+    if (dayNumber === selectedDayInMonth) {
       return 'bg-green-500';
     }
-    if (dayNumber === randomDayInMonth) {
+    if (dayNumber === common) {
       return 'bg-red-500';
     }
     // the long dumb way
-    if (!doomsdayIsTargetDay) {
-      if (doomsdayIsBeforeTargetDay) {
-        if (common < dayNumber && dayNumber < randomDayInMonth) {
-          return 'bg-blue-800';
-        }
-      } else if (randomDayInMonth < dayNumber && dayNumber < common) {
-        return 'bg-blue-800';
+    if (doomsdayIsBeforeTargetDay) {
+      if (common < dayNumber && dayNumber < selectedDayInMonth) {
+        // doomsday is behind day, subtracting 7s
+        const difference = dayNumber - common;
+        return difference % 7 === 0 ? 'bg-pink-400' : 'bg-blue-800';
       }
+    } else if (selectedDayInMonth < dayNumber && dayNumber < common) {
+      // doomsday is ahead of day, adding 7s
+      const difference = dayNumber - selectedDayInMonth;
+      return difference % 7 === 0 ? 'bg-pink-400' : 'bg-blue-800';
     }
     return '';
   };
@@ -60,7 +55,6 @@ const OffsetIllustrated = () => {
           </tr>
         </tbody>
       </table>
-      <Button onClick={newMonth}>New</Button>
     </div>
   );
 };

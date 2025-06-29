@@ -8,7 +8,7 @@ import MonthDoomsdayCalendar from './components/month-doomsday-calendar';
 import { PageDescribe } from './components/page-describe';
 import { Hint, StepDisplay } from './components/shared';
 import GuessDateDoomsdayWithinYear from './guess-date-doomsday-within-year';
-import GuessOnlyDate from './guess-only-date';
+import GuessOffsetForDate from './guess-offset-for-date';
 import { getDoomsdayForYear } from './math/year';
 import OddPlusEleven from './modules/odd-plus-eleven';
 
@@ -31,6 +31,7 @@ const AllSteps = () => {
   return (
     <div id='page__all-steps'>
       <h3>All Steps</h3>
+      <div></div>
       <div>
         {steps.map(({ title }, index) => (
           <Button
@@ -54,12 +55,12 @@ const AllSteps = () => {
         </Hint>
       </StepDisplay>
       <StepDisplay className={stepClassName} show={showAllSteps || currentStep === 1}>
-        <h4 className={stepHeadingClassName}>Step 2: GuessOnlyDate</h4>
+        <h4 className={stepHeadingClassName}>Step 2: GuessOffsetForDate</h4>
         <PageDescribe>
           Practice calculating the difference between a given day of a month and that month&apos;s
           doomsday.
         </PageDescribe>
-        <GuessOnlyDate />
+        <GuessOffsetForDate />
       </StepDisplay>
       <StepDisplay className={stepClassName} show={showAllSteps || currentStep === 2}>
         <h4 className={stepHeadingClassName}>

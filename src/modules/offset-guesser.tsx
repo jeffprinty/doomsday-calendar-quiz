@@ -6,6 +6,7 @@ import { DateTime } from 'luxon';
 import Button from '../components/button';
 import { GuessDisplay } from '../components/shared';
 import { mnemonics } from '../math/month-doomsdays';
+import OffsetIllustrated from './offset-illustrated';
 
 const makeButtonClassName = (bgClassName: string) =>
   `${bgClassName} hover:${bgClassName} focus:${bgClassName} active:${bgClassName} disabled:${bgClassName}`;
@@ -92,6 +93,9 @@ export const OffsetGuesser = ({
             {showDay && <div className='text-xs'>day</div>}
           </Button>
         ))}
+      </div>
+      <div className=''>
+        <OffsetIllustrated mnemonic={mnemonicForMonth} selectedDayInMonth={guessingDate.day} />
       </div>
     </div>
   );

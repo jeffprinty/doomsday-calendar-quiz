@@ -1,4 +1,4 @@
-import { ReactNode, useState } from 'react';
+import { ReactNode, useEffect, useState } from 'react';
 
 import clsx from 'clsx';
 
@@ -257,4 +257,29 @@ export const StepAdvanced = ({
     return <></>;
   }
   return <div className={clsx(className, 'step')}>{children}</div>;
+};
+
+export const Revealable = ({
+  children,
+  className,
+  forceShow = false,
+}: {
+  children: ReactNode;
+  className?: string;
+  forceShow?: boolean;
+}) => {
+  const [revealed, setRevealed] = useState(false);
+  useEffect(() => {
+    if (!revealed && forceShow) {
+      setRevealed(true);
+    }
+  }, [forceShow, revealed]);
+  return (
+    <button
+      className={clsx(className, 'revealable', !revealed && 'blur-md')}
+      onClick={() => setRevealed(!revealed)}
+    >
+      {children}
+    </button>
+  );
 };

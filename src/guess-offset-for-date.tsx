@@ -4,7 +4,7 @@ import { GuessActions } from './components/shared';
 import { getRandomDateInYear } from './math/year';
 import OffsetGuesser from './modules/offset-guesser';
 
-const GuessOnlyDate = () => {
+const GuessOffsetForDate = () => {
   const initRandomDateWithinYear = getRandomDateInYear(2025);
 
   const [guessingDate, setGuessingDate] = useState(initRandomDateWithinYear);
@@ -32,7 +32,7 @@ const GuessOnlyDate = () => {
   };
 
   return (
-    <div id='page__guess-only-date' className='w-full'>
+    <div id='page__guess-offset-for-date' className='w-full'>
       <OffsetGuesser
         indicate={nextGuessIncoming}
         onAnswer={handleAnswer}
@@ -49,4 +49,4 @@ const GuessOnlyDate = () => {
   );
 };
 
-export default GuessOnlyDate;
+export default GuessOffsetForDate;

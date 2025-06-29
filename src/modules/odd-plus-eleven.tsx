@@ -5,6 +5,7 @@ import { IoMdEye, IoMdEyeOff, IoMdRefresh } from 'react-icons/io';
 
 import { commonStyles } from '../common';
 import Button from '../components/button';
+import { Revealable } from '../components/shared';
 import YearInput from '../components/year-input';
 import { isOdd } from '../math/basic';
 import { getAnchorDay } from '../math/century';
@@ -26,31 +27,6 @@ const Fork = ({
     <div className={clsx(className, 'rounded-lg px-2 py-1', highlight && 'bg-indigo-400')}>
       {children}
     </div>
-  );
-};
-
-const Revealable = ({
-  children,
-  className,
-  forceShow = false,
-}: {
-  children: ReactNode;
-  className?: string;
-  forceShow?: boolean;
-}) => {
-  const [revealed, setRevealed] = useState(false);
-  useEffect(() => {
-    if (!revealed && forceShow) {
-      setRevealed(true);
-    }
-  }, [forceShow, revealed]);
-  return (
-    <button
-      className={clsx(className, 'revealable', !revealed && 'blur-md')}
-      onClick={() => setRevealed(!revealed)}
-    >
-      {children}
-    </button>
   );
 };
 

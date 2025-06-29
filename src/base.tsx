@@ -7,7 +7,7 @@ import MonthDoomsdayCalendar from './components/month-doomsday-calendar';
 import NavBar from './components/nav-bar';
 import GuessDateDoomsdayWithinYear from './guess-date-doomsday-within-year';
 import GuessFullDateV1 from './guess-full-date-v1';
-import GuessOnlyDate from './guess-only-date';
+import GuessOffsetForDate from './guess-offset-for-date';
 import GuessProgressive from './guess-progressive';
 import GuessYearDoomsday from './guess-year-doomsday';
 import OddPlusEleven from './modules/odd-plus-eleven';
@@ -25,7 +25,7 @@ const navLinks = [
   { to: `${baseUrl}/within`, text: 'within' },
   // { to: `${baseUrl}/year`, text: 'year' }, // superseded by full
   { to: `${baseUrl}/full`, text: 'full' },
-  { to: `${baseUrl}/progressive`, text: 'progressive' },
+  { to: `${baseUrl}/steps`, text: 'steps' },
   // { to: '/doomsday-calendar-quiz/info/long', text: 'long' },
 ];
 
@@ -44,8 +44,8 @@ const AllPages = () => {
       <GuessProgressive />
       <h2>LongCalendar</h2>
       <LongCalendar />
-      <h2>GuessOnlyDate</h2>
-      <GuessOnlyDate />
+      <h2>GuessOffsetForDate</h2>
+      <GuessOffsetForDate />
     </div>
   );
 };
@@ -69,7 +69,7 @@ const Base = () => {
           <Route path='/full' element={<GuessFullDateV1 />} />
           <Route path='/progressive' element={<GuessProgressive />} />
           <Route path='/info/long' element={<LongCalendar />} />
-          <Route path='/date-offset' element={<GuessOnlyDate />} />
+          <Route path='/date-offset' element={<GuessOffsetForDate />} />
         </Routes>
       </div>
     </main>
