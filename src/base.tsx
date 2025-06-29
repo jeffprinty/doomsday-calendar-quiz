@@ -1,5 +1,6 @@
 import { Route, Routes } from 'react-router-dom';
 
+import AllSteps from './all-steps';
 import { Home } from './components/home';
 import LongCalendar from './components/long-calendar';
 import MonthDoomsdayCalendar from './components/month-doomsday-calendar';
@@ -58,6 +59,7 @@ const Base = () => {
         <Routes>
           <Route path='/' index element={<Home />} />
           <Route path='/all' element={<AllPages />} />
+          <Route path='/steps' element={<AllSteps />} />
           <Route path='/learn/doomsday' element={<MonthDoomsdayCalendar />} />
           <Route path='/learn/reference' element={<Reference />} />
           <Route path='/odd' element={<OddPlusEleven />} />

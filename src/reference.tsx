@@ -1,6 +1,7 @@
-import { doomsyearTable } from './common';
+import { allSevens } from './common';
 import LongCalendar from './components/long-calendar';
 import MnemonicsTable from './components/mnemonics-table';
+import { doomsyearTable } from './math/year';
 
 const doomsyearColorCode = [
   'text-red-400',
@@ -15,7 +16,15 @@ const doomsyearColorCode = [
 const Reference = () => {
   return (
     <div id='page__reference' className='flex w-full flex-col'>
-      <div className='flex w-full flex-col items-center'>
+      <div className='flex w-full flex-col items-center py-4'>
+        <h3>All Sevens</h3>
+        <div className='flex w-full flex-row items-center justify-around'>
+          {allSevens.map((seven) => (
+            <span key={seven}>{seven}</span>
+          ))}
+        </div>
+      </div>
+      <div className='flex w-full flex-col items-center py-4'>
         <MnemonicsTable />
       </div>
       <div className='long stuff flex w-full grid-cols-2 flex-row justify-around'>

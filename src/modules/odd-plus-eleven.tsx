@@ -3,11 +3,12 @@ import { ReactNode, useEffect, useState } from 'react';
 import clsx from 'clsx';
 import { IoMdEye, IoMdEyeOff, IoMdRefresh } from 'react-icons/io';
 
-import { Day, getAnchorDay, getDoomsdayForYearV2, getRandomYear } from '../common';
+import { commonStyles, Day, getAnchorDay } from '../common';
 import Button from '../components/button';
 import YearInput from '../components/year-input';
 import { isOdd } from '../math/basic';
 import { oddPlusElevenFull } from '../math/doomsyear-odd-plus-eleven';
+import { getDoomsdayForYearV2, getRandomYear } from '../math/year';
 import { DayOfWeekGuesserSelfContained } from './day-of-week-guesser';
 
 // const Step = ({
@@ -109,8 +110,6 @@ const OddPlusEleven = () => {
 
   const stepRow = 'flex flex-row items-center justify-around';
   const explainRow = 'text-center text-base';
-  const yearStyle = 'text-yellow-400';
-  const centuryStyle = 'text-green-400';
   const iconButtonStyle = 'flex flex-row items-center justify-center w-8';
 
   const { firstResult, secondResult, moduloResult, moduloFromSeven } = oddPlusElevenFull(year);
@@ -126,8 +125,8 @@ const OddPlusEleven = () => {
   const showGuts = !!century && !!correctDoomsday && (showWork || showWorkOnAnswer);
 
   return (
-    <div className='flex min-h-full flex-col items-center justify-between p-8'>
-      <div className='flex flex-row items-center justify-center'>
+    <div className='sm-p-8 flex min-h-full flex-col items-center justify-between'>
+      <div className='flex flex-row items-center justify-center pt-4'>
         <Button className={iconButtonStyle} onClick={() => setShowWork(!showWork)}>
           {showWork ? <IoMdEyeOff /> : <IoMdEye />}
         </Button>
@@ -138,15 +137,16 @@ const OddPlusEleven = () => {
       </div>
       {showGuts && (
         <div
-          className='rounded-3xl border-2 border-indigo-800 px-12 py-8 text-2xl'
+          className='sm-py-8 rounded-3xl border-2 border-indigo-800 px-12 py-2 text-2xl'
           key={fullYearValue}
         >
           <div className='flex flex-row items-center justify-center text-4xl'>
-            {century && <div className={centuryStyle}>{century}</div>}
-            {year && <div className={yearStyle}>{yearPadded}</div>}
+            {century && <div className={commonStyles.century}>{century}</div>}
+            {year && <div className={commonStyles.year}>{yearPadded}</div>}
           </div>
           <div className={explainRow}>
-            <span className={yearStyle}>{yearPadded}</span> is {yearIsOdd ? 'odd' : 'even'} so we
+            <span className={commonStyles.year}>{yearPadded}</span> is {yearIsOdd ? 'odd' : 'even'}{' '}
+            so we
             {yearIsOdd ? ' add eleven and ' : ' '}
             divide by 2
           </div>
@@ -178,7 +178,7 @@ const OddPlusEleven = () => {
           </div>
           <div className={stepRow}>
             <p>
-              Anchor day for <span className={centuryStyle}>{century}</span>00s is{' '}
+              Anchor day for <span className={commonStyles.century}>{century}</span>00s is{' '}
               <Revealable forceShow={revealAll}>{centuryAnchorDay}</Revealable>
             </p>
           </div>
@@ -189,7 +189,7 @@ const OddPlusEleven = () => {
           </div>
         </div>
       )}
-      <div className=''>
+      <div className='pb-4'>
         <div className={stepRow}>What is the Doomsyear for {fullYearValue}</div>
         <DayOfWeekGuesserSelfContained
           correctDay={correctDoomsday as Day}

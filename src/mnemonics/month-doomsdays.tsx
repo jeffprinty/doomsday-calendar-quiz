@@ -1,6 +1,6 @@
 import { ReactNode } from 'react';
 
-import { FullMonthName, ShortMonthName } from './common';
+import { FullMonthName, ShortMonthName } from '../common';
 
 export const sharedMemeticHandles = {
   doubles: '4/4, 6/6, 8/8, 10/10, 12/12',
@@ -134,6 +134,10 @@ export const mnemonics: Array<Mnemonic> = [
     monthNumber: 12,
   },
 ];
+
+export const getMnemonicForMonth = (monthString: FullMonthName): Mnemonic => {
+  return mnemonics.find(({ monthName }) => monthName === monthString) as Mnemonic;
+};
 
 export const getRandomMnemonic = (ignoreLeap = false) => {
   if (ignoreLeap) {

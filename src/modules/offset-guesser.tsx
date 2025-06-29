@@ -1,11 +1,11 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 
 import clsx from 'clsx';
 import { DateTime } from 'luxon';
 
-import { mnemonics } from '../mnemonics';
-import Button from './button';
-import { GuessDisplay } from './shared';
+import Button from '../components/button';
+import { GuessDisplay } from '../components/shared';
+import { mnemonics } from '../mnemonics/month-doomsdays';
 
 const makeButtonClassName = (bgClassName: string) =>
   `${bgClassName} hover:${bgClassName} focus:${bgClassName} active:${bgClassName} disabled:${bgClassName}`;
@@ -98,42 +98,3 @@ export const OffsetGuesser = ({
 };
 
 export default OffsetGuesser;
-
-// borf
-export const AwareButton = ({
-  alternateOffset,
-  correctOffset,
-  isAnswered,
-  offset,
-  onClick,
-  selectedOffset,
-}: {
-  alternateOffset: number;
-  correctOffset: number;
-  isAnswered: boolean;
-  offset: number;
-  onClick: (offset: number) => void;
-  selectedOffset?: number;
-}) => {
-  const thisIsSelected = offset === selectedOffset;
-  const answerIsCorrect = thisIsSelected && selectedOffset === correctOffset;
-  const answerIsAlternateCorrect = offset === alternateOffset;
-  const answerIsWrong = thisIsSelected && !answerIsCorrect && !answerIsAlternateCorrect;
-  return (
-    <Button
-      className={clsx([
-        'h-20 px-3 text-center',
-        isAnswered && [
-          answerIsCorrect && makeButtonClassName('bg-green-600'),
-          answerIsAlternateCorrect && makeButtonClassName('bg-green-800'),
-          answerIsWrong && makeButtonClassName('bg-red-900'),
-          // TODO: Show border on selected
-        ],
-      ])}
-      key={offset}
-      onClick={() => onClick(offset)}
-    >
-      {offset}
-    </Button>
-  );
-};

@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
 
+import { getRandom } from './common';
 import Button from './components/button';
 import MonthDoomsdayCalendar from './components/month-doomsday-calendar';
 import GuessOnlyDate from './guess-only-date';
-import { getRandomMnemonic, mnemonics } from './mnemonics';
+import { getRandomMnemonic, mnemonics } from './mnemonics/month-doomsdays';
 
 const StepDisplay = ({
   children,
@@ -17,8 +18,6 @@ const StepDisplay = ({
   }
   return <div className='step-display'>{children}</div>;
 };
-
-const getRandom = (range: number) => Math.trunc(Math.random() * range);
 
 const OffsetIllustrated = () => {
   const initRandomMnemonic = getRandomMnemonic();

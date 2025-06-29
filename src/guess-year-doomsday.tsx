@@ -1,12 +1,11 @@
 import { useState } from 'react';
 
-import { DateTime } from 'luxon';
-
-import { Day, getRandomYear } from './common';
+import { Day } from './common';
 import Button from './components/button';
 import QuizResults from './components/quiz-results';
 import { GuessDisplay, YearStepHelperHorizontal } from './components/shared';
 import useAnswerHistory from './hooks/use-answer-history';
+import { getDoomsdayForYear, getRandomYear } from './math/year';
 import { DayOfWeekGuesserSelfContained } from './modules/day-of-week-guesser';
 
 const GuessYearDoomsday = () => {
@@ -19,11 +18,7 @@ const GuessYearDoomsday = () => {
 
   const { lastAnswerCorrect, onAnswer, onNewQuestion, pastAnswers } = useAnswerHistory();
 
-  const doomsdayOnYear = DateTime.fromObject({
-    year: guessingYear,
-    month: 4,
-    day: 4,
-  });
+  const doomsdayOnYear = getDoomsdayForYear(guessingYear);
 
   const correctDoomsday = doomsdayOnYear.toFormat('ccc') as Day;
 

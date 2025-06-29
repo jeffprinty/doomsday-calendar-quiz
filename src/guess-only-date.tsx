@@ -1,8 +1,8 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 
-import { getRandomDateInYear } from './common';
-import OffsetGuesser from './components/offset-guesser';
 import { GuessActions } from './components/shared';
+import { getRandomDateInYear } from './math/year';
+import OffsetGuesser from './modules/offset-guesser';
 
 const GuessOnlyDate = () => {
   const initRandomDateWithinYear = getRandomDateInYear(2025);
@@ -11,7 +11,6 @@ const GuessOnlyDate = () => {
 
   const [autoNext, setAutoNext] = useState(false);
   const [nextGuessIncoming, setNextGuessIncoming] = useState(false);
-  // const [startTime, setStartTime] = useState<DateTime>(DateTime.now());
 
   const [lastAnswerCorrect, setLastAnswerCorrect] = useState<boolean | undefined>();
   console.log('lastAnswerCorrect', lastAnswerCorrect);

@@ -1,14 +1,15 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 
 import clsx from 'clsx';
 import { DateTime } from 'luxon';
 import { MdBolt, MdSettings } from 'react-icons/md';
 
-import { Day, getRandomDateInYear, guessDateFormat } from './common';
+import { Day, guessDateFormat } from './common';
 import { PageDescribe } from './components/page-describe';
 import QuizResults from './components/quiz-results';
 import { GuessActions, GuessDisplay } from './components/shared';
 import useAnswerHistory from './hooks/use-answer-history';
+import { getRandomDateInYear } from './math/year';
 import { DayOfWeekGuesserSelfContained } from './modules/day-of-week-guesser';
 
 const GuessDateDoomsdayWithinYear = ({
@@ -55,7 +56,7 @@ const GuessDateDoomsdayWithinYear = ({
 
   return (
     <div
-      className='md:min-h-1/2 flex h-dvh min-h-dvh w-full flex-col justify-between md:h-1/2 md:justify-start'
+      className='md:min-h-1/2 flex w-full flex-col justify-between md:h-1/2 md:justify-start'
       id='page__guess-date-within-year'
     >
       <div className='' id='quiz__top-bit'>
@@ -129,10 +130,9 @@ const YearInput = ({
   );
 };
 
-const GuessDateWithinYearWrap = () => {
-  const initYear = DateTime.now().year;
+const GuessDateWithinYearWrap = ({ year }: { year?: number }) => {
+  const initYear = year || DateTime.now().year;
   const startWithTimeAlready = getRandomDateInYear(initYear);
-  // TODO: Allow set year
   const [guessingYear, setGuessingYear] = useState(initYear);
   const [guessingAgain, setGuessingAgain] = useState(false);
 

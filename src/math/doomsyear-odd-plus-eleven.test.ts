@@ -1,6 +1,6 @@
 import { expect, test } from 'vitest';
 
-import { doomsyearTable } from '../common';
+import { doomsyearTable } from '../math/year';
 import oddPlusEleven, { oddPlusElevenFull } from './doomsyear-odd-plus-eleven';
 
 for (const [year, result] of doomsyearTable) {

@@ -1,19 +1,14 @@
-import { mnemonics } from '../mnemonics';
+import { mnemonics } from '../mnemonics/month-doomsdays';
 
 const MnemonicsTable = () => {
   return (
     <div>
-      <div>
-        <a href='https://en.wikipedia.org/wiki/Doomsday_rule#Memorable_dates_that_always_land_on_Doomsday'>
-          wikipedia: Memorable Dates table
-        </a>
-      </div>
       <table>
         <thead>
           <tr>
             <th>Month</th>
             <th>Doomsday</th>
-            <th>Handle</th>
+            <th>Memetic Handle</th>
           </tr>
         </thead>
         <tbody>

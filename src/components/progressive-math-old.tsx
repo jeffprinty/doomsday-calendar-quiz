@@ -1,7 +1,6 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 
 import clsx from 'clsx';
-import { DateTime } from 'luxon';
 
 import {
   AnchorDayCentury,
@@ -16,6 +15,7 @@ import {
   step5,
   step6,
 } from '../common';
+import { getDoomsdayForYear } from '../math/year';
 import Button from './button';
 
 const unrevealed = 'opacity-5';
@@ -42,11 +42,7 @@ const ProgressiveMathOld = ({ year }: { showAnswers?: boolean; year: number }) =
   const doomsdayIs = dayNames[resultAfterSubtractingSevens];
   // </YEAR MATH>
 
-  const doomsdayOnYear = DateTime.fromObject({
-    year,
-    month: 4,
-    day: 4,
-  });
+  const doomsdayOnYear = getDoomsdayForYear(year);
 
   return (
     <div className='hidden'>
