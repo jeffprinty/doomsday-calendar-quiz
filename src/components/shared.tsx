@@ -2,7 +2,7 @@ import { ReactNode, useEffect, useState } from 'react';
 
 import clsx from 'clsx';
 
-import { correctColor, incorrectColor, step1, step2, step3, step4, step5, Steps } from '../common';
+import { step1, step2, step3, step4, step5, Steps } from '../common';
 import Button from './button';
 
 export const PageContainer = ({ children, id }: { children: React.ReactNode; id: string }) => {
@@ -33,44 +33,6 @@ export const GuesserStep = ({
       {!!description && <span className='hidden'>{description}</span>}
       {children}
     </>
-  );
-};
-
-export const GuessDisplay = ({
-  className,
-  guessedCorrectly,
-  guessText,
-  guessTextClassName = 'text-4xl',
-  isLeapYear,
-  questionText,
-  explainCorrect,
-  explainIncorrect,
-}: {
-  className?: string;
-  guessedCorrectly?: boolean;
-  guessText: string | number;
-  guessTextClassName?: string;
-  isLeapYear?: boolean;
-  questionText: string;
-  explainCorrect?: string | React.ReactNode;
-  explainIncorrect?: string | React.ReactNode;
-}) => {
-  const explainMessage = guessedCorrectly ? explainCorrect : explainIncorrect;
-  return (
-    <div
-      id='quiz__year-to-guess'
-      className={clsx([
-        className,
-        'flex w-full flex-col items-center justify-center pb-6 pt-4 text-center',
-        guessedCorrectly === undefined && 'bg-gray-600',
-        guessedCorrectly === true && correctColor,
-        guessedCorrectly === false && incorrectColor,
-      ])}
-    >
-      <span className=''>{questionText}</span>
-      <h2 className={clsx(guessTextClassName, isLeapYear && 'text-blue-400')}>{guessText}</h2>
-      {guessedCorrectly !== undefined && <span className='text-xl'>{explainMessage}</span>}
-    </div>
   );
 };
 

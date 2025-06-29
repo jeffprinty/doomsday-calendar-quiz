@@ -4,10 +4,11 @@ import clsx from 'clsx';
 import { DateTime } from 'luxon';
 import { MdBolt, MdSettings } from 'react-icons/md';
 
-import { guessDateFormat } from './common';
+import { guessDateFormat, timeoutMs } from './common';
+import GuessDisplay from './components/guess-display';
 import { PageDescribe } from './components/page-describe';
 import QuizResults from './components/quiz-results';
-import { GuessActions, GuessDisplay } from './components/shared';
+import { GuessActions } from './components/shared';
 import useAnswerHistory from './hooks/use-answer-history';
 import { Weekday } from './math/weekdays';
 import { getRandomDateInYear } from './math/year';
@@ -52,7 +53,7 @@ const GuessDateDoomsdayWithinYear = ({
       if (isCorrect) {
         setTimeout(() => {
           generateRandomDate();
-        }, 2000);
+        }, timeoutMs);
       }
     }
   };

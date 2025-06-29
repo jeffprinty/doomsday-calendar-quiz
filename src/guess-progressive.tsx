@@ -2,8 +2,9 @@ import { useState } from 'react';
 
 import { guessDateFormat } from './common';
 import Button from './components/button';
+import GuessDisplay from './components/guess-display';
 import QuizResults from './components/quiz-results';
-import { GuessDisplay, GuesserStep } from './components/shared';
+import { GuesserStep } from './components/shared';
 import YearGuessingHelper from './components/year-guessing-helper';
 import useAnswerHistory from './hooks/use-answer-history';
 import { Weekday } from './math/weekdays';

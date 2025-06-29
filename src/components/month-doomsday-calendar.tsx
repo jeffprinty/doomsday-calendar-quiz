@@ -2,11 +2,18 @@ import { useState } from 'react';
 
 import clsx from 'clsx';
 
-import { betterDaysTable, CalendarDay, chunkArray, pickRandomlyFromArray } from '../common';
+import {
+  betterDaysTable,
+  CalendarDay,
+  chunkArray,
+  pickRandomlyFromArray,
+  timeoutMs,
+} from '../common';
 import { allDaysFromMnemonics, getRandomMnemonic } from '../math/month-doomsdays';
 import CalendarTable from './calendar-table';
+import GuessDisplay from './guess-display';
 import { PageDescribe } from './page-describe';
-import { GuessActions, GuessDisplay } from './shared';
+import { GuessActions } from './shared';
 
 const MonthDoomsdayCalendar = () => {
   const daysTable = betterDaysTable(32);
@@ -36,7 +43,7 @@ const MonthDoomsdayCalendar = () => {
     }
     setAnswerClicked(dayNumber);
     setLastAnswerCorrect(correctOptions.includes(dayNumber));
-    setTimeout(() => heroClick(), 2000);
+    setTimeout(() => heroClick(), timeoutMs);
   };
 
   const heroClick = () => {

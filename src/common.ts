@@ -17,6 +17,8 @@ export type Steps = 'stepOne' | 'stepTwo' | 'stepThree' | 'stepFour' | 'stepFive
 
 export type PastAnswer<T> = [number, boolean, T];
 
+export const timeoutMs = 1500;
+
 export const colors = {
   correctGreen: '#16A34A', // bg-green-600
   incorrectRed: '#991B1B', // bg-red-800

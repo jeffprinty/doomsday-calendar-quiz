@@ -3,7 +3,7 @@ import { ReactNode, useEffect, useState } from 'react';
 import clsx from 'clsx';
 import { IoMdEye, IoMdEyeOff, IoMdRefresh } from 'react-icons/io';
 
-import { commonStyles } from '../common';
+import { commonStyles, timeoutMs } from '../common';
 import Button from '../components/button';
 import { Revealable } from '../components/shared';
 import YearInput from '../components/year-input';
@@ -63,7 +63,7 @@ const OddPlusEleven = () => {
     if (isCorrect) {
       setTimeout(() => {
         startGuessing();
-      }, 2000);
+      }, timeoutMs);
     }
   };
 

@@ -1,5 +1,6 @@
 import { useState } from 'react';
 
+import { timeoutMs } from './common';
 import { GuessActions } from './components/shared';
 import { getRandomDateInYear } from './math/year';
 import OffsetGuesser from './modules/offset-guesser';
@@ -21,7 +22,7 @@ const GuessOffsetForDate = () => {
       setNextGuessIncoming(true);
       setTimeout(() => {
         getNewGuess();
-      }, 1000);
+      }, timeoutMs);
     }
   };
 

@@ -4,7 +4,7 @@ import clsx from 'clsx';
 import { DateTime } from 'luxon';
 
 import Button from '../components/button';
-import { GuessDisplay } from '../components/shared';
+import GuessDisplay from '../components/guess-display';
 import { mnemonics } from '../math/month-doomsdays';
 import OffsetIllustrated from './offset-illustrated';
 
