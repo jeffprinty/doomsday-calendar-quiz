@@ -9,8 +9,8 @@ import YearGuessingHelper from './components/year-guessing-helper';
 import useAnswerHistory from './hooks/use-answer-history';
 import { Weekday } from './math/weekdays';
 import { getDoomsdayForYear, getRandomDateInYear, getRandomYear } from './math/year';
-import { DayOfWeekGuesserSelfContained } from './modules/day-of-week-guesser';
 import OffsetGuesser from './modules/offset-guesser';
+import { WeekdayGuesserSelfContained } from './modules/weekday-guesser';
 
 const GuessFullDate = () => {
   const initYear = getRandomYear();
@@ -97,7 +97,7 @@ const GuessFullDate = () => {
             </button>
             )
           </div>
-          <DayOfWeekGuesserSelfContained
+          <WeekdayGuesserSelfContained
             correctDay={correctDoomsday}
             disabled={yearDoomsdayGuessed}
             key={`year_${startTime}`}
@@ -112,7 +112,7 @@ const GuessFullDate = () => {
       <GuesserStep show={currentStep > 1} description='Guess the doomsday for the full date.'>
         <div id='guess-weekday-for-date'>
           <div className='text-center'>Doomsday for Date</div>
-          <DayOfWeekGuesserSelfContained
+          <WeekdayGuesserSelfContained
             correctDay={correctWeekdayForDate}
             disabled={dateWeekdayGuessed}
             key={`date_${startTime}`}

@@ -7,7 +7,7 @@ import Button from '../components/button';
 import { daysOfWeek, Weekday } from '../math/weekdays';
 import { OnGuess } from './module.types';
 
-export const DayOfWeekGuesserSelfContained = ({
+export const WeekdayGuesserSelfContained = ({
   className,
   correctDay,
   disabled,
@@ -63,8 +63,8 @@ const DayOfWeekGuesser = ({
         return (
           <Button
             className={clsx([
-              'quiz__day-of-week mx-1 h-24 px-1 text-center',
-              minimizeOnGuess && 'h-12',
+              'quiz__day-of-week mx-1 px-1 text-center',
+              minimizeOnGuess ? 'h-12' : 'h-24',
               incorrectSelection && thisDayWasSelected && 'bg-red-900 disabled:bg-red-900',
               thisDayIsCorrect && 'active:text-black disabled:bg-green-600 disabled:text-white',
             ])}

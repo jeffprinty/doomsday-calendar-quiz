@@ -13,7 +13,7 @@ import { getAnchorDay } from '../math/century';
 import { oddPlusElevenFull } from '../math/doomsyear-odd-plus-eleven';
 import { Weekday } from '../math/weekdays';
 import { getDoomsdayForYearV2, getRandomYear, splitYearIntoComponents } from '../math/year';
-import { DayOfWeekGuesserSelfContained } from './day-of-week-guesser';
+import { WeekdayGuesserSelfContained } from './weekday-guesser';
 
 const Fork = ({
   children,
@@ -149,7 +149,7 @@ const OddPlusEleven = () => {
       <DoomsyearEquation fullYear={fullYearValue} />
       <div className='pb-4'>
         <div className={stepRow}>What is the Doomsyear for {fullYearValue}</div>
-        <DayOfWeekGuesserSelfContained
+        <WeekdayGuesserSelfContained
           correctDay={correctDoomsday as Weekday}
           disableOnGuess
           key={`week_${fullYearValue}`}
