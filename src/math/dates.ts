@@ -28,4 +28,4 @@ export const getFirstDateForCalendar = (year: number) => {
 
 export const dateIsLeapYear = (date: Dayjs) => date.isLeapYear();
 
-export const getDoomsdayForYear = (year: number): Dayjs => dayjs({ year, month: 3, date: 4 });
+export const getDoomsdayForYearNew = (year: number): Dayjs => dayjs({ year, month: 3, date: 4 });
