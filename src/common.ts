@@ -43,9 +43,6 @@ export interface CalendarDay {
   sameWeekdayAsDoomsday: boolean;
 }
 
-export const guessDateFormat = 'MMMM dd, yyyy';
-export const fullDateWithWeekdayFormat = 'cccc MMMM dd, yyyy';
-
 export const betterDaysTable = (howManyDays = 360) => {
   const startingYear = 2024;
   // locale weeks: https://moment.github.io/luxon/#/intl?id=locale-based-weeks
