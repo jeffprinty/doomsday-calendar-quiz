@@ -8,7 +8,7 @@ import GuessDisplay from './components/guess-display';
 import QuizResults from './components/quiz-results';
 import { GuessActions, Hint } from './components/shared';
 import useAnswerHistory from './hooks/use-answer-history';
-import { formatGuessDate } from './math/dates';
+import { formatGuessDate } from './math/dates.luxon';
 import { Weekday } from './math/weekdays';
 import { getDoomsdayForYear, getRandomDateInModernity } from './math/year';
 import { GuessPayload } from './modules/module.types';

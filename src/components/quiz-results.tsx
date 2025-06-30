@@ -4,7 +4,7 @@ import { PieChart } from 'react-minimal-pie-chart';
 import colors from 'tailwindcss/colors';
 
 import { correctColor, incorrectColor, PastAnswer } from '../common';
-import { formatGuessDate } from '../math/dates';
+import { formatGuessDate } from '../math/dates.luxon';
 
 const QuizResults = ({
   answers,

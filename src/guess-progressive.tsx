@@ -6,7 +6,7 @@ import QuizResults from './components/quiz-results';
 import { GuesserStep } from './components/shared';
 import YearGuessingHelper from './components/year-guessing-helper';
 import useAnswerHistory from './hooks/use-answer-history';
-import { formatGuessDate } from './math/dates';
+import { formatGuessDate } from './math/dates.luxon';
 import { Weekday } from './math/weekdays';
 import { getDoomsdayForYear, getRandomDateInYear, getRandomYear } from './math/year';
 import OffsetGuesser from './modules/offset-guesser';
