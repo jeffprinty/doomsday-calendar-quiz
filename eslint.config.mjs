@@ -1,8 +1,3 @@
-import path from 'node:path';
-import { fileURLToPath } from 'node:url';
-
-import { fixupConfigRules } from '@eslint/compat';
-import { FlatCompat } from '@eslint/eslintrc';
 import js from '@eslint/js';
 import tsParser from '@typescript-eslint/parser';
 import eslintPluginPrettierRecommended from 'eslint-plugin-prettier/recommended';
@@ -14,14 +9,6 @@ import sonarjs from 'eslint-plugin-sonarjs';
 import eslintPluginUnicorn from 'eslint-plugin-unicorn';
 import globals from 'globals';
 import tseslint from 'typescript-eslint';
-
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
-const compat = new FlatCompat({
-  baseDirectory: __dirname,
-  recommendedConfig: js.configs.recommended,
-  allConfig: js.configs.all,
-});
 
 export default tseslint.config(
   { ignores: ['dist', 'node_modules'] },
@@ -50,16 +37,12 @@ export default tseslint.config(
       'jsx-a11y': jsxA11y,
     },
     extends: [
+      js.configs.recommended,
       sonarjs.configs.recommended,
       eslintPluginPrettierRecommended,
       reactPlugin.configs.flat.recommended,
       reactPlugin.configs.flat['jsx-runtime'],
       pluginPromise.configs['flat/recommended'],
-      fixupConfigRules(
-        compat.extends(
-          'eslint:recommended',
-        )
-      ),
       tseslint.configs.recommended,
     ],
     languageOptions: {
