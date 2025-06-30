@@ -25,6 +25,7 @@ const NavBar = ({ navItems }: { navItems: Array<NavItem> }) => {
     <NavLink
       key={text}
       className={({ isActive }) => clsx(className, isActive ? 'text-white' : 'text-blue-400')}
+      onClick={() => setNav(false)}
       {...navLinkProperties}
     >
       {text}
@@ -32,7 +33,7 @@ const NavBar = ({ navItems }: { navItems: Array<NavItem> }) => {
   );
 
   return (
-    <div className='mx-auto flex h-20 w-full items-center justify-between bg-black px-4 text-white'>
+    <div className='mx-auto flex h-20 w-full max-w-full items-center justify-between bg-black px-4 text-white'>
       <h1 className='w-full py-3 text-2xl font-bold text-[#00df9a]'>{menuTitle}</h1>
 
       {/* Desktop Navigation */}
@@ -48,8 +49,8 @@ const NavBar = ({ navItems }: { navItems: Array<NavItem> }) => {
       </ul>
 
       {/* Mobile Navigation Icon */}
-      <button onClick={handleNav} className='z-20 block md:hidden'>
-        {nav ? <AiOutlineClose size={20} /> : <AiOutlineMenu size={20} />}
+      <button onClick={handleNav} className='absolute right-3 top-4 z-20 md:hidden'>
+        {nav ? <AiOutlineClose size={24} /> : <AiOutlineMenu size={24} />}
       </button>
 
       {/* Mobile Navigation Menu */}
@@ -68,10 +69,10 @@ const NavBar = ({ navItems }: { navItems: Array<NavItem> }) => {
 
         {/* Mobile Navigation Items */}
         {navItems.map((item) => (
-          <li key={item.text}>
+          <li key={item.text} className='px-2 text-right'>
             {renderNavLink(
               item,
-              'cursor-pointer rounded-xl border-b border-gray-600 p-4 duration-300 hover:bg-[#00df9a] hover:text-black'
+              'cursor-pointer duration-300 hover:bg-[#00df9a] hover:text-black text-xl'
             )}
           </li>
         ))}

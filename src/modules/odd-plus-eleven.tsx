@@ -3,8 +3,9 @@ import { ReactNode, useEffect, useState } from 'react';
 import clsx from 'clsx';
 import { IoMdEye, IoMdEyeOff, IoMdRefresh } from 'react-icons/io';
 
-import { commonStyles, step1, step2, step3, step4, step5, timeoutMs } from '../common';
+import { commonStyles, timeoutMs } from '../common';
 import Button from '../components/button';
+import { DoomsyearEquation } from '../components/doomsyear-equation';
 import { Revealable } from '../components/shared';
 import YearInput from '../components/year-input';
 import { isOdd } from '../math/basic';
@@ -26,38 +27,6 @@ const Fork = ({
   return (
     <div className={clsx(className, 'rounded-lg px-2 py-1', highlight && 'bg-indigo-400')}>
       {children}
-    </div>
-  );
-};
-
-const renderEquation = (fullYear: number) => {
-  const [century, year] = splitYearIntoComponents(fullYear);
-  const { firstResult, secondResult, moduloResult, moduloFromSeven } = oddPlusElevenFull(year);
-  const yearPadded = year.toString().padStart(2, '0');
-  const yearIsOdd = isOdd(year);
-  const extraStep = firstResult !== secondResult;
-  const centuryAnchorDay = getAnchorDay(century);
-
-  return (
-    <div className='text-right'>
-      <span className={commonStyles.year}>{yearPadded}</span> {yearIsOdd ? '+ 11 / 2' : '/ 2'} ={' '}
-      <span className={step1}>{firstResult}</span>
-      <br />
-      {extraStep && (
-        <>
-          <span className={step1}>{firstResult}</span> + 11 ={' '}
-          <span className={step2}>{secondResult}</span>
-          <br />
-        </>
-      )}
-      <span className={extraStep ? step2 : step1}>{secondResult}</span> % 7 ={' '}
-      <span className={step3}>{moduloResult}</span>
-      <br />7 - <span className={step3}>{moduloResult}</span> ={' '}
-      <span className={step4}>{moduloFromSeven}</span>
-      <br />
-      <span className={step4}>{moduloFromSeven}</span> +{' '}
-      <span className={step5}>{centuryAnchorDay}</span> ={' '}
-      <span className=''>{moduloFromSeven + Number(centuryAnchorDay)}</span>
     </div>
   );
 };
@@ -177,7 +146,7 @@ const OddPlusEleven = () => {
           </div>
         </div>
       )}
-      {renderEquation(fullYearValue)}
+      <DoomsyearEquation fullYear={fullYearValue} />
       <div className='pb-4'>
         <div className={stepRow}>What is the Doomsyear for {fullYearValue}</div>
         <DayOfWeekGuesserSelfContained

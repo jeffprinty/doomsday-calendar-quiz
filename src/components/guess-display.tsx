@@ -1,8 +1,7 @@
 import clsx from 'clsx';
+import { MdBolt } from 'react-icons/md';
 
 import { correctColor, incorrectColor } from '../common';
-import { MdBolt, MdSettings } from 'react-icons/md';
-import { useState } from 'react';
 
 const GuessDisplay = ({
   autoMode,
@@ -16,8 +15,8 @@ const GuessDisplay = ({
   explainCorrect,
   explainIncorrect,
 }: {
-  autoMode?: boolean
-  autoProcessing?: boolean
+  autoMode?: boolean;
+  autoProcessing?: boolean;
   className?: string;
   guessedCorrectly?: boolean;
   guessText: string | number;
@@ -27,7 +26,6 @@ const GuessDisplay = ({
   explainCorrect?: string | React.ReactNode;
   explainIncorrect?: string | React.ReactNode;
 }) => {
-  const [showSettings, setShowSettings] = useState(false);
   const explainMessage = guessedCorrectly ? explainCorrect : explainIncorrect;
   return (
     <div
@@ -45,20 +43,19 @@ const GuessDisplay = ({
       {guessedCorrectly !== undefined && <span className='text-xl'>{explainMessage}</span>}
       {autoMode && (
         <div
-          className={clsx(
-            'absolute right-2 top-2',
-            autoMode && autoProcessing && 'animate-spin'
-          )}
+          className={clsx('absolute right-2 top-2', autoMode && autoProcessing && 'animate-spin')}
         >
           <MdBolt className='h-6 w-6' />
         </div>
       )}
+      {/*
       <button
         className={clsx('absolute bottom-2 right-2', showSettings && 'text-indigo-300')}
         onClick={() => setShowSettings(!showSettings)}
       >
         <MdSettings />
       </button>
+      */}
     </div>
   );
 };

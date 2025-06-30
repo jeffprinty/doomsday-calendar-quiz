@@ -6,6 +6,7 @@ import LongCalendar from './components/long-calendar';
 import MonthDoomsdayCalendar from './components/month-doomsday-calendar';
 import NavBar from './components/nav-bar';
 import GuessDateDoomsday from './guess-date-doomsday';
+import GuessDateDoomsdayInModernity from './guess-date-doomsday';
 import GuessFullDateV1 from './guess-full-date-v1';
 import GuessOffsetForDate from './guess-offset-for-date';
 import GuessProgressive from './guess-progressive';
@@ -23,6 +24,7 @@ const navLinks = [
   { to: `${baseUrl}/learn/doomsday`, text: 'doomsday' },
   { to: `${baseUrl}/learn/reference`, text: 'ref' },
   { to: `${baseUrl}/within`, text: 'within' },
+  { to: `${baseUrl}/within-modernity`, text: 'modernity' },
   // { to: `${baseUrl}/year`, text: 'year' }, // superseded by full
   { to: `${baseUrl}/full`, text: 'full' },
   { to: `${baseUrl}/steps`, text: 'steps' },
@@ -64,6 +66,7 @@ const Base = () => {
           <Route path='/learn/reference' element={<Reference />} />
           <Route path='/odd' element={<OddPlusEleven />} />
           <Route path='/within' element={<GuessDateDoomsday />} />
+          <Route path='/within-modernity' element={<GuessDateDoomsdayInModernity />} />
           <Route path='/step1' element={<StepOne />} />
           <Route path='/year' element={<GuessYearDoomsday />} />
           <Route path='/full' element={<GuessFullDateV1 />} />

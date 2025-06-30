@@ -12,6 +12,8 @@ const BlockQuote = ({ children }: { children: ReactNode }) => (
   </blockquote>
 );
 
+const pageContainer = 'p-4 md-p-0';
+
 const links = [
   {
     href: 'https://en.wikipedia.org/wiki/Doomsday_rule',
@@ -42,7 +44,7 @@ export const Home = () => {
   const now = DateTime.now();
   const doomsdayOnYear = getDoomsdayForYear(now.year).toFormat('cccc');
   return (
-    <div>
+    <div className={pageContainer}>
       <h2>Welcome to my Doomsday Calendar Quiz app</h2>
       <p>Learn how to calculate the day of the week for any given date.</p>
       <BlockQuote>
