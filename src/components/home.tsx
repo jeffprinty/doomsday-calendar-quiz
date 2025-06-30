@@ -6,9 +6,16 @@ import { getDoomsdayForYear } from '../math/year';
 import ExternalLink from './external-link';
 import MnemonicsTable from './mnemonics-table';
 
-const BlockQuote = ({ children }: { children: ReactNode }) => (
+const BlockQuote = ({
+  attribution,
+  children,
+}: {
+  attribution?: ReactNode;
+  children: ReactNode;
+}) => (
   <blockquote className='my-4 border-s-4 border-gray-500 bg-gray-800 p-4'>
     <p className='text-md font-medium leading-relaxed text-white'>{children}</p>
+    {attribution && <p className='text-md pt-4 font-medium text-white'>- {attribution}</p>}
   </blockquote>
 );
 
@@ -47,8 +54,8 @@ export const Home = () => {
     <div className={pageContainer}>
       <h2>Welcome to my Doomsday Calendar Quiz app</h2>
       <p>Learn how to calculate the day of the week for any given date.</p>
-      <BlockQuote>
-        The Doomsday rule is an algorithm of determination of the day of the week for a given date.
+      <BlockQuote attribution='Wikipedia'>
+        The Doomsday rule is an algorithm for determining of the day of the week for a given date.
         It provides a perpetual calendar because the Gregorian calendar moves in cycles of 400
         years. The algorithm for mental calculation was devised by John Conway in 1973, drawing
         inspiration from Lewis Carroll&apos;s perpetual calendar algorithm. It takes advantage of
@@ -65,7 +72,12 @@ export const Home = () => {
         that the doomsday for the current year is{' '}
         <span className='text-green-400'>{doomsdayOnYear}</span>.
         <br />
-        Then use the offset module to practice calculating the distance between days.
+      </p>
+      <p>
+        The next thing to commit to memory is the doomsdays throughout the year. The doomsdays in a
+        year all fall on the same weekday. Below you&apos;ll find a table of the doomsdays for each
+        month as well as memetic handles you can use to help you associate each month with its
+        doomsday
       </p>
       <div className='explainer py-4'>
         <MnemonicsTable />
