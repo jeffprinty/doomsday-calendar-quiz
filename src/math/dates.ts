@@ -1,4 +1,5 @@
 import dayjs, { Dayjs } from 'dayjs';
+import dayOfYear from 'dayjs/plugin/dayOfYear';
 import isLeapYear from 'dayjs/plugin/isLeapYear';
 import isoWeek from 'dayjs/plugin/isoWeek';
 import objectSupport from 'dayjs/plugin/objectSupport';
@@ -12,6 +13,7 @@ dayjs.extend(isLeapYear);
 dayjs.locale('en');
 dayjs.extend(timezone);
 dayjs.extend(isoWeek);
+dayjs.extend(dayOfYear);
 
 dayjs.tz.guess();
 
