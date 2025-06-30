@@ -1,7 +1,7 @@
 import { useState } from 'react';
 
 import clsx from 'clsx';
-import { AiFillCalendar, AiOutlineClose, AiOutlineMenu } from 'react-icons/ai';
+import { BiCalendarStar, BiMenu, BiX } from 'react-icons/bi';
 import { NavLink } from 'react-router-dom';
 
 interface NavItem {
@@ -49,8 +49,8 @@ const NavBar = ({ navItems }: { navItems: Array<NavItem> }) => {
       </ul>
 
       {/* Mobile Navigation Icon */}
-      <button onClick={handleNav} className='absolute right-3 top-4 z-20 md:hidden'>
-        {nav ? <AiOutlineClose size={24} /> : <AiOutlineMenu size={24} />}
+      <button onClick={handleNav} className='absolute right-3 top-6 z-20 md:hidden'>
+        {nav ? <BiX size={24} /> : <BiMenu size={24} />}
       </button>
 
       {/* Mobile Navigation Menu */}
@@ -64,7 +64,7 @@ const NavBar = ({ navItems }: { navItems: Array<NavItem> }) => {
       >
         {/* Mobile Logo */}
         <h1 className='m-4 w-full text-3xl font-bold text-[#00df9a]'>
-          <AiFillCalendar />
+          <BiCalendarStar />
         </h1>
 
         {/* Mobile Navigation Items */}

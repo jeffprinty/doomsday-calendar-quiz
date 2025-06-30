@@ -1,7 +1,7 @@
 import { ReactNode, useEffect, useState } from 'react';
 
 import clsx from 'clsx';
-import { IoMdEye, IoMdEyeOff, IoMdRefresh } from 'react-icons/io';
+import { BiHide, BiRefresh, BiShow } from 'react-icons/bi';
 
 import { commonStyles, timeoutMs } from '../common';
 import Button from '../components/button';
@@ -85,11 +85,11 @@ const OddPlusEleven = () => {
     <div className='sm-p-8 flex min-h-full flex-col items-center justify-between'>
       <div className='flex flex-row items-center justify-center pt-4'>
         <Button className={iconButtonStyle} onClick={() => setShowWork(!showWork)}>
-          {showWork ? <IoMdEyeOff /> : <IoMdEye />}
+          {showWork ? <BiHide /> : <BiShow />}
         </Button>
         <YearInput value={fullYearValue} setValue={setFullYearValue} />
         <Button className={iconButtonStyle} onClick={startGuessing}>
-          <IoMdRefresh />
+          <BiRefresh />
         </Button>
       </div>
       {showGuts && (

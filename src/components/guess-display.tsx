@@ -1,5 +1,5 @@
 import clsx from 'clsx';
-import { MdBolt } from 'react-icons/md';
+import { BiSolidBolt } from 'react-icons/bi';
 
 import { correctColor, incorrectColor } from '../common';
 
@@ -45,7 +45,7 @@ const GuessDisplay = ({
         <div
           className={clsx('absolute right-2 top-2', autoMode && autoProcessing && 'animate-spin')}
         >
-          <MdBolt className='h-6 w-6' />
+          <BiSolidBolt className='h-6 w-6' />
         </div>
       )}
       {/*

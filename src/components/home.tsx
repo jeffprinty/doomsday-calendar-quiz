@@ -1,7 +1,5 @@
 import { ReactNode } from 'react';
 
-import { DateTime } from 'luxon';
-
 import { getDoomsdayForYear } from '../math/year';
 import ExternalLink from './external-link';
 import MnemonicsTable from './mnemonics-table';
@@ -48,8 +46,8 @@ const links = [
   },
 ];
 export const Home = () => {
-  const now = DateTime.now();
-  const doomsdayOnYear = getDoomsdayForYear(now.year).toFormat('cccc');
+  const currentYear = new Date().getFullYear();
+  const doomsdayOnYear = getDoomsdayForYear(currentYear).toFormat('cccc');
   return (
     <div className={pageContainer}>
       <h2>Welcome to my Doomsday Calendar Quiz app</h2>
@@ -66,7 +64,7 @@ export const Home = () => {
         We start with some knowledge before we practice the most useful trick: figuring out the day
         of the week for a date in the current year.
         <br />
-        The current year is {now.year}, the doomsday for {now.year} is{' '}
+        The current year is {currentYear}, the doomsday for {currentYear} is{' '}
         <span className='text-green-400'>{doomsdayOnYear}</span>. Later we&apos;ll learn how to
         calculate the doomsday for any given year, but for now, if you remember one thing, remember
         that the doomsday for the current year is{' '}

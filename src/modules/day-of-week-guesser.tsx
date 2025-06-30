@@ -1,7 +1,7 @@
 import { useState } from 'react';
 
 import clsx from 'clsx';
-import { MdCheckCircle } from 'react-icons/md';
+import { BiSolidCheckCircle } from 'react-icons/bi';
 
 import Button from '../components/button';
 import { daysOfWeek, Weekday } from '../math/weekdays';
@@ -76,7 +76,7 @@ const DayOfWeekGuesser = ({
             {day}
             {thisDayIsCorrect && (
               <span className='correct-indicator rounded-xl bg-white text-xl'>
-                <MdCheckCircle className='fill-green-600' />
+                <BiSolidCheckCircle className='fill-green-600' />
               </span>
             )}
           </Button>

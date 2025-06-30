@@ -2,7 +2,7 @@ import { useState } from 'react';
 
 import clsx from 'clsx';
 import { DateTime } from 'luxon';
-import { MdBolt, MdSettings } from 'react-icons/md';
+import { BiCog, BiSolidBolt } from 'react-icons/bi';
 
 import { guessDateFormat, timeoutMs } from './common';
 import GuessDisplay from './components/guess-display';
@@ -79,14 +79,14 @@ const GuessDateDoomsdayWithinYear = ({
                 autoNext && nextGuessIncoming && 'animate-spin'
               )}
             >
-              <MdBolt className='h-6 w-6' />
+              <BiSolidBolt className='h-6 w-6' />
             </div>
           )}
           <button
             className={clsx('absolute bottom-2 right-2', showSettings && 'text-indigo-300')}
             onClick={() => setShowSettings(!showSettings)}
           >
-            <MdSettings />
+            <BiCog />
           </button>
         </div>
         {showSettings && (
@@ -135,7 +135,7 @@ const YearInput = ({
 };
 
 const GuessDateWithinYear = ({ year }: { year?: number }) => {
-  const initYear = year || DateTime.now().year;
+  const initYear = year || new Date().getFullYear();
   const startWithTimeAlready = getRandomDateInYear(initYear);
   const [guessingYear, setGuessingYear] = useState(initYear);
   const [guessingAgain, setGuessingAgain] = useState(false);

@@ -1,7 +1,5 @@
 import { useState } from 'react';
 
-import { DateTime } from 'luxon';
-
 import Button from './components/button';
 import MnemonicsTable from './components/mnemonics-table';
 import MonthDoomsdayCalendar from './components/month-doomsday-calendar';
@@ -17,8 +15,7 @@ const stepClassName = 'pb-6';
 const stepHeadingClassName = 'text-2xl';
 
 const AllSteps = () => {
-  const now = DateTime.now();
-  const currentYear = now.year;
+  const currentYear = new Date().getFullYear();
   const currentYearDoomsday = getDoomsdayForYear(currentYear).toFormat('cccc');
   const [currentStep, setCurrentStep] = useState(0);
   const [showAllSteps, setShowAllSteps] = useState(true);
