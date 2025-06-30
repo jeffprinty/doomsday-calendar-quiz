@@ -5,8 +5,9 @@ import GuessDisplay from './components/guess-display';
 import QuizResults from './components/quiz-results';
 import { YearStepHelperHorizontal } from './components/shared';
 import useAnswerHistory from './hooks/use-answer-history';
+import { getDayjsDoomsdayForYear } from './math/dates';
 import { Weekday } from './math/weekdays';
-import { getDoomsdayForYear, getRandomYear } from './math/year';
+import { getRandomYear } from './math/year';
 import WeekdayGuesser from './modules/weekday-guesser';
 
 const GuessYearDoomsday = () => {
@@ -19,9 +20,9 @@ const GuessYearDoomsday = () => {
 
   const { lastAnswerCorrect, onAnswer, onNewQuestion, pastAnswers } = useAnswerHistory();
 
-  const doomsdayOnYear = getDoomsdayForYear(guessingYear);
+  const doomsdayOnYear = getDayjsDoomsdayForYear(guessingYear);
 
-  const correctDoomsday = doomsdayOnYear.toFormat('ccc') as Weekday;
+  const correctDoomsday = doomsdayOnYear.format('ddd') as Weekday;
 
   const getNewYear = () => {
     const randomYearAsInt = getRandomYear();
@@ -55,7 +56,7 @@ const GuessYearDoomsday = () => {
         <QuizResults
           answers={pastAnswers}
           currentGuess={guessingYear.toString()}
-          dateFormat='yyyy'
+          dateFormat='YYYY'
         />
       )}
     </div>

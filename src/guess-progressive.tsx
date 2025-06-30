@@ -6,9 +6,10 @@ import QuizResults from './components/quiz-results';
 import { GuesserStep } from './components/shared';
 import YearGuessingHelper from './components/year-guessing-helper';
 import useAnswerHistory from './hooks/use-answer-history';
+import { getDayjsDoomsdayForYear } from './math/dates';
 import { formatGuessDate } from './math/dates.luxon';
 import { Weekday } from './math/weekdays';
-import { getDoomsdayForYear, getRandomDateInYear, getRandomYear } from './math/year';
+import { getRandomDateInYear, getRandomYear } from './math/year';
 import OffsetGuesser from './modules/offset-guesser';
 import WeekdayGuesser from './modules/weekday-guesser';
 
@@ -33,9 +34,9 @@ const GuessFullDate = () => {
   const [yearDoomsdayGuessed, setYearDoomsdayGuessed] = useState(false);
   const [dateWeekdayGuessed, setDateWeekdayGuessed] = useState(false);
 
-  const doomsdayOnYear = getDoomsdayForYear(guessingDate.get('year'));
+  const doomsdayOnYear = getDayjsDoomsdayForYear(guessingDate.get('year'));
 
-  const correctDoomsday = doomsdayOnYear.toFormat('ccc') as Weekday;
+  const correctDoomsday = doomsdayOnYear.format('ddd') as Weekday;
 
   const getNewGuess = () => {
     const randomYearAsInt = getRandomYear();

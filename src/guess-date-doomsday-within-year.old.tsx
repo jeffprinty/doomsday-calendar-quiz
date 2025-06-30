@@ -1,7 +1,7 @@
 import { useState } from 'react';
 
 import clsx from 'clsx';
-import { DateTime } from 'luxon';
+import { Dayjs } from 'dayjs';
 import { BiCog, BiSolidBolt } from 'react-icons/bi';
 
 import { timeoutMs } from './common';
@@ -10,9 +10,8 @@ import { PageDescribe } from './components/page-describe';
 import QuizResults from './components/quiz-results';
 import { GuessActions } from './components/shared';
 import useAnswerHistory from './hooks/use-answer-history';
-import { formatGuessDate } from './math/dates.luxon';
+import { formatDayjsGuessDate, getDayjsRandomDateInYear, getWeekdayForDate } from './math/dates';
 import { Weekday } from './math/weekdays';
-import { getRandomDateInYear } from './math/year';
 import { GuessPayload } from './modules/module.types';
 import WeekdayGuesser from './modules/weekday-guesser';
 
@@ -22,9 +21,9 @@ const GuessDateDoomsdayWithinYear = ({
   onIncorrectGuess,
   updateYear,
 }: {
-  dateToGuess: DateTime;
-  getNextDate: () => DateTime;
-  onIncorrectGuess: (dateGuessed: DateTime) => void;
+  dateToGuess: Dayjs;
+  getNextDate: () => Dayjs;
+  onIncorrectGuess: (dateGuessed: Dayjs) => void;
   updateYear: (updatedYear: number) => void;
 }) => {
   const { lastAnswerCorrect, onAnswer, onNewQuestion, pastAnswers, startTime } = useAnswerHistory();
@@ -34,11 +33,10 @@ const GuessDateDoomsdayWithinYear = ({
   const [autoNext, setAutoNext] = useState(false);
   const [nextGuessIncoming, setNextGuessIncoming] = useState(false);
 
-  const dateStringToGuess = formatGuessDate(dateToGuess);
+  const dateStringToGuess = formatDayjsGuessDate(dateToGuess);
 
   const generateRandomDate = () => {
-    const randomDate = getNextDate();
-    console.log('TODO, do I need this?', randomDate.toISO());
+    getNextDate();
     setEnableDayClick(true);
     setNextGuessIncoming(false);
     onNewQuestion();
@@ -69,7 +67,7 @@ const GuessDateDoomsdayWithinYear = ({
         <QuizResults answers={pastAnswers} currentGuess={dateStringToGuess} />
         <div className='relative'>
           <GuessDisplay
-            explainIncorrect={`is on ${dateToGuess.toFormat('cccc')}`}
+            explainIncorrect={`is on ${dateToGuess.format('dddd')}`}
             questionText='What day of the week is:'
             guessText={dateStringToGuess}
             guessedCorrectly={lastAnswerCorrect}
@@ -92,13 +90,13 @@ const GuessDateDoomsdayWithinYear = ({
           </button>
         </div>
         {showSettings && (
-          <YearInput onSubmit={updateYear} initYear={Number(dateToGuess?.toFormat('yyyy'))} />
+          <YearInput onSubmit={updateYear} initYear={Number(dateToGuess.format('YYYY'))} />
         )}
       </div>
       <div id='quiz__bottom-bit' className='h-72'>
         <div className='pt-3' id='quiz__actions'>
           <WeekdayGuesser
-            correctDay={dateToGuess.toFormat('ccc') as Weekday}
+            correctDay={getWeekdayForDate(dateToGuess)}
             key={`date_${startTime}`}
             onGuess={handleGuess}
           />
@@ -138,12 +136,12 @@ const YearInput = ({
 
 const GuessDateWithinYear = ({ year }: { year?: number }) => {
   const initYear = year || new Date().getFullYear();
-  const startWithTimeAlready = getRandomDateInYear(initYear);
+  const startWithTimeAlready = getDayjsRandomDateInYear(initYear);
   const [guessingYear, setGuessingYear] = useState(initYear);
   const [guessingAgain, setGuessingAgain] = useState(false);
 
-  const [currentDateToGuess, setCurrentDateToGuess] = useState<DateTime>(startWithTimeAlready);
-  const [wronglyGuessedDates, setWronglyGuessedDates] = useState<Array<DateTime>>([]);
+  const [currentDateToGuess, setCurrentDateToGuess] = useState<Dayjs>(startWithTimeAlready);
+  const [wronglyGuessedDates, setWronglyGuessedDates] = useState<Array<Dayjs>>([]);
   const getNextDate = () => {
     if (guessingAgain) {
       // return next item in wrong guesses array
@@ -158,12 +156,12 @@ const GuessDateWithinYear = ({ year }: { year?: number }) => {
         return oldestWrongGuess;
       }
     }
-    const newRandomDate = getRandomDateInYear(guessingYear);
+    const newRandomDate = getDayjsRandomDateInYear(guessingYear);
     setCurrentDateToGuess(newRandomDate);
     return newRandomDate;
   };
 
-  const handleIncorrectGuess = (dateGuessed: DateTime) => {
+  const handleIncorrectGuess = (dateGuessed: Dayjs) => {
     setWronglyGuessedDates((previous) => [...previous, dateGuessed]);
   };
   return (

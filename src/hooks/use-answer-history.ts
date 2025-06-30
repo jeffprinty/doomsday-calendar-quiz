@@ -1,23 +1,23 @@
 import { useState } from 'react';
 
-import { DateTime, Interval } from 'luxon';
+import dayjs, { Dayjs } from 'dayjs';
 
 import { PastAnswer } from '../common';
 
 const useAnswerHistory = () => {
   const [lastAnswerCorrect, setLastAnswerCorrect] = useState<boolean | undefined>();
-  const [pastAnswers, setPastAnswers] = useState<Array<PastAnswer<DateTime>>>([]);
-  const [startTime, setStartTime] = useState<DateTime>(DateTime.now());
+  const [pastAnswers, setPastAnswers] = useState<Array<PastAnswer<Dayjs>>>([]);
+  const [startTime, setStartTime] = useState<Dayjs>(dayjs());
   const onNewQuestion = () => {
-    setStartTime(DateTime.now());
+    setStartTime(dayjs());
     setLastAnswerCorrect(undefined);
   };
   // TODO: Handle other kinds of answers
-  const onAnswer = ({ answer, isCorrect }: { answer: DateTime; isCorrect: boolean }) => {
+  const onAnswer = ({ answer, isCorrect }: { answer: Dayjs; isCorrect: boolean }) => {
     setLastAnswerCorrect(isCorrect);
 
-    const interval = Interval.fromDateTimes(startTime, DateTime.now());
-    const intervalInSeconds = interval.length('seconds');
+    const interval = dayjs.duration(startTime.diff(dayjs()));
+    const intervalInSeconds = interval.asSeconds();
     if (intervalInSeconds) {
       setPastAnswers((previous) => [...previous, [intervalInSeconds, isCorrect, answer]]);
     }

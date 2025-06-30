@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-import { DateTime } from 'luxon';
+import { Dayjs } from 'dayjs';
 
 import { timeoutMs } from './common';
 import { DoomsyearEquation } from './components/doomsyear-equation';
@@ -8,24 +8,28 @@ import GuessDisplay from './components/guess-display';
 import QuizResults from './components/quiz-results';
 import { GuessActions, Hint } from './components/shared';
 import useAnswerHistory from './hooks/use-answer-history';
-import { formatGuessDate } from './math/dates.luxon';
+import {
+  formatDayjsGuessDate,
+  getDayjsRandomDateInModernity,
+  getDoomsdayWeekdayForYear,
+  getFullWeekday,
+} from './math/dates';
 import { Weekday } from './math/weekdays';
-import { getDoomsdayForYear, getRandomDateInModernity } from './math/year';
 import { GuessPayload } from './modules/module.types';
 import WeekdayGuesser from './modules/weekday-guesser';
 
 const GuessDateDoomsdayInModernity = () => {
-  const startWithTimeAlready = getRandomDateInModernity();
+  const startWithTimeAlready = getDayjsRandomDateInModernity();
   const [autoNext, setAutoNext] = useState(false);
-  const [dateToGuess, setCurrentDateToGuess] = useState<DateTime>(startWithTimeAlready);
+  const [dateToGuess, setCurrentDateToGuess] = useState<Dayjs>(startWithTimeAlready);
   const [enableDoomsdayClick, setEnableDoomsdayClick] = useState(true);
   const [guessingAgain, setGuessingAgain] = useState(false);
   const [nextGuessIncoming, setNextGuessIncoming] = useState(false);
-  const [wronglyGuessedDates, setWronglyGuessedDates] = useState<Array<DateTime>>([]);
+  const [wronglyGuessedDates, setWronglyGuessedDates] = useState<Array<Dayjs>>([]);
 
   const { lastAnswerCorrect, onAnswer, onNewQuestion, pastAnswers, startTime } = useAnswerHistory();
 
-  const dateStringToGuess = formatGuessDate(dateToGuess);
+  const dateStringToGuess = formatDayjsGuessDate(dateToGuess);
 
   const generateRandomDate = () => {
     getNextDate();
@@ -68,7 +72,7 @@ const GuessDateDoomsdayInModernity = () => {
         return oldestWrongGuess;
       }
     }
-    const newRandomDate = getRandomDateInModernity();
+    const newRandomDate = getDayjsRandomDateInModernity();
     setCurrentDateToGuess(newRandomDate);
     return newRandomDate;
   };
@@ -83,7 +87,7 @@ const GuessDateDoomsdayInModernity = () => {
         <GuessDisplay
           autoMode={autoNext}
           autoProcessing={nextGuessIncoming}
-          explainIncorrect={`is on ${dateToGuess.toFormat('cccc')}`}
+          explainIncorrect={`is on ${getFullWeekday(dateToGuess)}`}
           questionText='What day of the week is:'
           guessText={dateStringToGuess}
           guessedCorrectly={lastAnswerCorrect}
@@ -93,13 +97,13 @@ const GuessDateDoomsdayInModernity = () => {
         <div className='pt-3' id='quiz__actions'>
           <WeekdayGuesser
             className='pb-2'
-            correctDay={getDoomsdayForYear(dateToGuess.year).toFormat('ccc') as Weekday}
+            correctDay={getDoomsdayWeekdayForYear(dateToGuess.year())}
             key={`doomsyear_${startTime}`}
             onGuess={handleDoomsyearGuess}
             minimizeOnGuess
           />
           <WeekdayGuesser
-            correctDay={dateToGuess.toFormat('ccc') as Weekday}
+            correctDay={dateToGuess.format('ccc') as Weekday}
             key={`date_${startTime}`}
             onGuess={handleGuess}
           />
@@ -110,8 +114,8 @@ const GuessDateDoomsdayInModernity = () => {
             toggleAuto={() => setAutoNext(!autoNext)}
           />
         </div>
-        <Hint key={dateToGuess.year}>
-          <DoomsyearEquation fullYear={dateToGuess.year} />
+        <Hint key={dateToGuess.year()}>
+          <DoomsyearEquation fullYear={dateToGuess.year()} />
         </Hint>
       </div>
     </div>

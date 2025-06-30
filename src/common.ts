@@ -1,6 +1,6 @@
 import { Dayjs } from 'dayjs';
 
-import { dateIsLeapYear, getDoomsdayForYearNew, getFirstDateForCalendar } from './math/dates';
+import { dateIsLeapYear, getDayjsDoomsdayForYear, getFirstDateForCalendar } from './math/dates';
 import { Mnemonic, mnemonics } from './math/month-doomsdays';
 
 export const correctColor = 'bg-green-600';
@@ -47,14 +47,14 @@ export const betterDaysTable = (howManyDays = 360) => {
   const startingYear = 2024;
   const dayJsFirstDate = getFirstDateForCalendar(2024);
   const daysArray = [];
-  let doomsdayForYear = getDoomsdayForYearNew(startingYear);
+  let doomsdayForYear = getDayjsDoomsdayForYear(startingYear);
   let yearWeIn = startingYear;
   for (let day = 0; day < howManyDays; day++) {
     const dayJsDay = dayJsFirstDate.add(day, 'day');
     const dayYear = dayJsDay.year();
 
     if (dayYear !== yearWeIn) {
-      doomsdayForYear = getDoomsdayForYearNew(dayYear);
+      doomsdayForYear = getDayjsDoomsdayForYear(dayYear);
       yearWeIn = dayYear;
     }
     const dayNumber = dayJsDay.date();

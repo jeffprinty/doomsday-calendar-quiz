@@ -1,17 +1,17 @@
 import clsx from 'clsx';
-import { DateTime } from 'luxon';
+import { Dayjs } from 'dayjs';
 import { PieChart } from 'react-minimal-pie-chart';
 import colors from 'tailwindcss/colors';
 
 import { correctColor, incorrectColor, PastAnswer } from '../common';
-import { formatGuessDate } from '../math/dates.luxon';
+import { formatDayjsGuessDate } from '../math/dates';
 
 const QuizResults = ({
   answers,
   currentGuess,
-  dateFormat = 'MMM dd, yy',
+  dateFormat = 'MMM ddd, yyyy',
 }: {
-  answers: Array<PastAnswer<DateTime>>;
+  answers: Array<PastAnswer<Dayjs>>;
   currentGuess: string;
   dateFormat?: string;
 }) => {
@@ -45,8 +45,8 @@ const QuizResults = ({
             >
               <span>{timeInSeconds}</span>
               <span>
-                {formatGuessDate(dateGuessed) === currentGuess && '⚪️'}
-                {dateGuessed.toFormat(dateFormat)}
+                {formatDayjsGuessDate(dateGuessed) === currentGuess && '⚪️'}
+                {dateGuessed.format(dateFormat)}
               </span>
             </li>
           ))}

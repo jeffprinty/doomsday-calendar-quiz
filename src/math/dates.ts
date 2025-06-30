@@ -1,5 +1,6 @@
 import dayjs, { Dayjs } from 'dayjs';
 import dayOfYear from 'dayjs/plugin/dayOfYear';
+import duration from 'dayjs/plugin/duration';
 import isLeapYear from 'dayjs/plugin/isLeapYear';
 import isoWeek from 'dayjs/plugin/isoWeek';
 import objectSupport from 'dayjs/plugin/objectSupport';
@@ -7,17 +8,23 @@ import timezone from 'dayjs/plugin/timezone';
 
 import 'dayjs/locale/en';
 
+import randomInteger from 'random-int';
+
+import { Weekday } from './weekdays';
+
 dayjs.extend(objectSupport);
 dayjs.extend(isLeapYear);
 dayjs.locale('en');
 dayjs.extend(timezone);
 dayjs.extend(isoWeek);
 dayjs.extend(dayOfYear);
+dayjs.extend(duration);
 
 dayjs.tz.guess();
 
 export const guessDateFormat = 'MMMM dd, yyyy';
 export const fullDateWithWeekdayFormat = 'cccc MMMM dd, yyyy';
+
 const fullDateFormat = 'dddd MMMM DD, YYYY';
 
 export const formatFullDateWithWeekdayDayJs = (date: Dayjs) => date.format(fullDateFormat);
@@ -28,4 +35,22 @@ export const getFirstDateForCalendar = (year: number) => {
 
 export const dateIsLeapYear = (date: Dayjs) => date.isLeapYear();
 
-export const getDoomsdayForYearNew = (year: number): Dayjs => dayjs({ year, month: 3, date: 4 });
+export const getDayjsDoomsdayForYear = (year: number): Dayjs => dayjs({ year, month: 3, date: 4 });
+
+export const getFullWeekday = (date: Dayjs) => dayjs(date).format('dddd');
+export const getWeekdayForDate = (date: Dayjs): Weekday => dayjs(date).format('ddd') as Weekday;
+
+export const getDoomsdayWeekdayForYear = (year: number): Weekday =>
+  getWeekdayForDate(getDayjsDoomsdayForYear(year));
+
+export const getDayjsRandomDateInYear = (year: number) => {
+  const randomDayOfYear = randomInteger(1, 365);
+  return dayjs(`${year}-01-01`).dayOfYear(randomDayOfYear);
+};
+
+export const getDayjsRandomDateInModernity = () => {
+  const randomYear = randomInteger(1900, 2099);
+  return getDayjsRandomDateInYear(randomYear);
+};
+
+export const formatDayjsGuessDate = (date: Dayjs) => dayjs(date).format('MMMM DD, YYYY');
