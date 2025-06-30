@@ -5,7 +5,6 @@ import { BiHide, BiRefresh, BiShow } from 'react-icons/bi';
 
 import { commonStyles, timeoutMs } from '../common';
 import Button from '../components/button';
-import { DoomsyearEquation } from '../components/doomsyear-equation';
 import { Revealable } from '../components/shared';
 import YearInput from '../components/year-input';
 import { isOdd } from '../math/basic';
@@ -146,7 +145,6 @@ const OddPlusEleven = () => {
           </div>
         </div>
       )}
-      <DoomsyearEquation fullYear={fullYearValue} />
       <div className='pb-4'>
         <div className={stepRow}>What is the Doomsyear for {fullYearValue}</div>
         <WeekdayGuesser
