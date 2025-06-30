@@ -35,18 +35,26 @@ export const getFirstDateForCalendar = (year: number) => {
 
 export const dateIsLeapYear = (date: Dayjs) => date.isLeapYear();
 
-export const getDayjsDoomsdayForYear = (year: number): Dayjs => dayjs({ year, month: 3, date: 4 });
-
 export const getFullWeekday = (date: Dayjs) => dayjs(date).format('dddd');
 export const getWeekdayForDate = (date: Dayjs): Weekday => dayjs(date).format('ddd') as Weekday;
 
+export const getDayjsDoomsdayForYear = (year: number): Dayjs => dayjs({ year, month: 3, date: 4 });
 export const getDoomsdayWeekdayForYear = (year: number): Weekday =>
   getWeekdayForDate(getDayjsDoomsdayForYear(year));
+export const getDoomsdayFullWeekdayForYear = (year: number) =>
+  getFullWeekday(getDayjsDoomsdayForYear(year));
 
 export const getDayjsRandomDateInYear = (year: number) => {
   const randomDayOfYear = randomInteger(1, 365);
   return dayjs(`${year}-01-01`).dayOfYear(randomDayOfYear);
 };
+
+export const getDoomsdayWithinMonth = (date: Dayjs, common: number, leap?: number) =>
+  dayjs({
+    year: date.year(),
+    month: date.month(),
+    date: leap || common,
+  });
 
 export const getDayjsRandomDateInModernity = () => {
   const randomYear = randomInteger(1900, 2099);

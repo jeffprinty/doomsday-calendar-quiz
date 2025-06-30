@@ -1,10 +1,11 @@
 import { useState } from 'react';
 
 import clsx from 'clsx';
-import { DateTime } from 'luxon';
+import { Dayjs } from 'dayjs';
 
 import Button from '../components/button';
 import GuessDisplay from '../components/guess-display';
+import { getDoomsdayWithinMonth } from '../math/dates';
 import { mnemonics } from '../math/month-doomsdays';
 import OffsetIllustrated from './offset-illustrated';
 
@@ -16,7 +17,7 @@ export const OffsetGuesser = ({
   onAnswer,
   indicate,
 }: {
-  guessingDate: DateTime;
+  guessingDate: Dayjs;
   onAnswer: (correct: boolean) => void;
   indicate?: boolean;
 }) => {
@@ -25,16 +26,18 @@ export const OffsetGuesser = ({
   const isAnswered = answerIsCorrect !== undefined;
   const showDay = false;
 
-  const mnemonicForMonth = mnemonics.find(({ monthNumber }) => monthNumber === guessingDate.month);
+  const mnemonicForMonth = mnemonics.find(
+    ({ monthNumber }) => monthNumber === guessingDate.month() + 1
+  );
   if (!mnemonicForMonth) {
     return <></>;
   }
-  const doomsdayInMonth = DateTime.fromObject({
-    year: guessingDate.year,
-    month: guessingDate.month,
-    day: mnemonicForMonth.common,
-  });
-  const fullOffset = guessingDate.day - doomsdayInMonth.day;
+  const doomsdayInMonth = getDoomsdayWithinMonth(
+    guessingDate,
+    mnemonicForMonth.common,
+    mnemonicForMonth.leap
+  );
+  const fullOffset = guessingDate.date() - doomsdayInMonth.date();
   const correctOffset = fullOffset % 7;
 
   // there is almost certainly a sexier way to do this math
@@ -53,9 +56,9 @@ export const OffsetGuesser = ({
       <GuessDisplay
         className={clsx(indicate && 'animate-pulse', 'mb-4')}
         questionText={answerIsCorrect ? 'Correct! The offset for' : 'What is the day offset for:'}
-        guessText={guessingDate.toFormat('MMMM dd')}
+        guessText={guessingDate.format('MMMM D')}
         guessedCorrectly={answerIsCorrect}
-        isLeapYear={guessingDate.isInLeapYear}
+        isLeapYear={guessingDate.isLeapYear()}
         explainCorrect={
           <>
             is <strong>{correctOffset}</strong>
@@ -94,7 +97,7 @@ export const OffsetGuesser = ({
         ))}
       </div>
       <div className=''>
-        <OffsetIllustrated mnemonic={mnemonicForMonth} selectedDayInMonth={guessingDate.day} />
+        <OffsetIllustrated mnemonic={mnemonicForMonth} selectedDayInMonth={guessingDate.day()} />
       </div>
     </div>
   );

@@ -1,6 +1,6 @@
 import { ReactNode } from 'react';
 
-import { getDoomsdayForYear } from '../math/year';
+import { getDoomsdayFullWeekdayForYear } from '../math/dates';
 import ExternalLink from './external-link';
 import MnemonicsTable from './mnemonics-table';
 
@@ -47,7 +47,7 @@ const links = [
 ];
 export const Home = () => {
   const currentYear = new Date().getFullYear();
-  const doomsdayOnYear = getDoomsdayForYear(currentYear).toFormat('cccc');
+  const doomsdayOnYear = getDoomsdayFullWeekdayForYear(currentYear);
   return (
     <div className={pageContainer}>
       <h2>Welcome to my Doomsday Calendar Quiz app</h2>

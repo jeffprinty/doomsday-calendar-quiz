@@ -9,9 +9,10 @@ import { Revealable } from '../components/shared';
 import YearInput from '../components/year-input';
 import { isOdd } from '../math/basic';
 import { getAnchorDay } from '../math/century';
+import { getDoomsdayWeekdayForYear } from '../math/dates';
 import { oddPlusElevenFull } from '../math/doomsyear-odd-plus-eleven';
 import { Weekday } from '../math/weekdays';
-import { getDoomsdayForYearV2, getRandomYear, splitYearIntoComponents } from '../math/year';
+import { getRandomYear, splitYearIntoComponents } from '../math/year';
 import { GuessPayload } from './module.types';
 import WeekdayGuesser from './weekday-guesser';
 
@@ -39,7 +40,7 @@ const OddPlusEleven = () => {
   const [fullYearValue, setFullYearValue] = useState<number>(initYear);
   const [[century, year], setYearParts] = useState<[number, number]>([0, 0]);
   const yearPadded = year.toString().padStart(2, '0');
-  const correctDoomsday = getDoomsdayForYearV2(fullYearValue);
+  const correctDoomsday = getDoomsdayWeekdayForYear(fullYearValue);
 
   useEffect(() => {
     if (fullYearValue?.toString().length === 4) {

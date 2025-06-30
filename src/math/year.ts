@@ -1,37 +1,6 @@
-import { DateTime } from 'luxon';
 import randomInteger from 'random-int';
 
 export const getRandomYear = () => randomInteger(1900, 2099);
-
-export const getRandomDateInYear = (year: number) => {
-  const randomDayOfYear = randomInteger(1, 365);
-  return DateTime.fromObject({
-    year,
-    ordinal: randomDayOfYear,
-  });
-};
-export const getRandomDateInModernity = () => {
-  const randomYear = randomInteger(1900, 2099);
-  return getRandomDateInYear(randomYear);
-};
-
-export const getDoomsdayForYear = (year: number) =>
-  DateTime.fromObject({
-    year,
-    month: 4,
-    day: 4,
-  });
-
-export const getDoomsdayForYearV2 = (year?: number) => {
-  if (!year) {
-    return;
-  }
-  return DateTime.fromObject({
-    year,
-    month: 4,
-    day: 4,
-  }).toFormat('ccc');
-};
 
 export const splitYearIntoComponents = (fullYear: number) => {
   const stringified = fullYear.toString();

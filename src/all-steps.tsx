@@ -10,7 +10,7 @@ import { Hint } from './components/shared';
 import GuessDateDoomsdayInModernity from './guess-date-doomsday';
 import GuessDateWithinYear from './guess-date-doomsday-within-year.old';
 import GuessOffsetForDate from './guess-offset-for-date';
-import { getDoomsdayForYear } from './math/year';
+import { getDoomsdayFullWeekdayForYear } from './math/dates';
 import OddPlusEleven from './modules/odd-plus-eleven';
 
 const stepClassName = 'pb-6';
@@ -41,7 +41,7 @@ const Step = ({
 
 const AllSteps = () => {
   const currentYear = new Date().getFullYear();
-  const currentYearDoomsday = getDoomsdayForYear(currentYear).toFormat('cccc');
+  const currentYearDoomsday = getDoomsdayFullWeekdayForYear(currentYear);
   const [currentStep, setCurrentStep] = useState(0);
   const [showAllSteps, setShowAllSteps] = useState(true);
 

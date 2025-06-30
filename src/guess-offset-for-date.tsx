@@ -2,11 +2,11 @@ import { useState } from 'react';
 
 import { timeoutMs } from './common';
 import { GuessActions } from './components/shared';
-import { getRandomDateInYear } from './math/year';
+import { getDayjsRandomDateInYear } from './math/dates';
 import OffsetGuesser from './modules/offset-guesser';
 
 const GuessOffsetForDate = () => {
-  const initRandomDateWithinYear = getRandomDateInYear(2025);
+  const initRandomDateWithinYear = getDayjsRandomDateInYear(2025);
 
   const [guessingDate, setGuessingDate] = useState(initRandomDateWithinYear);
 
@@ -24,7 +24,7 @@ const GuessOffsetForDate = () => {
   };
 
   const getNewGuess = () => {
-    setGuessingDate(getRandomDateInYear(2025));
+    setGuessingDate(getDayjsRandomDateInYear(2025));
     setNextGuessIncoming(false);
   };
 
@@ -34,7 +34,7 @@ const GuessOffsetForDate = () => {
         indicate={nextGuessIncoming}
         onAnswer={handleAnswer}
         guessingDate={guessingDate}
-        key={guessingDate.toISO()}
+        key={guessingDate.toISOString()}
       />
       <GuessActions
         btnLabel='Random Date'

@@ -6,20 +6,25 @@ import QuizResults from './components/quiz-results';
 import { GuesserStep } from './components/shared';
 import YearGuessingHelper from './components/year-guessing-helper';
 import useAnswerHistory from './hooks/use-answer-history';
-import { getDayjsDoomsdayForYear } from './math/dates';
-import { formatGuessDate } from './math/dates.luxon';
+import {
+  formatDayjsGuessDate,
+  getDayjsDoomsdayForYear,
+  getDayjsRandomDateInYear,
+  getFullWeekday,
+  getWeekdayForDate,
+} from './math/dates';
 import { Weekday } from './math/weekdays';
-import { getRandomDateInYear, getRandomYear } from './math/year';
+import { getRandomYear } from './math/year';
 import OffsetGuesser from './modules/offset-guesser';
 import WeekdayGuesser from './modules/weekday-guesser';
 
 const GuessFullDate = () => {
   const initYear = getRandomYear();
-  const initRandomDateWithinYear = getRandomDateInYear(initYear);
+  const initRandomDateWithinYear = getDayjsRandomDateInYear(initYear);
 
   const [guessingDate, setGuessingDate] = useState(initRandomDateWithinYear);
 
-  const guessingYear = Number(guessingDate.toFormat('yyyy'));
+  const guessingYear: number = guessingDate.year();
 
   const [showResults, setShowResults] = useState(false);
   const [showYearHints, setShowYearHints] = useState(false);
@@ -40,7 +45,7 @@ const GuessFullDate = () => {
 
   const getNewGuess = () => {
     const randomYearAsInt = getRandomYear();
-    const randomDateWithinYear = getRandomDateInYear(randomYearAsInt);
+    const randomDateWithinYear = getDayjsRandomDateInYear(randomYearAsInt);
     setGuessingDate(randomDateWithinYear);
     onNewQuestion();
 
@@ -51,19 +56,19 @@ const GuessFullDate = () => {
     setCurrentStep(0);
   };
 
-  const correctWeekdayForDate = guessingDate.toFormat('ccc') as Weekday;
+  const correctWeekdayForDate = getWeekdayForDate(guessingDate);
 
   return (
     <div id='page__guess-full-date' className='w-full'>
       <GuessDisplay
         className='mb-4'
         questionText={lastAnswerCorrect ? 'Correct! The doomsday for' : 'What is the doomsday for:'}
-        guessText={formatGuessDate(guessingDate)}
+        guessText={formatDayjsGuessDate(guessingDate)}
         guessedCorrectly={lastAnswerCorrect}
-        isLeapYear={guessingDate.isInLeapYear}
+        isLeapYear={guessingDate.isLeapYear()}
         explainCorrect={
           <>
-            is <strong>{guessingDate.toFormat('cccc')}</strong>
+            is <strong>{getFullWeekday(guessingDate)}</strong>
           </>
         }
       />
@@ -79,9 +84,9 @@ const GuessFullDate = () => {
           <GuessDisplay
             className='mb-4'
             questionText='Now we get the doomsday for the year:'
-            guessText={guessingDate.toFormat('yyyy')}
+            guessText={guessingDate.format('YYYY')}
             guessedCorrectly={lastAnswerCorrect}
-            isLeapYear={guessingDate.isInLeapYear}
+            isLeapYear={guessingDate.isLeapYear()}
           />
           <YearGuessingHelper
             key={`hints_${guessingYear}`}
