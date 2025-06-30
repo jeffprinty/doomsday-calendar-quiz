@@ -6,8 +6,10 @@ import { FlatCompat } from '@eslint/eslintrc';
 import js from '@eslint/js';
 import tsParser from '@typescript-eslint/parser';
 import eslintPluginPrettierRecommended from 'eslint-plugin-prettier/recommended';
+import pluginPromise from 'eslint-plugin-promise';
 import reactPlugin from 'eslint-plugin-react';
 import reactHooks from 'eslint-plugin-react-hooks';
+import jsxA11y from 'eslint-plugin-jsx-a11y';
 import sonarjs from 'eslint-plugin-sonarjs';
 import eslintPluginUnicorn from 'eslint-plugin-unicorn';
 import globals from 'globals';
@@ -45,20 +47,20 @@ export default tseslint.config(
       unicorn: eslintPluginUnicorn,
       react: reactPlugin,
       'react-hooks': reactHooks,
+      'jsx-a11y': jsxA11y,
     },
     extends: [
       sonarjs.configs.recommended,
       eslintPluginPrettierRecommended,
       reactPlugin.configs.flat.recommended,
       reactPlugin.configs.flat['jsx-runtime'],
+      pluginPromise.configs['flat/recommended'],
       fixupConfigRules(
         compat.extends(
           'eslint:recommended',
-          'plugin:promise/recommended',
-          'plugin:jsx-a11y/recommended'
         )
       ),
-      ...tseslint.configs.recommended,
+      tseslint.configs.recommended,
     ],
     languageOptions: {
       globals: {
