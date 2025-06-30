@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import clsx from 'clsx';
 import { BiMath, BiSolidInfoCircle } from 'react-icons/bi';
 
-import { step0, step1, step2, step3, step4, step5, step6, Steps } from '../common';
+import { commonStyles, Steps } from '../common';
 import { AnchorDayCentury, getAnchorDayForCentury } from '../math/century';
 
 interface RememberRow {
@@ -54,12 +54,12 @@ const YearGuessingHelper = ({ showAnswers, year }: { showAnswers?: boolean; year
         </table>
       ),
       id: 'stepOne',
-      stepClassName: step1,
+      stepClassName: commonStyles.step1,
       stepText: 'How many twelves?',
       answer: howManyTwelves,
       equation: (
         <div>
-          <span className={step0}>{twoDigitYear} </span>
+          <span className={commonStyles.step0}>{twoDigitYear} </span>
           <span className=''>/ 12</span>
           <span className=''> = </span>
         </div>
@@ -67,26 +67,26 @@ const YearGuessingHelper = ({ showAnswers, year }: { showAnswers?: boolean; year
     },
     {
       id: 'stepTwo',
-      stepClassName: step2,
+      stepClassName: commonStyles.step2,
       stepText: 'Minus nearest twelve',
       answer: stepTwoResult,
       equation: (
         <div>
-          <span className={step0}>{twoDigitYear} </span>
+          <span className={commonStyles.step0}>{twoDigitYear} </span>
           <span className=''> - </span>
-          <span className={step1}>{stepOneResult}</span>
+          <span className={commonStyles.step1}>{stepOneResult}</span>
           <span className=''> = </span>
         </div>
       ),
     },
     {
       id: 'stepThree',
-      stepClassName: step3,
+      stepClassName: commonStyles.step3,
       stepText: 'How many fours?',
       answer: howManyFours,
       equation: (
         <div>
-          <span className={step2}>{stepTwoResult} </span>
+          <span className={commonStyles.step2}>{stepTwoResult} </span>
           <span className=''> / </span>
           <span className=''> 4 </span>
           <span className=''> = </span>
@@ -95,7 +95,7 @@ const YearGuessingHelper = ({ showAnswers, year }: { showAnswers?: boolean; year
     },
     {
       id: 'stepFour',
-      stepClassName: step4,
+      stepClassName: commonStyles.step4,
       stepText: 'Remember anchor day.',
       answer: anchorDayForCentury,
       equation: (
@@ -108,30 +108,30 @@ const YearGuessingHelper = ({ showAnswers, year }: { showAnswers?: boolean; year
     },
     {
       id: 'stepFive',
-      stepClassName: step5,
+      stepClassName: commonStyles.step5,
       stepText: 'Add it up.',
       answer: addedUp,
       equation: (
         <div>
-          <span className={step0}>{howManyTwelves} </span>
+          <span className={commonStyles.step0}>{howManyTwelves} </span>
           <span className=''> + </span>
-          <span className={step1}>{stepTwoResult}</span>
+          <span className={commonStyles.step1}>{stepTwoResult}</span>
           <span className=''> + </span>
-          <span className={step3}>{howManyFours}</span>
+          <span className={commonStyles.step3}>{howManyFours}</span>
           <span className=''> + </span>
-          <span className={step4}>{anchorDayForCentury}</span>
+          <span className={commonStyles.step4}>{anchorDayForCentury}</span>
           <span className=''> = </span>
         </div>
       ),
     },
     {
       id: 'stepSix',
-      stepClassName: step6,
+      stepClassName: commonStyles.step6,
       stepText: 'Subtract sevens',
       answer: resultAfterSubtractingSevens,
       equation: (
         <div>
-          <span className={step5}>{addedUp} </span>
+          <span className={commonStyles.step5}>{addedUp} </span>
           {Array.from({ length: howManySevens }, (x, index) => index).map((sevenIteration) => (
             <span key={sevenIteration}> - 7</span>
           ))}

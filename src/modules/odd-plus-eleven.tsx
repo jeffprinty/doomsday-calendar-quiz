@@ -86,7 +86,11 @@ const OddPlusEleven = () => {
         <Button className={iconButtonStyle} onClick={() => setShowWork(!showWork)}>
           {showWork ? <BiHide /> : <BiShow />}
         </Button>
-        <YearInput value={fullYearValue} setValue={setFullYearValue} />
+        <YearInput
+          className='rounded-4xl w-44 text-6xl'
+          value={fullYearValue}
+          setValue={setFullYearValue}
+        />
         <Button className={iconButtonStyle} onClick={startGuessing}>
           <BiRefresh />
         </Button>

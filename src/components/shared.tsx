@@ -2,7 +2,7 @@ import { ReactNode, useEffect, useState } from 'react';
 
 import clsx from 'clsx';
 
-import { step1, step2, step3, step4, step5, Steps } from '../common';
+import { commonStyles, Steps } from '../common';
 import Button from './button';
 
 export const PageContainer = ({ children, id }: { children: React.ReactNode; id: string }) => {
@@ -52,27 +52,27 @@ export const YearStepHelperHorizontal = () => {
   }> = [
     {
       id: 'stepOne',
-      stepClassName: step1,
+      stepClassName: commonStyles.step1,
       stepText: 'How many twelves?',
     },
     {
       id: 'stepTwo',
-      stepClassName: step2,
+      stepClassName: commonStyles.step2,
       stepText: 'Minus nearest twelve',
     },
     {
       id: 'stepThree',
-      stepClassName: step3,
+      stepClassName: commonStyles.step3,
       stepText: 'How many fours?',
     },
     {
       id: 'stepFour',
-      stepClassName: step4,
+      stepClassName: commonStyles.step4,
       stepText: 'Remember anchor day.',
     },
     {
       id: 'stepFive',
-      stepClassName: step5,
+      stepClassName: commonStyles.step5,
       stepText: 'Add it up.',
     },
   ];

@@ -6,13 +6,6 @@ import { getDoomsdayForYear } from './math/year';
 export const correctColor = 'bg-green-600';
 export const incorrectColor = 'bg-red-900';
 
-export const step0 = 'text-pink-400';
-export const step1 = 'text-red-400';
-export const step2 = 'text-orange-400';
-export const step3 = 'text-yellow-400';
-export const step4 = 'text-green-400';
-export const step5 = 'text-blue-400';
-export const step6 = 'text-indigo-400';
 export type Steps = 'stepOne' | 'stepTwo' | 'stepThree' | 'stepFour' | 'stepFive' | 'stepSix';
 
 export type PastAnswer<T> = [number, boolean, T];
@@ -28,6 +21,13 @@ export const commonStyles = {
   darkPurple: 'bg-indigo-900',
   year: 'text-yellow-400',
   century: 'text-green-400',
+  step0: 'text-pink-400',
+  step1: 'text-red-400',
+  step2: 'text-orange-400',
+  step3: 'text-yellow-400',
+  step4: 'text-green-400',
+  step5: 'text-blue-400',
+  step6: 'text-indigo-400',
 };
 
 export const getRandom = (range: number) => Math.trunc(Math.random() * range);
