@@ -1,8 +1,8 @@
 {
   "lang": "en-EN",
-  "name": "Vite ReactTS — Starter",
-  "short_name": "ReactTS — Starter",
-  "description": "Start a React TypeScript App, SPA, landing page or website using Vite, Babel, Core-JS, SASS / SCSS, Tailwind CSS and much more, in just 30 seconds.",
+  "name": "Doomsday Calendar Quiz",
+  "short_name": "Doomsday Quiz",
+  "description": "Learn how to tell the day of the week for any given date",
   "start_url": "/",
   "display": "standalone",
   "orientation": "portrait",
