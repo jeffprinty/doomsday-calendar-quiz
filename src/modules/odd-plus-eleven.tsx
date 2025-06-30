@@ -13,6 +13,7 @@ import { getAnchorDay } from '../math/century';
 import { oddPlusElevenFull } from '../math/doomsyear-odd-plus-eleven';
 import { Weekday } from '../math/weekdays';
 import { getDoomsdayForYearV2, getRandomYear, splitYearIntoComponents } from '../math/year';
+import { GuessPayload } from './module.types';
 import WeekdayGuesser from './weekday-guesser';
 
 const Fork = ({
@@ -55,7 +56,7 @@ const OddPlusEleven = () => {
     setShowWorkOnAnswer(false);
   };
 
-  const handleGuess = (isCorrect: boolean) => {
+  const handleGuess = ({ isCorrect }: GuessPayload<Weekday>) => {
     setRevealAll(true);
     setShowWorkOnAnswer(true);
     if (isCorrect) {

@@ -25,7 +25,7 @@ export const WeekdayGuesser = ({
   const [selectedDay, setSelectedDay] = useState<Weekday>();
   const onDayClick = (dayClicked: Weekday) => {
     setSelectedDay(dayClicked);
-    onGuess(dayClicked === correctDay, dayClicked);
+    onGuess({ isCorrect: dayClicked === correctDay, answer: dayClicked });
   };
   return (
     <div className={clsx(className, 'grid w-full grid-cols-7')}>

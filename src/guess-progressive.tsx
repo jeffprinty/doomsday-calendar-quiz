@@ -116,12 +116,11 @@ const GuessFullDate = () => {
             correctDay={correctWeekdayForDate}
             disabled={dateWeekdayGuessed}
             key={`date_${startTime}`}
-            onGuess={(isCorrect, answer) => {
-              console.log('answer', answer);
+            onGuess={({ isCorrect }) => {
               setShowAllAnswers(true);
               setDateWeekdayGuessed(true);
               // TODO: handle string answer
-              onAnswer(isCorrect, doomsdayOnYear);
+              onAnswer({ isCorrect, answer: doomsdayOnYear });
               nextStep();
             }}
           />

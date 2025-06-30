@@ -13,13 +13,13 @@ const useAnswerHistory = () => {
     setLastAnswerCorrect(undefined);
   };
   // TODO: Handle other kinds of answers
-  const onAnswer = (answerCorrect: boolean, answerValue: DateTime) => {
-    setLastAnswerCorrect(answerCorrect);
+  const onAnswer = ({ answer, isCorrect }: { answer: DateTime; isCorrect: boolean }) => {
+    setLastAnswerCorrect(isCorrect);
 
     const interval = Interval.fromDateTimes(startTime, DateTime.now());
     const intervalInSeconds = interval.length('seconds');
     if (intervalInSeconds) {
-      setPastAnswers((previous) => [...previous, [intervalInSeconds, answerCorrect, answerValue]]);
+      setPastAnswers((previous) => [...previous, [intervalInSeconds, isCorrect, answer]]);
     }
   };
   return { lastAnswerCorrect, onAnswer, onNewQuestion, pastAnswers, startTime };

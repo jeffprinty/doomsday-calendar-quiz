@@ -94,8 +94,8 @@ const GuessFullDateV1 = () => {
           correctDay={correctWeekday}
           disabled={!yearDoomsdayGuessed || weekdayGuessed}
           key={`date_${startTime}`}
-          onGuess={(isCorrect) => {
-            onAnswer(isCorrect, doomsdayOnYear);
+          onGuess={({ isCorrect }) => {
+            onAnswer({ isCorrect, answer: doomsdayOnYear });
             setWeekdayGuessed(true);
           }}
         />

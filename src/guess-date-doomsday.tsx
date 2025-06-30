@@ -10,6 +10,7 @@ import { GuessActions, Hint } from './components/shared';
 import useAnswerHistory from './hooks/use-answer-history';
 import { Weekday } from './math/weekdays';
 import { getDoomsdayForYear, getRandomDateInModernity } from './math/year';
+import { GuessPayload } from './modules/module.types';
 import WeekdayGuesser from './modules/weekday-guesser';
 
 const GuessDateDoomsdayInModernity = () => {
@@ -32,8 +33,8 @@ const GuessDateDoomsdayInModernity = () => {
     onNewQuestion();
   };
 
-  const handleGuess = (isCorrect: boolean) => {
-    onAnswer(isCorrect, dateToGuess);
+  const handleGuess = ({ isCorrect }: GuessPayload<Weekday>) => {
+    onAnswer({ isCorrect, answer: dateToGuess });
     if (!isCorrect) {
       setWronglyGuessedDates((previous) => [...previous, dateToGuess]);
     }
@@ -47,7 +48,7 @@ const GuessDateDoomsdayInModernity = () => {
       }
     }
   };
-  const handleDoomsyearGuess = (isCorrect: boolean) => {
+  const handleDoomsyearGuess = ({ isCorrect }: GuessPayload<Weekday>) => {
     console.log('handleDoomsyearGuess', isCorrect);
     setEnableDoomsdayClick(true);
   };

@@ -12,6 +12,7 @@ import { GuessActions } from './components/shared';
 import useAnswerHistory from './hooks/use-answer-history';
 import { Weekday } from './math/weekdays';
 import { getRandomDateInYear } from './math/year';
+import { GuessPayload } from './modules/module.types';
 import WeekdayGuesser from './modules/weekday-guesser';
 
 const GuessDateDoomsdayWithinYear = ({
@@ -42,8 +43,8 @@ const GuessDateDoomsdayWithinYear = ({
     onNewQuestion();
   };
 
-  const handleGuess = (isCorrect: boolean) => {
-    onAnswer(isCorrect, dateToGuess);
+  const handleGuess = ({ isCorrect }: GuessPayload<Weekday>) => {
+    onAnswer({ isCorrect, answer: dateToGuess });
     if (!isCorrect) {
       onIncorrectGuess(dateToGuess);
     }

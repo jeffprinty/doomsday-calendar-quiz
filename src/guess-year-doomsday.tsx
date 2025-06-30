@@ -41,8 +41,8 @@ const GuessYearDoomsday = () => {
       <WeekdayGuesser
         correctDay={correctDoomsday}
         key={`week_${guessingYear}`}
-        onGuess={(isCorrect) => {
-          onAnswer(isCorrect, doomsdayOnYear);
+        onGuess={({ isCorrect }) => {
+          onAnswer({ isCorrect, answer: doomsdayOnYear });
         }}
       />
       <Button onClick={getNewYear} className='my-2 h-16 w-full'>
