@@ -13,7 +13,7 @@ const useAnswerHistory = () => {
     setLastAnswerCorrect(undefined);
   };
   // TODO: Handle other kinds of answers
-  const onAnswer = (answerValue: DateTime, answerCorrect: boolean) => {
+  const onAnswer = (answerCorrect: boolean, answerValue: DateTime) => {
     setLastAnswerCorrect(answerCorrect);
 
     const interval = Interval.fromDateTimes(startTime, DateTime.now());

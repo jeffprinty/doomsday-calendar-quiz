@@ -12,7 +12,7 @@ import { GuessActions } from './components/shared';
 import useAnswerHistory from './hooks/use-answer-history';
 import { Weekday } from './math/weekdays';
 import { getRandomDateInYear } from './math/year';
-import { WeekdayGuesserSelfContained } from './modules/weekday-guesser';
+import WeekdayGuesser from './modules/weekday-guesser';
 
 const GuessDateDoomsdayWithinYear = ({
   dateToGuess,
@@ -42,8 +42,8 @@ const GuessDateDoomsdayWithinYear = ({
     onNewQuestion();
   };
 
-  const handleGuess = (answer: Weekday, isCorrect: boolean) => {
-    onAnswer(dateToGuess, isCorrect);
+  const handleGuess = (isCorrect: boolean) => {
+    onAnswer(isCorrect, dateToGuess);
     if (!isCorrect) {
       onIncorrectGuess(dateToGuess);
     }
@@ -95,7 +95,7 @@ const GuessDateDoomsdayWithinYear = ({
       </div>
       <div id='quiz__bottom-bit' className='h-72'>
         <div className='pt-3' id='quiz__actions'>
-          <WeekdayGuesserSelfContained
+          <WeekdayGuesser
             correctDay={dateToGuess.toFormat('ccc') as Weekday}
             key={`date_${startTime}`}
             onGuess={handleGuess}

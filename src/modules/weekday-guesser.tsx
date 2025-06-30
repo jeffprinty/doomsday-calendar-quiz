@@ -7,7 +7,7 @@ import Button from '../components/button';
 import { daysOfWeek, Weekday } from '../math/weekdays';
 import { OnGuess } from './module.types';
 
-export const WeekdayGuesserSelfContained = ({
+export const WeekdayGuesser = ({
   className,
   correctDay,
   disabled,
@@ -22,54 +22,27 @@ export const WeekdayGuesserSelfContained = ({
   onGuess: OnGuess<Weekday>;
   minimizeOnGuess?: boolean;
 }) => {
-  const [daySelected, setDaySelected] = useState<Weekday>();
-  const handleDayClick = (dayClicked: Weekday) => {
-    setDaySelected(dayClicked);
-    onGuess(dayClicked, dayClicked === correctDay);
+  const [selectedDay, setSelectedDay] = useState<Weekday>();
+  const onDayClick = (dayClicked: Weekday) => {
+    setSelectedDay(dayClicked);
+    onGuess(dayClicked === correctDay, dayClicked);
   };
-  return (
-    <DayOfWeekGuesser
-      className={className}
-      correctDay={correctDay}
-      daySelected={daySelected}
-      onDayClick={handleDayClick}
-      disabled={disabled || (disableOnGuess && !!daySelected)}
-      minimizeOnGuess={minimizeOnGuess}
-    />
-  );
-};
-
-const DayOfWeekGuesser = ({
-  className,
-  correctDay,
-  daySelected,
-  disabled = false,
-  onDayClick,
-  minimizeOnGuess,
-}: {
-  className?: string;
-  correctDay?: Weekday;
-  daySelected?: Weekday;
-  disabled?: boolean;
-  onDayClick: (dayClicked: Weekday) => void;
-  minimizeOnGuess?: boolean;
-}) => {
   return (
     <div className={clsx(className, 'grid w-full grid-cols-7')}>
       {daysOfWeek.map((day: Weekday) => {
-        const thisDayIsCorrect = daySelected !== undefined && correctDay === day;
-        const thisDayWasSelected = daySelected === day;
-        const incorrectSelection = daySelected !== correctDay;
+        const thisDayIsCorrect = selectedDay !== undefined && correctDay === day;
+        const thisDayWasSelected = selectedDay === day;
+        const incorrectSelection = selectedDay !== correctDay;
         return (
           <Button
             className={clsx([
               'quiz__day-of-week mx-1 px-1 text-center',
-              minimizeOnGuess ? 'h-12' : 'h-24',
+              minimizeOnGuess && !!selectedDay ? 'h-12' : 'h-24',
               incorrectSelection && thisDayWasSelected && 'bg-red-900 disabled:bg-red-900',
               thisDayIsCorrect && 'active:text-black disabled:bg-green-600 disabled:text-white',
             ])}
             data-correct-day={thisDayIsCorrect}
-            disabled={disabled}
+            disabled={disabled || (disableOnGuess && !!selectedDay)}
             key={day}
             onClick={() => onDayClick(day)}
           >
@@ -86,4 +59,4 @@ const DayOfWeekGuesser = ({
   );
 };
 
-export default DayOfWeekGuesser;
+export default WeekdayGuesser;

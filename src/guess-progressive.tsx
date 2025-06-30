@@ -10,7 +10,7 @@ import useAnswerHistory from './hooks/use-answer-history';
 import { Weekday } from './math/weekdays';
 import { getDoomsdayForYear, getRandomDateInYear, getRandomYear } from './math/year';
 import OffsetGuesser from './modules/offset-guesser';
-import { WeekdayGuesserSelfContained } from './modules/weekday-guesser';
+import WeekdayGuesser from './modules/weekday-guesser';
 
 const GuessFullDate = () => {
   const initYear = getRandomYear();
@@ -97,7 +97,7 @@ const GuessFullDate = () => {
             </button>
             )
           </div>
-          <WeekdayGuesserSelfContained
+          <WeekdayGuesser
             correctDay={correctDoomsday}
             disabled={yearDoomsdayGuessed}
             key={`year_${startTime}`}
@@ -112,16 +112,16 @@ const GuessFullDate = () => {
       <GuesserStep show={currentStep > 1} description='Guess the doomsday for the full date.'>
         <div id='guess-weekday-for-date'>
           <div className='text-center'>Doomsday for Date</div>
-          <WeekdayGuesserSelfContained
+          <WeekdayGuesser
             correctDay={correctWeekdayForDate}
             disabled={dateWeekdayGuessed}
             key={`date_${startTime}`}
-            onGuess={(answer, isCorrect) => {
+            onGuess={(isCorrect, answer) => {
               console.log('answer', answer);
               setShowAllAnswers(true);
               setDateWeekdayGuessed(true);
               // TODO: handle string answer
-              onAnswer(doomsdayOnYear, isCorrect);
+              onAnswer(isCorrect, doomsdayOnYear);
               nextStep();
             }}
           />

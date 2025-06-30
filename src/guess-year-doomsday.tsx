@@ -7,7 +7,7 @@ import { YearStepHelperHorizontal } from './components/shared';
 import useAnswerHistory from './hooks/use-answer-history';
 import { Weekday } from './math/weekdays';
 import { getDoomsdayForYear, getRandomYear } from './math/year';
-import { WeekdayGuesserSelfContained } from './modules/weekday-guesser';
+import WeekdayGuesser from './modules/weekday-guesser';
 
 const GuessYearDoomsday = () => {
   const initYear = getRandomYear();
@@ -38,11 +38,11 @@ const GuessYearDoomsday = () => {
         guessTextClassName='text-6xl'
       />
       <YearStepHelperHorizontal key={guessingYear} />
-      <WeekdayGuesserSelfContained
+      <WeekdayGuesser
         correctDay={correctDoomsday}
         key={`week_${guessingYear}`}
-        onGuess={(answer, isCorrect) => {
-          onAnswer(doomsdayOnYear, isCorrect);
+        onGuess={(isCorrect) => {
+          onAnswer(isCorrect, doomsdayOnYear);
         }}
       />
       <Button onClick={getNewYear} className='my-2 h-16 w-full'>

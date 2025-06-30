@@ -13,7 +13,7 @@ import { getAnchorDay } from '../math/century';
 import { oddPlusElevenFull } from '../math/doomsyear-odd-plus-eleven';
 import { Weekday } from '../math/weekdays';
 import { getDoomsdayForYearV2, getRandomYear, splitYearIntoComponents } from '../math/year';
-import { WeekdayGuesserSelfContained } from './weekday-guesser';
+import WeekdayGuesser from './weekday-guesser';
 
 const Fork = ({
   children,
@@ -55,8 +55,7 @@ const OddPlusEleven = () => {
     setShowWorkOnAnswer(false);
   };
 
-  const handleGuess = (answer: Weekday, isCorrect: boolean) => {
-    console.log('handleGuess', answer);
+  const handleGuess = (isCorrect: boolean) => {
     setRevealAll(true);
     setShowWorkOnAnswer(true);
     if (isCorrect) {
@@ -149,7 +148,7 @@ const OddPlusEleven = () => {
       <DoomsyearEquation fullYear={fullYearValue} />
       <div className='pb-4'>
         <div className={stepRow}>What is the Doomsyear for {fullYearValue}</div>
-        <WeekdayGuesserSelfContained
+        <WeekdayGuesser
           correctDay={correctDoomsday as Weekday}
           disableOnGuess
           key={`week_${fullYearValue}`}

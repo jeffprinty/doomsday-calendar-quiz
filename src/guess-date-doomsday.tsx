@@ -10,37 +10,34 @@ import { GuessActions, Hint } from './components/shared';
 import useAnswerHistory from './hooks/use-answer-history';
 import { Weekday } from './math/weekdays';
 import { getDoomsdayForYear, getRandomDateInModernity } from './math/year';
-import { WeekdayGuesserSelfContained } from './modules/weekday-guesser';
+import WeekdayGuesser from './modules/weekday-guesser';
 
 const GuessDateDoomsdayInModernity = () => {
   const startWithTimeAlready = getRandomDateInModernity();
-  const [guessingAgain, setGuessingAgain] = useState(false);
-
+  const [autoNext, setAutoNext] = useState(false);
   const [dateToGuess, setCurrentDateToGuess] = useState<DateTime>(startWithTimeAlready);
+  const [enableDoomsdayClick, setEnableDoomsdayClick] = useState(true);
+  const [guessingAgain, setGuessingAgain] = useState(false);
+  const [nextGuessIncoming, setNextGuessIncoming] = useState(false);
   const [wronglyGuessedDates, setWronglyGuessedDates] = useState<Array<DateTime>>([]);
 
   const { lastAnswerCorrect, onAnswer, onNewQuestion, pastAnswers, startTime } = useAnswerHistory();
-  const [enableDayClick, setEnableDayClick] = useState(true);
-  const [autoNext, setAutoNext] = useState(false);
-  const [nextGuessIncoming, setNextGuessIncoming] = useState(false);
 
   const dateStringToGuess = dateToGuess?.toFormat(guessDateFormat) || '';
 
   const generateRandomDate = () => {
-    const randomDate = getNextDate();
-    console.log('TODO, do I need this?', randomDate.toISO());
-    setEnableDayClick(true);
+    getNextDate();
+    setEnableDoomsdayClick(true);
     setNextGuessIncoming(false);
     onNewQuestion();
   };
 
-  const handleGuess = (answer: Weekday, isCorrect: boolean) => {
-    console.log('handleGuess answer', answer);
-    onAnswer(dateToGuess, isCorrect);
+  const handleGuess = (isCorrect: boolean) => {
+    onAnswer(isCorrect, dateToGuess);
     if (!isCorrect) {
       setWronglyGuessedDates((previous) => [...previous, dateToGuess]);
     }
-    setEnableDayClick(false);
+    setEnableDoomsdayClick(false);
     if (autoNext) {
       setNextGuessIncoming(true);
       if (isCorrect) {
@@ -50,8 +47,9 @@ const GuessDateDoomsdayInModernity = () => {
       }
     }
   };
-  const handleDoomsyearGuess = (answer: Weekday, isCorrect: boolean) => {
-    console.log('handleDoomsyearGuess answer', answer, isCorrect);
+  const handleDoomsyearGuess = (isCorrect: boolean) => {
+    console.log('handleDoomsyearGuess', isCorrect);
+    setEnableDoomsdayClick(true);
   };
 
   const getNextDate = () => {
@@ -91,20 +89,20 @@ const GuessDateDoomsdayInModernity = () => {
       </div>
       <div id='quiz__bottom-bit' className='h-72'>
         <div className='pt-3' id='quiz__actions'>
-          <WeekdayGuesserSelfContained
+          <WeekdayGuesser
             className='pb-2'
             correctDay={getDoomsdayForYear(dateToGuess.year).toFormat('ccc') as Weekday}
             key={`doomsyear_${startTime}`}
             onGuess={handleDoomsyearGuess}
             minimizeOnGuess
           />
-          <WeekdayGuesserSelfContained
+          <WeekdayGuesser
             correctDay={dateToGuess.toFormat('ccc') as Weekday}
             key={`date_${startTime}`}
             onGuess={handleGuess}
           />
           <GuessActions
-            disabled={enableDayClick}
+            disabled={enableDoomsdayClick}
             onClick={generateRandomDate}
             autoEnabled={autoNext}
             toggleAuto={() => setAutoNext(!autoNext)}

@@ -1,1 +1,1 @@
-export type OnGuess<T> = (answer: T, isCorrect: boolean) => void;
+export type OnGuess<T> = (isCorrect: boolean, answer?: T) => void;
