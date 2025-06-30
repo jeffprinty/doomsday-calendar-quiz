@@ -10,6 +10,10 @@ export const getRandomDateInYear = (year: number) => {
     ordinal: randomDayOfYear,
   });
 };
+export const getRandomDateInModernity = () => {
+  const randomYear = randomInteger(1900, 2099);
+  return getRandomDateInYear(randomYear);
+};
 
 export const getDoomsdayForYear = (year: number) =>
   DateTime.fromObject({
@@ -27,6 +31,13 @@ export const getDoomsdayForYearV2 = (year?: number) => {
     month: 4,
     day: 4,
   }).toFormat('ccc');
+};
+
+export const splitYearIntoComponents = (fullYear: number) => {
+  const stringified = fullYear.toString();
+  const century = Number(stringified.slice(0, 2));
+  const year = Number(stringified.slice(2, 4));
+  return [century, year];
 };
 
 export const doomsyearTable = [

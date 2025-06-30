@@ -46,61 +46,6 @@ export interface CalendarDay {
 export const guessDateFormat = 'MMMM dd, yyyy';
 export const fullDateWithWeekdayFormat = 'cccc MMMM dd, yyyy';
 
-export const generateDaysTable = () => {
-  const firstDayOfMonth = new Date(2025, 1, 1);
-  const weekdayOfFirstDay = firstDayOfMonth.getDay();
-  const currentDays = [];
-
-  for (let day = 0; day < 360; day++) {
-    if (day === 0 && weekdayOfFirstDay === 0) {
-      firstDayOfMonth.setDate(firstDayOfMonth.getDate() - 7);
-    } else if (day === 0) {
-      firstDayOfMonth.setDate(firstDayOfMonth.getDate() + (day - weekdayOfFirstDay));
-    } else {
-      firstDayOfMonth.setDate(firstDayOfMonth.getDate() + 1);
-    }
-
-    const monthNumber = firstDayOfMonth.getMonth();
-    const monthNumberForHumans = monthNumber + 1;
-    const monthMnemonic = mnemonics[monthNumber];
-    const dayIsDoomsday = monthMnemonic.common === firstDayOfMonth.getDay();
-
-    const calendarDay = {
-      // currentMonth: firstDayOfMonth.getMonth() === props.day.getMonth(),
-      date: new Date(firstDayOfMonth),
-      monthNumber,
-      monthNumberForHumans,
-      number: firstDayOfMonth.getDate(),
-      // selected: firstDayOfMonth.toDateString() === props.day.toDateString(),
-      year: firstDayOfMonth.getFullYear(),
-      dayIsDoomsday,
-    };
-
-    currentDays.push(calendarDay);
-  }
-  return currentDays;
-};
-
-export const chunkArray = <T>(arrayToChunk: Array<T>, size: number): Array<Array<T>> =>
-  Array.from({ length: Math.ceil(arrayToChunk.length / size) }, (v, index) =>
-    arrayToChunk.slice(index * size, index * size + size)
-  );
-
-export function pickRandomlyFromArray<T>(array: Array<T>, n: number) {
-  // eslint-disable-next-line unicorn/no-new-array
-  const result = new Array(n);
-  let length_ = array.length;
-  // eslint-disable-next-line unicorn/no-new-array
-  const taken = new Array(length_);
-  if (n > length_) throw new RangeError('getRandom: more elements taken than available');
-  while (n--) {
-    const x = Math.floor(Math.random() * length_);
-    result[n] = array[x in taken ? taken[x] : x];
-    taken[x] = --length_ in taken ? taken[length_] : length_;
-  }
-  return result;
-}
-
 export const betterDaysTable = (howManyDays = 360) => {
   const startingYear = 2024;
   // locale weeks: https://moment.github.io/luxon/#/intl?id=locale-based-weeks

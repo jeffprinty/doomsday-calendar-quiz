@@ -7,7 +7,8 @@ import MnemonicsTable from './components/mnemonics-table';
 import MonthDoomsdayCalendar from './components/month-doomsday-calendar';
 import { PageDescribe } from './components/page-describe';
 import { Hint, StepDisplay } from './components/shared';
-import GuessDateDoomsdayWithinYear from './guess-date-doomsday-within-year';
+import GuessDateDoomsdayInModernity from './guess-date-doomsday';
+import GuessDateWithinYear from './guess-date-doomsday-within-year.old';
 import GuessOffsetForDate from './guess-offset-for-date';
 import { getDoomsdayForYear } from './math/year';
 import OddPlusEleven from './modules/odd-plus-eleven';
@@ -72,16 +73,20 @@ const AllSteps = () => {
         </PageDescribe>
       </StepDisplay>
       <StepDisplay className={stepClassName} show={showAllSteps || currentStep === 3}>
-        <h4 className={stepHeadingClassName}>Step 4: GuessDateDoomsdayWithinYear</h4>
-        <GuessDateDoomsdayWithinYear year={currentYear} />
+        <h4 className={stepHeadingClassName}>Step 4: GuessDateDoomsday</h4>
+        <GuessDateWithinYear year={currentYear} />
       </StepDisplay>
       <StepDisplay className={stepClassName} show={showAllSteps || currentStep === 4}>
-        <h4 className={stepHeadingClassName}>Step 5: GuessDateDoomsdayWithinYear</h4>
+        <h4 className={stepHeadingClassName}>Step 5: GuessDateDoomsday</h4>
         <OddPlusEleven />
       </StepDisplay>
       <StepDisplay className={stepClassName} show={showAllSteps || currentStep === 5}>
         <h4 className={stepHeadingClassName}>Step ?: Doomsyear</h4>
         <div></div>
+      </StepDisplay>
+      <StepDisplay className={stepClassName} show={showAllSteps || currentStep === 3}>
+        <h4 className={stepHeadingClassName}>Step 4: GuessDateDoomsday</h4>
+        <GuessDateDoomsdayInModernity />
       </StepDisplay>
     </div>
   );

@@ -1,8 +1,16 @@
+import { ReactNode } from 'react';
+
 import { DateTime } from 'luxon';
 
 import { getDoomsdayForYear } from '../math/year';
 import ExternalLink from './external-link';
 import MnemonicsTable from './mnemonics-table';
+
+const BlockQuote = ({ children }: { children: ReactNode }) => (
+  <blockquote className='my-4 border-s-4 border-gray-500 bg-gray-800 p-4'>
+    <p className='text-md font-medium leading-relaxed text-white'>{children}</p>
+  </blockquote>
+);
 
 const links = [
   {
@@ -37,7 +45,14 @@ export const Home = () => {
     <div>
       <h2>Welcome to my Doomsday Calendar Quiz app</h2>
       <p>Learn how to calculate the day of the week for any given date.</p>
-      <hr />
+      <BlockQuote>
+        The Doomsday rule is an algorithm of determination of the day of the week for a given date.
+        It provides a perpetual calendar because the Gregorian calendar moves in cycles of 400
+        years. The algorithm for mental calculation was devised by John Conway in 1973, drawing
+        inspiration from Lewis Carroll&apos;s perpetual calendar algorithm. It takes advantage of
+        each year having a certain day of the week upon which certain easy-to-remember dates, called
+        the doomsdays, fall.
+      </BlockQuote>
       <p>
         We start with some knowledge before we practice the most useful trick: figuring out the day
         of the week for a date in the current year.

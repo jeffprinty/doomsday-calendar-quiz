@@ -1,4 +1,5 @@
-import { betterDaysTable, chunkArray } from '../common';
+import { betterDaysTable } from '../common';
+import { chunkArray } from '../utils';
 import CalendarTable from './calendar-table';
 import { PageDescribe } from './page-describe';
 

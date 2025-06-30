@@ -2,14 +2,9 @@ import { useState } from 'react';
 
 import clsx from 'clsx';
 
-import {
-  betterDaysTable,
-  CalendarDay,
-  chunkArray,
-  pickRandomlyFromArray,
-  timeoutMs,
-} from '../common';
+import { betterDaysTable, CalendarDay, timeoutMs } from '../common';
 import { allDaysFromMnemonics, getRandomMnemonic } from '../math/month-doomsdays';
+import { chunkArray, pickRandomlyFromArray } from '../utils';
 import CalendarTable from './calendar-table';
 import GuessDisplay from './guess-display';
 import { PageDescribe } from './page-describe';

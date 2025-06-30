@@ -6,24 +6,21 @@ import { MdBolt, MdSettings } from 'react-icons/md';
 
 import { guessDateFormat, timeoutMs } from './common';
 import GuessDisplay from './components/guess-display';
-import { PageDescribe } from './components/page-describe';
 import QuizResults from './components/quiz-results';
 import { GuessActions } from './components/shared';
 import useAnswerHistory from './hooks/use-answer-history';
 import { Weekday } from './math/weekdays';
-import { getRandomDateInYear } from './math/year';
+import { getRandomDateInModernity } from './math/year';
 import { DayOfWeekGuesserSelfContained } from './modules/day-of-week-guesser';
 
 const GuessDateDoomsdayWithinYear = ({
   dateToGuess,
   getNextDate,
   onIncorrectGuess,
-  updateYear,
 }: {
   dateToGuess: DateTime;
   getNextDate: () => DateTime;
   onIncorrectGuess: (dateGuessed: DateTime) => void;
-  updateYear: (updatedYear: number) => void;
 }) => {
   const { lastAnswerCorrect, onAnswer, onNewQuestion, pastAnswers, startTime } = useAnswerHistory();
 
@@ -89,9 +86,6 @@ const GuessDateDoomsdayWithinYear = ({
             <MdSettings />
           </button>
         </div>
-        {showSettings && (
-          <YearInput onSubmit={updateYear} initYear={Number(dateToGuess?.toFormat('yyyy'))} />
-        )}
       </div>
       <div id='quiz__bottom-bit' className='h-72'>
         <div className='pt-3' id='quiz__actions'>
@@ -112,32 +106,8 @@ const GuessDateDoomsdayWithinYear = ({
   );
 };
 
-const YearInput = ({
-  onSubmit,
-  initYear,
-}: {
-  onSubmit: (year: number) => void;
-  initYear?: number;
-}) => {
-  const [year, setYear] = useState(initYear || 2025);
-
-  return (
-    <div>
-      <input
-        type='number'
-        className='text-black'
-        onChange={({ target: { value } }) => setYear(Number(value))}
-        value={year}
-      />
-      <button onClick={() => onSubmit(year)}>Set Year</button>
-    </div>
-  );
-};
-
-const GuessDateWithinYearWrap = ({ year }: { year?: number }) => {
-  const initYear = year || DateTime.now().year;
-  const startWithTimeAlready = getRandomDateInYear(initYear);
-  const [guessingYear, setGuessingYear] = useState(initYear);
+const GuessDateDoomsdayInModernity = () => {
+  const startWithTimeAlready = getRandomDateInModernity();
   const [guessingAgain, setGuessingAgain] = useState(false);
 
   const [currentDateToGuess, setCurrentDateToGuess] = useState<DateTime>(startWithTimeAlready);
@@ -156,7 +126,7 @@ const GuessDateWithinYearWrap = ({ year }: { year?: number }) => {
         return oldestWrongGuess;
       }
     }
-    const newRandomDate = getRandomDateInYear(guessingYear);
+    const newRandomDate = getRandomDateInModernity();
     setCurrentDateToGuess(newRandomDate);
     return newRandomDate;
   };
@@ -165,19 +135,12 @@ const GuessDateWithinYearWrap = ({ year }: { year?: number }) => {
     setWronglyGuessedDates((previous) => [...previous, dateGuessed]);
   };
   return (
-    <>
-      <PageDescribe>
-        Guess a given date within the current year. Use this once you&apos;ve committed the doomsday
-        for {guessingYear} to memory.
-      </PageDescribe>
-      <GuessDateDoomsdayWithinYear
-        dateToGuess={currentDateToGuess}
-        getNextDate={getNextDate}
-        onIncorrectGuess={handleIncorrectGuess}
-        updateYear={setGuessingYear}
-      />
-    </>
+    <GuessDateDoomsdayWithinYear
+      dateToGuess={currentDateToGuess}
+      getNextDate={getNextDate}
+      onIncorrectGuess={handleIncorrectGuess}
+    />
   );
 };
 
-export default GuessDateWithinYearWrap;
+export default GuessDateDoomsdayInModernity;

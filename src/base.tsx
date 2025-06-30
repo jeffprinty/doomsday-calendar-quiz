@@ -5,7 +5,7 @@ import { Home } from './components/home';
 import LongCalendar from './components/long-calendar';
 import MonthDoomsdayCalendar from './components/month-doomsday-calendar';
 import NavBar from './components/nav-bar';
-import GuessDateDoomsdayWithinYear from './guess-date-doomsday-within-year';
+import GuessDateDoomsday from './guess-date-doomsday';
 import GuessFullDateV1 from './guess-full-date-v1';
 import GuessOffsetForDate from './guess-offset-for-date';
 import GuessProgressive from './guess-progressive';
@@ -32,8 +32,8 @@ const navLinks = [
 const AllPages = () => {
   return (
     <div className='flex flex-col'>
-      <h2>GuessDateDoomsdayWithinYear</h2>
-      <GuessDateDoomsdayWithinYear />
+      <h2>GuessDateDoomsday</h2>
+      <GuessDateDoomsday />
       <h2>StepOne</h2>
       <StepOne />
       <h2>GuessYearDoomsday</h2>
@@ -63,7 +63,7 @@ const Base = () => {
           <Route path='/learn/doomsday' element={<MonthDoomsdayCalendar />} />
           <Route path='/learn/reference' element={<Reference />} />
           <Route path='/odd' element={<OddPlusEleven />} />
-          <Route path='/within' element={<GuessDateDoomsdayWithinYear />} />
+          <Route path='/within' element={<GuessDateDoomsday />} />
           <Route path='/step1' element={<StepOne />} />
           <Route path='/year' element={<GuessYearDoomsday />} />
           <Route path='/full' element={<GuessFullDateV1 />} />
