@@ -1,5 +1,5 @@
 import react from '@vitejs/plugin-react-swc';
-import { defineConfig } from 'vite';
+import { defineConfig, splitVendorChunkPlugin } from 'vite';
 import checker from 'vite-plugin-checker';
 
 // https://vitejs.dev/config/
@@ -13,6 +13,7 @@ export default defineConfig({
         lintCommand: 'eslint --ext ts --ext tsx ./src',
       },
     }),
+    splitVendorChunkPlugin(),
   ],
   base: '/doomsday-calendar-quiz',
   css: {

@@ -20,6 +20,7 @@
     ]
   },
   "scripts": {
+    "analyze": "npx vite-bundle-visualizer",
     "prepare": "husky",
     "clean:dist": "npx rimraf dist",
     "test": "vitest",
