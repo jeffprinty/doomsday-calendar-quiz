@@ -150,7 +150,6 @@ export const getRandomMnemonic = (ignoreLeap = false) => {
   return mnemonics[randomIndex];
 };
 
-// eslint-disable-next-line unicorn/no-array-reduce
 export const allDaysFromMnemonics = mnemonics.reduce(
   (allDoomsdays: Array<number>, { common, leap }) => {
     if (!allDoomsdays.includes(common)) {

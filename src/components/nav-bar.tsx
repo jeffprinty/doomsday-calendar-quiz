@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 
 import clsx from 'clsx';
 import { AiFillCalendar, AiOutlineClose, AiOutlineMenu } from 'react-icons/ai';
