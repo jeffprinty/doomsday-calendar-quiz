@@ -6,15 +6,12 @@
 # testing
 /coverage
 /test-results/
-/playwright-report/
-/playwright/.cache/
 
 # production
 /dist
 /dist-ssr
 
 # various
-/playwright-report
 TODO.md
 
 # misc
