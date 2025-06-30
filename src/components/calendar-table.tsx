@@ -1,7 +1,7 @@
 import clsx from 'clsx';
 
 import { CalendarDay } from '../common';
-import { formatFullDateWithWeekday } from '../math/dates';
+import { formatFullDateWithWeekdayDayJs } from '../math/dates';
 import { weekdayNames } from '../math/weekdays';
 
 const CalendarTable = ({
@@ -50,7 +50,7 @@ const CalendarTable = ({
           rowsToAdd.push(
             <tr key={JSON.stringify(firstDayInWeek)}>
               {weekArray.map((day) => {
-                const { cellNumber, date, dayNumber, isDoomsday, weekday } = day;
+                const { cellNumber, dayJsDay, dayNumber, isDoomsday, weekday } = day;
                 const cellClassName = getButtonClassName(day);
                 return (
                   <td
@@ -61,7 +61,7 @@ const CalendarTable = ({
                   >
                     <button
                       className={clsx('wx-3 rounded-xl px-2 text-xl', cellClassName)}
-                      title={formatFullDateWithWeekday(date)}
+                      title={formatFullDateWithWeekdayDayJs(dayJsDay)}
                       onClick={() => !!handleDayClick && handleDayClick(day)}
                     >
                       {dayNumber}

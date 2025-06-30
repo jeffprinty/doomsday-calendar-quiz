@@ -66,8 +66,8 @@ const MonthDoomsdayCalendar = () => {
         <CalendarTable
           baseCellClassName='p-3'
           chunkedDayArray={monthChunked}
-          getButtonClassName={({ dayNumber, date }) => {
-            if (date.month !== 1) {
+          getButtonClassName={({ dayNumber, dayJsDay }) => {
+            if (dayJsDay.month() !== 0) {
               return 'invisible';
             }
             if (answerClicked !== undefined) {

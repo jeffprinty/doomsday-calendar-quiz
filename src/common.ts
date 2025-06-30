@@ -1,7 +1,7 @@
-import { DateTime } from 'luxon';
+import { Dayjs } from 'dayjs';
 
+import { dateIsLeapYear, getDoomsdayForYear, getFirstDateForCalendar } from './math/dates';
 import { Mnemonic, mnemonics } from './math/month-doomsdays';
-import { getDoomsdayForYear } from './math/year';
 
 export const correctColor = 'bg-green-600';
 export const incorrectColor = 'bg-red-900';
@@ -34,7 +34,7 @@ export const getRandom = (range: number) => Math.trunc(Math.random() * range);
 
 export interface CalendarDay {
   cellNumber: number;
-  date: DateTime;
+  dayJsDay: Dayjs;
   dayNumber: number;
   isDoomsday: boolean;
   month: number;
@@ -45,38 +45,35 @@ export interface CalendarDay {
 
 export const betterDaysTable = (howManyDays = 360) => {
   const startingYear = 2024;
-  // locale weeks: https://moment.github.io/luxon/#/intl?id=locale-based-weeks
-  const firstDayToDisplay = DateTime.local(startingYear, 1, 1, { locale: 'en-US' }).startOf(
-    'week',
-    { useLocaleWeeks: true }
-  );
+  const dayJsFirstDate = getFirstDateForCalendar(2024);
   const daysArray = [];
   let doomsdayForYear = getDoomsdayForYear(startingYear);
   let yearWeIn = startingYear;
   for (let day = 0; day < howManyDays; day++) {
-    const dayy = firstDayToDisplay.plus({ days: day });
-    const dayYear = dayy.get('year');
+    const dayJsDay = dayJsFirstDate.add(day, 'day');
+    const dayYear = dayJsDay.year();
+
     if (dayYear !== yearWeIn) {
       doomsdayForYear = getDoomsdayForYear(dayYear);
       yearWeIn = dayYear;
     }
-    const dayNumber = dayy.get('day');
-    const month = dayy.get('month');
-    const weekday = dayy.get('weekday');
+    const dayNumber = dayJsDay.date();
+    const month = dayJsDay.month() + 1;
+    const weekday = dayJsDay.day();
     const monthMnemonic = mnemonics.find((mne) => mne.monthNumber === month) as Mnemonic;
     const { common, leap } = monthMnemonic;
     let doomsdayDay = common;
-    if (dayy.isInLeapYear && leap) {
+    if (dateIsLeapYear(dayJsDay) && leap) {
       doomsdayDay = leap;
     }
     const isDoomsday = doomsdayDay === dayNumber;
-    const sameWeekdayAsDoomsday = doomsdayForYear.get('weekday') === weekday;
-    // console.log('weekday', weekday, dayy.toFormat('ccc'));
+    const sameWeekdayAsDoomsday = doomsdayForYear.day() === weekday;
+
     const dayObject: CalendarDay = {
-      date: dayy,
-      month,
+      dayJsDay,
+      month, // NOTE: this is dayjs month, January = 0
       dayNumber,
-      weekday, // NOTE: this is luxon weekday, sunday = 1
+      weekday,
       cellNumber: day,
       year: dayYear,
       isDoomsday,
