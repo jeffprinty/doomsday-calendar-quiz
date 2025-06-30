@@ -1,11 +1,11 @@
 import { useState } from 'react';
 
-import { guessDateFormat } from './common';
 import Button from './components/button';
 import GuessDisplay from './components/guess-display';
 import QuizResults from './components/quiz-results';
 import YearGuessingHelper from './components/year-guessing-helper';
 import useAnswerHistory from './hooks/use-answer-history';
+import { formatGuessDate } from './math/dates';
 import { Weekday } from './math/weekdays';
 import { getDoomsdayForYear, getRandomDateInYear, getRandomYear } from './math/year';
 import WeekdayGuesser from './modules/weekday-guesser';
@@ -50,7 +50,7 @@ const GuessFullDateV1 = () => {
     <div id='page__guess-full-date' className='w-full'>
       <GuessDisplay
         questionText={lastAnswerCorrect ? 'Correct! The doomsday for' : 'What is the doomsday for:'}
-        guessText={guessingDate.toFormat(guessDateFormat)}
+        guessText={formatGuessDate(guessingDate)}
         guessedCorrectly={lastAnswerCorrect}
         isLeapYear={guessingDate.isInLeapYear}
         explainCorrect={

@@ -2,8 +2,9 @@ import { useState } from 'react';
 
 import clsx from 'clsx';
 
-import { commonStyles, fullDateWithWeekdayFormat } from '../common';
+import { commonStyles } from '../common';
 import { AnchorDayCentury, getAnchorDayForCentury } from '../math/century';
+import { formatFullDateWithWeekday } from '../math/dates';
 import { weekdayNames } from '../math/weekdays';
 import { getDoomsdayForYear } from '../math/year';
 import Button from './button';
@@ -109,7 +110,7 @@ const ProgressiveMathOld = ({ year }: { showAnswers?: boolean; year: number }) =
       </div>
       <div className={clsx(revealedSteps < 7 && unrevealed)}>
         <span className=''>Double-check: </span>
-        <span className=''> {doomsdayOnYear.toFormat(fullDateWithWeekdayFormat)} </span>
+        <span className=''> {formatFullDateWithWeekday(doomsdayOnYear)} </span>
       </div>
     </div>
   );

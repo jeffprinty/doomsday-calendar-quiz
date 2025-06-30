@@ -3,7 +3,8 @@ import { DateTime } from 'luxon';
 import { PieChart } from 'react-minimal-pie-chart';
 import colors from 'tailwindcss/colors';
 
-import { correctColor, guessDateFormat, incorrectColor, PastAnswer } from '../common';
+import { correctColor, incorrectColor, PastAnswer } from '../common';
+import { formatGuessDate } from '../math/dates';
 
 const QuizResults = ({
   answers,
@@ -44,7 +45,7 @@ const QuizResults = ({
             >
               <span>{timeInSeconds}</span>
               <span>
-                {dateGuessed.toFormat(guessDateFormat) === currentGuess && '⚪️'}
+                {formatGuessDate(dateGuessed) === currentGuess && '⚪️'}
                 {dateGuessed.toFormat(dateFormat)}
               </span>
             </li>

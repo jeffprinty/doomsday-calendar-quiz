@@ -1,6 +1,7 @@
 import clsx from 'clsx';
 
-import { CalendarDay, fullDateWithWeekdayFormat } from '../common';
+import { CalendarDay } from '../common';
+import { formatFullDateWithWeekday } from '../math/dates';
 import { weekdayNames } from '../math/weekdays';
 
 const CalendarTable = ({
@@ -60,7 +61,7 @@ const CalendarTable = ({
                   >
                     <button
                       className={clsx('wx-3 rounded-xl px-2 text-xl', cellClassName)}
-                      title={date.toFormat(fullDateWithWeekdayFormat)}
+                      title={formatFullDateWithWeekday(date)}
                       onClick={() => !!handleDayClick && handleDayClick(day)}
                     >
                       {dayNumber}

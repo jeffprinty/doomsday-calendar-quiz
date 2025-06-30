@@ -2,12 +2,13 @@ import { useState } from 'react';
 
 import { DateTime } from 'luxon';
 
-import { guessDateFormat, timeoutMs } from './common';
+import { timeoutMs } from './common';
 import { DoomsyearEquation } from './components/doomsyear-equation';
 import GuessDisplay from './components/guess-display';
 import QuizResults from './components/quiz-results';
 import { GuessActions, Hint } from './components/shared';
 import useAnswerHistory from './hooks/use-answer-history';
+import { formatGuessDate } from './math/dates';
 import { Weekday } from './math/weekdays';
 import { getDoomsdayForYear, getRandomDateInModernity } from './math/year';
 import { GuessPayload } from './modules/module.types';
@@ -24,7 +25,7 @@ const GuessDateDoomsdayInModernity = () => {
 
   const { lastAnswerCorrect, onAnswer, onNewQuestion, pastAnswers, startTime } = useAnswerHistory();
 
-  const dateStringToGuess = dateToGuess?.toFormat(guessDateFormat) || '';
+  const dateStringToGuess = formatGuessDate(dateToGuess);
 
   const generateRandomDate = () => {
     getNextDate();

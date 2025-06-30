@@ -4,12 +4,13 @@ import clsx from 'clsx';
 import { DateTime } from 'luxon';
 import { BiCog, BiSolidBolt } from 'react-icons/bi';
 
-import { guessDateFormat, timeoutMs } from './common';
+import { timeoutMs } from './common';
 import GuessDisplay from './components/guess-display';
 import { PageDescribe } from './components/page-describe';
 import QuizResults from './components/quiz-results';
 import { GuessActions } from './components/shared';
 import useAnswerHistory from './hooks/use-answer-history';
+import { formatGuessDate } from './math/dates';
 import { Weekday } from './math/weekdays';
 import { getRandomDateInYear } from './math/year';
 import { GuessPayload } from './modules/module.types';
@@ -33,7 +34,7 @@ const GuessDateDoomsdayWithinYear = ({
   const [autoNext, setAutoNext] = useState(false);
   const [nextGuessIncoming, setNextGuessIncoming] = useState(false);
 
-  const dateStringToGuess = dateToGuess?.toFormat(guessDateFormat) || '';
+  const dateStringToGuess = formatGuessDate(dateToGuess);
 
   const generateRandomDate = () => {
     const randomDate = getNextDate();

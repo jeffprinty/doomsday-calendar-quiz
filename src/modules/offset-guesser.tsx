@@ -26,7 +26,6 @@ export const OffsetGuesser = ({
   const showDay = false;
 
   const mnemonicForMonth = mnemonics.find(({ monthNumber }) => monthNumber === guessingDate.month);
-  console.log('mnemonicForMonth', mnemonicForMonth);
   if (!mnemonicForMonth) {
     return <></>;
   }
