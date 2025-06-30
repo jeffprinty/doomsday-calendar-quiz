@@ -13,11 +13,8 @@ const GuessOffsetForDate = () => {
   const [autoNext, setAutoNext] = useState(false);
   const [nextGuessIncoming, setNextGuessIncoming] = useState(false);
 
-  const [lastAnswerCorrect, setLastAnswerCorrect] = useState<boolean | undefined>();
-  console.log('lastAnswerCorrect', lastAnswerCorrect);
-
   const handleAnswer = (isCorrect: boolean) => {
-    setLastAnswerCorrect(isCorrect);
+    console.log('isCorrect', isCorrect);
     if (autoNext) {
       setNextGuessIncoming(true);
       setTimeout(() => {
@@ -28,7 +25,6 @@ const GuessOffsetForDate = () => {
 
   const getNewGuess = () => {
     setGuessingDate(getRandomDateInYear(2025));
-    setLastAnswerCorrect(undefined);
     setNextGuessIncoming(false);
   };
 

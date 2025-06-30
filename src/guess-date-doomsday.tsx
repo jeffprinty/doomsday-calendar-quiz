@@ -1,8 +1,6 @@
 import { useState } from 'react';
 
-import clsx from 'clsx';
 import { DateTime } from 'luxon';
-import { MdBolt, MdSettings } from 'react-icons/md';
 
 import { guessDateFormat, timeoutMs } from './common';
 import GuessDisplay from './components/guess-display';
@@ -25,7 +23,6 @@ const GuessDateDoomsdayWithinYear = ({
   const { lastAnswerCorrect, onAnswer, onNewQuestion, pastAnswers, startTime } = useAnswerHistory();
 
   const [enableDayClick, setEnableDayClick] = useState(true);
-  const [showSettings, setShowSettings] = useState(false);
   const [autoNext, setAutoNext] = useState(false);
   const [nextGuessIncoming, setNextGuessIncoming] = useState(false);
 
@@ -40,6 +37,7 @@ const GuessDateDoomsdayWithinYear = ({
   };
 
   const handleGuess = (answer: Weekday, isCorrect: boolean) => {
+    console.log('handleGuess answer', answer);
     onAnswer(dateToGuess, isCorrect);
     if (!isCorrect) {
       onIncorrectGuess(dateToGuess);
@@ -62,30 +60,14 @@ const GuessDateDoomsdayWithinYear = ({
     >
       <div className='' id='quiz__top-bit'>
         <QuizResults answers={pastAnswers} currentGuess={dateStringToGuess} />
-        <div className='relative'>
-          <GuessDisplay
-            explainIncorrect={`is on ${dateToGuess.toFormat('cccc')}`}
-            questionText='What day of the week is:'
-            guessText={dateStringToGuess}
-            guessedCorrectly={lastAnswerCorrect}
-          />
-          {autoNext && (
-            <div
-              className={clsx(
-                'absolute right-2 top-2',
-                autoNext && nextGuessIncoming && 'animate-spin'
-              )}
-            >
-              <MdBolt className='h-6 w-6' />
-            </div>
-          )}
-          <button
-            className={clsx('absolute bottom-2 right-2', showSettings && 'text-indigo-300')}
-            onClick={() => setShowSettings(!showSettings)}
-          >
-            <MdSettings />
-          </button>
-        </div>
+        <GuessDisplay
+          autoMode
+          autoProcessing={nextGuessIncoming}
+          explainIncorrect={`is on ${dateToGuess.toFormat('cccc')}`}
+          questionText='What day of the week is:'
+          guessText={dateStringToGuess}
+          guessedCorrectly={lastAnswerCorrect}
+        />
       </div>
       <div id='quiz__bottom-bit' className='h-72'>
         <div className='pt-3' id='quiz__actions'>
