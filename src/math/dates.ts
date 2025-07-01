@@ -10,6 +10,8 @@ import 'dayjs/locale/en';
 
 import randomInteger from 'random-int';
 
+import { getMnemonicForMonth, Mnemonic } from './month-doomsdays';
+import { monthNames } from './months';
 import { Weekday } from './weekdays';
 
 dayjs.extend(objectSupport);
@@ -62,3 +64,8 @@ export const getDayjsRandomDateInModernity = () => {
 };
 
 export const formatDayjsGuessDate = (date: Dayjs) => dayjs(date).format('MMMM DD, YYYY');
+
+export const getMonthMnemonicForDate = (date: Dayjs): Mnemonic => {
+  const monthName = monthNames[date.month()];
+  return getMnemonicForMonth(monthName);
+};

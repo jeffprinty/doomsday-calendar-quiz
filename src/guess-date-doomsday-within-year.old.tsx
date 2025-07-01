@@ -5,15 +5,52 @@ import { Dayjs } from 'dayjs';
 import { BiCog, BiSolidBolt } from 'react-icons/bi';
 
 import { timeoutMs } from './common';
+import DoomsdayDifference from './components/equations/doomsday-difference';
 import GuessDisplay from './components/guess-display';
 import { PageDescribe } from './components/page-describe';
 import QuizResults from './components/quiz-results';
 import { GuessActions } from './components/shared';
 import useAnswerHistory from './hooks/use-answer-history';
-import { formatDayjsGuessDate, getDayjsRandomDateInYear, getWeekdayForDate } from './math/dates';
+import {
+  formatDayjsGuessDate,
+  getDayjsRandomDateInYear,
+  getDoomsdayWithinMonth,
+  getFullWeekday,
+  getMonthMnemonicForDate,
+  getWeekdayForDate,
+} from './math/dates';
 import { Weekday } from './math/weekdays';
+import EquationsModule from './modules/equations';
 import { GuessPayload } from './modules/module.types';
 import WeekdayGuesser from './modules/weekday-guesser';
+
+const equationAsString = (target: Dayjs) => {
+  console.log('target', target);
+  const { common, monthNumber } = getMonthMnemonicForDate(target);
+  const targetDate = target.date();
+  const doomsday = getDoomsdayWithinMonth(target, common);
+  const doomsdayWeekday = getFullWeekday(doomsday);
+  if (common < targetDate) {
+    const diff = targetDate - common;
+    const howManySevens = Math.floor(diff / 7);
+    const moduloSeven = diff % 7;
+    const addSevens = Array.from({ length: howManySevens }, () => '+ 7').join(' ');
+    const sevensOrNah = howManySevens
+      ? `${addSevens} = ${howManySevens * 7 + common} is the nearest ${doomsdayWeekday}`
+      : '';
+    return `Doomsday is ${monthNumber}/${common} ${sevensOrNah} ${moduloSeven}`;
+  }
+  if (targetDate < common) {
+    const diff = common - targetDate;
+    const howManySevens = Math.floor(diff / 7);
+    const moduloSeven = diff % 7;
+    const addSevens = Array.from({ length: howManySevens }, () => '- 7').join(' ');
+    const sevensOrNah = howManySevens
+      ? `${addSevens} = ${common - howManySevens * 7} is the nearest ${doomsdayWeekday}`
+      : '';
+    return `${common} ${sevensOrNah} -${moduloSeven}`;
+  }
+};
 
 const GuessDateDoomsdayWithinYear = ({
   dateToGuess,
@@ -49,8 +86,8 @@ const GuessDateDoomsdayWithinYear = ({
     }
     setEnableDayClick(false);
     if (autoNext) {
-      setNextGuessIncoming(true);
       if (isCorrect) {
+        setNextGuessIncoming(true);
         setTimeout(() => {
           generateRandomDate();
         }, timeoutMs);
@@ -67,7 +104,7 @@ const GuessDateDoomsdayWithinYear = ({
         <QuizResults answers={pastAnswers} currentGuess={dateStringToGuess} />
         <div className='relative'>
           <GuessDisplay
-            explainIncorrect={`is on ${dateToGuess.format('dddd')}`}
+            explainIncorrect={`is on ${getFullWeekday(dateToGuess)}`}
             questionText='What day of the week is:'
             guessText={dateStringToGuess}
             guessedCorrectly={lastAnswerCorrect}
@@ -89,10 +126,10 @@ const GuessDateDoomsdayWithinYear = ({
             <BiCog />
           </button>
         </div>
-        {showSettings && (
-          <YearInput onSubmit={updateYear} initYear={Number(dateToGuess.format('YYYY'))} />
-        )}
+        {showSettings && <YearInput onSubmit={updateYear} initYear={dateToGuess.year()} />}
       </div>
+      <DoomsdayDifference isoDate={dateToGuess.toISOString()} />
+      {equationAsString(dateToGuess)}
       <div id='quiz__bottom-bit' className='h-72'>
         <div className='pt-3' id='quiz__actions'>
           <WeekdayGuesser
@@ -176,6 +213,8 @@ const GuessDateWithinYear = ({ year }: { year?: number }) => {
         onIncorrectGuess={handleIncorrectGuess}
         updateYear={setGuessingYear}
       />
+      <DoomsdayDifference isoDate={currentDateToGuess.toISOString()} />
+      <EquationsModule />
     </>
   );
 };

@@ -38,12 +38,12 @@ export default tseslint.config(
     },
     extends: [
       js.configs.recommended,
+      tseslint.configs.recommended,
       sonarjs.configs.recommended,
       eslintPluginPrettierRecommended,
       reactPlugin.configs.flat.recommended,
       reactPlugin.configs.flat['jsx-runtime'],
       pluginPromise.configs['flat/recommended'],
-      tseslint.configs.recommended,
     ],
     languageOptions: {
       globals: {

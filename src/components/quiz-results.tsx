@@ -9,7 +9,7 @@ import { formatDayjsGuessDate } from '../math/dates';
 const QuizResults = ({
   answers,
   currentGuess,
-  dateFormat = 'MMM ddd, yyyy',
+  dateFormat = 'MMM D, YYYY',
 }: {
   answers: Array<PastAnswer<Dayjs>>;
   currentGuess: string;
