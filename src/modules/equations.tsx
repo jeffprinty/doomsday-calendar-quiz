@@ -4,7 +4,7 @@ import DoomsdayDifference from '../components/equations/doomsday-difference';
 
 const startingDate = dayjs('2025-01-01');
 
-const bunchOfIsoDates = Array.from({ length: 120 }, (x, i) => {
+const bunchOfIsoDates = Array.from({ length: 600 }, (x, i) => {
   const datePlusDay = startingDate.add(i, 'day');
   const shortDate = datePlusDay.format('YYYY-MM-DD');
   return [datePlusDay.toISOString(), shortDate];

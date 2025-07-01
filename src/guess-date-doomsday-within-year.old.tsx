@@ -2,7 +2,7 @@ import { useState } from 'react';
 
 import clsx from 'clsx';
 import { Dayjs } from 'dayjs';
-import { BiCog, BiSolidBolt } from 'react-icons/bi';
+import { BiCog, BiHelpCircle, BiSolidBolt } from 'react-icons/bi';
 
 import { timeoutMs } from './common';
 import DoomsdayDifference from './components/equations/doomsday-difference';
@@ -14,43 +14,12 @@ import useAnswerHistory from './hooks/use-answer-history';
 import {
   formatDayjsGuessDate,
   getDayjsRandomDateInYear,
-  getDoomsdayWithinMonth,
   getFullWeekday,
-  getMonthMnemonicForDate,
   getWeekdayForDate,
 } from './math/dates';
 import { Weekday } from './math/weekdays';
-import EquationsModule from './modules/equations';
 import { GuessPayload } from './modules/module.types';
 import WeekdayGuesser from './modules/weekday-guesser';
-
-const equationAsString = (target: Dayjs) => {
-  console.log('target', target);
-  const { common, monthNumber } = getMonthMnemonicForDate(target);
-  const targetDate = target.date();
-  const doomsday = getDoomsdayWithinMonth(target, common);
-  const doomsdayWeekday = getFullWeekday(doomsday);
-  if (common < targetDate) {
-    const diff = targetDate - common;
-    const howManySevens = Math.floor(diff / 7);
-    const moduloSeven = diff % 7;
-    const addSevens = Array.from({ length: howManySevens }, () => '+ 7').join(' ');
-    const sevensOrNah = howManySevens
-      ? `${addSevens} = ${howManySevens * 7 + common} is the nearest ${doomsdayWeekday}`
-      : '';
-    return `Doomsday is ${monthNumber}/${common} ${sevensOrNah} ${moduloSeven}`;
-  }
-  if (targetDate < common) {
-    const diff = common - targetDate;
-    const howManySevens = Math.floor(diff / 7);
-    const moduloSeven = diff % 7;
-    const addSevens = Array.from({ length: howManySevens }, () => '- 7').join(' ');
-    const sevensOrNah = howManySevens
-      ? `${addSevens} = ${common - howManySevens * 7} is the nearest ${doomsdayWeekday}`
-      : '';
-    return `${common} ${sevensOrNah} -${moduloSeven}`;
-  }
-};
 
 const GuessDateDoomsdayWithinYear = ({
   dateToGuess,
@@ -66,6 +35,7 @@ const GuessDateDoomsdayWithinYear = ({
   const { lastAnswerCorrect, onAnswer, onNewQuestion, pastAnswers, startTime } = useAnswerHistory();
 
   const [enableDayClick, setEnableDayClick] = useState(true);
+  const [showHint, setShowHint] = useState(false);
   const [showSettings, setShowSettings] = useState(false);
   const [autoNext, setAutoNext] = useState(false);
   const [nextGuessIncoming, setNextGuessIncoming] = useState(false);
@@ -119,17 +89,29 @@ const GuessDateDoomsdayWithinYear = ({
               <BiSolidBolt className='h-6 w-6' />
             </div>
           )}
-          <button
-            className={clsx('absolute bottom-2 right-2', showSettings && 'text-indigo-300')}
-            onClick={() => setShowSettings(!showSettings)}
-          >
-            <BiCog />
-          </button>
+          <div className='absolute bottom-2 right-2 flex w-16 flex-row justify-around'>
+            <button
+              className={clsx(showSettings && 'text-indigo-300')}
+              onClick={() => setShowSettings(!showSettings)}
+            >
+              <BiCog size={20} />
+            </button>
+            <button
+              className={clsx(showHint && 'text-indigo-300')}
+              onClick={() => setShowHint(!showHint)}
+            >
+              <BiHelpCircle size={20} />
+            </button>
+          </div>
         </div>
         {showSettings && <YearInput onSubmit={updateYear} initYear={dateToGuess.year()} />}
       </div>
-      <DoomsdayDifference isoDate={dateToGuess.toISOString()} />
-      {equationAsString(dateToGuess)}
+      {showHint && (
+        <div className='flex flex-row items-center justify-center'>
+          <DoomsdayDifference isoDate={dateToGuess.toISOString()} />
+        </div>
+      )}
+
       <div id='quiz__bottom-bit' className='h-72'>
         <div className='pt-3' id='quiz__actions'>
           <WeekdayGuesser
@@ -213,8 +195,6 @@ const GuessDateWithinYear = ({ year }: { year?: number }) => {
         onIncorrectGuess={handleIncorrectGuess}
         updateYear={setGuessingYear}
       />
-      <DoomsdayDifference isoDate={currentDateToGuess.toISOString()} />
-      <EquationsModule />
     </>
   );
 };

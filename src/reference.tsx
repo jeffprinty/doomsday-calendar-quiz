@@ -2,6 +2,7 @@ import { allSevens } from './common';
 import LongCalendar from './components/long-calendar';
 import MnemonicsTable from './components/mnemonics-table';
 import { doomsyearTable } from './math/year';
+import EquationsModule from './modules/equations';
 
 const doomsyearColorCode = [
   'text-red-400',
@@ -26,6 +27,9 @@ const Reference = () => {
       </div>
       <div className='flex w-full flex-col items-center py-4'>
         <MnemonicsTable />
+      </div>
+      <div className='flex w-full flex-col items-center py-4'>
+        <EquationsModule />
       </div>
       <div className='long stuff flex w-full grid-cols-2 flex-row justify-around'>
         <div className=''>
