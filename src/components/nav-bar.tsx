@@ -18,18 +18,16 @@ const navLinkInactive = 'text-blue-400';
 
 const NavBar = ({ navItems }: { navItems: Array<NavItem> }) => {
   // State to manage the navbar's visibility
-  const [nav, setNav] = useState(false);
+  const [navOpen, setNavOpen] = useState(false);
 
   // Toggle function to handle the navbar's display
-  const handleNav = () => {
-    setNav(!nav);
-  };
+  const handleNav = () => setNavOpen(!navOpen);
 
   const renderNavLink = ({ text, ...navLinkProperties }: NavItem, className: string) => (
     <NavLink
       key={text}
       className={({ isActive }) => clsx(className, isActive ? navLinkActive : navLinkInactive)}
-      onClick={() => setNav(false)}
+      onClick={() => setNavOpen(false)}
       {...navLinkProperties}
     >
       {text}
@@ -56,7 +54,7 @@ const NavBar = ({ navItems }: { navItems: Array<NavItem> }) => {
 
       {/* Mobile Navigation Icon */}
       <button onClick={handleNav} className='z-20'>
-        {nav ? (
+        {navOpen ? (
           <BiX size={24} className='fill-white' />
         ) : (
           <BiMenu size={24} className='fill-blue-400' />
@@ -67,7 +65,7 @@ const NavBar = ({ navItems }: { navItems: Array<NavItem> }) => {
       <ul
         className={clsx(
           'z-10',
-          nav
+          navOpen
             ? 'fixed right-0 top-0 h-full w-[40%] border-r border-r-gray-900 bg-[#000300] duration-500 ease-in-out sm:w-1/5'
             : 'fixed bottom-0 right-[-100%] top-0 w-[40%] duration-500 ease-in-out'
         )}

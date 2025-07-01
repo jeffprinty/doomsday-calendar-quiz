@@ -1,8 +1,6 @@
 import clsx from 'clsx';
 import { BiLoaderCircle } from 'react-icons/bi';
 
-import { correctColor, incorrectColor } from '../common';
-
 const GuessDisplay = ({
   autoMode,
   autoProcessing,
@@ -27,20 +25,25 @@ const GuessDisplay = ({
   explainIncorrect?: string | React.ReactNode;
 }) => {
   const explainMessage = guessedCorrectly ? explainCorrect : explainIncorrect;
+  console.log('explainMessage', explainMessage);
   return (
     <div
       id='quiz__year-to-guess'
       className={clsx([
         className,
-        'relative flex w-full flex-col items-center justify-center pb-6 pt-4 text-center',
-        guessedCorrectly === undefined && 'bg-gray-600',
-        guessedCorrectly === true && correctColor,
-        guessedCorrectly === false && incorrectColor,
+        'relative flex w-full flex-col items-center justify-center bg-gradient-to-r pb-3 pt-4 text-center',
+        guessedCorrectly === undefined && 'from-blue-500 to-blue-800',
+        guessedCorrectly === true && 'from-green-500 to-green-800',
+        guessedCorrectly === false && 'from-red-600 to-orange-600',
       ])}
     >
       <span className=''>{questionText}</span>
       <h2 className={clsx(guessTextClassName, isLeapYear && 'text-blue-400')}>{guessText}</h2>
-      {guessedCorrectly !== undefined && <span className='text-xl'>{explainMessage}</span>}
+      <div
+        className={clsx('mt-1 text-xl', guessedCorrectly !== undefined ? 'visible' : 'invisible')}
+      >
+        {explainCorrect}
+      </div>
       {autoMode && autoProcessing && (
         <div
           className={clsx(

@@ -57,14 +57,15 @@ const MonthDoomsdayCalendar = () => {
       <GuessDisplay
         className={clsx(!!answerClicked && 'animate-pulse')}
         explainCorrect={memeticHandle}
+        explainIncorrect=' '
         questionText='What is the doomsday for:'
         guessText={monthName}
         guessedCorrectly={lastAnswerCorrect}
         guessTextClassName='text-6xl'
       />
-      <div className='flex w-full flex-col items-center justify-center'>
+      <div className='flex w-full flex-col items-center justify-center p-2'>
         <CalendarTable
-          baseCellClassName='p-3'
+          baseCellClassName=''
           chunkedDayArray={monthChunked}
           getButtonClassName={({ dayNumber, dayJsDay }) => {
             if (dayJsDay.month() !== 0) {
@@ -72,7 +73,7 @@ const MonthDoomsdayCalendar = () => {
             }
             if (answerClicked !== undefined) {
               if (correctOptions.includes(dayNumber)) {
-                return 'text-green-800';
+                return 'text-white bg-green-600';
               }
               if (incorrectOptions.includes(dayNumber)) {
                 return 'text-red-400';
@@ -87,13 +88,13 @@ const MonthDoomsdayCalendar = () => {
           hideYear
           hideHeader
         />
+        <GuessActions
+          btnLabel='Random Month'
+          onClick={heroClick}
+          autoEnabled={autoNext}
+          toggleAuto={() => setAutoNext(!autoNext)}
+        />
       </div>
-      <GuessActions
-        btnLabel='Random Month'
-        onClick={heroClick}
-        autoEnabled={autoNext}
-        toggleAuto={() => setAutoNext(!autoNext)}
-      />
     </div>
   );
 };

@@ -12,7 +12,7 @@ export const PageDescribe = ({
   title?: string;
 }) => {
   return (
-    <div className={clsx('page-describe', className)}>
+    <div className={clsx('page-describe p-2 pb-3 md:p-0', className)}>
       {!!title && <h2>{title}</h2>}
       {children}
     </div>

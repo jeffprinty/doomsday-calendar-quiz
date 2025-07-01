@@ -20,7 +20,7 @@ const CalendarTable = ({
   hideYear?: boolean;
 }) => {
   return (
-    <table className=''>
+    <table className='w-full max-w-full'>
       <thead className={clsx(hideHeader && 'hidden')}>
         <tr>
           {weekdayNames.map((dayName) => (
@@ -54,13 +54,13 @@ const CalendarTable = ({
                 const cellClassName = getButtonClassName(day);
                 return (
                   <td
-                    className={clsx('wx-4 text-center leading-none', baseCellClassName)}
+                    className={clsx('p-1 text-center leading-none', baseCellClassName)}
                     key={cellNumber}
                     data-weekday={weekday}
                     data-is-doomsday={isDoomsday}
                   >
                     <button
-                      className={clsx('wx-3 rounded-xl px-2 text-xl', cellClassName)}
+                      className={clsx('w-full rounded-2xl py-2 text-xl', cellClassName)}
                       title={formatFullDateWithWeekdayDayJs(dayJsDay)}
                       onClick={() => !!handleDayClick && handleDayClick(day)}
                     >
