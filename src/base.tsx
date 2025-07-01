@@ -4,7 +4,7 @@ import AllSteps from './all-steps';
 import { Home } from './components/home';
 import LongCalendar from './components/long-calendar';
 import MonthDoomsdayCalendar from './components/month-doomsday-calendar';
-import NavBar from './components/nav-bar';
+import NavBar, { NavItem } from './components/nav-bar';
 import GuessDateDoomsdayInModernity from './guess-date-doomsday';
 import GuessDateDoomsday from './guess-date-doomsday-within-year.old';
 import GuessFullDateV1 from './guess-full-date-v1';
@@ -16,20 +16,81 @@ import Reference from './reference';
 import StepOne from './step-1';
 
 const baseUrl = import.meta.env.BASE_URL;
+const currentYear = new Date().getFullYear().toString();
 
-const navLinks = [
-  { to: `${baseUrl}/`, text: 'home', end: true },
-  { to: `${baseUrl}/odd`, text: 'odd' },
-  { to: `${baseUrl}/date-offset`, text: 'offset' },
-  { to: `${baseUrl}/learn/doomsday`, text: 'doomsday' },
-  { to: `${baseUrl}/learn/reference`, text: 'ref' },
-  { to: `${baseUrl}/within`, text: 'within' },
-  { to: `${baseUrl}/within-modernity`, text: 'modernity' },
-  // { to: `${baseUrl}/year`, text: 'year' }, // superseded by full
-  { to: `${baseUrl}/full`, text: 'full' },
-  { to: `${baseUrl}/steps`, text: 'steps' },
-  // { to: '/doomsday-calendar-quiz/info/long', text: 'long' },
+const routeArray = [
+  {
+    path: '/',
+    index: true,
+    element: <Home />,
+    text: 'home',
+    end: true,
+  },
+  {
+    path: '/steps',
+    element: <AllSteps />,
+    text: 'steps',
+    extra: true,
+  },
+  {
+    path: '/learn/doomsday',
+    element: <MonthDoomsdayCalendar />,
+    text: 'doomsday',
+  },
+  {
+    path: '/learn/reference',
+    element: <Reference />,
+    text: 'reference',
+  },
+  {
+    path: '/odd',
+    element: <OddPlusEleven />,
+    text: 'odd+11',
+  },
+  {
+    path: '/within',
+    element: <GuessDateDoomsday />,
+    text: currentYear,
+  },
+  {
+    path: '/within-modernity',
+    element: <GuessDateDoomsdayInModernity />,
+    text: 'modernity',
+  },
+  {
+    path: '/step1',
+    element: <StepOne />,
+    text: 'step1',
+    extra: true,
+  },
+  {
+    path: '/year',
+    element: <GuessYearDoomsday />,
+    text: 'year',
+    extra: true,
+  },
+  {
+    path: '/full',
+    element: <GuessFullDateV1 />,
+    text: 'full',
+  },
+  {
+    path: '/progressive',
+    element: <GuessProgressive />,
+    text: 'progressive',
+    extra: true,
+  },
+  {
+    path: '/date-offset',
+    element: <GuessOffsetForDate />,
+    text: 'offset',
+  },
 ];
+
+const navLinks: Array<NavItem> = routeArray.map(({ path, element, ...navItemValues }) => ({
+  to: `${baseUrl}${path}`,
+  ...navItemValues,
+}));
 
 const AllPages = () => {
   return (
@@ -55,24 +116,14 @@ const AllPages = () => {
 // I want to be able to feed it random dates OR feed it a list of previously incorrect guesses
 const Base = () => {
   return (
-    <main className='flex h-screen max-w-full flex-col items-center justify-start bg-primary text-color'>
+    <main className='flex max-w-full flex-col items-center justify-start bg-primary text-color'>
       <NavBar navItems={navLinks} />
-      <div className='flex h-screen max-w-full flex-col items-center justify-start sm:w-1/2 md:max-w-[1240px]'>
+      <div className='flex max-w-full flex-col items-center justify-start sm:w-1/2 md:max-w-[1240px]'>
         <Routes>
-          <Route path='/' index element={<Home />} />
+          {routeArray.map((routeProps) => (
+            <Route {...routeProps} key={routeProps.path} />
+          ))}
           <Route path='/all' element={<AllPages />} />
-          <Route path='/steps' element={<AllSteps />} />
-          <Route path='/learn/doomsday' element={<MonthDoomsdayCalendar />} />
-          <Route path='/learn/reference' element={<Reference />} />
-          <Route path='/odd' element={<OddPlusEleven />} />
-          <Route path='/within' element={<GuessDateDoomsday />} />
-          <Route path='/within-modernity' element={<GuessDateDoomsdayInModernity />} />
-          <Route path='/step1' element={<StepOne />} />
-          <Route path='/year' element={<GuessYearDoomsday />} />
-          <Route path='/full' element={<GuessFullDateV1 />} />
-          <Route path='/progressive' element={<GuessProgressive />} />
-          <Route path='/info/long' element={<LongCalendar />} />
-          <Route path='/date-offset' element={<GuessOffsetForDate />} />
         </Routes>
       </div>
     </main>

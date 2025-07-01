@@ -79,12 +79,20 @@ export default tseslint.config(
       'sonarjs/no-commented-code': 0,
       'sonarjs/pseudo-random': 0,
       'sonarjs/todo-tag': 0,
-
+      'sonarjs/unused-import': 0,
       semi: ['error', 'always'],
       'react/react-in-jsx-scope': 0,
       'arrow-body-style': 'off',
       'prefer-arrow-callback': 'off',
 
+      '@typescript-eslint/no-unused-vars': ['warn',
+        {
+          varsIgnorePattern: '[iI]gnored',
+          argsIgnorePattern: '^_',
+          caughtErrorsIgnorePattern: '^_',
+          ignoreRestSiblings: true,
+        },
+      ],
       'prettier/prettier': [
         'error',
         {
