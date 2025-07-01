@@ -1,5 +1,5 @@
 import clsx from 'clsx';
-import { BiSolidBolt } from 'react-icons/bi';
+import { BiLoaderCircle } from 'react-icons/bi';
 
 import { correctColor, incorrectColor } from '../common';
 
@@ -41,11 +41,14 @@ const GuessDisplay = ({
       <span className=''>{questionText}</span>
       <h2 className={clsx(guessTextClassName, isLeapYear && 'text-blue-400')}>{guessText}</h2>
       {guessedCorrectly !== undefined && <span className='text-xl'>{explainMessage}</span>}
-      {autoMode && (
+      {autoMode && autoProcessing && (
         <div
-          className={clsx('absolute right-2 top-2', autoMode && autoProcessing && 'animate-spin')}
+          className={clsx(
+            'absolute right-2 top-2',
+            autoMode && autoProcessing && 'animate-spin ease-in-out'
+          )}
         >
-          <BiSolidBolt className='h-6 w-6' />
+          <BiLoaderCircle className='h-6 w-6' />
         </div>
       )}
       {/*

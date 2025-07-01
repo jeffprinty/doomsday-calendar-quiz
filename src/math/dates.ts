@@ -24,9 +24,6 @@ dayjs.extend(duration);
 
 dayjs.tz.guess();
 
-export const guessDateFormat = 'MMMM dd, yyyy';
-export const fullDateWithWeekdayFormat = 'cccc MMMM dd, yyyy';
-
 const fullDateFormat = 'dddd MMMM DD, YYYY';
 
 export const formatFullDateWithWeekdayDayJs = (date: Dayjs) => date.format(fullDateFormat);

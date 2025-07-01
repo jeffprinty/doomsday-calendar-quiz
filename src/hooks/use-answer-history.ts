@@ -16,7 +16,7 @@ const useAnswerHistory = () => {
   const onAnswer = ({ answer, isCorrect }: { answer: Dayjs; isCorrect: boolean }) => {
     setLastAnswerCorrect(isCorrect);
 
-    const interval = dayjs.duration(startTime.diff(dayjs()));
+    const interval = dayjs.duration(dayjs().diff(startTime));
     const intervalInSeconds = interval.asSeconds();
     if (intervalInSeconds) {
       setPastAnswers((previous) => [...previous, [intervalInSeconds, isCorrect, answer]]);

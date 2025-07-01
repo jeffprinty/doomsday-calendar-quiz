@@ -41,9 +41,9 @@ const QuizResults = ({
                 'flex w-full flex-row justify-between bg-opacity-40 px-2',
                 isCorrect ? correctColor : incorrectColor
               )}
-              key={`${timeInSeconds}_${isCorrect}`}
+              key={+dateGuessed}
             >
-              <span>{timeInSeconds}</span>
+              <span>{timeInSeconds.toFixed(1)}s</span>
               <span>
                 {formatDayjsGuessDate(dateGuessed) === currentGuess && '⚪️'}
                 {dateGuessed.format(dateFormat)}

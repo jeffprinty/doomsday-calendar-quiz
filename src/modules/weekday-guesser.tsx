@@ -33,6 +33,7 @@ export const WeekdayGuesser = ({
         const thisDayIsCorrect = selectedDay !== undefined && correctDay === day;
         const thisDayWasSelected = selectedDay === day;
         const incorrectSelection = selectedDay !== correctDay;
+        console.log('selectedDay !== correctDay', selectedDay, correctDay);
         return (
           <Button
             className={clsx([

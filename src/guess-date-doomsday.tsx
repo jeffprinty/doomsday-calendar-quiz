@@ -14,6 +14,7 @@ import {
   getDayjsRandomDateInModernity,
   getDoomsdayWeekdayForYear,
   getFullWeekday,
+  getWeekdayForDate,
 } from './math/dates';
 import { Weekday } from './math/weekdays';
 import { GuessPayload } from './modules/module.types';
@@ -104,7 +105,7 @@ const GuessDateDoomsdayInModernity = () => {
             minimizeOnGuess
           />
           <WeekdayGuesser
-            correctDay={dateToGuess.format('ccc') as Weekday}
+            correctDay={getWeekdayForDate(dateToGuess)}
             key={`date_${startTime}`}
             onGuess={handleGuess}
           />

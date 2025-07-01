@@ -2,7 +2,7 @@ import { useState } from 'react';
 
 import clsx from 'clsx';
 import { Dayjs } from 'dayjs';
-import { BiCog, BiHelpCircle, BiSolidBolt } from 'react-icons/bi';
+import { BiCog, BiHelpCircle } from 'react-icons/bi';
 
 import { timeoutMs } from './common';
 import DoomsdayDifference from './components/equations/doomsday-difference';
@@ -71,25 +71,17 @@ const GuessDateDoomsdayWithinYear = ({
       id='page__guess-date-within-year'
     >
       <div className='' id='quiz__top-bit'>
-        <QuizResults answers={pastAnswers} currentGuess={dateStringToGuess} />
+        <QuizResults answers={pastAnswers} currentGuess={dateStringToGuess} dateFormat='MMM D' />
         <div className='relative'>
           <GuessDisplay
+            autoMode={autoNext}
+            autoProcessing={nextGuessIncoming}
             explainIncorrect={`is on ${getFullWeekday(dateToGuess)}`}
             questionText='What day of the week is:'
             guessText={dateStringToGuess}
             guessedCorrectly={lastAnswerCorrect}
           />
-          {autoNext && (
-            <div
-              className={clsx(
-                'absolute right-2 top-2',
-                autoNext && nextGuessIncoming && 'animate-spin'
-              )}
-            >
-              <BiSolidBolt className='h-6 w-6' />
-            </div>
-          )}
-          <div className='absolute bottom-2 right-2 flex w-16 flex-row justify-around'>
+          <div className='absolute bottom-3 right-1 flex w-16 flex-row justify-around'>
             <button
               className={clsx(showSettings && 'text-indigo-300')}
               onClick={() => setShowSettings(!showSettings)}
