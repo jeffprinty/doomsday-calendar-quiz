@@ -11,7 +11,7 @@ export const DoomsyearEquation = ({ fullYear }: { fullYear: number }) => {
   const yearIsOdd = isOdd(year);
   const extraStep = firstResult !== secondResult;
   const centuryAnchorDay = getAnchorDay(century);
-
+  const addedUp = moduloFromSeven + Number(centuryAnchorDay);
   return (
     <div className='text-right'>
       <span className={commonStyles.year}>{yearPadded}</span> {yearIsOdd ? '+ 11 / 2' : '/ 2'} ={' '}
@@ -31,7 +31,15 @@ export const DoomsyearEquation = ({ fullYear }: { fullYear: number }) => {
       <br />
       <span className={commonStyles.step4}>{moduloFromSeven}</span> +{' '}
       <span className={commonStyles.step5}>{centuryAnchorDay}</span> ={' '}
-      <span className=''>{moduloFromSeven + Number(centuryAnchorDay)}</span>
+      <span className=''>{addedUp}</span>
+      {addedUp > 6 && (
+        <>
+          <br />
+          <span className=''>
+            {addedUp} % 7 = {addedUp % 7}
+          </span>
+        </>
+      )}
     </div>
   );
 };

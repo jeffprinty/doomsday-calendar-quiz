@@ -4,6 +4,7 @@ import { Dayjs } from 'dayjs';
 
 import { timeoutMs } from './common';
 import { DoomsyearEquation } from './components/doomsyear-equation';
+import DoomsdayDifference from './components/equations/doomsday-difference';
 import GuessDisplay from './components/guess-display';
 import QuizResults from './components/quiz-results';
 import { GuessActions, Hint } from './components/shared';
@@ -114,8 +115,10 @@ const GuessDateDoomsdayInModernity = () => {
             toggleAuto={() => setAutoNext(!autoNext)}
           />
         </div>
-        <Hint key={dateToGuess.year()}>
+        <Hint contentClassName='text-right' key={dateToGuess.year()}>
           <DoomsyearEquation fullYear={dateToGuess.year()} />
+          <br />
+          <DoomsdayDifference isoDate={dateToGuess.toISOString()} />
         </Hint>
       </div>
     </div>

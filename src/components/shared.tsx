@@ -192,12 +192,20 @@ export const StepDisplay = ({
   return <div className={clsx('step-display', className)}>{children}</div>;
 };
 
-export const Hint = ({ children }: { children: ReactNode | Array<ReactNode> }) => {
+export const Hint = ({
+  children,
+  className,
+  contentClassName,
+}: {
+  children: ReactNode | Array<ReactNode>;
+  className?: string;
+  contentClassName?: string;
+}) => {
   const [showHint, setShowHint] = useState(false);
   return (
-    <div className='hint'>
+    <div className={clsx('hint', className)}>
       <Button onClick={() => setShowHint(!showHint)}>{showHint ? 'Hide' : 'Show'} Hint</Button>
-      {showHint && <div className=''>{children}</div>}
+      {showHint && <div className={clsx('hint__content', contentClassName)}>{children}</div>}
     </div>
   );
 };
