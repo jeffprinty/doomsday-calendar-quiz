@@ -12,10 +12,10 @@ const bunchOfIsoDates = Array.from({ length: 120 }, (x, i) => {
 
 const EquationsModule = () => {
   return (
-    <div className='flex flex-col'>
+    <div className='flex flex-col text-xs'>
       {bunchOfIsoDates.map(([isoDate, shortDate]) => (
         <div key={isoDate}>
-          <DoomsdayDifference isoDate={isoDate} />
+          {shortDate}: <DoomsdayDifference isoDate={isoDate} />
         </div>
       ))}
     </div>

@@ -1,10 +1,10 @@
 import dayjs from 'dayjs';
 
-import { getDoomsdayWithinMonth, getFullWeekday, getMonthMnemonicForDate } from '../../math/dates';
+import { getDoomsdayWithinMonth, getFullWeekday, getMonthMnemonicForDate, getWeekdayForDate } from '../../math/dates';
 import { commonStyles } from '../../common';
 import { ReactNode } from 'react';
 
-const formatWeekDistance = (howManySevens: number) => `minus ${howManySevens} week${howManySevens > 1 ? 's' : ''}`;
+const formatWeekDistance = (howManySevens: number) => `${howManySevens} week${howManySevens > 1 ? 's' : ''}`;
 
 const DoomsdayDifference = ({ isoDate }: { isoDate: string }) => {
   const target = dayjs(isoDate);
@@ -16,33 +16,40 @@ const DoomsdayDifference = ({ isoDate }: { isoDate: string }) => {
   }
   let equationStuff: ReactNode;
   const doomsday = getDoomsdayWithinMonth(target, common);
-  const doomsdayWeekday = getFullWeekday(doomsday);
+  const doomsdayWeekday = getWeekdayForDate(doomsday);
+  const weekdayForTarget = getWeekdayForDate(target);
   if (common < targetDayOfMonth) {
     const diffTargetMinusDoomsday = targetDayOfMonth - common;
     const howManySevens = Math.floor(diffTargetMinusDoomsday / 7);
     const moduloSeven = diffTargetMinusDoomsday % 7;
-    const addSevensLongWay = Array.from({ length: howManySevens }, () => '+ 7').join(' ');
-    const sevensOrNah = howManySevens
-      ? <>{formatWeekDistance(howManySevens)} = {monthNumber}/{howManySevens * 7 + common} is the nearest {doomsdayWeekday}</>
-      : <></>;
-    equationStuff = <>{sevensOrNah} {moduloSeven}</>;
+    const weekMath = formatWeekDistance(howManySevens);
+    if (howManySevens) {
+      const sevens = (<>
+        <span className={commonStyles.step4}>plus {weekMath}</span>
+        <> = </>
+        <span className={commonStyles.step5}>{monthNumber}/{howManySevens * 7 + common} {doomsdayWeekday}</span>
+        &nbsp;
+        <span> + {moduloSeven} = {weekdayForTarget}</span>
+      </>);
+      equationStuff = sevens;
+    } else {
+      equationStuff = <>{doomsdayWeekday} + {moduloSeven} = {weekdayForTarget}</>;
+    }
   }
   if (targetDayOfMonth < common) {
     const diffDoomsdayMinusTarget = common - targetDayOfMonth;
     const howManySevens = Math.floor(diffDoomsdayMinusTarget / 7);
     const moduloSeven = diffDoomsdayMinusTarget % 7;
-    const subtractSevens = <>minus {howManySevens} weeks</>;
-    const sevensLongWay = Array.from({ length: howManySevens }, () => '- 7').join(' ');
-
     const sevensOrNah = howManySevens
-      ? <>{formatWeekDistance(howManySevens)} = {monthNumber}/{common - howManySevens * 7} is the nearest {doomsdayWeekday}</>
-      : <></>;
-    equationStuff = <>{sevensOrNah} -{moduloSeven}</>
+      ? <>minus {formatWeekDistance(howManySevens)} = {monthNumber}/{common - howManySevens * 7} is the nearest {doomsdayWeekday}</>
+      : <>{doomsdayWeekday}</>;
+    equationStuff = <>{sevensOrNah} - {moduloSeven}</>
   }
+  const doomsdayShortMonth = <>{monthNumber}/{common}</>
   return (
-    <span className='doomsday-difference text-xs'>
+    <span className='doomsday-difference'>
       <span className={commonStyles.step1}>
-        Doomsday is {monthNumber}/{common}
+        {doomsdayShortMonth}
       </span>
       &nbsp;
       {equationStuff}
