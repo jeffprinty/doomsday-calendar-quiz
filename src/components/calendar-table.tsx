@@ -1,7 +1,7 @@
 import clsx from 'clsx';
 
 import { CalendarDay } from '../common';
-import { formatFullDateWithWeekdayDayJs } from '../math/dates';
+import { formatFullDateWithWeekday } from '../math/dates';
 import { weekdayNames } from '../math/weekdays';
 
 const CalendarTable = ({
@@ -61,7 +61,7 @@ const CalendarTable = ({
                   >
                     <button
                       className={clsx('w-full rounded-2xl py-2 text-xl', cellClassName)}
-                      title={formatFullDateWithWeekdayDayJs(dayJsDay)}
+                      title={formatFullDateWithWeekday(dayJsDay)}
                       onClick={() => !!handleDayClick && handleDayClick(day)}
                     >
                       {dayNumber}

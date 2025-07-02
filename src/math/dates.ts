@@ -25,8 +25,7 @@ dayjs.extend(duration);
 dayjs.tz.guess();
 
 const fullDateFormat = 'dddd MMMM DD, YYYY';
-
-export const formatFullDateWithWeekdayDayJs = (date: Dayjs) => date.format(fullDateFormat);
+export const formatFullDateWithWeekday = (date: Dayjs) => date.format(fullDateFormat);
 
 export const getFirstDateForCalendar = (year: number) => {
   return dayjs({ year, month: 0, date: 1 }).startOf('week');
@@ -55,7 +54,7 @@ export const getDoomsdayWithinMonth = (date: Dayjs, common: number, leap?: numbe
     date: leap || common,
   });
 
-export const getDayjsRandomDateInModernity = () => {
+export const getRandomDateInModernity = () => {
   const randomYear = randomInteger(1900, 2099);
   return getRandomDateInYear(randomYear);
 };

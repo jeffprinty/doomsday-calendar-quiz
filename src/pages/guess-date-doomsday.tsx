@@ -11,9 +11,9 @@ import { GuessActions, Hint } from '../components/shared';
 import useAnswerHistory from '../hooks/use-answer-history';
 import {
   formatDayjsGuessDate,
-  getDayjsRandomDateInModernity,
   getDoomsdayWeekdayForYear,
   getFullWeekday,
+  getRandomDateInModernity,
   getWeekdayForDate,
 } from '../math/dates';
 import { Weekday } from '../math/weekdays';
@@ -23,7 +23,7 @@ import WeekdayGuesser from '../modules/weekday-guesser';
 const weekdayGuesserTitle = 'bg-purple-900 w-full text-center text-sm';
 
 const GuessDateDoomsdayInModernity = () => {
-  const startWithTimeAlready = getDayjsRandomDateInModernity();
+  const startWithTimeAlready = getRandomDateInModernity();
   const [autoNext, setAutoNext] = useState(false);
   const [dateToGuess, setCurrentDateToGuess] = useState<Dayjs>(startWithTimeAlready);
   const [enableDoomsdayClick, setEnableDoomsdayClick] = useState(true);
@@ -76,7 +76,7 @@ const GuessDateDoomsdayInModernity = () => {
         return oldestWrongGuess;
       }
     }
-    const newRandomDate = getDayjsRandomDateInModernity();
+    const newRandomDate = getRandomDateInModernity();
     setCurrentDateToGuess(newRandomDate);
     return newRandomDate;
   };
