@@ -73,6 +73,7 @@ const routeArray = [
     path: '/full',
     element: <GuessFullDateV1 />,
     text: 'full',
+    extra: true,
   },
   {
     path: '/progressive',
@@ -87,9 +88,11 @@ const routeArray = [
   },
 ];
 
-const navLinks: Array<NavItem> = routeArray.map(({ path, element, ...navItemValues }) => ({
+const navLinks: Array<NavItem> = routeArray.map(({ end, extra, path, text }) => ({
   to: `${baseUrl}${path}`,
-  ...navItemValues,
+  end,
+  extra,
+  text,
 }));
 
 const AllPages = () => {
@@ -118,7 +121,7 @@ const Base = () => {
   return (
     <main className='flex max-w-full flex-col items-center justify-start bg-primary text-color'>
       <NavBar navItems={navLinks} />
-      <div className='flex max-w-full flex-col items-center justify-start sm:w-1/2 md:max-w-[1240px]'>
+      <div className='flex w-full max-w-full flex-col items-center justify-start sm:w-1/2 md:max-w-[1240px]'>
         <Routes>
           {routeArray.map((routeProps) => (
             <Route {...routeProps} key={routeProps.path} />

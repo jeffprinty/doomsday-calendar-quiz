@@ -23,7 +23,7 @@ const NavBar = ({ navItems }: { navItems: Array<NavItem> }) => {
   // Toggle function to handle the navbar's display
   const handleNav = () => setNavOpen(!navOpen);
 
-  const renderNavLink = ({ text, ...navLinkProperties }: NavItem, className: string) => (
+  const renderNavLink = ({ text, extra, ...navLinkProperties }: NavItem, className: string) => (
     <NavLink
       key={text}
       className={({ isActive }) => clsx(className, isActive ? navLinkActive : navLinkInactive)}
@@ -76,8 +76,8 @@ const NavBar = ({ navItems }: { navItems: Array<NavItem> }) => {
         </h1>
 
         {/* Mobile Navigation Items */}
-        {navItems.map((item) => (
-          <li key={item.text} className='px-2 py-1 text-right md:px-4'>
+        {navItems.map(({ extra, ...item }) => (
+          <li key={item.text} data-extra={extra} className='px-2 py-1 text-right md:px-4'>
             {renderNavLink(
               item,
               'cursor-pointer duration-300 hover:bg-[#00df9a] hover:text-black text-xl'

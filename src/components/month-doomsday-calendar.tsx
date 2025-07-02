@@ -16,7 +16,6 @@ const MonthDoomsdayCalendar = () => {
   const [randomMnemonic, setRandomMnemonic] = useState(initRandomMnemonic);
   const [lastAnswerCorrect, setLastAnswerCorrect] = useState<boolean | undefined>();
   const [answerClicked, setAnswerClicked] = useState<number | undefined>();
-
   const [autoNext, setAutoNext] = useState(false);
 
   const chunkedByWeek = chunkArray(daysTable, 7);
@@ -28,7 +27,9 @@ const MonthDoomsdayCalendar = () => {
     correctOptions.push(leap);
   }
   const allIncorrectOptions = allDaysFromMnemonics.filter((d) => !correctOptions.includes(d));
-  const incorrectOptions = pickRandomlyFromArray(allIncorrectOptions, 3);
+  const [incorrectOptions, setIncorrectOptions] = useState<Array<number>>(
+    pickRandomlyFromArray(allIncorrectOptions, 3)
+  );
 
   const combinedOptions = new Set([...correctOptions, ...incorrectOptions]);
 
@@ -38,24 +39,28 @@ const MonthDoomsdayCalendar = () => {
     }
     setAnswerClicked(dayNumber);
     setLastAnswerCorrect(correctOptions.includes(dayNumber));
-    setTimeout(() => heroClick(), timeoutMs);
+    if (autoNext) {
+      setTimeout(() => heroClick(), timeoutMs);
+    }
   };
 
   const heroClick = () => {
     setRandomMnemonic(getRandomMnemonic());
     setLastAnswerCorrect(undefined);
     setAnswerClicked(undefined);
+    setIncorrectOptions(pickRandomlyFromArray(allIncorrectOptions, 3));
   };
 
   return (
     <div className='long-calendar flex w-full flex-col items-start justify-center'>
-      <PageDescribe title='Month Doomsday Practice' className='text-sm'>
+      <PageDescribe title='Month Doomsday Practice' className='text-sm' collapsible initCollapsed>
         Use this page to practice recalling the doomsday month mnemonic for a given month. You will
         be prompted with a month and a calendar with 4 highlighted dates, choose the correct
         doomsday date.
       </PageDescribe>
       <GuessDisplay
-        className={clsx(!!answerClicked && 'animate-pulse')}
+        autoMode={autoNext}
+        className=''
         explainCorrect={memeticHandle}
         explainIncorrect=' '
         questionText='What is the doomsday for:'

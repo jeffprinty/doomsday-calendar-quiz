@@ -1,5 +1,6 @@
 import { ReactNode } from 'react';
 
+import clsx from 'clsx';
 import dayjs from 'dayjs';
 
 import { commonStyles } from '../../common';
@@ -14,7 +15,7 @@ const dayOffsetStyle = 'text-indigo-300';
 const formatWeekDistance = (howManySevens: number) =>
   `${howManySevens} week${howManySevens > 1 ? 's' : ''}`;
 
-const DoomsdayDifference = ({ isoDate }: { isoDate: string }) => {
+const DoomsdayDifference = ({ className, isoDate }: { className?: string; isoDate: string }) => {
   const target = dayjs(isoDate);
   const { common, monthNumber } = getMonthMnemonicForDate(target);
   const targetDayOfMonth = target.date();
@@ -104,7 +105,7 @@ const DoomsdayDifference = ({ isoDate }: { isoDate: string }) => {
     }
   }
   return (
-    <span className='doomsday-difference'>
+    <span className={clsx('doomsday-difference', className)}>
       &nbsp;
       {equationStuff}
     </span>

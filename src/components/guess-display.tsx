@@ -25,13 +25,15 @@ const GuessDisplay = ({
   explainIncorrect?: string | React.ReactNode;
 }) => {
   const explainMessage = guessedCorrectly ? explainCorrect : explainIncorrect;
-  console.log('explainMessage', explainMessage);
+  console.debug('explainMessage', explainMessage);
+  const isAnswered = guessedCorrectly !== undefined;
   return (
     <div
       id='quiz__year-to-guess'
       className={clsx([
         className,
         'relative flex w-full flex-col items-center justify-center bg-gradient-to-r pb-3 pt-4 text-center',
+        isAnswered && autoMode && 'animate-pulse',
         guessedCorrectly === undefined && 'from-blue-500 to-blue-800',
         guessedCorrectly === true && 'from-green-500 to-green-800',
         guessedCorrectly === false && 'from-red-600 to-orange-600',
@@ -39,9 +41,7 @@ const GuessDisplay = ({
     >
       <span className=''>{questionText}</span>
       <h2 className={clsx(guessTextClassName, isLeapYear && 'text-blue-400')}>{guessText}</h2>
-      <div
-        className={clsx('mt-1 text-xl', guessedCorrectly !== undefined ? 'visible' : 'invisible')}
-      >
+      <div className={clsx('mt-1 text-xl', isAnswered ? 'visible' : 'invisible')}>
         {explainCorrect}
       </div>
       {autoMode && autoProcessing && (

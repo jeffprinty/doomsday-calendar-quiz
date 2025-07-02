@@ -51,7 +51,7 @@ export const getDayjsRandomDateInYear = (year: number) => {
 export const getDoomsdayWithinMonth = (date: Dayjs, common: number, leap?: number) =>
   dayjs({
     year: date.year(),
-    month: date.month(),
+    month: date.month() + 1,
     date: leap || common,
   });
 

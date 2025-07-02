@@ -31,6 +31,8 @@ const GuessOffsetForDate = () => {
   return (
     <div id='page__guess-offset-for-date' className='w-full'>
       <OffsetGuesser
+        autoMode={autoNext}
+        autoProcessing={nextGuessIncoming}
         indicate={nextGuessIncoming}
         onAnswer={handleAnswer}
         guessingDate={guessingDate}
