@@ -107,6 +107,15 @@ const GuessDateDoomsdayInModernity = () => {
             </button>
           )}
         />
+        {showHint && (
+          <>
+            <DoomsyearEquation flat fullYear={dateToGuess.year()} />
+            <DoomsdayDifference
+              className='flex flex-row justify-center'
+              isoDate={dateToGuess.toISOString()}
+            />
+          </>
+        )}
       </div>
       <div id='quiz__bottom-bit' className='h-72'>
         <div className='' id='quiz__actions'>
