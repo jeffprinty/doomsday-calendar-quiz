@@ -8,9 +8,9 @@ import YearGuessingHelper from '../components/year-guessing-helper';
 import useAnswerHistory from '../hooks/use-answer-history';
 import {
   formatDayjsGuessDate,
-  getDayjsRandomDateInYear,
   getDoomsdayForYear,
   getFullWeekday,
+  getRandomDateInYear,
   getWeekdayForDate,
 } from '../math/dates';
 import { Weekday } from '../math/weekdays';
@@ -20,7 +20,7 @@ import WeekdayGuesser from '../modules/weekday-guesser';
 
 const GuessFullDate = () => {
   const initYear = getRandomYear();
-  const initRandomDateWithinYear = getDayjsRandomDateInYear(initYear);
+  const initRandomDateWithinYear = getRandomDateInYear(initYear);
 
   const [guessingDate, setGuessingDate] = useState(initRandomDateWithinYear);
 
@@ -45,7 +45,7 @@ const GuessFullDate = () => {
 
   const getNewGuess = () => {
     const randomYearAsInt = getRandomYear();
-    const randomDateWithinYear = getDayjsRandomDateInYear(randomYearAsInt);
+    const randomDateWithinYear = getRandomDateInYear(randomYearAsInt);
     setGuessingDate(randomDateWithinYear);
     onNewQuestion();
 

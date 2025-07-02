@@ -13,8 +13,8 @@ import { GuessActions } from '../components/shared';
 import useAnswerHistory from '../hooks/use-answer-history';
 import {
   formatDayjsGuessDate,
-  getDayjsRandomDateInYear,
   getFullWeekday,
+  getRandomDateInYear,
   getWeekdayForDate,
 } from '../math/dates';
 import { Weekday } from '../math/weekdays';
@@ -147,7 +147,7 @@ const YearInput = ({
 
 const GuessDateWithinYear = ({ year }: { year?: number }) => {
   const initYear = year || new Date().getFullYear();
-  const startWithTimeAlready = getDayjsRandomDateInYear(initYear);
+  const startWithTimeAlready = getRandomDateInYear(initYear);
   const [guessingYear, setGuessingYear] = useState(initYear);
   const [guessingAgain, setGuessingAgain] = useState(false);
 
@@ -167,7 +167,7 @@ const GuessDateWithinYear = ({ year }: { year?: number }) => {
         return oldestWrongGuess;
       }
     }
-    const newRandomDate = getDayjsRandomDateInYear(guessingYear);
+    const newRandomDate = getRandomDateInYear(guessingYear);
     setCurrentDateToGuess(newRandomDate);
     return newRandomDate;
   };

@@ -43,7 +43,7 @@ export const getDoomsdayWeekdayForYear = (year: number): Weekday =>
 export const getDoomsdayFullWeekdayForYear = (year: number) =>
   getFullWeekday(getDoomsdayForYear(year));
 
-export const getDayjsRandomDateInYear = (year: number) => {
+export const getRandomDateInYear = (year: number) => {
   const randomDayOfYear = randomInteger(1, 365);
   return dayjs(`${year}-01-01`).dayOfYear(randomDayOfYear);
 };
@@ -57,7 +57,7 @@ export const getDoomsdayWithinMonth = (date: Dayjs, common: number, leap?: numbe
 
 export const getDayjsRandomDateInModernity = () => {
   const randomYear = randomInteger(1900, 2099);
-  return getDayjsRandomDateInYear(randomYear);
+  return getRandomDateInYear(randomYear);
 };
 
 export const formatDayjsGuessDate = (date: Dayjs) => dayjs(date).format('MMMM DD, YYYY');
