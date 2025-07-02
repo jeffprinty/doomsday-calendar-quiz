@@ -85,21 +85,23 @@ const GuessDateDoomsdayWithinYear = ({
             questionText='What day of the week is:'
             guessText={dateStringToGuess}
             guessedCorrectly={lastAnswerCorrect}
+            renderButtons={() => (
+              <>
+                <button
+                  className={clsx(showSettings && 'text-indigo-300')}
+                  onClick={() => setShowSettings(!showSettings)}
+                >
+                  <BiCog size={20} />
+                </button>
+                <button
+                  className={clsx(showHint && 'text-indigo-300')}
+                  onClick={() => setShowHint(!showHint)}
+                >
+                  <BiHelpCircle size={20} />
+                </button>
+              </>
+            )}
           />
-          <div className='absolute bottom-3 right-1 flex w-16 flex-row justify-around'>
-            <button
-              className={clsx(showSettings && 'text-indigo-300')}
-              onClick={() => setShowSettings(!showSettings)}
-            >
-              <BiCog size={20} />
-            </button>
-            <button
-              className={clsx(showHint && 'text-indigo-300')}
-              onClick={() => setShowHint(!showHint)}
-            >
-              <BiHelpCircle size={20} />
-            </button>
-          </div>
         </div>
         {showSettings && <YearInput onSubmit={updateYear} initYear={dateToGuess.year()} />}
       </div>
@@ -113,6 +115,7 @@ const GuessDateDoomsdayWithinYear = ({
         <div className='pt-3' id='quiz__actions'>
           <WeekdayGuesser
             correctDay={getWeekdayForDate(dateToGuess)}
+            disableOnGuess
             key={`date_${startTime}`}
             onGuess={handleGuess}
           />

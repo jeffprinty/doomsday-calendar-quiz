@@ -1,3 +1,5 @@
+import { ReactNode } from 'react';
+
 import clsx from 'clsx';
 import { BiLoaderCircle } from 'react-icons/bi';
 
@@ -12,6 +14,7 @@ const GuessDisplay = ({
   questionText,
   explainCorrect,
   explainIncorrect,
+  renderButtons,
 }: {
   autoMode?: boolean;
   autoProcessing?: boolean;
@@ -23,6 +26,7 @@ const GuessDisplay = ({
   questionText: string;
   explainCorrect?: string | React.ReactNode;
   explainIncorrect?: string | React.ReactNode;
+  renderButtons?: () => ReactNode | Array<ReactNode>;
 }) => {
   const explainMessage = guessedCorrectly ? explainCorrect : explainIncorrect;
   console.debug('explainMessage', explainMessage);
@@ -55,14 +59,11 @@ const GuessDisplay = ({
           <BiLoaderCircle className='h-6 w-6' />
         </div>
       )}
-      {/*
-      <button
-        className={clsx('absolute bottom-2 right-2', showSettings && 'text-indigo-300')}
-        onClick={() => setShowSettings(!showSettings)}
-      >
-        <MdSettings />
-      </button>
-      */}
+      {typeof renderButtons === 'function' && (
+        <div className='absolute bottom-3 right-1 flex w-16 flex-row justify-around'>
+          {renderButtons()}
+        </div>
+      )}
     </div>
   );
 };

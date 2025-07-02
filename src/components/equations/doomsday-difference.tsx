@@ -104,12 +104,7 @@ const DoomsdayDifference = ({ className, isoDate }: { className?: string; isoDat
       );
     }
   }
-  return (
-    <span className={clsx('doomsday-difference', className)}>
-      &nbsp;
-      {equationStuff}
-    </span>
-  );
+  return <span className={clsx('doomsday-difference', className)}>{equationStuff}</span>;
 };
 
 export default DoomsdayDifference;

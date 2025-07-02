@@ -1,13 +1,15 @@
 import { useState } from 'react';
 
+import clsx from 'clsx';
 import { Dayjs } from 'dayjs';
+import { BiHelpCircle } from 'react-icons/bi';
 
 import { timeoutMs } from '../common';
-import { DoomsyearEquation } from '../components/doomsyear-equation';
 import DoomsdayDifference from '../components/equations/doomsday-difference';
+import DoomsyearEquation from '../components/equations/doomsyear-equation';
 import GuessDisplay from '../components/guess-display';
 import QuizResults from '../components/quiz-results';
-import { GuessActions, Hint } from '../components/shared';
+import { GuessActions } from '../components/shared';
 import useAnswerHistory from '../hooks/use-answer-history';
 import {
   formatDayjsGuessDate,
@@ -28,6 +30,7 @@ const GuessDateDoomsdayInModernity = () => {
   const [dateToGuess, setCurrentDateToGuess] = useState<Dayjs>(startWithTimeAlready);
   const [enableDoomsdayClick, setEnableDoomsdayClick] = useState(true);
   const [guessingAgain, setGuessingAgain] = useState(false);
+  const [showHint, setShowHint] = useState(false);
   const [nextGuessIncoming, setNextGuessIncoming] = useState(false);
   const [wronglyGuessedDates, setWronglyGuessedDates] = useState<Array<Dayjs>>([]);
 
@@ -95,6 +98,14 @@ const GuessDateDoomsdayInModernity = () => {
           questionText='What day of the week is:'
           guessText={dateStringToGuess}
           guessedCorrectly={lastAnswerCorrect}
+          renderButtons={() => (
+            <button
+              className={clsx(showHint && 'text-indigo-300')}
+              onClick={() => setShowHint(!showHint)}
+            >
+              <BiHelpCircle size={20} />
+            </button>
+          )}
         />
       </div>
       <div id='quiz__bottom-bit' className='h-72'>
@@ -120,11 +131,6 @@ const GuessDateDoomsdayInModernity = () => {
             toggleAuto={() => setAutoNext(!autoNext)}
           />
         </div>
-        <Hint contentClassName='text-right' key={dateToGuess.year()}>
-          <DoomsyearEquation fullYear={dateToGuess.year()} />
-          <br />
-          <DoomsdayDifference isoDate={dateToGuess.toISOString()} />
-        </Hint>
       </div>
     </div>
   );
