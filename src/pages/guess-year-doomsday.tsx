@@ -1,14 +1,14 @@
 import { useState } from 'react';
 
-import Button from './components/button';
-import GuessDisplay from './components/guess-display';
-import QuizResults from './components/quiz-results';
-import { YearStepHelperHorizontal } from './components/shared';
-import useAnswerHistory from './hooks/use-answer-history';
-import { getDayjsDoomsdayForYear } from './math/dates';
-import { Weekday } from './math/weekdays';
-import { getRandomYear } from './math/year';
-import WeekdayGuesser from './modules/weekday-guesser';
+import Button from '../components/button';
+import GuessDisplay from '../components/guess-display';
+import QuizResults from '../components/quiz-results';
+import { YearStepHelperHorizontal } from '../components/shared';
+import useAnswerHistory from '../hooks/use-answer-history';
+import { getDayjsDoomsdayForYear } from '../math/dates';
+import { Weekday } from '../math/weekdays';
+import { getRandomYear } from '../math/year';
+import WeekdayGuesser from '../modules/weekday-guesser';
 
 const GuessYearDoomsday = () => {
   const initYear = getRandomYear();

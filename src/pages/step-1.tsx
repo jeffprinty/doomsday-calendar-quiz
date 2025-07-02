@@ -1,10 +1,10 @@
 import { useState } from 'react';
 
-import Button from './components/button';
-import MonthDoomsdayCalendar from './components/month-doomsday-calendar';
-import { StepDisplay } from './components/shared';
+import Button from '../components/button';
+import { StepDisplay } from '../components/shared';
+import { mnemonics } from '../math/month-doomsdays';
+import MonthDoomsdayCalendar from '../pages/month-doomsday-calendar';
 import GuessOffsetForDate from './guess-offset-for-date';
-import { mnemonics } from './math/month-doomsdays';
 
 const StepOne = () => {
   const [step, setStep] = useState(1);

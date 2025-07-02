@@ -1,21 +1,20 @@
-import { ReactNode } from 'react';
+import { Fragment, ReactNode } from 'react';
 
 import { Route, Routes } from 'react-router-dom';
 
-import AllSteps from './all-steps';
-import { Home } from './components/home';
-import LongCalendar from './components/long-calendar';
-import MonthDoomsdayCalendar from './components/month-doomsday-calendar';
 import NavBar, { NavItem } from './components/nav-bar';
-import GuessDateDoomsdayInModernity from './guess-date-doomsday';
-import GuessDateDoomsday from './guess-date-doomsday-within-year.old';
-import GuessFullDateV1 from './guess-full-date-v1';
-import GuessOffsetForDate from './guess-offset-for-date';
-import GuessProgressive from './guess-progressive';
-import GuessYearDoomsday from './guess-year-doomsday';
-import OddPlusEleven from './modules/odd-plus-eleven';
-import Reference from './reference';
-import StepOne from './step-1';
+import AllSteps from './pages/all-steps';
+import GuessDateDoomsdayInModernity from './pages/guess-date-doomsday';
+import GuessDateDoomsdayWithinYear from './pages/guess-date-doomsday-within-year.old';
+import GuessFullDateV1 from './pages/guess-full-date-v1';
+import GuessOffsetForDate from './pages/guess-offset-for-date';
+import GuessProgressive from './pages/guess-progressive';
+import GuessYearDoomsday from './pages/guess-year-doomsday';
+import Home from './pages/home';
+import MonthDoomsdayCalendar from './pages/month-doomsday-calendar';
+import OddPlusEleven from './pages/odd-plus-eleven';
+import Reference from './pages/reference';
+import StepOne from './pages/step-1';
 
 const baseUrl = import.meta.env.BASE_URL;
 const currentYear = new Date().getFullYear().toString();
@@ -59,7 +58,7 @@ const routeArray: Array<RouteArray> = [
   },
   {
     path: '/within',
-    element: <GuessDateDoomsday />,
+    element: <GuessDateDoomsdayWithinYear />,
     text: currentYear,
     category: 'practice',
   },
@@ -120,20 +119,12 @@ const navLinks: Array<NavItem> = routeArray.map(({ path, element, index, ...navI
 const AllPages = () => {
   return (
     <div className='flex flex-col'>
-      <h2>GuessDateDoomsday</h2>
-      <GuessDateDoomsday />
-      <h2>StepOne</h2>
-      <StepOne />
-      <h2>GuessYearDoomsday</h2>
-      <GuessYearDoomsday />
-      <h2>GuessFullDateV1</h2>
-      <GuessFullDateV1 />
-      <h2>GuessProgressive</h2>
-      <GuessProgressive />
-      <h2>LongCalendar</h2>
-      <LongCalendar />
-      <h2>GuessOffsetForDate</h2>
-      <GuessOffsetForDate />
+      {routeArray.map(({ element, text }) => (
+        <Fragment key={text}>
+          <h2>{text}</h2>
+          {element}
+        </Fragment>
+      ))}
     </div>
   );
 };

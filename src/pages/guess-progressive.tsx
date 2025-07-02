@@ -1,22 +1,22 @@
 import { useState } from 'react';
 
-import Button from './components/button';
-import GuessDisplay from './components/guess-display';
-import QuizResults from './components/quiz-results';
-import { GuesserStep } from './components/shared';
-import YearGuessingHelper from './components/year-guessing-helper';
-import useAnswerHistory from './hooks/use-answer-history';
+import Button from '../components/button';
+import GuessDisplay from '../components/guess-display';
+import QuizResults from '../components/quiz-results';
+import { GuesserStep } from '../components/shared';
+import YearGuessingHelper from '../components/year-guessing-helper';
+import useAnswerHistory from '../hooks/use-answer-history';
 import {
   formatDayjsGuessDate,
   getDayjsDoomsdayForYear,
   getDayjsRandomDateInYear,
   getFullWeekday,
   getWeekdayForDate,
-} from './math/dates';
-import { Weekday } from './math/weekdays';
-import { getRandomYear } from './math/year';
-import OffsetGuesser from './modules/offset-guesser';
-import WeekdayGuesser from './modules/weekday-guesser';
+} from '../math/dates';
+import { Weekday } from '../math/weekdays';
+import { getRandomYear } from '../math/year';
+import OffsetGuesser from '../modules/offset-guesser';
+import WeekdayGuesser from '../modules/weekday-guesser';
 
 const GuessFullDate = () => {
   const initYear = getRandomYear();

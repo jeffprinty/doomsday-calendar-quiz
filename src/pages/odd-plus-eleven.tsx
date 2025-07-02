@@ -13,8 +13,8 @@ import { getDoomsdayWeekdayForYear } from '../math/dates';
 import { oddPlusElevenFull } from '../math/doomsyear-odd-plus-eleven';
 import { Weekday } from '../math/weekdays';
 import { getRandomYear, splitYearIntoComponents } from '../math/year';
-import { GuessPayload } from './module.types';
-import WeekdayGuesser from './weekday-guesser';
+import { GuessPayload } from '../modules/module.types';
+import WeekdayGuesser from '../modules/weekday-guesser';
 
 const Fork = ({
   children,

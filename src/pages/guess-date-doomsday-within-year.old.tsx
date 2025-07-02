@@ -4,22 +4,22 @@ import clsx from 'clsx';
 import { Dayjs } from 'dayjs';
 import { BiCog, BiHelpCircle } from 'react-icons/bi';
 
-import { timeoutMs } from './common';
-import DoomsdayDifference from './components/equations/doomsday-difference';
-import GuessDisplay from './components/guess-display';
-import { PageDescribe } from './components/page-describe';
-import QuizResults from './components/quiz-results';
-import { GuessActions } from './components/shared';
-import useAnswerHistory from './hooks/use-answer-history';
+import { timeoutMs } from '../common';
+import DoomsdayDifference from '../components/equations/doomsday-difference';
+import GuessDisplay from '../components/guess-display';
+import { PageDescribe } from '../components/page-describe';
+import QuizResults from '../components/quiz-results';
+import { GuessActions } from '../components/shared';
+import useAnswerHistory from '../hooks/use-answer-history';
 import {
   formatDayjsGuessDate,
   getDayjsRandomDateInYear,
   getFullWeekday,
   getWeekdayForDate,
-} from './math/dates';
-import { Weekday } from './math/weekdays';
-import { GuessPayload } from './modules/module.types';
-import WeekdayGuesser from './modules/weekday-guesser';
+} from '../math/dates';
+import { Weekday } from '../math/weekdays';
+import { GuessPayload } from '../modules/module.types';
+import WeekdayGuesser from '../modules/weekday-guesser';
 
 const GuessDateDoomsdayWithinYear = ({
   dateToGuess,

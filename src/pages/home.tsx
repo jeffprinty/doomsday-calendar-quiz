@@ -1,8 +1,8 @@
 import { ReactNode } from 'react';
 
+import ExternalLink from '../components/external-link';
+import MnemonicsTable from '../components/mnemonics-table';
 import { getDoomsdayFullWeekdayForYear } from '../math/dates';
-import ExternalLink from './external-link';
-import MnemonicsTable from './mnemonics-table';
 
 const BlockQuote = ({
   attribution,
@@ -45,7 +45,7 @@ const links = [
     title: "Methods for Accelerating Conway's Doomsday Algorithm",
   },
 ];
-export const Home = () => {
+const Home = () => {
   const currentYear = new Date().getFullYear();
   const doomsdayOnYear = getDoomsdayFullWeekdayForYear(currentYear);
   return (
@@ -93,3 +93,5 @@ export const Home = () => {
     </div>
   );
 };
+
+export default Home;

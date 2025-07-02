@@ -2,16 +2,16 @@ import { useState } from 'react';
 
 import clsx from 'clsx';
 
-import Button from './components/button';
-import MnemonicsTable from './components/mnemonics-table';
-import MonthDoomsdayCalendar from './components/month-doomsday-calendar';
-import { PageDescribe } from './components/page-describe';
-import { Hint } from './components/shared';
-import GuessDateDoomsdayInModernity from './guess-date-doomsday';
-import GuessDateWithinYear from './guess-date-doomsday-within-year.old';
+import Button from '../components/button';
+import MnemonicsTable from '../components/mnemonics-table';
+import { PageDescribe } from '../components/page-describe';
+import { Hint } from '../components/shared';
+import { getDoomsdayFullWeekdayForYear } from '../math/dates';
+import GuessDateDoomsdayInModernity from '../pages/guess-date-doomsday';
+import GuessDateWithinYear from '../pages/guess-date-doomsday-within-year.old';
+import MonthDoomsdayCalendar from '../pages/month-doomsday-calendar';
+import OddPlusEleven from '../pages/odd-plus-eleven';
 import GuessOffsetForDate from './guess-offset-for-date';
-import { getDoomsdayFullWeekdayForYear } from './math/dates';
-import OddPlusEleven from './modules/odd-plus-eleven';
 
 const stepClassName = 'pb-6';
 const stepHeadingClassName = 'text-2xl';

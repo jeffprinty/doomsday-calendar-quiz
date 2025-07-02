@@ -2,23 +2,23 @@ import { useState } from 'react';
 
 import { Dayjs } from 'dayjs';
 
-import { timeoutMs } from './common';
-import { DoomsyearEquation } from './components/doomsyear-equation';
-import DoomsdayDifference from './components/equations/doomsday-difference';
-import GuessDisplay from './components/guess-display';
-import QuizResults from './components/quiz-results';
-import { GuessActions, Hint } from './components/shared';
-import useAnswerHistory from './hooks/use-answer-history';
+import { timeoutMs } from '../common';
+import { DoomsyearEquation } from '../components/doomsyear-equation';
+import DoomsdayDifference from '../components/equations/doomsday-difference';
+import GuessDisplay from '../components/guess-display';
+import QuizResults from '../components/quiz-results';
+import { GuessActions, Hint } from '../components/shared';
+import useAnswerHistory from '../hooks/use-answer-history';
 import {
   formatDayjsGuessDate,
   getDayjsRandomDateInModernity,
   getDoomsdayWeekdayForYear,
   getFullWeekday,
   getWeekdayForDate,
-} from './math/dates';
-import { Weekday } from './math/weekdays';
-import { GuessPayload } from './modules/module.types';
-import WeekdayGuesser from './modules/weekday-guesser';
+} from '../math/dates';
+import { Weekday } from '../math/weekdays';
+import { GuessPayload } from '../modules/module.types';
+import WeekdayGuesser from '../modules/weekday-guesser';
 
 const weekdayGuesserTitle = 'bg-purple-900 w-full text-center text-sm';
 

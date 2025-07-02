@@ -1,9 +1,9 @@
 import { useState } from 'react';
 
-import { timeoutMs } from './common';
-import { GuessActions } from './components/shared';
-import { getDayjsRandomDateInYear } from './math/dates';
-import OffsetGuesser from './modules/offset-guesser';
+import { timeoutMs } from '../common';
+import { GuessActions } from '../components/shared';
+import { getDayjsRandomDateInYear } from '../math/dates';
+import OffsetGuesser from '../modules/offset-guesser';
 
 const GuessOffsetForDate = () => {
   const initRandomDateWithinYear = getDayjsRandomDateInYear(2025);

@@ -1,12 +1,12 @@
 import { useState } from 'react';
 
 import { betterDaysTable, CalendarDay, timeoutMs } from '../common';
+import CalendarTable from '../components/calendar-table';
+import GuessDisplay from '../components/guess-display';
+import { PageDescribe } from '../components/page-describe';
+import { GuessActions } from '../components/shared';
 import { allDaysFromMnemonics, getRandomMnemonic } from '../math/month-doomsdays';
 import { chunkArray, pickRandomlyFromArray } from '../utils';
-import CalendarTable from './calendar-table';
-import GuessDisplay from './guess-display';
-import { PageDescribe } from './page-describe';
-import { GuessActions } from './shared';
 
 const MonthDoomsdayCalendar = () => {
   const daysTable = betterDaysTable(32);

@@ -1,10 +1,10 @@
 import js from '@eslint/js';
 import tsParser from '@typescript-eslint/parser';
+import jsxA11y from 'eslint-plugin-jsx-a11y';
 import eslintPluginPrettierRecommended from 'eslint-plugin-prettier/recommended';
 import pluginPromise from 'eslint-plugin-promise';
 import reactPlugin from 'eslint-plugin-react';
 import reactHooks from 'eslint-plugin-react-hooks';
-import jsxA11y from 'eslint-plugin-jsx-a11y';
 import sonarjs from 'eslint-plugin-sonarjs';
 import eslintPluginUnicorn from 'eslint-plugin-unicorn';
 import globals from 'globals';
@@ -84,8 +84,10 @@ export default tseslint.config(
       'react/react-in-jsx-scope': 0,
       'arrow-body-style': 'off',
       'prefer-arrow-callback': 'off',
-
-      '@typescript-eslint/no-unused-vars': ['warn',
+      'sonarjs/no-unused-vars': 0,
+      'sonarjs/no-dead-store': 0,
+      '@typescript-eslint/no-unused-vars': [
+        'warn',
         {
           varsIgnorePattern: '[iI]gnored',
           argsIgnorePattern: '^_',

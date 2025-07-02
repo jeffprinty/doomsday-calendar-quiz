@@ -1,8 +1,8 @@
-import { allSevens } from './common';
-import LongCalendar from './components/long-calendar';
-import MnemonicsTable from './components/mnemonics-table';
-import { doomsyearTable } from './math/year';
-import EquationsModule from './modules/equations';
+import { allSevens } from '../common';
+import LongCalendar from '../components/long-calendar';
+import MnemonicsTable from '../components/mnemonics-table';
+import { doomsyearTable } from '../math/year';
+import EquationsModule from '../modules/equations';
 
 const doomsyearColorCode = [
   'text-red-400',
