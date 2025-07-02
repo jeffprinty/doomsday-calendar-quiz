@@ -15,8 +15,7 @@
   "type": "module",
   "lint-staged": {
     "*": [
-      "echo 'pooopy'",
-      "npx eslint --ext ts --ext tsx ./src --fix"
+      "pnpm lint:fix"
     ]
   },
   "scripts": {
