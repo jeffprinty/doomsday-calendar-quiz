@@ -15,15 +15,15 @@ const makeButtonClassName = (bgClassName: string) =>
 export const OffsetGuesser = ({
   autoMode,
   autoProcessing,
+  disableOnAnswer,
   guessingDate,
   onAnswer,
-  indicate,
 }: {
   autoMode?: boolean;
   autoProcessing?: boolean;
+  disableOnAnswer?: boolean;
   guessingDate: Dayjs;
   onAnswer: (correct: boolean) => void;
-  indicate?: boolean;
 }) => {
   const [selectedOffset, setSelectedOffset] = useState<number | undefined>();
   const [answerIsCorrect, setAnswerIsCorrect] = useState<boolean | undefined>();
@@ -70,7 +70,7 @@ export const OffsetGuesser = ({
       <GuessDisplay
         autoMode={autoMode}
         autoProcessing={autoProcessing}
-        className={clsx(indicate && 'animate-pulse', 'mb-2 md:mb-4')}
+        className={clsx('mb-2 md:mb-4')}
         questionText={answerIsCorrect ? 'Correct! The offset for' : 'What is the day offset for:'}
         guessText={guessingDate.format('MMMM D')}
         guessedCorrectly={answerIsCorrect}
@@ -103,6 +103,7 @@ export const OffsetGuesser = ({
                 // TODO: Show border on selected
               ],
             ])}
+            disabled={disableOnAnswer && isAnswered}
             key={offset}
             onClick={() => onClick(offset)}
           >

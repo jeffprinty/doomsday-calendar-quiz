@@ -10,6 +10,7 @@ const GuessOffsetForDate = () => {
 
   const [autoNext, setAutoNext] = useState(false);
   const [nextGuessIncoming, setNextGuessIncoming] = useState(false);
+  const [lastAnswerCorrect, setLastAnswerCorrect] = useState(true);
 
   const getRandomDate = () => {
     getNewGuess();
@@ -17,6 +18,7 @@ const GuessOffsetForDate = () => {
   };
 
   const handleAnswer = (isCorrect: boolean) => {
+    setLastAnswerCorrect(isCorrect);
     if (autoNext && isCorrect) {
       setNextGuessIncoming(true);
       setTimeout(getRandomDate, timeoutMs);
@@ -27,14 +29,15 @@ const GuessOffsetForDate = () => {
     <div id='page__guess-offset-for-date' className='w-full'>
       <OffsetGuesser
         autoMode={autoNext}
-        autoProcessing={nextGuessIncoming}
-        indicate={nextGuessIncoming}
+        autoProcessing={nextGuessIncoming && lastAnswerCorrect}
+        disableOnAnswer
         onAnswer={handleAnswer}
         guessingDate={guessingDate}
         key={guessingDate.toISOString()}
       />
       <GuessActions
         btnLabel='Random Date'
+        disabled={autoNext && lastAnswerCorrect}
         onClick={getRandomDate}
         autoEnabled={autoNext}
         toggleAuto={() => setAutoNext(!autoNext)}

@@ -38,7 +38,7 @@ const GuessDisplay = ({
       className={clsx([
         className,
         'relative flex w-full flex-col items-center justify-center bg-gradient-to-r pb-3 pt-4 text-center',
-        isAnswered && autoMode && 'animate-pulse',
+        isAnswered && autoMode && autoProcessing && 'animate-pulse',
         guessedCorrectly === undefined && 'from-blue-500 to-blue-800',
         guessedCorrectly === true && 'from-green-500 to-green-800',
         guessedCorrectly === false && 'from-red-600 to-orange-600',
