@@ -82,13 +82,13 @@ const OddPlusEleven = () => {
   const extraStep = firstResult !== secondResult;
 
   return (
-    <div className='sm-p-8 flex min-h-full flex-col items-center justify-between'>
-      <div className='flex flex-row items-center justify-center pt-4'>
+    <div className='sm-p-8 flex h-5/6 flex-grow flex-col items-center justify-between'>
+      <div className='flex flex-row items-center justify-center pt-1 md:pt-4'>
         <Button className={iconButtonStyle} onClick={() => setShowWork(!showWork)}>
           {showWork ? <BiHide /> : <BiShow />}
         </Button>
         <YearInput
-          className='rounded-4xl w-44 text-6xl'
+          className='rounded-4xl md:w-44 md:text-6xl'
           value={fullYearValue}
           setValue={setFullYearValue}
         />
@@ -98,7 +98,7 @@ const OddPlusEleven = () => {
       </div>
       {showGuts && (
         <div
-          className='sm-py-8 rounded-3xl border-2 border-indigo-800 px-12 py-2 text-2xl'
+          className='sm-py-8 rounded-3xl border-2 border-indigo-800 px-12 py-2 md:text-2xl'
           key={fullYearValue}
         >
           <div className='flex flex-row items-center justify-center text-4xl'>

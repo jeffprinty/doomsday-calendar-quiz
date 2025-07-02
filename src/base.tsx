@@ -140,9 +140,9 @@ const AllPages = () => {
 // I want to be able to feed it random dates OR feed it a list of previously incorrect guesses
 const Base = () => {
   return (
-    <main className='flex max-w-full flex-col items-center justify-start bg-primary text-color'>
+    <main className='flex h-screen max-w-full flex-col items-center justify-start bg-primary text-color'>
       <NavBar navItems={navLinks} />
-      <div className='flex w-full max-w-full flex-col items-center justify-start sm:w-1/2 md:max-w-[1240px]'>
+      <div className='flex w-full flex-grow flex-col items-center justify-start sm:w-1/2 md:max-w-[1240px]'>
         <Routes>
           {routeArray.map((routeProps) => (
             <Route {...routeProps} key={routeProps.path} />

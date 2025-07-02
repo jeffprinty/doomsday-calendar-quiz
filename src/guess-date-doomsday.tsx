@@ -20,6 +20,8 @@ import { Weekday } from './math/weekdays';
 import { GuessPayload } from './modules/module.types';
 import WeekdayGuesser from './modules/weekday-guesser';
 
+const weekdayGuesserTitle = 'bg-purple-900 w-full text-center text-sm';
+
 const GuessDateDoomsdayInModernity = () => {
   const startWithTimeAlready = getDayjsRandomDateInModernity();
   const [autoNext, setAutoNext] = useState(false);
@@ -96,14 +98,16 @@ const GuessDateDoomsdayInModernity = () => {
         />
       </div>
       <div id='quiz__bottom-bit' className='h-72'>
-        <div className='pt-3' id='quiz__actions'>
+        <div className='' id='quiz__actions'>
+          <div className={weekdayGuesserTitle}>Doomsday for Year</div>
           <WeekdayGuesser
-            className='pb-2'
+            className=''
             correctDay={getDoomsdayWeekdayForYear(dateToGuess.year())}
             key={`doomsyear_${startTime}`}
             onGuess={handleDoomsyearGuess}
             minimizeOnGuess
           />
+          <div className={weekdayGuesserTitle}>Weekday for {dateToGuess.format('MM-DD-YYYY')}:</div>
           <WeekdayGuesser
             correctDay={getWeekdayForDate(dateToGuess)}
             key={`date_${startTime}`}
