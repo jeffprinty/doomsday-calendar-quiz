@@ -1,401 +1,2601 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`tests getDayjsDoomsdayForYear 2000 1`] = `"2000-04-04T05:00:00.000Z"`;
+exports[`tests getDateFromMonthMnemonic 2000 April 1`] = `"2000-04-04T05:00:00.000Z"`;
 
-exports[`tests getDayjsDoomsdayForYear 2001 1`] = `"2001-04-04T05:00:00.000Z"`;
+exports[`tests getDateFromMonthMnemonic 2000 August 1`] = `"2000-08-08T05:00:00.000Z"`;
 
-exports[`tests getDayjsDoomsdayForYear 2002 1`] = `"2002-04-04T06:00:00.000Z"`;
+exports[`tests getDateFromMonthMnemonic 2000 December 1`] = `"2000-12-12T06:00:00.000Z"`;
 
-exports[`tests getDayjsDoomsdayForYear 2003 1`] = `"2003-04-04T06:00:00.000Z"`;
+exports[`tests getDateFromMonthMnemonic 2000 February 1`] = `"2000-02-29T06:00:00.000Z"`;
 
-exports[`tests getDayjsDoomsdayForYear 2004 1`] = `"2004-04-04T06:00:00.000Z"`;
+exports[`tests getDateFromMonthMnemonic 2000 January 1`] = `"2000-01-04T06:00:00.000Z"`;
 
-exports[`tests getDayjsDoomsdayForYear 2005 1`] = `"2005-04-04T05:00:00.000Z"`;
+exports[`tests getDateFromMonthMnemonic 2000 July 1`] = `"2000-07-11T05:00:00.000Z"`;
 
-exports[`tests getDayjsDoomsdayForYear 2006 1`] = `"2006-04-04T05:00:00.000Z"`;
+exports[`tests getDateFromMonthMnemonic 2000 June 1`] = `"2000-06-06T05:00:00.000Z"`;
 
-exports[`tests getDayjsDoomsdayForYear 2007 1`] = `"2007-04-04T05:00:00.000Z"`;
+exports[`tests getDateFromMonthMnemonic 2000 March 1`] = `"2000-03-14T06:00:00.000Z"`;
 
-exports[`tests getDayjsDoomsdayForYear 2008 1`] = `"2008-04-04T05:00:00.000Z"`;
+exports[`tests getDateFromMonthMnemonic 2000 May 1`] = `"2000-05-09T05:00:00.000Z"`;
 
-exports[`tests getDayjsDoomsdayForYear 2009 1`] = `"2009-04-04T05:00:00.000Z"`;
+exports[`tests getDateFromMonthMnemonic 2000 November 1`] = `"2000-11-07T06:00:00.000Z"`;
 
-exports[`tests getDayjsDoomsdayForYear 2010 1`] = `"2010-04-04T05:00:00.000Z"`;
+exports[`tests getDateFromMonthMnemonic 2000 October 1`] = `"2000-10-10T05:00:00.000Z"`;
 
-exports[`tests getDayjsDoomsdayForYear 2011 1`] = `"2011-04-04T05:00:00.000Z"`;
+exports[`tests getDateFromMonthMnemonic 2000 September 1`] = `"2000-09-05T05:00:00.000Z"`;
 
-exports[`tests getDayjsDoomsdayForYear 2012 1`] = `"2012-04-04T05:00:00.000Z"`;
+exports[`tests getDateFromMonthMnemonic 2001 April 1`] = `"2001-04-04T05:00:00.000Z"`;
 
-exports[`tests getDayjsDoomsdayForYear 2013 1`] = `"2013-04-04T05:00:00.000Z"`;
+exports[`tests getDateFromMonthMnemonic 2001 August 1`] = `"2001-08-08T05:00:00.000Z"`;
 
-exports[`tests getDayjsDoomsdayForYear 2014 1`] = `"2014-04-04T05:00:00.000Z"`;
+exports[`tests getDateFromMonthMnemonic 2001 December 1`] = `"2001-12-12T06:00:00.000Z"`;
 
-exports[`tests getDayjsDoomsdayForYear 2015 1`] = `"2015-04-04T05:00:00.000Z"`;
+exports[`tests getDateFromMonthMnemonic 2001 February 1`] = `"2001-02-28T06:00:00.000Z"`;
 
-exports[`tests getDayjsDoomsdayForYear 2016 1`] = `"2016-04-04T05:00:00.000Z"`;
+exports[`tests getDateFromMonthMnemonic 2001 January 1`] = `"2001-01-03T06:00:00.000Z"`;
 
-exports[`tests getDayjsDoomsdayForYear 2017 1`] = `"2017-04-04T05:00:00.000Z"`;
+exports[`tests getDateFromMonthMnemonic 2001 July 1`] = `"2001-07-11T05:00:00.000Z"`;
 
-exports[`tests getDayjsDoomsdayForYear 2018 1`] = `"2018-04-04T05:00:00.000Z"`;
+exports[`tests getDateFromMonthMnemonic 2001 June 1`] = `"2001-06-06T05:00:00.000Z"`;
 
-exports[`tests getDayjsDoomsdayForYear 2019 1`] = `"2019-04-04T05:00:00.000Z"`;
+exports[`tests getDateFromMonthMnemonic 2001 March 1`] = `"2001-03-14T06:00:00.000Z"`;
 
-exports[`tests getDayjsDoomsdayForYear 2020 1`] = `"2020-04-04T05:00:00.000Z"`;
+exports[`tests getDateFromMonthMnemonic 2001 May 1`] = `"2001-05-09T05:00:00.000Z"`;
 
-exports[`tests getDayjsDoomsdayForYear 2021 1`] = `"2021-04-04T05:00:00.000Z"`;
+exports[`tests getDateFromMonthMnemonic 2001 November 1`] = `"2001-11-07T06:00:00.000Z"`;
 
-exports[`tests getDayjsDoomsdayForYear 2022 1`] = `"2022-04-04T05:00:00.000Z"`;
+exports[`tests getDateFromMonthMnemonic 2001 October 1`] = `"2001-10-10T05:00:00.000Z"`;
 
-exports[`tests getDayjsDoomsdayForYear 2023 1`] = `"2023-04-04T05:00:00.000Z"`;
+exports[`tests getDateFromMonthMnemonic 2001 September 1`] = `"2001-09-05T05:00:00.000Z"`;
 
-exports[`tests getDayjsDoomsdayForYear 2024 1`] = `"2024-04-04T05:00:00.000Z"`;
+exports[`tests getDateFromMonthMnemonic 2002 April 1`] = `"2002-04-04T06:00:00.000Z"`;
 
-exports[`tests getDayjsDoomsdayForYear 2025 1`] = `"2025-04-04T05:00:00.000Z"`;
+exports[`tests getDateFromMonthMnemonic 2002 August 1`] = `"2002-08-08T05:00:00.000Z"`;
 
-exports[`tests getDayjsDoomsdayForYear 2026 1`] = `"2026-04-04T05:00:00.000Z"`;
+exports[`tests getDateFromMonthMnemonic 2002 December 1`] = `"2002-12-12T06:00:00.000Z"`;
 
-exports[`tests getDayjsDoomsdayForYear 2027 1`] = `"2027-04-04T05:00:00.000Z"`;
+exports[`tests getDateFromMonthMnemonic 2002 February 1`] = `"2002-02-28T06:00:00.000Z"`;
 
-exports[`tests getDayjsDoomsdayForYear 2028 1`] = `"2028-04-04T05:00:00.000Z"`;
+exports[`tests getDateFromMonthMnemonic 2002 January 1`] = `"2002-01-03T06:00:00.000Z"`;
 
-exports[`tests getDayjsDoomsdayForYear 2029 1`] = `"2029-04-04T05:00:00.000Z"`;
+exports[`tests getDateFromMonthMnemonic 2002 July 1`] = `"2002-07-11T05:00:00.000Z"`;
 
-exports[`tests getDayjsDoomsdayForYear 2030 1`] = `"2030-04-04T05:00:00.000Z"`;
+exports[`tests getDateFromMonthMnemonic 2002 June 1`] = `"2002-06-06T05:00:00.000Z"`;
 
-exports[`tests getDayjsDoomsdayForYear 2031 1`] = `"2031-04-04T05:00:00.000Z"`;
+exports[`tests getDateFromMonthMnemonic 2002 March 1`] = `"2002-03-14T06:00:00.000Z"`;
 
-exports[`tests getDayjsDoomsdayForYear 2032 1`] = `"2032-04-04T05:00:00.000Z"`;
+exports[`tests getDateFromMonthMnemonic 2002 May 1`] = `"2002-05-09T05:00:00.000Z"`;
 
-exports[`tests getDayjsDoomsdayForYear 2033 1`] = `"2033-04-04T05:00:00.000Z"`;
+exports[`tests getDateFromMonthMnemonic 2002 November 1`] = `"2002-11-07T06:00:00.000Z"`;
 
-exports[`tests getDayjsDoomsdayForYear 2034 1`] = `"2034-04-04T05:00:00.000Z"`;
+exports[`tests getDateFromMonthMnemonic 2002 October 1`] = `"2002-10-10T05:00:00.000Z"`;
 
-exports[`tests getDayjsDoomsdayForYear 2035 1`] = `"2035-04-04T05:00:00.000Z"`;
+exports[`tests getDateFromMonthMnemonic 2002 September 1`] = `"2002-09-05T05:00:00.000Z"`;
 
-exports[`tests getDayjsDoomsdayForYear 2036 1`] = `"2036-04-04T05:00:00.000Z"`;
+exports[`tests getDateFromMonthMnemonic 2003 April 1`] = `"2003-04-04T06:00:00.000Z"`;
 
-exports[`tests getDayjsDoomsdayForYear 2037 1`] = `"2037-04-04T05:00:00.000Z"`;
+exports[`tests getDateFromMonthMnemonic 2003 August 1`] = `"2003-08-08T05:00:00.000Z"`;
 
-exports[`tests getDayjsDoomsdayForYear 2038 1`] = `"2038-04-04T05:00:00.000Z"`;
+exports[`tests getDateFromMonthMnemonic 2003 December 1`] = `"2003-12-12T06:00:00.000Z"`;
 
-exports[`tests getDayjsDoomsdayForYear 2039 1`] = `"2039-04-04T05:00:00.000Z"`;
+exports[`tests getDateFromMonthMnemonic 2003 February 1`] = `"2003-02-28T06:00:00.000Z"`;
 
-exports[`tests getDayjsDoomsdayForYear 2040 1`] = `"2040-04-04T05:00:00.000Z"`;
+exports[`tests getDateFromMonthMnemonic 2003 January 1`] = `"2003-01-03T06:00:00.000Z"`;
 
-exports[`tests getDayjsDoomsdayForYear 2041 1`] = `"2041-04-04T05:00:00.000Z"`;
+exports[`tests getDateFromMonthMnemonic 2003 July 1`] = `"2003-07-11T05:00:00.000Z"`;
 
-exports[`tests getDayjsDoomsdayForYear 2042 1`] = `"2042-04-04T05:00:00.000Z"`;
+exports[`tests getDateFromMonthMnemonic 2003 June 1`] = `"2003-06-06T05:00:00.000Z"`;
 
-exports[`tests getDayjsDoomsdayForYear 2043 1`] = `"2043-04-04T05:00:00.000Z"`;
+exports[`tests getDateFromMonthMnemonic 2003 March 1`] = `"2003-03-14T06:00:00.000Z"`;
 
-exports[`tests getDayjsDoomsdayForYear 2044 1`] = `"2044-04-04T05:00:00.000Z"`;
+exports[`tests getDateFromMonthMnemonic 2003 May 1`] = `"2003-05-09T05:00:00.000Z"`;
 
-exports[`tests getDayjsDoomsdayForYear 2045 1`] = `"2045-04-04T05:00:00.000Z"`;
+exports[`tests getDateFromMonthMnemonic 2003 November 1`] = `"2003-11-07T06:00:00.000Z"`;
 
-exports[`tests getDayjsDoomsdayForYear 2046 1`] = `"2046-04-04T05:00:00.000Z"`;
+exports[`tests getDateFromMonthMnemonic 2003 October 1`] = `"2003-10-10T05:00:00.000Z"`;
 
-exports[`tests getDayjsDoomsdayForYear 2047 1`] = `"2047-04-04T05:00:00.000Z"`;
+exports[`tests getDateFromMonthMnemonic 2003 September 1`] = `"2003-09-05T05:00:00.000Z"`;
 
-exports[`tests getDayjsDoomsdayForYear 2048 1`] = `"2048-04-04T05:00:00.000Z"`;
+exports[`tests getDateFromMonthMnemonic 2004 April 1`] = `"2004-04-04T06:00:00.000Z"`;
 
-exports[`tests getDayjsDoomsdayForYear 2049 1`] = `"2049-04-04T05:00:00.000Z"`;
+exports[`tests getDateFromMonthMnemonic 2004 August 1`] = `"2004-08-08T05:00:00.000Z"`;
 
-exports[`tests getDayjsDoomsdayForYear 2050 1`] = `"2050-04-04T05:00:00.000Z"`;
+exports[`tests getDateFromMonthMnemonic 2004 December 1`] = `"2004-12-12T06:00:00.000Z"`;
 
-exports[`tests getDayjsDoomsdayForYear 2051 1`] = `"2051-04-04T05:00:00.000Z"`;
+exports[`tests getDateFromMonthMnemonic 2004 February 1`] = `"2004-02-29T06:00:00.000Z"`;
 
-exports[`tests getDayjsDoomsdayForYear 2052 1`] = `"2052-04-04T05:00:00.000Z"`;
+exports[`tests getDateFromMonthMnemonic 2004 January 1`] = `"2004-01-04T06:00:00.000Z"`;
 
-exports[`tests getDayjsDoomsdayForYear 2053 1`] = `"2053-04-04T05:00:00.000Z"`;
+exports[`tests getDateFromMonthMnemonic 2004 July 1`] = `"2004-07-11T05:00:00.000Z"`;
 
-exports[`tests getDayjsDoomsdayForYear 2054 1`] = `"2054-04-04T05:00:00.000Z"`;
+exports[`tests getDateFromMonthMnemonic 2004 June 1`] = `"2004-06-06T05:00:00.000Z"`;
 
-exports[`tests getDayjsDoomsdayForYear 2055 1`] = `"2055-04-04T05:00:00.000Z"`;
+exports[`tests getDateFromMonthMnemonic 2004 March 1`] = `"2004-03-14T06:00:00.000Z"`;
 
-exports[`tests getDayjsDoomsdayForYear 2056 1`] = `"2056-04-04T05:00:00.000Z"`;
+exports[`tests getDateFromMonthMnemonic 2004 May 1`] = `"2004-05-09T05:00:00.000Z"`;
 
-exports[`tests getDayjsDoomsdayForYear 2057 1`] = `"2057-04-04T05:00:00.000Z"`;
+exports[`tests getDateFromMonthMnemonic 2004 November 1`] = `"2004-11-07T06:00:00.000Z"`;
 
-exports[`tests getDayjsDoomsdayForYear 2058 1`] = `"2058-04-04T05:00:00.000Z"`;
+exports[`tests getDateFromMonthMnemonic 2004 October 1`] = `"2004-10-10T05:00:00.000Z"`;
 
-exports[`tests getDayjsDoomsdayForYear 2059 1`] = `"2059-04-04T05:00:00.000Z"`;
+exports[`tests getDateFromMonthMnemonic 2004 September 1`] = `"2004-09-05T05:00:00.000Z"`;
 
-exports[`tests getDayjsDoomsdayForYear 2060 1`] = `"2060-04-04T05:00:00.000Z"`;
+exports[`tests getDateFromMonthMnemonic 2005 April 1`] = `"2005-04-04T05:00:00.000Z"`;
 
-exports[`tests getDayjsDoomsdayForYear 2061 1`] = `"2061-04-04T05:00:00.000Z"`;
+exports[`tests getDateFromMonthMnemonic 2005 August 1`] = `"2005-08-08T05:00:00.000Z"`;
 
-exports[`tests getDayjsDoomsdayForYear 2062 1`] = `"2062-04-04T05:00:00.000Z"`;
+exports[`tests getDateFromMonthMnemonic 2005 December 1`] = `"2005-12-12T06:00:00.000Z"`;
 
-exports[`tests getDayjsDoomsdayForYear 2063 1`] = `"2063-04-04T05:00:00.000Z"`;
+exports[`tests getDateFromMonthMnemonic 2005 February 1`] = `"2005-02-28T06:00:00.000Z"`;
 
-exports[`tests getDayjsDoomsdayForYear 2064 1`] = `"2064-04-04T05:00:00.000Z"`;
+exports[`tests getDateFromMonthMnemonic 2005 January 1`] = `"2005-01-03T06:00:00.000Z"`;
 
-exports[`tests getDayjsDoomsdayForYear 2065 1`] = `"2065-04-04T05:00:00.000Z"`;
+exports[`tests getDateFromMonthMnemonic 2005 July 1`] = `"2005-07-11T05:00:00.000Z"`;
 
-exports[`tests getDayjsDoomsdayForYear 2066 1`] = `"2066-04-04T05:00:00.000Z"`;
+exports[`tests getDateFromMonthMnemonic 2005 June 1`] = `"2005-06-06T05:00:00.000Z"`;
 
-exports[`tests getDayjsDoomsdayForYear 2067 1`] = `"2067-04-04T05:00:00.000Z"`;
+exports[`tests getDateFromMonthMnemonic 2005 March 1`] = `"2005-03-14T06:00:00.000Z"`;
 
-exports[`tests getDayjsDoomsdayForYear 2068 1`] = `"2068-04-04T05:00:00.000Z"`;
+exports[`tests getDateFromMonthMnemonic 2005 May 1`] = `"2005-05-09T05:00:00.000Z"`;
 
-exports[`tests getDayjsDoomsdayForYear 2069 1`] = `"2069-04-04T05:00:00.000Z"`;
+exports[`tests getDateFromMonthMnemonic 2005 November 1`] = `"2005-11-07T06:00:00.000Z"`;
 
-exports[`tests getDayjsDoomsdayForYear 2070 1`] = `"2070-04-04T05:00:00.000Z"`;
+exports[`tests getDateFromMonthMnemonic 2005 October 1`] = `"2005-10-10T05:00:00.000Z"`;
 
-exports[`tests getDayjsDoomsdayForYear 2071 1`] = `"2071-04-04T05:00:00.000Z"`;
+exports[`tests getDateFromMonthMnemonic 2005 September 1`] = `"2005-09-05T05:00:00.000Z"`;
 
-exports[`tests getDayjsDoomsdayForYear 2072 1`] = `"2072-04-04T05:00:00.000Z"`;
+exports[`tests getDateFromMonthMnemonic 2006 April 1`] = `"2006-04-04T05:00:00.000Z"`;
 
-exports[`tests getDayjsDoomsdayForYear 2073 1`] = `"2073-04-04T05:00:00.000Z"`;
+exports[`tests getDateFromMonthMnemonic 2006 August 1`] = `"2006-08-08T05:00:00.000Z"`;
 
-exports[`tests getDayjsDoomsdayForYear 2074 1`] = `"2074-04-04T05:00:00.000Z"`;
+exports[`tests getDateFromMonthMnemonic 2006 December 1`] = `"2006-12-12T06:00:00.000Z"`;
 
-exports[`tests getDayjsDoomsdayForYear 2075 1`] = `"2075-04-04T05:00:00.000Z"`;
+exports[`tests getDateFromMonthMnemonic 2006 February 1`] = `"2006-02-28T06:00:00.000Z"`;
 
-exports[`tests getDayjsDoomsdayForYear 2076 1`] = `"2076-04-04T05:00:00.000Z"`;
+exports[`tests getDateFromMonthMnemonic 2006 January 1`] = `"2006-01-03T06:00:00.000Z"`;
 
-exports[`tests getDayjsDoomsdayForYear 2077 1`] = `"2077-04-04T05:00:00.000Z"`;
+exports[`tests getDateFromMonthMnemonic 2006 July 1`] = `"2006-07-11T05:00:00.000Z"`;
 
-exports[`tests getDayjsDoomsdayForYear 2078 1`] = `"2078-04-04T05:00:00.000Z"`;
+exports[`tests getDateFromMonthMnemonic 2006 June 1`] = `"2006-06-06T05:00:00.000Z"`;
 
-exports[`tests getDayjsDoomsdayForYear 2079 1`] = `"2079-04-04T05:00:00.000Z"`;
+exports[`tests getDateFromMonthMnemonic 2006 March 1`] = `"2006-03-14T06:00:00.000Z"`;
 
-exports[`tests getDayjsDoomsdayForYear 2080 1`] = `"2080-04-04T05:00:00.000Z"`;
+exports[`tests getDateFromMonthMnemonic 2006 May 1`] = `"2006-05-09T05:00:00.000Z"`;
 
-exports[`tests getDayjsDoomsdayForYear 2081 1`] = `"2081-04-04T05:00:00.000Z"`;
+exports[`tests getDateFromMonthMnemonic 2006 November 1`] = `"2006-11-07T06:00:00.000Z"`;
 
-exports[`tests getDayjsDoomsdayForYear 2082 1`] = `"2082-04-04T05:00:00.000Z"`;
+exports[`tests getDateFromMonthMnemonic 2006 October 1`] = `"2006-10-10T05:00:00.000Z"`;
 
-exports[`tests getDayjsDoomsdayForYear 2083 1`] = `"2083-04-04T05:00:00.000Z"`;
+exports[`tests getDateFromMonthMnemonic 2006 September 1`] = `"2006-09-05T05:00:00.000Z"`;
 
-exports[`tests getDayjsDoomsdayForYear 2084 1`] = `"2084-04-04T05:00:00.000Z"`;
+exports[`tests getDateFromMonthMnemonic 2007 April 1`] = `"2007-04-04T05:00:00.000Z"`;
 
-exports[`tests getDayjsDoomsdayForYear 2085 1`] = `"2085-04-04T05:00:00.000Z"`;
+exports[`tests getDateFromMonthMnemonic 2007 August 1`] = `"2007-08-08T05:00:00.000Z"`;
 
-exports[`tests getDayjsDoomsdayForYear 2086 1`] = `"2086-04-04T05:00:00.000Z"`;
+exports[`tests getDateFromMonthMnemonic 2007 December 1`] = `"2007-12-12T06:00:00.000Z"`;
 
-exports[`tests getDayjsDoomsdayForYear 2087 1`] = `"2087-04-04T05:00:00.000Z"`;
+exports[`tests getDateFromMonthMnemonic 2007 February 1`] = `"2007-02-28T06:00:00.000Z"`;
 
-exports[`tests getDayjsDoomsdayForYear 2088 1`] = `"2088-04-04T05:00:00.000Z"`;
+exports[`tests getDateFromMonthMnemonic 2007 January 1`] = `"2007-01-03T06:00:00.000Z"`;
 
-exports[`tests getDayjsDoomsdayForYear 2089 1`] = `"2089-04-04T05:00:00.000Z"`;
+exports[`tests getDateFromMonthMnemonic 2007 July 1`] = `"2007-07-11T05:00:00.000Z"`;
 
-exports[`tests getDayjsDoomsdayForYear 2090 1`] = `"2090-04-04T05:00:00.000Z"`;
+exports[`tests getDateFromMonthMnemonic 2007 June 1`] = `"2007-06-06T05:00:00.000Z"`;
 
-exports[`tests getDayjsDoomsdayForYear 2091 1`] = `"2091-04-04T05:00:00.000Z"`;
+exports[`tests getDateFromMonthMnemonic 2007 March 1`] = `"2007-03-14T05:00:00.000Z"`;
 
-exports[`tests getDayjsDoomsdayForYear 2092 1`] = `"2092-04-04T05:00:00.000Z"`;
+exports[`tests getDateFromMonthMnemonic 2007 May 1`] = `"2007-05-09T05:00:00.000Z"`;
 
-exports[`tests getDayjsDoomsdayForYear 2093 1`] = `"2093-04-04T05:00:00.000Z"`;
+exports[`tests getDateFromMonthMnemonic 2007 November 1`] = `"2007-11-07T06:00:00.000Z"`;
 
-exports[`tests getDayjsDoomsdayForYear 2094 1`] = `"2094-04-04T05:00:00.000Z"`;
+exports[`tests getDateFromMonthMnemonic 2007 October 1`] = `"2007-10-10T05:00:00.000Z"`;
 
-exports[`tests getDayjsDoomsdayForYear 2095 1`] = `"2095-04-04T05:00:00.000Z"`;
+exports[`tests getDateFromMonthMnemonic 2007 September 1`] = `"2007-09-05T05:00:00.000Z"`;
 
-exports[`tests getDayjsDoomsdayForYear 2096 1`] = `"2096-04-04T05:00:00.000Z"`;
+exports[`tests getDateFromMonthMnemonic 2008 April 1`] = `"2008-04-04T05:00:00.000Z"`;
 
-exports[`tests getDayjsDoomsdayForYear 2097 1`] = `"2097-04-04T05:00:00.000Z"`;
+exports[`tests getDateFromMonthMnemonic 2008 August 1`] = `"2008-08-08T05:00:00.000Z"`;
 
-exports[`tests getDayjsDoomsdayForYear 2098 1`] = `"2098-04-04T05:00:00.000Z"`;
+exports[`tests getDateFromMonthMnemonic 2008 December 1`] = `"2008-12-12T06:00:00.000Z"`;
 
-exports[`tests getDayjsDoomsdayForYear 2099 1`] = `"2099-04-04T05:00:00.000Z"`;
+exports[`tests getDateFromMonthMnemonic 2008 February 1`] = `"2008-02-29T06:00:00.000Z"`;
 
-exports[`tests getDoomsdayForYearNew 2000 1`] = `"2000-04-04T05:00:00.000Z"`;
+exports[`tests getDateFromMonthMnemonic 2008 January 1`] = `"2008-01-04T06:00:00.000Z"`;
 
-exports[`tests getDoomsdayForYearNew 2001 1`] = `"2001-04-04T05:00:00.000Z"`;
+exports[`tests getDateFromMonthMnemonic 2008 July 1`] = `"2008-07-11T05:00:00.000Z"`;
 
-exports[`tests getDoomsdayForYearNew 2002 1`] = `"2002-04-04T06:00:00.000Z"`;
+exports[`tests getDateFromMonthMnemonic 2008 June 1`] = `"2008-06-06T05:00:00.000Z"`;
 
-exports[`tests getDoomsdayForYearNew 2003 1`] = `"2003-04-04T06:00:00.000Z"`;
+exports[`tests getDateFromMonthMnemonic 2008 March 1`] = `"2008-03-14T05:00:00.000Z"`;
 
-exports[`tests getDoomsdayForYearNew 2004 1`] = `"2004-04-04T06:00:00.000Z"`;
+exports[`tests getDateFromMonthMnemonic 2008 May 1`] = `"2008-05-09T05:00:00.000Z"`;
 
-exports[`tests getDoomsdayForYearNew 2005 1`] = `"2005-04-04T05:00:00.000Z"`;
+exports[`tests getDateFromMonthMnemonic 2008 November 1`] = `"2008-11-07T06:00:00.000Z"`;
 
-exports[`tests getDoomsdayForYearNew 2006 1`] = `"2006-04-04T05:00:00.000Z"`;
+exports[`tests getDateFromMonthMnemonic 2008 October 1`] = `"2008-10-10T05:00:00.000Z"`;
 
-exports[`tests getDoomsdayForYearNew 2007 1`] = `"2007-04-04T05:00:00.000Z"`;
+exports[`tests getDateFromMonthMnemonic 2008 September 1`] = `"2008-09-05T05:00:00.000Z"`;
 
-exports[`tests getDoomsdayForYearNew 2008 1`] = `"2008-04-04T05:00:00.000Z"`;
+exports[`tests getDateFromMonthMnemonic 2009 April 1`] = `"2009-04-04T05:00:00.000Z"`;
 
-exports[`tests getDoomsdayForYearNew 2009 1`] = `"2009-04-04T05:00:00.000Z"`;
+exports[`tests getDateFromMonthMnemonic 2009 August 1`] = `"2009-08-08T05:00:00.000Z"`;
 
-exports[`tests getDoomsdayForYearNew 2010 1`] = `"2010-04-04T05:00:00.000Z"`;
+exports[`tests getDateFromMonthMnemonic 2009 December 1`] = `"2009-12-12T06:00:00.000Z"`;
 
-exports[`tests getDoomsdayForYearNew 2011 1`] = `"2011-04-04T05:00:00.000Z"`;
+exports[`tests getDateFromMonthMnemonic 2009 February 1`] = `"2009-02-28T06:00:00.000Z"`;
 
-exports[`tests getDoomsdayForYearNew 2012 1`] = `"2012-04-04T05:00:00.000Z"`;
+exports[`tests getDateFromMonthMnemonic 2009 January 1`] = `"2009-01-03T06:00:00.000Z"`;
 
-exports[`tests getDoomsdayForYearNew 2013 1`] = `"2013-04-04T05:00:00.000Z"`;
+exports[`tests getDateFromMonthMnemonic 2009 July 1`] = `"2009-07-11T05:00:00.000Z"`;
 
-exports[`tests getDoomsdayForYearNew 2014 1`] = `"2014-04-04T05:00:00.000Z"`;
+exports[`tests getDateFromMonthMnemonic 2009 June 1`] = `"2009-06-06T05:00:00.000Z"`;
 
-exports[`tests getDoomsdayForYearNew 2015 1`] = `"2015-04-04T05:00:00.000Z"`;
+exports[`tests getDateFromMonthMnemonic 2009 March 1`] = `"2009-03-14T05:00:00.000Z"`;
 
-exports[`tests getDoomsdayForYearNew 2016 1`] = `"2016-04-04T05:00:00.000Z"`;
+exports[`tests getDateFromMonthMnemonic 2009 May 1`] = `"2009-05-09T05:00:00.000Z"`;
 
-exports[`tests getDoomsdayForYearNew 2017 1`] = `"2017-04-04T05:00:00.000Z"`;
+exports[`tests getDateFromMonthMnemonic 2009 November 1`] = `"2009-11-07T06:00:00.000Z"`;
 
-exports[`tests getDoomsdayForYearNew 2018 1`] = `"2018-04-04T05:00:00.000Z"`;
+exports[`tests getDateFromMonthMnemonic 2009 October 1`] = `"2009-10-10T05:00:00.000Z"`;
 
-exports[`tests getDoomsdayForYearNew 2019 1`] = `"2019-04-04T05:00:00.000Z"`;
+exports[`tests getDateFromMonthMnemonic 2009 September 1`] = `"2009-09-05T05:00:00.000Z"`;
 
-exports[`tests getDoomsdayForYearNew 2020 1`] = `"2020-04-04T05:00:00.000Z"`;
+exports[`tests getDateFromMonthMnemonic 2010 April 1`] = `"2010-04-04T05:00:00.000Z"`;
 
-exports[`tests getDoomsdayForYearNew 2021 1`] = `"2021-04-04T05:00:00.000Z"`;
+exports[`tests getDateFromMonthMnemonic 2010 August 1`] = `"2010-08-08T05:00:00.000Z"`;
 
-exports[`tests getDoomsdayForYearNew 2022 1`] = `"2022-04-04T05:00:00.000Z"`;
+exports[`tests getDateFromMonthMnemonic 2010 December 1`] = `"2010-12-12T06:00:00.000Z"`;
 
-exports[`tests getDoomsdayForYearNew 2023 1`] = `"2023-04-04T05:00:00.000Z"`;
+exports[`tests getDateFromMonthMnemonic 2010 February 1`] = `"2010-02-28T06:00:00.000Z"`;
 
-exports[`tests getDoomsdayForYearNew 2024 1`] = `"2024-04-04T05:00:00.000Z"`;
+exports[`tests getDateFromMonthMnemonic 2010 January 1`] = `"2010-01-03T06:00:00.000Z"`;
 
-exports[`tests getDoomsdayForYearNew 2025 1`] = `"2025-04-04T05:00:00.000Z"`;
+exports[`tests getDateFromMonthMnemonic 2010 July 1`] = `"2010-07-11T05:00:00.000Z"`;
 
-exports[`tests getDoomsdayForYearNew 2026 1`] = `"2026-04-04T05:00:00.000Z"`;
+exports[`tests getDateFromMonthMnemonic 2010 June 1`] = `"2010-06-06T05:00:00.000Z"`;
 
-exports[`tests getDoomsdayForYearNew 2027 1`] = `"2027-04-04T05:00:00.000Z"`;
+exports[`tests getDateFromMonthMnemonic 2010 March 1`] = `"2010-03-14T06:00:00.000Z"`;
 
-exports[`tests getDoomsdayForYearNew 2028 1`] = `"2028-04-04T05:00:00.000Z"`;
+exports[`tests getDateFromMonthMnemonic 2010 May 1`] = `"2010-05-09T05:00:00.000Z"`;
 
-exports[`tests getDoomsdayForYearNew 2029 1`] = `"2029-04-04T05:00:00.000Z"`;
+exports[`tests getDateFromMonthMnemonic 2010 November 1`] = `"2010-11-07T05:00:00.000Z"`;
 
-exports[`tests getDoomsdayForYearNew 2030 1`] = `"2030-04-04T05:00:00.000Z"`;
+exports[`tests getDateFromMonthMnemonic 2010 October 1`] = `"2010-10-10T05:00:00.000Z"`;
 
-exports[`tests getDoomsdayForYearNew 2031 1`] = `"2031-04-04T05:00:00.000Z"`;
+exports[`tests getDateFromMonthMnemonic 2010 September 1`] = `"2010-09-05T05:00:00.000Z"`;
 
-exports[`tests getDoomsdayForYearNew 2032 1`] = `"2032-04-04T05:00:00.000Z"`;
+exports[`tests getDateFromMonthMnemonic 2011 April 1`] = `"2011-04-04T05:00:00.000Z"`;
 
-exports[`tests getDoomsdayForYearNew 2033 1`] = `"2033-04-04T05:00:00.000Z"`;
+exports[`tests getDateFromMonthMnemonic 2011 August 1`] = `"2011-08-08T05:00:00.000Z"`;
 
-exports[`tests getDoomsdayForYearNew 2034 1`] = `"2034-04-04T05:00:00.000Z"`;
+exports[`tests getDateFromMonthMnemonic 2011 December 1`] = `"2011-12-12T06:00:00.000Z"`;
 
-exports[`tests getDoomsdayForYearNew 2035 1`] = `"2035-04-04T05:00:00.000Z"`;
+exports[`tests getDateFromMonthMnemonic 2011 February 1`] = `"2011-02-28T06:00:00.000Z"`;
 
-exports[`tests getDoomsdayForYearNew 2036 1`] = `"2036-04-04T05:00:00.000Z"`;
+exports[`tests getDateFromMonthMnemonic 2011 January 1`] = `"2011-01-03T06:00:00.000Z"`;
 
-exports[`tests getDoomsdayForYearNew 2037 1`] = `"2037-04-04T05:00:00.000Z"`;
+exports[`tests getDateFromMonthMnemonic 2011 July 1`] = `"2011-07-11T05:00:00.000Z"`;
 
-exports[`tests getDoomsdayForYearNew 2038 1`] = `"2038-04-04T05:00:00.000Z"`;
+exports[`tests getDateFromMonthMnemonic 2011 June 1`] = `"2011-06-06T05:00:00.000Z"`;
 
-exports[`tests getDoomsdayForYearNew 2039 1`] = `"2039-04-04T05:00:00.000Z"`;
+exports[`tests getDateFromMonthMnemonic 2011 March 1`] = `"2011-03-14T05:00:00.000Z"`;
 
-exports[`tests getDoomsdayForYearNew 2040 1`] = `"2040-04-04T05:00:00.000Z"`;
+exports[`tests getDateFromMonthMnemonic 2011 May 1`] = `"2011-05-09T05:00:00.000Z"`;
 
-exports[`tests getDoomsdayForYearNew 2041 1`] = `"2041-04-04T05:00:00.000Z"`;
+exports[`tests getDateFromMonthMnemonic 2011 November 1`] = `"2011-11-07T06:00:00.000Z"`;
 
-exports[`tests getDoomsdayForYearNew 2042 1`] = `"2042-04-04T05:00:00.000Z"`;
+exports[`tests getDateFromMonthMnemonic 2011 October 1`] = `"2011-10-10T05:00:00.000Z"`;
 
-exports[`tests getDoomsdayForYearNew 2043 1`] = `"2043-04-04T05:00:00.000Z"`;
+exports[`tests getDateFromMonthMnemonic 2011 September 1`] = `"2011-09-05T05:00:00.000Z"`;
 
-exports[`tests getDoomsdayForYearNew 2044 1`] = `"2044-04-04T05:00:00.000Z"`;
+exports[`tests getDateFromMonthMnemonic 2012 April 1`] = `"2012-04-04T05:00:00.000Z"`;
 
-exports[`tests getDoomsdayForYearNew 2045 1`] = `"2045-04-04T05:00:00.000Z"`;
+exports[`tests getDateFromMonthMnemonic 2012 August 1`] = `"2012-08-08T05:00:00.000Z"`;
 
-exports[`tests getDoomsdayForYearNew 2046 1`] = `"2046-04-04T05:00:00.000Z"`;
+exports[`tests getDateFromMonthMnemonic 2012 December 1`] = `"2012-12-12T06:00:00.000Z"`;
 
-exports[`tests getDoomsdayForYearNew 2047 1`] = `"2047-04-04T05:00:00.000Z"`;
+exports[`tests getDateFromMonthMnemonic 2012 February 1`] = `"2012-02-29T06:00:00.000Z"`;
 
-exports[`tests getDoomsdayForYearNew 2048 1`] = `"2048-04-04T05:00:00.000Z"`;
+exports[`tests getDateFromMonthMnemonic 2012 January 1`] = `"2012-01-04T06:00:00.000Z"`;
 
-exports[`tests getDoomsdayForYearNew 2049 1`] = `"2049-04-04T05:00:00.000Z"`;
+exports[`tests getDateFromMonthMnemonic 2012 July 1`] = `"2012-07-11T05:00:00.000Z"`;
 
-exports[`tests getDoomsdayForYearNew 2050 1`] = `"2050-04-04T05:00:00.000Z"`;
+exports[`tests getDateFromMonthMnemonic 2012 June 1`] = `"2012-06-06T05:00:00.000Z"`;
 
-exports[`tests getDoomsdayForYearNew 2051 1`] = `"2051-04-04T05:00:00.000Z"`;
+exports[`tests getDateFromMonthMnemonic 2012 March 1`] = `"2012-03-14T05:00:00.000Z"`;
 
-exports[`tests getDoomsdayForYearNew 2052 1`] = `"2052-04-04T05:00:00.000Z"`;
+exports[`tests getDateFromMonthMnemonic 2012 May 1`] = `"2012-05-09T05:00:00.000Z"`;
 
-exports[`tests getDoomsdayForYearNew 2053 1`] = `"2053-04-04T05:00:00.000Z"`;
+exports[`tests getDateFromMonthMnemonic 2012 November 1`] = `"2012-11-07T06:00:00.000Z"`;
 
-exports[`tests getDoomsdayForYearNew 2054 1`] = `"2054-04-04T05:00:00.000Z"`;
+exports[`tests getDateFromMonthMnemonic 2012 October 1`] = `"2012-10-10T05:00:00.000Z"`;
 
-exports[`tests getDoomsdayForYearNew 2055 1`] = `"2055-04-04T05:00:00.000Z"`;
+exports[`tests getDateFromMonthMnemonic 2012 September 1`] = `"2012-09-05T05:00:00.000Z"`;
 
-exports[`tests getDoomsdayForYearNew 2056 1`] = `"2056-04-04T05:00:00.000Z"`;
+exports[`tests getDateFromMonthMnemonic 2013 April 1`] = `"2013-04-04T05:00:00.000Z"`;
 
-exports[`tests getDoomsdayForYearNew 2057 1`] = `"2057-04-04T05:00:00.000Z"`;
+exports[`tests getDateFromMonthMnemonic 2013 August 1`] = `"2013-08-08T05:00:00.000Z"`;
 
-exports[`tests getDoomsdayForYearNew 2058 1`] = `"2058-04-04T05:00:00.000Z"`;
+exports[`tests getDateFromMonthMnemonic 2013 December 1`] = `"2013-12-12T06:00:00.000Z"`;
 
-exports[`tests getDoomsdayForYearNew 2059 1`] = `"2059-04-04T05:00:00.000Z"`;
+exports[`tests getDateFromMonthMnemonic 2013 February 1`] = `"2013-02-28T06:00:00.000Z"`;
 
-exports[`tests getDoomsdayForYearNew 2060 1`] = `"2060-04-04T05:00:00.000Z"`;
+exports[`tests getDateFromMonthMnemonic 2013 January 1`] = `"2013-01-03T06:00:00.000Z"`;
 
-exports[`tests getDoomsdayForYearNew 2061 1`] = `"2061-04-04T05:00:00.000Z"`;
+exports[`tests getDateFromMonthMnemonic 2013 July 1`] = `"2013-07-11T05:00:00.000Z"`;
 
-exports[`tests getDoomsdayForYearNew 2062 1`] = `"2062-04-04T05:00:00.000Z"`;
+exports[`tests getDateFromMonthMnemonic 2013 June 1`] = `"2013-06-06T05:00:00.000Z"`;
 
-exports[`tests getDoomsdayForYearNew 2063 1`] = `"2063-04-04T05:00:00.000Z"`;
+exports[`tests getDateFromMonthMnemonic 2013 March 1`] = `"2013-03-14T05:00:00.000Z"`;
 
-exports[`tests getDoomsdayForYearNew 2064 1`] = `"2064-04-04T05:00:00.000Z"`;
+exports[`tests getDateFromMonthMnemonic 2013 May 1`] = `"2013-05-09T05:00:00.000Z"`;
 
-exports[`tests getDoomsdayForYearNew 2065 1`] = `"2065-04-04T05:00:00.000Z"`;
+exports[`tests getDateFromMonthMnemonic 2013 November 1`] = `"2013-11-07T06:00:00.000Z"`;
 
-exports[`tests getDoomsdayForYearNew 2066 1`] = `"2066-04-04T05:00:00.000Z"`;
+exports[`tests getDateFromMonthMnemonic 2013 October 1`] = `"2013-10-10T05:00:00.000Z"`;
 
-exports[`tests getDoomsdayForYearNew 2067 1`] = `"2067-04-04T05:00:00.000Z"`;
+exports[`tests getDateFromMonthMnemonic 2013 September 1`] = `"2013-09-05T05:00:00.000Z"`;
 
-exports[`tests getDoomsdayForYearNew 2068 1`] = `"2068-04-04T05:00:00.000Z"`;
+exports[`tests getDateFromMonthMnemonic 2014 April 1`] = `"2014-04-04T05:00:00.000Z"`;
 
-exports[`tests getDoomsdayForYearNew 2069 1`] = `"2069-04-04T05:00:00.000Z"`;
+exports[`tests getDateFromMonthMnemonic 2014 August 1`] = `"2014-08-08T05:00:00.000Z"`;
 
-exports[`tests getDoomsdayForYearNew 2070 1`] = `"2070-04-04T05:00:00.000Z"`;
+exports[`tests getDateFromMonthMnemonic 2014 December 1`] = `"2014-12-12T06:00:00.000Z"`;
 
-exports[`tests getDoomsdayForYearNew 2071 1`] = `"2071-04-04T05:00:00.000Z"`;
+exports[`tests getDateFromMonthMnemonic 2014 February 1`] = `"2014-02-28T06:00:00.000Z"`;
 
-exports[`tests getDoomsdayForYearNew 2072 1`] = `"2072-04-04T05:00:00.000Z"`;
+exports[`tests getDateFromMonthMnemonic 2014 January 1`] = `"2014-01-03T06:00:00.000Z"`;
 
-exports[`tests getDoomsdayForYearNew 2073 1`] = `"2073-04-04T05:00:00.000Z"`;
+exports[`tests getDateFromMonthMnemonic 2014 July 1`] = `"2014-07-11T05:00:00.000Z"`;
 
-exports[`tests getDoomsdayForYearNew 2074 1`] = `"2074-04-04T05:00:00.000Z"`;
+exports[`tests getDateFromMonthMnemonic 2014 June 1`] = `"2014-06-06T05:00:00.000Z"`;
 
-exports[`tests getDoomsdayForYearNew 2075 1`] = `"2075-04-04T05:00:00.000Z"`;
+exports[`tests getDateFromMonthMnemonic 2014 March 1`] = `"2014-03-14T05:00:00.000Z"`;
 
-exports[`tests getDoomsdayForYearNew 2076 1`] = `"2076-04-04T05:00:00.000Z"`;
+exports[`tests getDateFromMonthMnemonic 2014 May 1`] = `"2014-05-09T05:00:00.000Z"`;
 
-exports[`tests getDoomsdayForYearNew 2077 1`] = `"2077-04-04T05:00:00.000Z"`;
+exports[`tests getDateFromMonthMnemonic 2014 November 1`] = `"2014-11-07T06:00:00.000Z"`;
 
-exports[`tests getDoomsdayForYearNew 2078 1`] = `"2078-04-04T05:00:00.000Z"`;
+exports[`tests getDateFromMonthMnemonic 2014 October 1`] = `"2014-10-10T05:00:00.000Z"`;
 
-exports[`tests getDoomsdayForYearNew 2079 1`] = `"2079-04-04T05:00:00.000Z"`;
+exports[`tests getDateFromMonthMnemonic 2014 September 1`] = `"2014-09-05T05:00:00.000Z"`;
 
-exports[`tests getDoomsdayForYearNew 2080 1`] = `"2080-04-04T05:00:00.000Z"`;
+exports[`tests getDateFromMonthMnemonic 2015 April 1`] = `"2015-04-04T05:00:00.000Z"`;
 
-exports[`tests getDoomsdayForYearNew 2081 1`] = `"2081-04-04T05:00:00.000Z"`;
+exports[`tests getDateFromMonthMnemonic 2015 August 1`] = `"2015-08-08T05:00:00.000Z"`;
 
-exports[`tests getDoomsdayForYearNew 2082 1`] = `"2082-04-04T05:00:00.000Z"`;
+exports[`tests getDateFromMonthMnemonic 2015 December 1`] = `"2015-12-12T06:00:00.000Z"`;
 
-exports[`tests getDoomsdayForYearNew 2083 1`] = `"2083-04-04T05:00:00.000Z"`;
+exports[`tests getDateFromMonthMnemonic 2015 February 1`] = `"2015-02-28T06:00:00.000Z"`;
 
-exports[`tests getDoomsdayForYearNew 2084 1`] = `"2084-04-04T05:00:00.000Z"`;
+exports[`tests getDateFromMonthMnemonic 2015 January 1`] = `"2015-01-03T06:00:00.000Z"`;
 
-exports[`tests getDoomsdayForYearNew 2085 1`] = `"2085-04-04T05:00:00.000Z"`;
+exports[`tests getDateFromMonthMnemonic 2015 July 1`] = `"2015-07-11T05:00:00.000Z"`;
 
-exports[`tests getDoomsdayForYearNew 2086 1`] = `"2086-04-04T05:00:00.000Z"`;
+exports[`tests getDateFromMonthMnemonic 2015 June 1`] = `"2015-06-06T05:00:00.000Z"`;
 
-exports[`tests getDoomsdayForYearNew 2087 1`] = `"2087-04-04T05:00:00.000Z"`;
+exports[`tests getDateFromMonthMnemonic 2015 March 1`] = `"2015-03-14T05:00:00.000Z"`;
 
-exports[`tests getDoomsdayForYearNew 2088 1`] = `"2088-04-04T05:00:00.000Z"`;
+exports[`tests getDateFromMonthMnemonic 2015 May 1`] = `"2015-05-09T05:00:00.000Z"`;
 
-exports[`tests getDoomsdayForYearNew 2089 1`] = `"2089-04-04T05:00:00.000Z"`;
+exports[`tests getDateFromMonthMnemonic 2015 November 1`] = `"2015-11-07T06:00:00.000Z"`;
 
-exports[`tests getDoomsdayForYearNew 2090 1`] = `"2090-04-04T05:00:00.000Z"`;
+exports[`tests getDateFromMonthMnemonic 2015 October 1`] = `"2015-10-10T05:00:00.000Z"`;
 
-exports[`tests getDoomsdayForYearNew 2091 1`] = `"2091-04-04T05:00:00.000Z"`;
+exports[`tests getDateFromMonthMnemonic 2015 September 1`] = `"2015-09-05T05:00:00.000Z"`;
 
-exports[`tests getDoomsdayForYearNew 2092 1`] = `"2092-04-04T05:00:00.000Z"`;
+exports[`tests getDateFromMonthMnemonic 2016 April 1`] = `"2016-04-04T05:00:00.000Z"`;
 
-exports[`tests getDoomsdayForYearNew 2093 1`] = `"2093-04-04T05:00:00.000Z"`;
+exports[`tests getDateFromMonthMnemonic 2016 August 1`] = `"2016-08-08T05:00:00.000Z"`;
 
-exports[`tests getDoomsdayForYearNew 2094 1`] = `"2094-04-04T05:00:00.000Z"`;
+exports[`tests getDateFromMonthMnemonic 2016 December 1`] = `"2016-12-12T06:00:00.000Z"`;
 
-exports[`tests getDoomsdayForYearNew 2095 1`] = `"2095-04-04T05:00:00.000Z"`;
+exports[`tests getDateFromMonthMnemonic 2016 February 1`] = `"2016-02-29T06:00:00.000Z"`;
 
-exports[`tests getDoomsdayForYearNew 2096 1`] = `"2096-04-04T05:00:00.000Z"`;
+exports[`tests getDateFromMonthMnemonic 2016 January 1`] = `"2016-01-04T06:00:00.000Z"`;
 
-exports[`tests getDoomsdayForYearNew 2097 1`] = `"2097-04-04T05:00:00.000Z"`;
+exports[`tests getDateFromMonthMnemonic 2016 July 1`] = `"2016-07-11T05:00:00.000Z"`;
 
-exports[`tests getDoomsdayForYearNew 2098 1`] = `"2098-04-04T05:00:00.000Z"`;
+exports[`tests getDateFromMonthMnemonic 2016 June 1`] = `"2016-06-06T05:00:00.000Z"`;
 
-exports[`tests getDoomsdayForYearNew 2099 1`] = `"2099-04-04T05:00:00.000Z"`;
+exports[`tests getDateFromMonthMnemonic 2016 March 1`] = `"2016-03-14T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2016 May 1`] = `"2016-05-09T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2016 November 1`] = `"2016-11-07T06:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2016 October 1`] = `"2016-10-10T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2016 September 1`] = `"2016-09-05T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2017 April 1`] = `"2017-04-04T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2017 August 1`] = `"2017-08-08T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2017 December 1`] = `"2017-12-12T06:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2017 February 1`] = `"2017-02-28T06:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2017 January 1`] = `"2017-01-03T06:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2017 July 1`] = `"2017-07-11T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2017 June 1`] = `"2017-06-06T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2017 March 1`] = `"2017-03-14T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2017 May 1`] = `"2017-05-09T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2017 November 1`] = `"2017-11-07T06:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2017 October 1`] = `"2017-10-10T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2017 September 1`] = `"2017-09-05T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2018 April 1`] = `"2018-04-04T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2018 August 1`] = `"2018-08-08T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2018 December 1`] = `"2018-12-12T06:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2018 February 1`] = `"2018-02-28T06:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2018 January 1`] = `"2018-01-03T06:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2018 July 1`] = `"2018-07-11T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2018 June 1`] = `"2018-06-06T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2018 March 1`] = `"2018-03-14T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2018 May 1`] = `"2018-05-09T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2018 November 1`] = `"2018-11-07T06:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2018 October 1`] = `"2018-10-10T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2018 September 1`] = `"2018-09-05T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2019 April 1`] = `"2019-04-04T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2019 August 1`] = `"2019-08-08T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2019 December 1`] = `"2019-12-12T06:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2019 February 1`] = `"2019-02-28T06:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2019 January 1`] = `"2019-01-03T06:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2019 July 1`] = `"2019-07-11T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2019 June 1`] = `"2019-06-06T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2019 March 1`] = `"2019-03-14T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2019 May 1`] = `"2019-05-09T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2019 November 1`] = `"2019-11-07T06:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2019 October 1`] = `"2019-10-10T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2019 September 1`] = `"2019-09-05T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2020 April 1`] = `"2020-04-04T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2020 August 1`] = `"2020-08-08T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2020 December 1`] = `"2020-12-12T06:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2020 February 1`] = `"2020-02-29T06:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2020 January 1`] = `"2020-01-04T06:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2020 July 1`] = `"2020-07-11T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2020 June 1`] = `"2020-06-06T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2020 March 1`] = `"2020-03-14T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2020 May 1`] = `"2020-05-09T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2020 November 1`] = `"2020-11-07T06:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2020 October 1`] = `"2020-10-10T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2020 September 1`] = `"2020-09-05T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2021 April 1`] = `"2021-04-04T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2021 August 1`] = `"2021-08-08T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2021 December 1`] = `"2021-12-12T06:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2021 February 1`] = `"2021-02-28T06:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2021 January 1`] = `"2021-01-03T06:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2021 July 1`] = `"2021-07-11T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2021 June 1`] = `"2021-06-06T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2021 March 1`] = `"2021-03-14T06:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2021 May 1`] = `"2021-05-09T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2021 November 1`] = `"2021-11-07T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2021 October 1`] = `"2021-10-10T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2021 September 1`] = `"2021-09-05T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2022 April 1`] = `"2022-04-04T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2022 August 1`] = `"2022-08-08T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2022 December 1`] = `"2022-12-12T06:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2022 February 1`] = `"2022-02-28T06:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2022 January 1`] = `"2022-01-03T06:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2022 July 1`] = `"2022-07-11T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2022 June 1`] = `"2022-06-06T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2022 March 1`] = `"2022-03-14T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2022 May 1`] = `"2022-05-09T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2022 November 1`] = `"2022-11-07T06:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2022 October 1`] = `"2022-10-10T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2022 September 1`] = `"2022-09-05T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2023 April 1`] = `"2023-04-04T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2023 August 1`] = `"2023-08-08T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2023 December 1`] = `"2023-12-12T06:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2023 February 1`] = `"2023-02-28T06:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2023 January 1`] = `"2023-01-03T06:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2023 July 1`] = `"2023-07-11T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2023 June 1`] = `"2023-06-06T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2023 March 1`] = `"2023-03-14T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2023 May 1`] = `"2023-05-09T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2023 November 1`] = `"2023-11-07T06:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2023 October 1`] = `"2023-10-10T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2023 September 1`] = `"2023-09-05T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2024 April 1`] = `"2024-04-04T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2024 August 1`] = `"2024-08-08T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2024 December 1`] = `"2024-12-12T06:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2024 February 1`] = `"2024-02-29T06:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2024 January 1`] = `"2024-01-04T06:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2024 July 1`] = `"2024-07-11T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2024 June 1`] = `"2024-06-06T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2024 March 1`] = `"2024-03-14T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2024 May 1`] = `"2024-05-09T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2024 November 1`] = `"2024-11-07T06:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2024 October 1`] = `"2024-10-10T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2024 September 1`] = `"2024-09-05T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2025 April 1`] = `"2025-04-04T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2025 August 1`] = `"2025-08-08T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2025 December 1`] = `"2025-12-12T06:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2025 February 1`] = `"2025-02-28T06:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2025 January 1`] = `"2025-01-03T06:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2025 July 1`] = `"2025-07-11T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2025 June 1`] = `"2025-06-06T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2025 March 1`] = `"2025-03-14T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2025 May 1`] = `"2025-05-09T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2025 November 1`] = `"2025-11-07T06:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2025 October 1`] = `"2025-10-10T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2025 September 1`] = `"2025-09-05T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2026 April 1`] = `"2026-04-04T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2026 August 1`] = `"2026-08-08T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2026 December 1`] = `"2026-12-12T06:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2026 February 1`] = `"2026-02-28T06:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2026 January 1`] = `"2026-01-03T06:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2026 July 1`] = `"2026-07-11T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2026 June 1`] = `"2026-06-06T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2026 March 1`] = `"2026-03-14T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2026 May 1`] = `"2026-05-09T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2026 November 1`] = `"2026-11-07T06:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2026 October 1`] = `"2026-10-10T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2026 September 1`] = `"2026-09-05T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2027 April 1`] = `"2027-04-04T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2027 August 1`] = `"2027-08-08T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2027 December 1`] = `"2027-12-12T06:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2027 February 1`] = `"2027-02-28T06:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2027 January 1`] = `"2027-01-03T06:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2027 July 1`] = `"2027-07-11T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2027 June 1`] = `"2027-06-06T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2027 March 1`] = `"2027-03-14T06:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2027 May 1`] = `"2027-05-09T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2027 November 1`] = `"2027-11-07T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2027 October 1`] = `"2027-10-10T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2027 September 1`] = `"2027-09-05T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2028 April 1`] = `"2028-04-04T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2028 August 1`] = `"2028-08-08T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2028 December 1`] = `"2028-12-12T06:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2028 February 1`] = `"2028-02-29T06:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2028 January 1`] = `"2028-01-04T06:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2028 July 1`] = `"2028-07-11T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2028 June 1`] = `"2028-06-06T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2028 March 1`] = `"2028-03-14T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2028 May 1`] = `"2028-05-09T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2028 November 1`] = `"2028-11-07T06:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2028 October 1`] = `"2028-10-10T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2028 September 1`] = `"2028-09-05T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2029 April 1`] = `"2029-04-04T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2029 August 1`] = `"2029-08-08T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2029 December 1`] = `"2029-12-12T06:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2029 February 1`] = `"2029-02-28T06:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2029 January 1`] = `"2029-01-03T06:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2029 July 1`] = `"2029-07-11T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2029 June 1`] = `"2029-06-06T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2029 March 1`] = `"2029-03-14T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2029 May 1`] = `"2029-05-09T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2029 November 1`] = `"2029-11-07T06:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2029 October 1`] = `"2029-10-10T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2029 September 1`] = `"2029-09-05T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2030 April 1`] = `"2030-04-04T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2030 August 1`] = `"2030-08-08T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2030 December 1`] = `"2030-12-12T06:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2030 February 1`] = `"2030-02-28T06:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2030 January 1`] = `"2030-01-03T06:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2030 July 1`] = `"2030-07-11T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2030 June 1`] = `"2030-06-06T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2030 March 1`] = `"2030-03-14T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2030 May 1`] = `"2030-05-09T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2030 November 1`] = `"2030-11-07T06:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2030 October 1`] = `"2030-10-10T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2030 September 1`] = `"2030-09-05T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2031 April 1`] = `"2031-04-04T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2031 August 1`] = `"2031-08-08T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2031 December 1`] = `"2031-12-12T06:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2031 February 1`] = `"2031-02-28T06:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2031 January 1`] = `"2031-01-03T06:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2031 July 1`] = `"2031-07-11T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2031 June 1`] = `"2031-06-06T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2031 March 1`] = `"2031-03-14T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2031 May 1`] = `"2031-05-09T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2031 November 1`] = `"2031-11-07T06:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2031 October 1`] = `"2031-10-10T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2031 September 1`] = `"2031-09-05T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2032 April 1`] = `"2032-04-04T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2032 August 1`] = `"2032-08-08T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2032 December 1`] = `"2032-12-12T06:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2032 February 1`] = `"2032-02-29T06:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2032 January 1`] = `"2032-01-04T06:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2032 July 1`] = `"2032-07-11T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2032 June 1`] = `"2032-06-06T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2032 March 1`] = `"2032-03-14T06:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2032 May 1`] = `"2032-05-09T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2032 November 1`] = `"2032-11-07T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2032 October 1`] = `"2032-10-10T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2032 September 1`] = `"2032-09-05T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2033 April 1`] = `"2033-04-04T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2033 August 1`] = `"2033-08-08T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2033 December 1`] = `"2033-12-12T06:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2033 February 1`] = `"2033-02-28T06:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2033 January 1`] = `"2033-01-03T06:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2033 July 1`] = `"2033-07-11T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2033 June 1`] = `"2033-06-06T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2033 March 1`] = `"2033-03-14T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2033 May 1`] = `"2033-05-09T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2033 November 1`] = `"2033-11-07T06:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2033 October 1`] = `"2033-10-10T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2033 September 1`] = `"2033-09-05T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2034 April 1`] = `"2034-04-04T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2034 August 1`] = `"2034-08-08T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2034 December 1`] = `"2034-12-12T06:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2034 February 1`] = `"2034-02-28T06:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2034 January 1`] = `"2034-01-03T06:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2034 July 1`] = `"2034-07-11T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2034 June 1`] = `"2034-06-06T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2034 March 1`] = `"2034-03-14T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2034 May 1`] = `"2034-05-09T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2034 November 1`] = `"2034-11-07T06:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2034 October 1`] = `"2034-10-10T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2034 September 1`] = `"2034-09-05T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2035 April 1`] = `"2035-04-04T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2035 August 1`] = `"2035-08-08T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2035 December 1`] = `"2035-12-12T06:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2035 February 1`] = `"2035-02-28T06:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2035 January 1`] = `"2035-01-03T06:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2035 July 1`] = `"2035-07-11T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2035 June 1`] = `"2035-06-06T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2035 March 1`] = `"2035-03-14T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2035 May 1`] = `"2035-05-09T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2035 November 1`] = `"2035-11-07T06:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2035 October 1`] = `"2035-10-10T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2035 September 1`] = `"2035-09-05T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2036 April 1`] = `"2036-04-04T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2036 August 1`] = `"2036-08-08T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2036 December 1`] = `"2036-12-12T06:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2036 February 1`] = `"2036-02-29T06:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2036 January 1`] = `"2036-01-04T06:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2036 July 1`] = `"2036-07-11T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2036 June 1`] = `"2036-06-06T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2036 March 1`] = `"2036-03-14T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2036 May 1`] = `"2036-05-09T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2036 November 1`] = `"2036-11-07T06:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2036 October 1`] = `"2036-10-10T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2036 September 1`] = `"2036-09-05T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2037 April 1`] = `"2037-04-04T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2037 August 1`] = `"2037-08-08T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2037 December 1`] = `"2037-12-12T06:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2037 February 1`] = `"2037-02-28T06:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2037 January 1`] = `"2037-01-03T06:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2037 July 1`] = `"2037-07-11T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2037 June 1`] = `"2037-06-06T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2037 March 1`] = `"2037-03-14T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2037 May 1`] = `"2037-05-09T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2037 November 1`] = `"2037-11-07T06:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2037 October 1`] = `"2037-10-10T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2037 September 1`] = `"2037-09-05T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2038 April 1`] = `"2038-04-04T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2038 August 1`] = `"2038-08-08T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2038 December 1`] = `"2038-12-12T06:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2038 February 1`] = `"2038-02-28T06:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2038 January 1`] = `"2038-01-03T06:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2038 July 1`] = `"2038-07-11T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2038 June 1`] = `"2038-06-06T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2038 March 1`] = `"2038-03-14T06:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2038 May 1`] = `"2038-05-09T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2038 November 1`] = `"2038-11-07T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2038 October 1`] = `"2038-10-10T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2038 September 1`] = `"2038-09-05T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2039 April 1`] = `"2039-04-04T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2039 August 1`] = `"2039-08-08T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2039 December 1`] = `"2039-12-12T06:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2039 February 1`] = `"2039-02-28T06:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2039 January 1`] = `"2039-01-03T06:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2039 July 1`] = `"2039-07-11T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2039 June 1`] = `"2039-06-06T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2039 March 1`] = `"2039-03-14T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2039 May 1`] = `"2039-05-09T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2039 November 1`] = `"2039-11-07T06:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2039 October 1`] = `"2039-10-10T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2039 September 1`] = `"2039-09-05T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2040 April 1`] = `"2040-04-04T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2040 August 1`] = `"2040-08-08T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2040 December 1`] = `"2040-12-12T06:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2040 February 1`] = `"2040-02-29T06:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2040 January 1`] = `"2040-01-04T06:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2040 July 1`] = `"2040-07-11T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2040 June 1`] = `"2040-06-06T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2040 March 1`] = `"2040-03-14T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2040 May 1`] = `"2040-05-09T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2040 November 1`] = `"2040-11-07T06:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2040 October 1`] = `"2040-10-10T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2040 September 1`] = `"2040-09-05T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2041 April 1`] = `"2041-04-04T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2041 August 1`] = `"2041-08-08T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2041 December 1`] = `"2041-12-12T06:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2041 February 1`] = `"2041-02-28T06:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2041 January 1`] = `"2041-01-03T06:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2041 July 1`] = `"2041-07-11T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2041 June 1`] = `"2041-06-06T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2041 March 1`] = `"2041-03-14T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2041 May 1`] = `"2041-05-09T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2041 November 1`] = `"2041-11-07T06:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2041 October 1`] = `"2041-10-10T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2041 September 1`] = `"2041-09-05T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2042 April 1`] = `"2042-04-04T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2042 August 1`] = `"2042-08-08T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2042 December 1`] = `"2042-12-12T06:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2042 February 1`] = `"2042-02-28T06:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2042 January 1`] = `"2042-01-03T06:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2042 July 1`] = `"2042-07-11T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2042 June 1`] = `"2042-06-06T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2042 March 1`] = `"2042-03-14T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2042 May 1`] = `"2042-05-09T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2042 November 1`] = `"2042-11-07T06:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2042 October 1`] = `"2042-10-10T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2042 September 1`] = `"2042-09-05T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2043 April 1`] = `"2043-04-04T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2043 August 1`] = `"2043-08-08T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2043 December 1`] = `"2043-12-12T06:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2043 February 1`] = `"2043-02-28T06:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2043 January 1`] = `"2043-01-03T06:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2043 July 1`] = `"2043-07-11T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2043 June 1`] = `"2043-06-06T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2043 March 1`] = `"2043-03-14T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2043 May 1`] = `"2043-05-09T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2043 November 1`] = `"2043-11-07T06:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2043 October 1`] = `"2043-10-10T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2043 September 1`] = `"2043-09-05T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2044 April 1`] = `"2044-04-04T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2044 August 1`] = `"2044-08-08T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2044 December 1`] = `"2044-12-12T06:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2044 February 1`] = `"2044-02-29T06:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2044 January 1`] = `"2044-01-04T06:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2044 July 1`] = `"2044-07-11T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2044 June 1`] = `"2044-06-06T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2044 March 1`] = `"2044-03-14T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2044 May 1`] = `"2044-05-09T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2044 November 1`] = `"2044-11-07T06:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2044 October 1`] = `"2044-10-10T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2044 September 1`] = `"2044-09-05T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2045 April 1`] = `"2045-04-04T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2045 August 1`] = `"2045-08-08T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2045 December 1`] = `"2045-12-12T06:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2045 February 1`] = `"2045-02-28T06:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2045 January 1`] = `"2045-01-03T06:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2045 July 1`] = `"2045-07-11T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2045 June 1`] = `"2045-06-06T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2045 March 1`] = `"2045-03-14T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2045 May 1`] = `"2045-05-09T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2045 November 1`] = `"2045-11-07T06:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2045 October 1`] = `"2045-10-10T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2045 September 1`] = `"2045-09-05T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2046 April 1`] = `"2046-04-04T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2046 August 1`] = `"2046-08-08T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2046 December 1`] = `"2046-12-12T06:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2046 February 1`] = `"2046-02-28T06:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2046 January 1`] = `"2046-01-03T06:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2046 July 1`] = `"2046-07-11T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2046 June 1`] = `"2046-06-06T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2046 March 1`] = `"2046-03-14T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2046 May 1`] = `"2046-05-09T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2046 November 1`] = `"2046-11-07T06:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2046 October 1`] = `"2046-10-10T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2046 September 1`] = `"2046-09-05T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2047 April 1`] = `"2047-04-04T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2047 August 1`] = `"2047-08-08T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2047 December 1`] = `"2047-12-12T06:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2047 February 1`] = `"2047-02-28T06:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2047 January 1`] = `"2047-01-03T06:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2047 July 1`] = `"2047-07-11T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2047 June 1`] = `"2047-06-06T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2047 March 1`] = `"2047-03-14T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2047 May 1`] = `"2047-05-09T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2047 November 1`] = `"2047-11-07T06:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2047 October 1`] = `"2047-10-10T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2047 September 1`] = `"2047-09-05T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2048 April 1`] = `"2048-04-04T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2048 August 1`] = `"2048-08-08T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2048 December 1`] = `"2048-12-12T06:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2048 February 1`] = `"2048-02-29T06:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2048 January 1`] = `"2048-01-04T06:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2048 July 1`] = `"2048-07-11T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2048 June 1`] = `"2048-06-06T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2048 March 1`] = `"2048-03-14T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2048 May 1`] = `"2048-05-09T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2048 November 1`] = `"2048-11-07T06:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2048 October 1`] = `"2048-10-10T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2048 September 1`] = `"2048-09-05T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2049 April 1`] = `"2049-04-04T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2049 August 1`] = `"2049-08-08T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2049 December 1`] = `"2049-12-12T06:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2049 February 1`] = `"2049-02-28T06:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2049 January 1`] = `"2049-01-03T06:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2049 July 1`] = `"2049-07-11T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2049 June 1`] = `"2049-06-06T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2049 March 1`] = `"2049-03-14T06:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2049 May 1`] = `"2049-05-09T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2049 November 1`] = `"2049-11-07T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2049 October 1`] = `"2049-10-10T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2049 September 1`] = `"2049-09-05T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2050 April 1`] = `"2050-04-04T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2050 August 1`] = `"2050-08-08T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2050 December 1`] = `"2050-12-12T06:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2050 February 1`] = `"2050-02-28T06:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2050 January 1`] = `"2050-01-03T06:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2050 July 1`] = `"2050-07-11T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2050 June 1`] = `"2050-06-06T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2050 March 1`] = `"2050-03-14T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2050 May 1`] = `"2050-05-09T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2050 November 1`] = `"2050-11-07T06:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2050 October 1`] = `"2050-10-10T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2050 September 1`] = `"2050-09-05T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2051 April 1`] = `"2051-04-04T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2051 August 1`] = `"2051-08-08T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2051 December 1`] = `"2051-12-12T06:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2051 February 1`] = `"2051-02-28T06:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2051 January 1`] = `"2051-01-03T06:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2051 July 1`] = `"2051-07-11T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2051 June 1`] = `"2051-06-06T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2051 March 1`] = `"2051-03-14T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2051 May 1`] = `"2051-05-09T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2051 November 1`] = `"2051-11-07T06:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2051 October 1`] = `"2051-10-10T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2051 September 1`] = `"2051-09-05T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2052 April 1`] = `"2052-04-04T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2052 August 1`] = `"2052-08-08T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2052 December 1`] = `"2052-12-12T06:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2052 February 1`] = `"2052-02-29T06:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2052 January 1`] = `"2052-01-04T06:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2052 July 1`] = `"2052-07-11T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2052 June 1`] = `"2052-06-06T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2052 March 1`] = `"2052-03-14T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2052 May 1`] = `"2052-05-09T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2052 November 1`] = `"2052-11-07T06:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2052 October 1`] = `"2052-10-10T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2052 September 1`] = `"2052-09-05T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2053 April 1`] = `"2053-04-04T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2053 August 1`] = `"2053-08-08T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2053 December 1`] = `"2053-12-12T06:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2053 February 1`] = `"2053-02-28T06:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2053 January 1`] = `"2053-01-03T06:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2053 July 1`] = `"2053-07-11T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2053 June 1`] = `"2053-06-06T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2053 March 1`] = `"2053-03-14T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2053 May 1`] = `"2053-05-09T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2053 November 1`] = `"2053-11-07T06:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2053 October 1`] = `"2053-10-10T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2053 September 1`] = `"2053-09-05T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2054 April 1`] = `"2054-04-04T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2054 August 1`] = `"2054-08-08T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2054 December 1`] = `"2054-12-12T06:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2054 February 1`] = `"2054-02-28T06:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2054 January 1`] = `"2054-01-03T06:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2054 July 1`] = `"2054-07-11T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2054 June 1`] = `"2054-06-06T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2054 March 1`] = `"2054-03-14T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2054 May 1`] = `"2054-05-09T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2054 November 1`] = `"2054-11-07T06:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2054 October 1`] = `"2054-10-10T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2054 September 1`] = `"2054-09-05T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2055 April 1`] = `"2055-04-04T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2055 August 1`] = `"2055-08-08T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2055 December 1`] = `"2055-12-12T06:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2055 February 1`] = `"2055-02-28T06:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2055 January 1`] = `"2055-01-03T06:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2055 July 1`] = `"2055-07-11T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2055 June 1`] = `"2055-06-06T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2055 March 1`] = `"2055-03-14T06:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2055 May 1`] = `"2055-05-09T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2055 November 1`] = `"2055-11-07T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2055 October 1`] = `"2055-10-10T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2055 September 1`] = `"2055-09-05T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2056 April 1`] = `"2056-04-04T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2056 August 1`] = `"2056-08-08T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2056 December 1`] = `"2056-12-12T06:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2056 February 1`] = `"2056-02-29T06:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2056 January 1`] = `"2056-01-04T06:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2056 July 1`] = `"2056-07-11T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2056 June 1`] = `"2056-06-06T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2056 March 1`] = `"2056-03-14T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2056 May 1`] = `"2056-05-09T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2056 November 1`] = `"2056-11-07T06:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2056 October 1`] = `"2056-10-10T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2056 September 1`] = `"2056-09-05T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2057 April 1`] = `"2057-04-04T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2057 August 1`] = `"2057-08-08T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2057 December 1`] = `"2057-12-12T06:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2057 February 1`] = `"2057-02-28T06:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2057 January 1`] = `"2057-01-03T06:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2057 July 1`] = `"2057-07-11T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2057 June 1`] = `"2057-06-06T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2057 March 1`] = `"2057-03-14T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2057 May 1`] = `"2057-05-09T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2057 November 1`] = `"2057-11-07T06:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2057 October 1`] = `"2057-10-10T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2057 September 1`] = `"2057-09-05T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2058 April 1`] = `"2058-04-04T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2058 August 1`] = `"2058-08-08T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2058 December 1`] = `"2058-12-12T06:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2058 February 1`] = `"2058-02-28T06:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2058 January 1`] = `"2058-01-03T06:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2058 July 1`] = `"2058-07-11T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2058 June 1`] = `"2058-06-06T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2058 March 1`] = `"2058-03-14T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2058 May 1`] = `"2058-05-09T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2058 November 1`] = `"2058-11-07T06:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2058 October 1`] = `"2058-10-10T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2058 September 1`] = `"2058-09-05T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2059 April 1`] = `"2059-04-04T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2059 August 1`] = `"2059-08-08T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2059 December 1`] = `"2059-12-12T06:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2059 February 1`] = `"2059-02-28T06:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2059 January 1`] = `"2059-01-03T06:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2059 July 1`] = `"2059-07-11T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2059 June 1`] = `"2059-06-06T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2059 March 1`] = `"2059-03-14T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2059 May 1`] = `"2059-05-09T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2059 November 1`] = `"2059-11-07T06:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2059 October 1`] = `"2059-10-10T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2059 September 1`] = `"2059-09-05T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2060 April 1`] = `"2060-04-04T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2060 August 1`] = `"2060-08-08T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2060 December 1`] = `"2060-12-12T06:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2060 February 1`] = `"2060-02-29T06:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2060 January 1`] = `"2060-01-04T06:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2060 July 1`] = `"2060-07-11T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2060 June 1`] = `"2060-06-06T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2060 March 1`] = `"2060-03-14T06:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2060 May 1`] = `"2060-05-09T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2060 November 1`] = `"2060-11-07T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2060 October 1`] = `"2060-10-10T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2060 September 1`] = `"2060-09-05T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2061 April 1`] = `"2061-04-04T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2061 August 1`] = `"2061-08-08T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2061 December 1`] = `"2061-12-12T06:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2061 February 1`] = `"2061-02-28T06:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2061 January 1`] = `"2061-01-03T06:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2061 July 1`] = `"2061-07-11T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2061 June 1`] = `"2061-06-06T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2061 March 1`] = `"2061-03-14T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2061 May 1`] = `"2061-05-09T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2061 November 1`] = `"2061-11-07T06:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2061 October 1`] = `"2061-10-10T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2061 September 1`] = `"2061-09-05T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2062 April 1`] = `"2062-04-04T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2062 August 1`] = `"2062-08-08T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2062 December 1`] = `"2062-12-12T06:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2062 February 1`] = `"2062-02-28T06:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2062 January 1`] = `"2062-01-03T06:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2062 July 1`] = `"2062-07-11T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2062 June 1`] = `"2062-06-06T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2062 March 1`] = `"2062-03-14T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2062 May 1`] = `"2062-05-09T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2062 November 1`] = `"2062-11-07T06:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2062 October 1`] = `"2062-10-10T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2062 September 1`] = `"2062-09-05T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2063 April 1`] = `"2063-04-04T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2063 August 1`] = `"2063-08-08T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2063 December 1`] = `"2063-12-12T06:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2063 February 1`] = `"2063-02-28T06:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2063 January 1`] = `"2063-01-03T06:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2063 July 1`] = `"2063-07-11T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2063 June 1`] = `"2063-06-06T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2063 March 1`] = `"2063-03-14T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2063 May 1`] = `"2063-05-09T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2063 November 1`] = `"2063-11-07T06:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2063 October 1`] = `"2063-10-10T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2063 September 1`] = `"2063-09-05T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2064 April 1`] = `"2064-04-04T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2064 August 1`] = `"2064-08-08T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2064 December 1`] = `"2064-12-12T06:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2064 February 1`] = `"2064-02-29T06:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2064 January 1`] = `"2064-01-04T06:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2064 July 1`] = `"2064-07-11T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2064 June 1`] = `"2064-06-06T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2064 March 1`] = `"2064-03-14T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2064 May 1`] = `"2064-05-09T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2064 November 1`] = `"2064-11-07T06:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2064 October 1`] = `"2064-10-10T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2064 September 1`] = `"2064-09-05T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2065 April 1`] = `"2065-04-04T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2065 August 1`] = `"2065-08-08T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2065 December 1`] = `"2065-12-12T06:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2065 February 1`] = `"2065-02-28T06:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2065 January 1`] = `"2065-01-03T06:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2065 July 1`] = `"2065-07-11T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2065 June 1`] = `"2065-06-06T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2065 March 1`] = `"2065-03-14T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2065 May 1`] = `"2065-05-09T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2065 November 1`] = `"2065-11-07T06:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2065 October 1`] = `"2065-10-10T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2065 September 1`] = `"2065-09-05T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2066 April 1`] = `"2066-04-04T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2066 August 1`] = `"2066-08-08T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2066 December 1`] = `"2066-12-12T06:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2066 February 1`] = `"2066-02-28T06:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2066 January 1`] = `"2066-01-03T06:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2066 July 1`] = `"2066-07-11T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2066 June 1`] = `"2066-06-06T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2066 March 1`] = `"2066-03-14T06:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2066 May 1`] = `"2066-05-09T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2066 November 1`] = `"2066-11-07T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2066 October 1`] = `"2066-10-10T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2066 September 1`] = `"2066-09-05T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2067 April 1`] = `"2067-04-04T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2067 August 1`] = `"2067-08-08T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2067 December 1`] = `"2067-12-12T06:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2067 February 1`] = `"2067-02-28T06:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2067 January 1`] = `"2067-01-03T06:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2067 July 1`] = `"2067-07-11T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2067 June 1`] = `"2067-06-06T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2067 March 1`] = `"2067-03-14T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2067 May 1`] = `"2067-05-09T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2067 November 1`] = `"2067-11-07T06:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2067 October 1`] = `"2067-10-10T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2067 September 1`] = `"2067-09-05T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2068 April 1`] = `"2068-04-04T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2068 August 1`] = `"2068-08-08T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2068 December 1`] = `"2068-12-12T06:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2068 February 1`] = `"2068-02-29T06:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2068 January 1`] = `"2068-01-04T06:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2068 July 1`] = `"2068-07-11T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2068 June 1`] = `"2068-06-06T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2068 March 1`] = `"2068-03-14T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2068 May 1`] = `"2068-05-09T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2068 November 1`] = `"2068-11-07T06:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2068 October 1`] = `"2068-10-10T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2068 September 1`] = `"2068-09-05T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2069 April 1`] = `"2069-04-04T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2069 August 1`] = `"2069-08-08T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2069 December 1`] = `"2069-12-12T06:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2069 February 1`] = `"2069-02-28T06:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2069 January 1`] = `"2069-01-03T06:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2069 July 1`] = `"2069-07-11T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2069 June 1`] = `"2069-06-06T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2069 March 1`] = `"2069-03-14T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2069 May 1`] = `"2069-05-09T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2069 November 1`] = `"2069-11-07T06:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2069 October 1`] = `"2069-10-10T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2069 September 1`] = `"2069-09-05T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2070 April 1`] = `"2070-04-04T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2070 August 1`] = `"2070-08-08T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2070 December 1`] = `"2070-12-12T06:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2070 February 1`] = `"2070-02-28T06:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2070 January 1`] = `"2070-01-03T06:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2070 July 1`] = `"2070-07-11T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2070 June 1`] = `"2070-06-06T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2070 March 1`] = `"2070-03-14T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2070 May 1`] = `"2070-05-09T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2070 November 1`] = `"2070-11-07T06:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2070 October 1`] = `"2070-10-10T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2070 September 1`] = `"2070-09-05T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2071 April 1`] = `"2071-04-04T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2071 August 1`] = `"2071-08-08T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2071 December 1`] = `"2071-12-12T06:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2071 February 1`] = `"2071-02-28T06:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2071 January 1`] = `"2071-01-03T06:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2071 July 1`] = `"2071-07-11T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2071 June 1`] = `"2071-06-06T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2071 March 1`] = `"2071-03-14T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2071 May 1`] = `"2071-05-09T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2071 November 1`] = `"2071-11-07T06:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2071 October 1`] = `"2071-10-10T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2071 September 1`] = `"2071-09-05T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2072 April 1`] = `"2072-04-04T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2072 August 1`] = `"2072-08-08T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2072 December 1`] = `"2072-12-12T06:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2072 February 1`] = `"2072-02-29T06:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2072 January 1`] = `"2072-01-04T06:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2072 July 1`] = `"2072-07-11T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2072 June 1`] = `"2072-06-06T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2072 March 1`] = `"2072-03-14T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2072 May 1`] = `"2072-05-09T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2072 November 1`] = `"2072-11-07T06:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2072 October 1`] = `"2072-10-10T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2072 September 1`] = `"2072-09-05T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2073 April 1`] = `"2073-04-04T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2073 August 1`] = `"2073-08-08T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2073 December 1`] = `"2073-12-12T06:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2073 February 1`] = `"2073-02-28T06:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2073 January 1`] = `"2073-01-03T06:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2073 July 1`] = `"2073-07-11T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2073 June 1`] = `"2073-06-06T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2073 March 1`] = `"2073-03-14T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2073 May 1`] = `"2073-05-09T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2073 November 1`] = `"2073-11-07T06:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2073 October 1`] = `"2073-10-10T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2073 September 1`] = `"2073-09-05T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2074 April 1`] = `"2074-04-04T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2074 August 1`] = `"2074-08-08T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2074 December 1`] = `"2074-12-12T06:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2074 February 1`] = `"2074-02-28T06:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2074 January 1`] = `"2074-01-03T06:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2074 July 1`] = `"2074-07-11T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2074 June 1`] = `"2074-06-06T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2074 March 1`] = `"2074-03-14T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2074 May 1`] = `"2074-05-09T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2074 November 1`] = `"2074-11-07T06:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2074 October 1`] = `"2074-10-10T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2074 September 1`] = `"2074-09-05T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2075 April 1`] = `"2075-04-04T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2075 August 1`] = `"2075-08-08T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2075 December 1`] = `"2075-12-12T06:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2075 February 1`] = `"2075-02-28T06:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2075 January 1`] = `"2075-01-03T06:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2075 July 1`] = `"2075-07-11T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2075 June 1`] = `"2075-06-06T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2075 March 1`] = `"2075-03-14T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2075 May 1`] = `"2075-05-09T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2075 November 1`] = `"2075-11-07T06:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2075 October 1`] = `"2075-10-10T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2075 September 1`] = `"2075-09-05T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2076 April 1`] = `"2076-04-04T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2076 August 1`] = `"2076-08-08T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2076 December 1`] = `"2076-12-12T06:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2076 February 1`] = `"2076-02-29T06:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2076 January 1`] = `"2076-01-04T06:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2076 July 1`] = `"2076-07-11T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2076 June 1`] = `"2076-06-06T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2076 March 1`] = `"2076-03-14T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2076 May 1`] = `"2076-05-09T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2076 November 1`] = `"2076-11-07T06:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2076 October 1`] = `"2076-10-10T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2076 September 1`] = `"2076-09-05T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2077 April 1`] = `"2077-04-04T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2077 August 1`] = `"2077-08-08T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2077 December 1`] = `"2077-12-12T06:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2077 February 1`] = `"2077-02-28T06:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2077 January 1`] = `"2077-01-03T06:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2077 July 1`] = `"2077-07-11T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2077 June 1`] = `"2077-06-06T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2077 March 1`] = `"2077-03-14T06:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2077 May 1`] = `"2077-05-09T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2077 November 1`] = `"2077-11-07T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2077 October 1`] = `"2077-10-10T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2077 September 1`] = `"2077-09-05T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2078 April 1`] = `"2078-04-04T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2078 August 1`] = `"2078-08-08T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2078 December 1`] = `"2078-12-12T06:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2078 February 1`] = `"2078-02-28T06:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2078 January 1`] = `"2078-01-03T06:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2078 July 1`] = `"2078-07-11T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2078 June 1`] = `"2078-06-06T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2078 March 1`] = `"2078-03-14T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2078 May 1`] = `"2078-05-09T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2078 November 1`] = `"2078-11-07T06:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2078 October 1`] = `"2078-10-10T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2078 September 1`] = `"2078-09-05T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2079 April 1`] = `"2079-04-04T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2079 August 1`] = `"2079-08-08T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2079 December 1`] = `"2079-12-12T06:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2079 February 1`] = `"2079-02-28T06:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2079 January 1`] = `"2079-01-03T06:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2079 July 1`] = `"2079-07-11T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2079 June 1`] = `"2079-06-06T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2079 March 1`] = `"2079-03-14T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2079 May 1`] = `"2079-05-09T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2079 November 1`] = `"2079-11-07T06:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2079 October 1`] = `"2079-10-10T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2079 September 1`] = `"2079-09-05T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2080 April 1`] = `"2080-04-04T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2080 August 1`] = `"2080-08-08T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2080 December 1`] = `"2080-12-12T06:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2080 February 1`] = `"2080-02-29T06:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2080 January 1`] = `"2080-01-04T06:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2080 July 1`] = `"2080-07-11T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2080 June 1`] = `"2080-06-06T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2080 March 1`] = `"2080-03-14T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2080 May 1`] = `"2080-05-09T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2080 November 1`] = `"2080-11-07T06:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2080 October 1`] = `"2080-10-10T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2080 September 1`] = `"2080-09-05T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2081 April 1`] = `"2081-04-04T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2081 August 1`] = `"2081-08-08T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2081 December 1`] = `"2081-12-12T06:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2081 February 1`] = `"2081-02-28T06:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2081 January 1`] = `"2081-01-03T06:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2081 July 1`] = `"2081-07-11T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2081 June 1`] = `"2081-06-06T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2081 March 1`] = `"2081-03-14T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2081 May 1`] = `"2081-05-09T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2081 November 1`] = `"2081-11-07T06:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2081 October 1`] = `"2081-10-10T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2081 September 1`] = `"2081-09-05T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2082 April 1`] = `"2082-04-04T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2082 August 1`] = `"2082-08-08T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2082 December 1`] = `"2082-12-12T06:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2082 February 1`] = `"2082-02-28T06:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2082 January 1`] = `"2082-01-03T06:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2082 July 1`] = `"2082-07-11T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2082 June 1`] = `"2082-06-06T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2082 March 1`] = `"2082-03-14T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2082 May 1`] = `"2082-05-09T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2082 November 1`] = `"2082-11-07T06:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2082 October 1`] = `"2082-10-10T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2082 September 1`] = `"2082-09-05T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2083 April 1`] = `"2083-04-04T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2083 August 1`] = `"2083-08-08T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2083 December 1`] = `"2083-12-12T06:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2083 February 1`] = `"2083-02-28T06:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2083 January 1`] = `"2083-01-03T06:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2083 July 1`] = `"2083-07-11T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2083 June 1`] = `"2083-06-06T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2083 March 1`] = `"2083-03-14T06:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2083 May 1`] = `"2083-05-09T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2083 November 1`] = `"2083-11-07T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2083 October 1`] = `"2083-10-10T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2083 September 1`] = `"2083-09-05T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2084 April 1`] = `"2084-04-04T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2084 August 1`] = `"2084-08-08T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2084 December 1`] = `"2084-12-12T06:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2084 February 1`] = `"2084-02-29T06:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2084 January 1`] = `"2084-01-04T06:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2084 July 1`] = `"2084-07-11T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2084 June 1`] = `"2084-06-06T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2084 March 1`] = `"2084-03-14T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2084 May 1`] = `"2084-05-09T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2084 November 1`] = `"2084-11-07T06:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2084 October 1`] = `"2084-10-10T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2084 September 1`] = `"2084-09-05T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2085 April 1`] = `"2085-04-04T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2085 August 1`] = `"2085-08-08T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2085 December 1`] = `"2085-12-12T06:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2085 February 1`] = `"2085-02-28T06:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2085 January 1`] = `"2085-01-03T06:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2085 July 1`] = `"2085-07-11T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2085 June 1`] = `"2085-06-06T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2085 March 1`] = `"2085-03-14T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2085 May 1`] = `"2085-05-09T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2085 November 1`] = `"2085-11-07T06:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2085 October 1`] = `"2085-10-10T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2085 September 1`] = `"2085-09-05T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2086 April 1`] = `"2086-04-04T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2086 August 1`] = `"2086-08-08T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2086 December 1`] = `"2086-12-12T06:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2086 February 1`] = `"2086-02-28T06:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2086 January 1`] = `"2086-01-03T06:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2086 July 1`] = `"2086-07-11T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2086 June 1`] = `"2086-06-06T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2086 March 1`] = `"2086-03-14T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2086 May 1`] = `"2086-05-09T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2086 November 1`] = `"2086-11-07T06:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2086 October 1`] = `"2086-10-10T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2086 September 1`] = `"2086-09-05T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2087 April 1`] = `"2087-04-04T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2087 August 1`] = `"2087-08-08T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2087 December 1`] = `"2087-12-12T06:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2087 February 1`] = `"2087-02-28T06:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2087 January 1`] = `"2087-01-03T06:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2087 July 1`] = `"2087-07-11T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2087 June 1`] = `"2087-06-06T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2087 March 1`] = `"2087-03-14T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2087 May 1`] = `"2087-05-09T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2087 November 1`] = `"2087-11-07T06:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2087 October 1`] = `"2087-10-10T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2087 September 1`] = `"2087-09-05T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2088 April 1`] = `"2088-04-04T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2088 August 1`] = `"2088-08-08T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2088 December 1`] = `"2088-12-12T06:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2088 February 1`] = `"2088-02-29T06:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2088 January 1`] = `"2088-01-04T06:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2088 July 1`] = `"2088-07-11T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2088 June 1`] = `"2088-06-06T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2088 March 1`] = `"2088-03-14T06:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2088 May 1`] = `"2088-05-09T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2088 November 1`] = `"2088-11-07T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2088 October 1`] = `"2088-10-10T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2088 September 1`] = `"2088-09-05T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2089 April 1`] = `"2089-04-04T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2089 August 1`] = `"2089-08-08T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2089 December 1`] = `"2089-12-12T06:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2089 February 1`] = `"2089-02-28T06:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2089 January 1`] = `"2089-01-03T06:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2089 July 1`] = `"2089-07-11T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2089 June 1`] = `"2089-06-06T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2089 March 1`] = `"2089-03-14T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2089 May 1`] = `"2089-05-09T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2089 November 1`] = `"2089-11-07T06:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2089 October 1`] = `"2089-10-10T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2089 September 1`] = `"2089-09-05T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2090 April 1`] = `"2090-04-04T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2090 August 1`] = `"2090-08-08T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2090 December 1`] = `"2090-12-12T06:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2090 February 1`] = `"2090-02-28T06:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2090 January 1`] = `"2090-01-03T06:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2090 July 1`] = `"2090-07-11T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2090 June 1`] = `"2090-06-06T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2090 March 1`] = `"2090-03-14T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2090 May 1`] = `"2090-05-09T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2090 November 1`] = `"2090-11-07T06:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2090 October 1`] = `"2090-10-10T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2090 September 1`] = `"2090-09-05T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2091 April 1`] = `"2091-04-04T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2091 August 1`] = `"2091-08-08T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2091 December 1`] = `"2091-12-12T06:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2091 February 1`] = `"2091-02-28T06:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2091 January 1`] = `"2091-01-03T06:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2091 July 1`] = `"2091-07-11T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2091 June 1`] = `"2091-06-06T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2091 March 1`] = `"2091-03-14T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2091 May 1`] = `"2091-05-09T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2091 November 1`] = `"2091-11-07T06:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2091 October 1`] = `"2091-10-10T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2091 September 1`] = `"2091-09-05T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2092 April 1`] = `"2092-04-04T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2092 August 1`] = `"2092-08-08T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2092 December 1`] = `"2092-12-12T06:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2092 February 1`] = `"2092-02-29T06:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2092 January 1`] = `"2092-01-04T06:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2092 July 1`] = `"2092-07-11T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2092 June 1`] = `"2092-06-06T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2092 March 1`] = `"2092-03-14T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2092 May 1`] = `"2092-05-09T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2092 November 1`] = `"2092-11-07T06:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2092 October 1`] = `"2092-10-10T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2092 September 1`] = `"2092-09-05T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2093 April 1`] = `"2093-04-04T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2093 August 1`] = `"2093-08-08T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2093 December 1`] = `"2093-12-12T06:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2093 February 1`] = `"2093-02-28T06:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2093 January 1`] = `"2093-01-03T06:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2093 July 1`] = `"2093-07-11T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2093 June 1`] = `"2093-06-06T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2093 March 1`] = `"2093-03-14T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2093 May 1`] = `"2093-05-09T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2093 November 1`] = `"2093-11-07T06:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2093 October 1`] = `"2093-10-10T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2093 September 1`] = `"2093-09-05T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2094 April 1`] = `"2094-04-04T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2094 August 1`] = `"2094-08-08T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2094 December 1`] = `"2094-12-12T06:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2094 February 1`] = `"2094-02-28T06:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2094 January 1`] = `"2094-01-03T06:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2094 July 1`] = `"2094-07-11T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2094 June 1`] = `"2094-06-06T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2094 March 1`] = `"2094-03-14T06:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2094 May 1`] = `"2094-05-09T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2094 November 1`] = `"2094-11-07T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2094 October 1`] = `"2094-10-10T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2094 September 1`] = `"2094-09-05T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2095 April 1`] = `"2095-04-04T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2095 August 1`] = `"2095-08-08T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2095 December 1`] = `"2095-12-12T06:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2095 February 1`] = `"2095-02-28T06:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2095 January 1`] = `"2095-01-03T06:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2095 July 1`] = `"2095-07-11T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2095 June 1`] = `"2095-06-06T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2095 March 1`] = `"2095-03-14T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2095 May 1`] = `"2095-05-09T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2095 November 1`] = `"2095-11-07T06:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2095 October 1`] = `"2095-10-10T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2095 September 1`] = `"2095-09-05T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2096 April 1`] = `"2096-04-04T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2096 August 1`] = `"2096-08-08T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2096 December 1`] = `"2096-12-12T06:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2096 February 1`] = `"2096-02-29T06:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2096 January 1`] = `"2096-01-04T06:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2096 July 1`] = `"2096-07-11T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2096 June 1`] = `"2096-06-06T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2096 March 1`] = `"2096-03-14T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2096 May 1`] = `"2096-05-09T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2096 November 1`] = `"2096-11-07T06:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2096 October 1`] = `"2096-10-10T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2096 September 1`] = `"2096-09-05T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2097 April 1`] = `"2097-04-04T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2097 August 1`] = `"2097-08-08T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2097 December 1`] = `"2097-12-12T06:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2097 February 1`] = `"2097-02-28T06:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2097 January 1`] = `"2097-01-03T06:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2097 July 1`] = `"2097-07-11T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2097 June 1`] = `"2097-06-06T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2097 March 1`] = `"2097-03-14T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2097 May 1`] = `"2097-05-09T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2097 November 1`] = `"2097-11-07T06:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2097 October 1`] = `"2097-10-10T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2097 September 1`] = `"2097-09-05T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2098 April 1`] = `"2098-04-04T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2098 August 1`] = `"2098-08-08T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2098 December 1`] = `"2098-12-12T06:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2098 February 1`] = `"2098-02-28T06:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2098 January 1`] = `"2098-01-03T06:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2098 July 1`] = `"2098-07-11T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2098 June 1`] = `"2098-06-06T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2098 March 1`] = `"2098-03-14T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2098 May 1`] = `"2098-05-09T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2098 November 1`] = `"2098-11-07T06:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2098 October 1`] = `"2098-10-10T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2098 September 1`] = `"2098-09-05T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2099 April 1`] = `"2099-04-04T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2099 August 1`] = `"2099-08-08T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2099 December 1`] = `"2099-12-12T06:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2099 February 1`] = `"2099-02-28T06:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2099 January 1`] = `"2099-01-03T06:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2099 July 1`] = `"2099-07-11T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2099 June 1`] = `"2099-06-06T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2099 March 1`] = `"2099-03-14T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2099 May 1`] = `"2099-05-09T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2099 November 1`] = `"2099-11-07T06:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2099 October 1`] = `"2099-10-10T05:00:00.000Z"`;
+
+exports[`tests getDateFromMonthMnemonic 2099 September 1`] = `"2099-09-05T05:00:00.000Z"`;
+
+exports[`tests getDoomsdayForYear 2000 1`] = `"2000-04-04T05:00:00.000Z"`;
+
+exports[`tests getDoomsdayForYear 2001 1`] = `"2001-04-04T05:00:00.000Z"`;
+
+exports[`tests getDoomsdayForYear 2002 1`] = `"2002-04-04T06:00:00.000Z"`;
+
+exports[`tests getDoomsdayForYear 2003 1`] = `"2003-04-04T06:00:00.000Z"`;
+
+exports[`tests getDoomsdayForYear 2004 1`] = `"2004-04-04T06:00:00.000Z"`;
+
+exports[`tests getDoomsdayForYear 2005 1`] = `"2005-04-04T05:00:00.000Z"`;
+
+exports[`tests getDoomsdayForYear 2006 1`] = `"2006-04-04T05:00:00.000Z"`;
+
+exports[`tests getDoomsdayForYear 2007 1`] = `"2007-04-04T05:00:00.000Z"`;
+
+exports[`tests getDoomsdayForYear 2008 1`] = `"2008-04-04T05:00:00.000Z"`;
+
+exports[`tests getDoomsdayForYear 2009 1`] = `"2009-04-04T05:00:00.000Z"`;
+
+exports[`tests getDoomsdayForYear 2010 1`] = `"2010-04-04T05:00:00.000Z"`;
+
+exports[`tests getDoomsdayForYear 2011 1`] = `"2011-04-04T05:00:00.000Z"`;
+
+exports[`tests getDoomsdayForYear 2012 1`] = `"2012-04-04T05:00:00.000Z"`;
+
+exports[`tests getDoomsdayForYear 2013 1`] = `"2013-04-04T05:00:00.000Z"`;
+
+exports[`tests getDoomsdayForYear 2014 1`] = `"2014-04-04T05:00:00.000Z"`;
+
+exports[`tests getDoomsdayForYear 2015 1`] = `"2015-04-04T05:00:00.000Z"`;
+
+exports[`tests getDoomsdayForYear 2016 1`] = `"2016-04-04T05:00:00.000Z"`;
+
+exports[`tests getDoomsdayForYear 2017 1`] = `"2017-04-04T05:00:00.000Z"`;
+
+exports[`tests getDoomsdayForYear 2018 1`] = `"2018-04-04T05:00:00.000Z"`;
+
+exports[`tests getDoomsdayForYear 2019 1`] = `"2019-04-04T05:00:00.000Z"`;
+
+exports[`tests getDoomsdayForYear 2020 1`] = `"2020-04-04T05:00:00.000Z"`;
+
+exports[`tests getDoomsdayForYear 2021 1`] = `"2021-04-04T05:00:00.000Z"`;
+
+exports[`tests getDoomsdayForYear 2022 1`] = `"2022-04-04T05:00:00.000Z"`;
+
+exports[`tests getDoomsdayForYear 2023 1`] = `"2023-04-04T05:00:00.000Z"`;
+
+exports[`tests getDoomsdayForYear 2024 1`] = `"2024-04-04T05:00:00.000Z"`;
+
+exports[`tests getDoomsdayForYear 2025 1`] = `"2025-04-04T05:00:00.000Z"`;
+
+exports[`tests getDoomsdayForYear 2026 1`] = `"2026-04-04T05:00:00.000Z"`;
+
+exports[`tests getDoomsdayForYear 2027 1`] = `"2027-04-04T05:00:00.000Z"`;
+
+exports[`tests getDoomsdayForYear 2028 1`] = `"2028-04-04T05:00:00.000Z"`;
+
+exports[`tests getDoomsdayForYear 2029 1`] = `"2029-04-04T05:00:00.000Z"`;
+
+exports[`tests getDoomsdayForYear 2030 1`] = `"2030-04-04T05:00:00.000Z"`;
+
+exports[`tests getDoomsdayForYear 2031 1`] = `"2031-04-04T05:00:00.000Z"`;
+
+exports[`tests getDoomsdayForYear 2032 1`] = `"2032-04-04T05:00:00.000Z"`;
+
+exports[`tests getDoomsdayForYear 2033 1`] = `"2033-04-04T05:00:00.000Z"`;
+
+exports[`tests getDoomsdayForYear 2034 1`] = `"2034-04-04T05:00:00.000Z"`;
+
+exports[`tests getDoomsdayForYear 2035 1`] = `"2035-04-04T05:00:00.000Z"`;
+
+exports[`tests getDoomsdayForYear 2036 1`] = `"2036-04-04T05:00:00.000Z"`;
+
+exports[`tests getDoomsdayForYear 2037 1`] = `"2037-04-04T05:00:00.000Z"`;
+
+exports[`tests getDoomsdayForYear 2038 1`] = `"2038-04-04T05:00:00.000Z"`;
+
+exports[`tests getDoomsdayForYear 2039 1`] = `"2039-04-04T05:00:00.000Z"`;
+
+exports[`tests getDoomsdayForYear 2040 1`] = `"2040-04-04T05:00:00.000Z"`;
+
+exports[`tests getDoomsdayForYear 2041 1`] = `"2041-04-04T05:00:00.000Z"`;
+
+exports[`tests getDoomsdayForYear 2042 1`] = `"2042-04-04T05:00:00.000Z"`;
+
+exports[`tests getDoomsdayForYear 2043 1`] = `"2043-04-04T05:00:00.000Z"`;
+
+exports[`tests getDoomsdayForYear 2044 1`] = `"2044-04-04T05:00:00.000Z"`;
+
+exports[`tests getDoomsdayForYear 2045 1`] = `"2045-04-04T05:00:00.000Z"`;
+
+exports[`tests getDoomsdayForYear 2046 1`] = `"2046-04-04T05:00:00.000Z"`;
+
+exports[`tests getDoomsdayForYear 2047 1`] = `"2047-04-04T05:00:00.000Z"`;
+
+exports[`tests getDoomsdayForYear 2048 1`] = `"2048-04-04T05:00:00.000Z"`;
+
+exports[`tests getDoomsdayForYear 2049 1`] = `"2049-04-04T05:00:00.000Z"`;
+
+exports[`tests getDoomsdayForYear 2050 1`] = `"2050-04-04T05:00:00.000Z"`;
+
+exports[`tests getDoomsdayForYear 2051 1`] = `"2051-04-04T05:00:00.000Z"`;
+
+exports[`tests getDoomsdayForYear 2052 1`] = `"2052-04-04T05:00:00.000Z"`;
+
+exports[`tests getDoomsdayForYear 2053 1`] = `"2053-04-04T05:00:00.000Z"`;
+
+exports[`tests getDoomsdayForYear 2054 1`] = `"2054-04-04T05:00:00.000Z"`;
+
+exports[`tests getDoomsdayForYear 2055 1`] = `"2055-04-04T05:00:00.000Z"`;
+
+exports[`tests getDoomsdayForYear 2056 1`] = `"2056-04-04T05:00:00.000Z"`;
+
+exports[`tests getDoomsdayForYear 2057 1`] = `"2057-04-04T05:00:00.000Z"`;
+
+exports[`tests getDoomsdayForYear 2058 1`] = `"2058-04-04T05:00:00.000Z"`;
+
+exports[`tests getDoomsdayForYear 2059 1`] = `"2059-04-04T05:00:00.000Z"`;
+
+exports[`tests getDoomsdayForYear 2060 1`] = `"2060-04-04T05:00:00.000Z"`;
+
+exports[`tests getDoomsdayForYear 2061 1`] = `"2061-04-04T05:00:00.000Z"`;
+
+exports[`tests getDoomsdayForYear 2062 1`] = `"2062-04-04T05:00:00.000Z"`;
+
+exports[`tests getDoomsdayForYear 2063 1`] = `"2063-04-04T05:00:00.000Z"`;
+
+exports[`tests getDoomsdayForYear 2064 1`] = `"2064-04-04T05:00:00.000Z"`;
+
+exports[`tests getDoomsdayForYear 2065 1`] = `"2065-04-04T05:00:00.000Z"`;
+
+exports[`tests getDoomsdayForYear 2066 1`] = `"2066-04-04T05:00:00.000Z"`;
+
+exports[`tests getDoomsdayForYear 2067 1`] = `"2067-04-04T05:00:00.000Z"`;
+
+exports[`tests getDoomsdayForYear 2068 1`] = `"2068-04-04T05:00:00.000Z"`;
+
+exports[`tests getDoomsdayForYear 2069 1`] = `"2069-04-04T05:00:00.000Z"`;
+
+exports[`tests getDoomsdayForYear 2070 1`] = `"2070-04-04T05:00:00.000Z"`;
+
+exports[`tests getDoomsdayForYear 2071 1`] = `"2071-04-04T05:00:00.000Z"`;
+
+exports[`tests getDoomsdayForYear 2072 1`] = `"2072-04-04T05:00:00.000Z"`;
+
+exports[`tests getDoomsdayForYear 2073 1`] = `"2073-04-04T05:00:00.000Z"`;
+
+exports[`tests getDoomsdayForYear 2074 1`] = `"2074-04-04T05:00:00.000Z"`;
+
+exports[`tests getDoomsdayForYear 2075 1`] = `"2075-04-04T05:00:00.000Z"`;
+
+exports[`tests getDoomsdayForYear 2076 1`] = `"2076-04-04T05:00:00.000Z"`;
+
+exports[`tests getDoomsdayForYear 2077 1`] = `"2077-04-04T05:00:00.000Z"`;
+
+exports[`tests getDoomsdayForYear 2078 1`] = `"2078-04-04T05:00:00.000Z"`;
+
+exports[`tests getDoomsdayForYear 2079 1`] = `"2079-04-04T05:00:00.000Z"`;
+
+exports[`tests getDoomsdayForYear 2080 1`] = `"2080-04-04T05:00:00.000Z"`;
+
+exports[`tests getDoomsdayForYear 2081 1`] = `"2081-04-04T05:00:00.000Z"`;
+
+exports[`tests getDoomsdayForYear 2082 1`] = `"2082-04-04T05:00:00.000Z"`;
+
+exports[`tests getDoomsdayForYear 2083 1`] = `"2083-04-04T05:00:00.000Z"`;
+
+exports[`tests getDoomsdayForYear 2084 1`] = `"2084-04-04T05:00:00.000Z"`;
+
+exports[`tests getDoomsdayForYear 2085 1`] = `"2085-04-04T05:00:00.000Z"`;
+
+exports[`tests getDoomsdayForYear 2086 1`] = `"2086-04-04T05:00:00.000Z"`;
+
+exports[`tests getDoomsdayForYear 2087 1`] = `"2087-04-04T05:00:00.000Z"`;
+
+exports[`tests getDoomsdayForYear 2088 1`] = `"2088-04-04T05:00:00.000Z"`;
+
+exports[`tests getDoomsdayForYear 2089 1`] = `"2089-04-04T05:00:00.000Z"`;
+
+exports[`tests getDoomsdayForYear 2090 1`] = `"2090-04-04T05:00:00.000Z"`;
+
+exports[`tests getDoomsdayForYear 2091 1`] = `"2091-04-04T05:00:00.000Z"`;
+
+exports[`tests getDoomsdayForYear 2092 1`] = `"2092-04-04T05:00:00.000Z"`;
+
+exports[`tests getDoomsdayForYear 2093 1`] = `"2093-04-04T05:00:00.000Z"`;
+
+exports[`tests getDoomsdayForYear 2094 1`] = `"2094-04-04T05:00:00.000Z"`;
+
+exports[`tests getDoomsdayForYear 2095 1`] = `"2095-04-04T05:00:00.000Z"`;
+
+exports[`tests getDoomsdayForYear 2096 1`] = `"2096-04-04T05:00:00.000Z"`;
+
+exports[`tests getDoomsdayForYear 2097 1`] = `"2097-04-04T05:00:00.000Z"`;
+
+exports[`tests getDoomsdayForYear 2098 1`] = `"2098-04-04T05:00:00.000Z"`;
+
+exports[`tests getDoomsdayForYear 2099 1`] = `"2099-04-04T05:00:00.000Z"`;

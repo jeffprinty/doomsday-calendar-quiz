@@ -1,8 +1,10 @@
-import { useState } from 'react';
+import { ReactNode, useState } from 'react';
 
 import clsx from 'clsx';
-import { BiCalendarStar, BiMenu, BiX } from 'react-icons/bi';
+import { BiCalendarStar, BiCog, BiMenu, BiX } from 'react-icons/bi';
 import { NavLink } from 'react-router-dom';
+
+import Settings from '../modules/settings';
 
 type NavItemCategories = 'practice' | 'ungrouped' | 'deprecated' | 'top';
 
@@ -47,8 +49,33 @@ const NavMenuItem = ({ onClick, navItem }: { onClick: () => void; navItem: NavIt
   );
 };
 
+const SidebarMenu = ({
+  children,
+  className,
+  open,
+}: {
+  children: ReactNode;
+  className?: string;
+  open: boolean;
+}) => {
+  return (
+    <ul
+      className={clsx(
+        'z-10',
+        open
+          ? 'fixed right-0 top-0 h-full w-1/2 border-r border-r-gray-900 bg-[#000300] duration-500 ease-in-out sm:w-1/5'
+          : 'fixed bottom-0 right-[-100%] top-0 w-[40%] duration-500 ease-in-out',
+        className
+      )}
+    >
+      {children}
+    </ul>
+  );
+};
+
 const NavBar = ({ navItems }: { navItems: Array<NavItem> }) => {
   const [navOpen, setNavOpen] = useState(false);
+  const [settingsOpen, setSettingsOpen] = useState(false);
 
   const groupedNavItemsHash = navItems.reduce(
     (acc: NavItemGroupsHash, navItem) => {
@@ -62,7 +89,6 @@ const NavBar = ({ navItems }: { navItems: Array<NavItem> }) => {
     },
     { practice: [], ungrouped: [], deprecated: [], top: [] }
   );
-  console.log('groupedNavItemsHash', groupedNavItemsHash);
 
   const renderNavLink = ({ category, text, ...navLinkProperties }: NavItem, className: string) => {
     return (
@@ -96,24 +122,32 @@ const NavBar = ({ navItems }: { navItems: Array<NavItem> }) => {
           ))}
       </ul>
 
-      {/* Mobile Navigation Icon */}
-      <button onClick={() => setNavOpen(!navOpen)} className='z-20'>
-        {navOpen ? (
-          <BiX size={24} className='fill-white' />
-        ) : (
-          <BiMenu size={24} className='fill-blue-400' />
-        )}
+      <button
+        onClick={() => setSettingsOpen(!settingsOpen)}
+        className={clsx('z-20', settingsOpen && 'invisible')}
+      >
+        <BiCog size={24} className='fill-blue-400' />
       </button>
+      {/* Mobile Navigation Icon */}
+      {/* Universal X Button */}
+      {navOpen || settingsOpen ? (
+        <button
+          onClick={() => {
+            setNavOpen(false);
+            setSettingsOpen(false);
+          }}
+          className='z-20'
+        >
+          <BiX size={24} className='fill-white' />
+        </button>
+      ) : (
+        <button onClick={() => setNavOpen(!navOpen)} className='z-20'>
+          <BiMenu size={24} className='fill-blue-400' />
+        </button>
+      )}
 
       {/* Mobile Navigation Menu */}
-      <ul
-        className={clsx(
-          'z-10',
-          navOpen
-            ? 'fixed right-0 top-0 h-full w-1/2 border-r border-r-gray-900 bg-[#000300] duration-500 ease-in-out sm:w-1/5'
-            : 'fixed bottom-0 right-[-100%] top-0 w-[40%] duration-500 ease-in-out'
-        )}
-      >
+      <SidebarMenu open={navOpen}>
         {/* Mobile Logo */}
         <h1 className='z-30 m-4 w-full text-3xl font-bold text-[#00df9a]'>
           <BiCalendarStar />
@@ -140,7 +174,21 @@ const NavBar = ({ navItems }: { navItems: Array<NavItem> }) => {
         {groupedNavItemsHash.deprecated.map((navItem) => (
           <NavMenuItem key={navItem.text} navItem={navItem} onClick={() => setNavOpen(false)} />
         ))}
-      </ul>
+      </SidebarMenu>
+
+      {/* Settings Menu */}
+      <SidebarMenu open={settingsOpen}>
+        {/* Mobile Logo */}
+        <h1 className='z-30 m-4 w-full text-3xl font-bold text-[#00df9a]'>
+          <BiCog />
+        </h1>
+
+        {/* SETTINGS */}
+        <li className={clsx(liClass, 'border-b border-b-gray-300 !text-sm')}>Settings</li>
+        <li>
+          <Settings />
+        </li>
+      </SidebarMenu>
     </div>
   );
 };

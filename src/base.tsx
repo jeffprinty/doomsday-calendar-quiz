@@ -1,7 +1,8 @@
-import { Fragment, ReactNode } from 'react';
+import { Fragment, ReactNode, useContext } from 'react';
 
 import { Route, Routes } from 'react-router-dom';
 
+import { AppContext } from './app.context';
 import NavBar, { NavItem } from './components/nav-bar';
 import AllSteps from './pages/all-steps';
 import GuessDateDoomsdayInModernity from './pages/guess-date-doomsday';
@@ -129,12 +130,15 @@ const AllPages = () => {
   );
 };
 
-// I want to be able to feed it random dates OR feed it a list of previously incorrect guesses
 const Base = () => {
+  const { locale } = useContext(AppContext);
   return (
     <main className='flex h-screen max-w-full flex-col items-center justify-start bg-primary text-color'>
       <NavBar navItems={navLinks} />
-      <div className='flex w-full flex-grow flex-col items-center justify-start sm:w-1/2 md:max-w-[1240px]'>
+      <div
+        className='flex w-full flex-grow flex-col items-center justify-start sm:w-1/2 md:max-w-[1240px]'
+        key={locale}
+      >
         <Routes>
           {routeArray.map((routeProps) => (
             <Route {...routeProps} key={routeProps.path} />

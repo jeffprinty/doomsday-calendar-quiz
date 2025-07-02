@@ -1,3 +1,4 @@
+import { formatYearlessDate, getDateFromMonthMnemonic } from '../math/dates';
 import { mnemonics } from '../math/month-doomsdays';
 
 const MnemonicsTable = () => {
@@ -12,20 +13,23 @@ const MnemonicsTable = () => {
           </tr>
         </thead>
         <tbody>
-          {mnemonics.map(({ common, leap, memeticHandle, monthName, monthNumber }) => (
-            <tr key={monthName}>
-              <td className=''>{monthName}</td>
-              <td className=''>
-                {monthNumber}/{common}
-                {!!leap && (
-                  <span className='px-4 text-violet-500'>
-                    {monthNumber}/{leap}
-                  </span>
-                )}
-              </td>
-              <td>{memeticHandle}</td>
-            </tr>
-          ))}
+          {mnemonics.map((mnemonic) => {
+            const { leap, memeticHandle, monthName } = mnemonic;
+            return (
+              <tr key={monthName}>
+                <td className=''>{monthName}</td>
+                <td className=''>
+                  {formatYearlessDate(getDateFromMonthMnemonic(mnemonic, 2025))}
+                  {!!leap && (
+                    <span className='px-4 text-violet-500'>
+                      {formatYearlessDate(getDateFromMonthMnemonic(mnemonic, 2024))}
+                    </span>
+                  )}
+                </td>
+                <td>{memeticHandle}</td>
+              </tr>
+            );
+          })}
         </tbody>
       </table>
     </div>

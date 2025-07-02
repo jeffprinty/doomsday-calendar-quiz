@@ -1,5 +1,7 @@
 import { useState } from 'react';
 
+import dayjs from 'dayjs';
+
 import Button from '../components/button';
 import GuessDisplay from '../components/guess-display';
 import QuizResults from '../components/quiz-results';
@@ -51,7 +53,7 @@ const GuessYearDoomsday = () => {
         <QuizResults
           answers={pastAnswers}
           currentGuess={guessingYear.toString()}
-          dateFormat='YYYY'
+          dateFormat={(date) => dayjs(date).format('YYYY')}
         />
       )}
     </div>

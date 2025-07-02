@@ -13,6 +13,7 @@ import { GuessActions } from '../components/shared';
 import useAnswerHistory from '../hooks/use-answer-history';
 import {
   formatDayjsGuessDate,
+  formatYearlessDateShortMonth,
   getFullWeekday,
   getRandomDateInYear,
   getWeekdayForDate,
@@ -71,7 +72,11 @@ const GuessDateDoomsdayWithinYear = ({
       id='page__guess-date-within-year'
     >
       <div className='' id='quiz__top-bit'>
-        <QuizResults answers={pastAnswers} currentGuess={dateStringToGuess} dateFormat='MMM D' />
+        <QuizResults
+          answers={pastAnswers}
+          currentGuess={dateStringToGuess}
+          dateFormat={(date) => formatYearlessDateShortMonth(date)}
+        />
         <div className='relative'>
           <GuessDisplay
             autoMode={autoNext}

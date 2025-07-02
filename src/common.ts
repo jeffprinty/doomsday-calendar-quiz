@@ -8,7 +8,7 @@ export const incorrectColor = 'bg-red-900';
 
 export type Steps = 'stepOne' | 'stepTwo' | 'stepThree' | 'stepFour' | 'stepFive' | 'stepSix';
 
-export type PastAnswer<T> = [number, boolean, T];
+export type PastAnswer<T> = [number, number, boolean, T];
 
 export const timeoutMs = 1500;
 

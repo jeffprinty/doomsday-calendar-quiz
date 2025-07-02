@@ -3,10 +3,14 @@ import dayOfYear from 'dayjs/plugin/dayOfYear';
 import duration from 'dayjs/plugin/duration';
 import isLeapYear from 'dayjs/plugin/isLeapYear';
 import isoWeek from 'dayjs/plugin/isoWeek';
+import localeData from 'dayjs/plugin/localeData';
+import localizedFormat from 'dayjs/plugin/localizedFormat';
 import objectSupport from 'dayjs/plugin/objectSupport';
 import timezone from 'dayjs/plugin/timezone';
 
 import 'dayjs/locale/en';
+import 'dayjs/locale/fr';
+import 'dayjs/locale/en-gb';
 
 import randomInteger from 'random-int';
 
@@ -16,19 +20,28 @@ import { Weekday } from './weekdays';
 
 dayjs.extend(objectSupport);
 dayjs.extend(isLeapYear);
-dayjs.locale('en');
 dayjs.extend(timezone);
 dayjs.extend(isoWeek);
 dayjs.extend(dayOfYear);
 dayjs.extend(duration);
+dayjs.extend(localizedFormat);
+dayjs.extend(localeData);
 
 dayjs.tz.guess();
 
-const fullDateFormat = 'dddd MMMM DD, YYYY';
-export const formatFullDateWithWeekday = (date: Dayjs) => date.format(fullDateFormat);
+export const formatFullDateWithWeekday = (date: Dayjs) => date.format('dddd LL');
 
 export const getFirstDateForCalendar = (year: number) => {
   return dayjs({ year, month: 0, date: 1 }).startOf('week');
+};
+
+export const getDateFromMonthMnemonic = (monthMnemonic: Mnemonic, year: number): Dayjs => {
+  const { common, leap, monthNumber } = monthMnemonic;
+  const commonDate = dayjs(`${year}-${monthNumber}-${common}`);
+  if ([1, 2].includes(monthNumber) && commonDate.isLeapYear()) {
+    return dayjs(`${year}-${monthNumber}-${leap}`);
+  }
+  return commonDate;
 };
 
 export const dateIsLeapYear = (date: Dayjs) => date.isLeapYear();
@@ -59,7 +72,17 @@ export const getRandomDateInModernity = () => {
   return getRandomDateInYear(randomYear);
 };
 
-export const formatDayjsGuessDate = (date: Dayjs) => dayjs(date).format('MMMM DD, YYYY');
+export const formatDayjsGuessDate = (date: Dayjs) => dayjs(date).format('LL');
+
+// i18n
+export const formatYearlessDate = (date: Dayjs) =>
+  dayjs(date)
+    .format('l')
+    .replace(/\/\d{4}\b/, '');
+export const formatYearlessDateShortMonth = (date: Dayjs) =>
+  dayjs(date)
+    .format('ll')
+    .replace(/, \d{4}\b/, '');
 
 export const getMonthMnemonicForDate = (date: Dayjs): Mnemonic => {
   const monthName = monthNames[date.month()];

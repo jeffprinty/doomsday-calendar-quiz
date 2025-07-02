@@ -6,14 +6,15 @@ import colors from 'tailwindcss/colors';
 import { correctColor, incorrectColor, PastAnswer } from '../common';
 import { formatDayjsGuessDate } from '../math/dates';
 
+// I want to be able to feed it random dates OR feed it a list of previously incorrect guesses
 const QuizResults = ({
   answers,
   currentGuess,
-  dateFormat = 'MMM D, YYYY',
+  dateFormat,
 }: {
   answers: Array<PastAnswer<Dayjs>>;
   currentGuess: string;
-  dateFormat?: string;
+  dateFormat?: (date: Dayjs) => string;
 }) => {
   const correctValue = answers.filter(([, isCorrect]) => isCorrect).length;
   const incorrectValue = answers.filter(([, isCorrect]) => !isCorrect).length;
@@ -35,18 +36,18 @@ const QuizResults = ({
       </div>
       <div className='flex h-32 max-h-32 flex-col justify-start overflow-y-auto'>
         <ul className='w-full'>
-          {[...answers].reverse().map(([timeInSeconds, isCorrect, dateGuessed]) => (
+          {[...answers].reverse().map(([answerTime, timeInSeconds, isCorrect, dateGuessed]) => (
             <li
               className={clsx(
                 'flex w-full flex-row justify-between bg-opacity-40 px-2',
                 isCorrect ? correctColor : incorrectColor
               )}
-              key={+dateGuessed}
+              key={+answerTime}
             >
               <span>{timeInSeconds.toFixed(1)}s</span>
               <span>
-                {formatDayjsGuessDate(dateGuessed) === currentGuess && '⚪️'}
-                {dateGuessed.format(dateFormat)}
+                {formatDayjsGuessDate(dateGuessed) === currentGuess && '⚪️ '}
+                {typeof dateFormat === 'function' && dateFormat(dateGuessed)}
               </span>
             </li>
           ))}
