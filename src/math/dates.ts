@@ -37,11 +37,11 @@ export const dateIsLeapYear = (date: Dayjs) => date.isLeapYear();
 export const getFullWeekday = (date: Dayjs) => dayjs(date).format('dddd');
 export const getWeekdayForDate = (date: Dayjs): Weekday => dayjs(date).format('ddd') as Weekday;
 
-export const getDayjsDoomsdayForYear = (year: number): Dayjs => dayjs({ year, month: 3, date: 4 });
+export const getDoomsdayForYear = (year: number): Dayjs => dayjs({ year, month: 3, date: 4 });
 export const getDoomsdayWeekdayForYear = (year: number): Weekday =>
-  getWeekdayForDate(getDayjsDoomsdayForYear(year));
+  getWeekdayForDate(getDoomsdayForYear(year));
 export const getDoomsdayFullWeekdayForYear = (year: number) =>
-  getFullWeekday(getDayjsDoomsdayForYear(year));
+  getFullWeekday(getDoomsdayForYear(year));
 
 export const getDayjsRandomDateInYear = (year: number) => {
   const randomDayOfYear = randomInteger(1, 365);

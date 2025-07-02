@@ -8,8 +8,8 @@ import YearGuessingHelper from '../components/year-guessing-helper';
 import useAnswerHistory from '../hooks/use-answer-history';
 import {
   formatDayjsGuessDate,
-  getDoomsdayForYear,
   getDayjsRandomDateInYear,
+  getDoomsdayForYear,
   getFullWeekday,
   getWeekdayForDate,
 } from '../math/dates';

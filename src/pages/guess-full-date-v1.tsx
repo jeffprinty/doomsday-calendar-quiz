@@ -5,11 +5,7 @@ import GuessDisplay from '../components/guess-display';
 import QuizResults from '../components/quiz-results';
 import YearGuessingHelper from '../components/year-guessing-helper';
 import useAnswerHistory from '../hooks/use-answer-history';
-import {
-  formatDayjsGuessDate,
-  getDoomsdayForYear,
-  getDayjsRandomDateInYear,
-} from '../math/dates';
+import { formatDayjsGuessDate, getDayjsRandomDateInYear, getDoomsdayForYear } from '../math/dates';
 import { Weekday } from '../math/weekdays';
 import { getRandomYear } from '../math/year';
 import WeekdayGuesser from '../modules/weekday-guesser';
