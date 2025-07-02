@@ -1,1 +1,1 @@
-npx eslint --ext ts --ext tsx ./src --quiet --fix
+npx lint-staged

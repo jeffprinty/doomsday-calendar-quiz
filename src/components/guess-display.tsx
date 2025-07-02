@@ -41,9 +41,7 @@ const GuessDisplay = ({
     >
       <span className=''>{questionText}</span>
       <h2 className={clsx(guessTextClassName, isLeapYear && 'text-blue-400')}>{guessText}</h2>
-      <div
-        className={clsx('mt-1 text-xl', isAnswered ? 'visible' : 'invisible')}
-      >
+      <div className={clsx('mt-1 text-xl', isAnswered ? 'visible' : 'invisible')}>
         {explainCorrect}
       </div>
       {autoMode && autoProcessing && (
