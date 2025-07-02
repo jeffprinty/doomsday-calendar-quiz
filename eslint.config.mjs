@@ -78,7 +78,7 @@ export default tseslint.config(
 
       'sonarjs/no-commented-code': 0,
       'sonarjs/pseudo-random': 0,
-      'sonarjs/todo-tag': 0,
+      'sonarjs/todo-tag': 1,
       'sonarjs/unused-import': 0,
       semi: ['error', 'always'],
       'react/react-in-jsx-scope': 0,

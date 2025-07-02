@@ -5,24 +5,19 @@ import GuessDisplay from '../components/guess-display';
 import QuizResults from '../components/quiz-results';
 import { YearStepHelperHorizontal } from '../components/shared';
 import useAnswerHistory from '../hooks/use-answer-history';
-import { getDayjsDoomsdayForYear } from '../math/dates';
-import { Weekday } from '../math/weekdays';
+import { getDoomsdayForYear, getWeekdayForDate } from '../math/dates';
 import { getRandomYear } from '../math/year';
 import WeekdayGuesser from '../modules/weekday-guesser';
 
 const GuessYearDoomsday = () => {
   const initYear = getRandomYear();
-
   const [showResults, setShowResults] = useState(true);
-
   // TODO: Allow set year
   const [guessingYear, setGuessingYear] = useState(initYear);
-
   const { lastAnswerCorrect, onAnswer, onNewQuestion, pastAnswers } = useAnswerHistory();
 
-  const doomsdayOnYear = getDayjsDoomsdayForYear(guessingYear);
-
-  const correctDoomsday = doomsdayOnYear.format('ddd') as Weekday;
+  const doomsdayOnYear = getDoomsdayForYear(guessingYear);
+  const correctDoomsday = getWeekdayForDate(doomsdayOnYear);
 
   const getNewYear = () => {
     const randomYearAsInt = getRandomYear();
