@@ -28,8 +28,6 @@ const GuessDisplay = ({
   console.debug('explainMessage', explainMessage);
   const isAnswered = guessedCorrectly !== undefined;
 
-  // beef
-
   return (
     <div
       id='quiz__year-to-guess'

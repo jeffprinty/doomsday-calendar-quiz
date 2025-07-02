@@ -1,3 +1,5 @@
+import { ReactNode } from 'react';
+
 import { Route, Routes } from 'react-router-dom';
 
 import AllSteps from './all-steps';
@@ -18,81 +20,100 @@ import StepOne from './step-1';
 const baseUrl = import.meta.env.BASE_URL;
 const currentYear = new Date().getFullYear().toString();
 
-const routeArray = [
+interface RouteArray extends Pick<NavItem, 'category' | 'end' | 'extra' | 'text'> {
+  path: string;
+  element: ReactNode;
+  index?: boolean;
+  description?: string;
+}
+
+const routeArray: Array<RouteArray> = [
   {
     path: '/',
     index: true,
     element: <Home />,
     text: 'home',
     end: true,
-  },
-  {
-    path: '/steps',
-    element: <AllSteps />,
-    text: 'steps',
-    extra: true,
+    category: 'top',
   },
   {
     path: '/learn/doomsday',
     element: <MonthDoomsdayCalendar />,
-    text: 'doomsday',
+    text: 'month doomsday',
+    category: 'practice',
+    description: 'Learn the Doomsdays for Each Month',
   },
   {
     path: '/learn/reference',
     element: <Reference />,
     text: 'reference',
+    extra: true,
   },
   {
     path: '/odd',
     element: <OddPlusEleven />,
-    text: 'odd+11',
+    text: 'Odd + 11',
+    category: 'practice',
+    description: 'Learn the Improved Method for Determining the Doomsyear',
   },
   {
     path: '/within',
     element: <GuessDateDoomsday />,
     text: currentYear,
+    category: 'practice',
   },
   {
     path: '/within-modernity',
     element: <GuessDateDoomsdayInModernity />,
     text: 'modernity',
+    category: 'practice',
+  },
+  {
+    path: '/date-offset',
+    element: <GuessOffsetForDate />,
+    text: 'offset',
+    category: 'practice',
   },
   {
     path: '/step1',
     element: <StepOne />,
     text: 'step1',
     extra: true,
+    category: 'deprecated',
+  },
+  {
+    path: '/steps',
+    element: <AllSteps />,
+    text: 'steps',
+    extra: true,
+    category: 'deprecated',
   },
   {
     path: '/year',
     element: <GuessYearDoomsday />,
     text: 'year',
     extra: true,
+    category: 'deprecated',
   },
   {
     path: '/full',
     element: <GuessFullDateV1 />,
     text: 'full',
     extra: true,
+    category: 'deprecated',
   },
   {
     path: '/progressive',
     element: <GuessProgressive />,
     text: 'progressive',
     extra: true,
-  },
-  {
-    path: '/date-offset',
-    element: <GuessOffsetForDate />,
-    text: 'offset',
+    category: 'deprecated',
   },
 ];
 
-const navLinks: Array<NavItem> = routeArray.map(({ end, extra, path, text }) => ({
+const navLinks: Array<NavItem> = routeArray.map(({ path, element, index, ...navItem }) => ({
   to: `${baseUrl}${path}`,
-  end,
-  extra,
-  text,
+  ...navItem,
 }));
 
 const AllPages = () => {

@@ -4,39 +4,83 @@ import clsx from 'clsx';
 import { BiCalendarStar, BiMenu, BiX } from 'react-icons/bi';
 import { NavLink } from 'react-router-dom';
 
+type NavItemCategories = 'practice' | 'ungrouped' | 'deprecated' | 'top';
+
 export interface NavItem {
   to: string;
   text: string;
   end?: boolean;
   extra?: boolean;
+  category?: NavItemCategories;
 }
+
+type NavItemGroupsHash = {
+  [key in NavItemCategories]: Array<NavItem>;
+};
 
 const menuTitle = 'Doomsday Calendar Quiz';
 
 const navLinkActive = 'text-white';
 const navLinkInactive = 'text-blue-400';
 
+const liClass = 'text-xl px-2 py-1 text-right md:px-4';
+
+const NavMenuItem = ({ onClick, navItem }: { onClick: () => void; navItem: NavItem }) => {
+  const { category, extra, text, ...navLinkProperties } = navItem;
+  return (
+    <li key={text} data-extra={extra} className={liClass}>
+      <NavLink
+        data-category={category}
+        key={text}
+        className={({ isActive }) =>
+          clsx(
+            'cursor-pointer duration-300 hover:bg-[#00df9a] hover:text-black',
+            isActive ? navLinkActive : navLinkInactive
+          )
+        }
+        onClick={onClick}
+        {...navLinkProperties}
+      >
+        {text}
+      </NavLink>
+    </li>
+  );
+};
+
 const NavBar = ({ navItems }: { navItems: Array<NavItem> }) => {
-  // State to manage the navbar's visibility
   const [navOpen, setNavOpen] = useState(false);
 
-  // Toggle function to handle the navbar's display
-  const handleNav = () => setNavOpen(!navOpen);
-
-  const renderNavLink = ({ text, extra, ...navLinkProperties }: NavItem, className: string) => (
-    <NavLink
-      key={text}
-      className={({ isActive }) => clsx(className, isActive ? navLinkActive : navLinkInactive)}
-      onClick={() => setNavOpen(false)}
-      {...navLinkProperties}
-    >
-      {text}
-    </NavLink>
+  const groupedNavItemsHash = navItems.reduce(
+    (acc: NavItemGroupsHash, navItem) => {
+      const { category } = navItem;
+      if (category) {
+        acc[category].push(navItem);
+      } else {
+        acc.ungrouped.push(navItem);
+      }
+      return acc;
+    },
+    { practice: [], ungrouped: [], deprecated: [], top: [] }
   );
+  console.log('groupedNavItemsHash', groupedNavItemsHash);
+
+  const renderNavLink = ({ category, text, ...navLinkProperties }: NavItem, className: string) => {
+    return (
+      <NavLink
+        data-category={category}
+        key={text}
+        className={({ isActive }) => clsx(className, isActive ? navLinkActive : navLinkInactive)}
+        onClick={() => setNavOpen(false)}
+        {...navLinkProperties}
+      >
+        {text}
+      </NavLink>
+    );
+  };
 
   return (
     <div className='mx-auto flex h-20 w-full max-w-full items-center justify-between bg-black px-4 text-white'>
-      <h1 className='w-full py-3 text-2xl font-bold text-[#00df9a]'>{menuTitle}</h1>
+      <h1 className='w-1/4 py-3 text-2xl font-bold text-[#00df9a]'>{menuTitle}</h1>
 
       {/* Desktop Navigation */}
       <ul className='hidden md:flex'>
@@ -53,7 +97,7 @@ const NavBar = ({ navItems }: { navItems: Array<NavItem> }) => {
       </ul>
 
       {/* Mobile Navigation Icon */}
-      <button onClick={handleNav} className='z-20'>
+      <button onClick={() => setNavOpen(!navOpen)} className='z-20'>
         {navOpen ? (
           <BiX size={24} className='fill-white' />
         ) : (
@@ -75,14 +119,26 @@ const NavBar = ({ navItems }: { navItems: Array<NavItem> }) => {
           <BiCalendarStar />
         </h1>
 
-        {/* Mobile Navigation Items */}
-        {navItems.map(({ extra, ...item }) => (
-          <li key={item.text} data-extra={extra} className='px-2 py-1 text-right md:px-4'>
-            {renderNavLink(
-              item,
-              'cursor-pointer duration-300 hover:bg-[#00df9a] hover:text-black text-xl'
-            )}
-          </li>
+        {/* TOP */}
+        {groupedNavItemsHash.top.map((navItem) => (
+          <NavMenuItem key={navItem.text} navItem={navItem} onClick={() => setNavOpen(false)} />
+        ))}
+
+        {/* PRACTICE */}
+        <li className={liClass}>Practice</li>
+        {groupedNavItemsHash.practice.map((navItem) => (
+          <NavMenuItem key={navItem.text} navItem={navItem} onClick={() => setNavOpen(false)} />
+        ))}
+
+        {/* UNGROUPED */}
+        {groupedNavItemsHash.ungrouped.map((navItem) => (
+          <NavMenuItem key={navItem.text} navItem={navItem} onClick={() => setNavOpen(false)} />
+        ))}
+
+        <hr />
+        {/* DEPRECATED */}
+        {groupedNavItemsHash.deprecated.map((navItem) => (
+          <NavMenuItem key={navItem.text} navItem={navItem} onClick={() => setNavOpen(false)} />
         ))}
       </ul>
     </div>

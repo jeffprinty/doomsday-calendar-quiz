@@ -51,8 +51,9 @@ export const OffsetGuesser = ({
     setSelectedOffset(clickedOffset);
   };
 
-  /*
-  const offsetAlternative = (
+  const showOldOffset = false;
+
+  const oldOffsetExplainer = (
     <>
       is <strong>{correctOffset}</strong>
       {correctOffset !== 0 && (
@@ -63,7 +64,6 @@ export const OffsetGuesser = ({
       )}
     </>
   );
-  */
 
   return (
     <div id='offset-guesser'>
@@ -76,10 +76,14 @@ export const OffsetGuesser = ({
         guessedCorrectly={answerIsCorrect}
         isLeapYear={guessingDate.isLeapYear()}
         explainCorrect={
-          <DoomsdayDifference
-            className='rounded-xl bg-black bg-opacity-70 px-3 py-1 text-sm'
-            isoDate={guessingDate.toISOString()}
-          />
+          showOldOffset ? (
+            oldOffsetExplainer
+          ) : (
+            <DoomsdayDifference
+              className='rounded-xl bg-black bg-opacity-70 px-3 py-1 text-sm'
+              isoDate={guessingDate.toISOString()}
+            />
+          )
         }
       />
       <div
