@@ -27,6 +27,9 @@ const GuessDisplay = ({
   const explainMessage = guessedCorrectly ? explainCorrect : explainIncorrect;
   console.debug('explainMessage', explainMessage);
   const isAnswered = guessedCorrectly !== undefined;
+
+  // beef
+
   return (
     <div
       id='quiz__year-to-guess'
