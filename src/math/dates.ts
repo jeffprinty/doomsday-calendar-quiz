@@ -60,12 +60,14 @@ export const getRandomDateInYear = (year: number) => {
   return dayjs(`${year}-01-01`).dayOfYear(randomDayOfYear);
 };
 
-export const getDoomsdayWithinMonth = (date: Dayjs, common: number, leap?: number) =>
-  dayjs({
+export const getDoomsdayWithinMonth = (date: Dayjs, common: number, leap?: number) => {
+  const doomsdayForMonth = dayjs({
     year: date.year(),
-    month: date.month() + 1,
+    month: date.month(),
     date: leap || common,
   });
+  return doomsdayForMonth;
+};
 
 export const getRandomDateInModernity = () => {
   const randomYear = randomInteger(1900, 2099);
