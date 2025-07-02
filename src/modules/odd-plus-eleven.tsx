@@ -4,7 +4,7 @@ import clsx from 'clsx';
 import { BiHide, BiRefresh, BiShow } from 'react-icons/bi';
 
 import { commonStyles, timeoutMs } from '../common';
-import Button from '../components/button';
+import { IconButton } from '../components/button';
 import { Revealable } from '../components/shared';
 import YearInput from '../components/year-input';
 import { isOdd } from '../math/basic';
@@ -30,6 +30,11 @@ const Fork = ({
       {children}
     </div>
   );
+};
+
+const iconProps = {
+  className: '',
+  size: 32,
 };
 
 const OddPlusEleven = () => {
@@ -68,7 +73,6 @@ const OddPlusEleven = () => {
 
   const stepRow = 'flex flex-row items-center justify-around';
   const explainRow = 'text-center text-base';
-  const iconButtonStyle = 'flex flex-row items-center justify-center w-8';
 
   const { firstResult, secondResult, moduloResult, moduloFromSeven } = oddPlusElevenFull(year);
 
@@ -84,21 +88,21 @@ const OddPlusEleven = () => {
   return (
     <div className='sm-p-8 flex h-5/6 flex-grow flex-col items-center justify-between'>
       <div className='flex flex-row items-center justify-center pt-1 md:pt-4'>
-        <Button className={iconButtonStyle} onClick={() => setShowWork(!showWork)}>
-          {showWork ? <BiHide /> : <BiShow />}
-        </Button>
+        <IconButton className='rounded-l-xl rounded-r-none' onClick={() => setShowWork(!showWork)}>
+          {showWork ? <BiHide {...iconProps} /> : <BiShow {...iconProps} />}
+        </IconButton>
         <YearInput
           className='rounded-4xl md:w-44 md:text-6xl'
           value={fullYearValue}
           setValue={setFullYearValue}
         />
-        <Button className={iconButtonStyle} onClick={startGuessing}>
-          <BiRefresh />
-        </Button>
+        <IconButton className='rounded-l-none rounded-r-xl' onClick={startGuessing}>
+          <BiRefresh {...iconProps} />
+        </IconButton>
       </div>
       {showGuts && (
         <div
-          className='sm-py-8 rounded-3xl border-2 border-indigo-800 px-12 py-2 md:text-2xl'
+          className='sm-py-8 w-full rounded-3xl border-2 border-indigo-800 px-12 py-2 md:text-2xl'
           key={fullYearValue}
         >
           <div className='flex flex-row items-center justify-center text-4xl'>
@@ -153,7 +157,7 @@ const OddPlusEleven = () => {
       <div className='pb-4'>
         <div className={stepRow}>What is the Doomsyear for {fullYearValue}</div>
         <WeekdayGuesser
-          correctDay={correctDoomsday as Weekday}
+          correctDay={correctDoomsday}
           disableOnGuess
           key={`week_${fullYearValue}`}
           onGuess={handleGuess}
