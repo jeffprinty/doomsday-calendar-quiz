@@ -5,16 +5,13 @@ import GuessDisplay from '../components/guess-display';
 import QuizResults from '../components/quiz-results';
 import YearGuessingHelper from '../components/year-guessing-helper';
 import useAnswerHistory from '../hooks/use-answer-history';
-import { formatDayjsGuessDate, getDoomsdayForYear, getRandomDateInYear } from '../math/dates';
+import useGuessingDate from '../hooks/use-guessing-date';
+import { formatDayjsGuessDate, getDoomsdayForYear } from '../math/dates';
 import { Weekday } from '../math/weekdays';
-import { getRandomYear } from '../math/year';
 import WeekdayGuesser from '../modules/weekday-guesser';
 
 const GuessFullDateV1 = () => {
-  const initYear = getRandomYear();
-  const initRandomDateWithinYear = getRandomDateInYear(initYear);
-
-  const [guessingDate, setGuessingDate] = useState(initRandomDateWithinYear);
+  const [guessingDate, getNewDate] = useGuessingDate('v1');
 
   const guessingYear = guessingDate.year();
 
@@ -34,9 +31,7 @@ const GuessFullDateV1 = () => {
   const correctWeekday = guessingDate.format('ddd') as Weekday;
 
   const getNewGuess = () => {
-    const randomYearAsInt = getRandomYear();
-    const randomDateWithinYear = getRandomDateInYear(randomYearAsInt);
-    setGuessingDate(randomDateWithinYear);
+    getNewDate();
     onNewQuestion();
 
     setShowYearHints(false);

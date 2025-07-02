@@ -17,6 +17,7 @@ import randomInteger from 'random-int';
 import { getMnemonicForMonth, Mnemonic } from './month-doomsdays';
 import { monthNames } from './months';
 import { Weekday } from './weekdays';
+import { getRandomYear } from './year';
 
 dayjs.extend(objectSupport);
 dayjs.extend(isLeapYear);
@@ -69,10 +70,7 @@ export const getDoomsdayWithinMonth = (date: Dayjs, common: number, leap?: numbe
   return doomsdayForMonth;
 };
 
-export const getRandomDateInModernity = () => {
-  const randomYear = randomInteger(1900, 2099);
-  return getRandomDateInYear(randomYear);
-};
+export const getRandomDateInModernity = () => getRandomDateInYear(getRandomYear());
 
 export const formatDayjsGuessDate = (date: Dayjs) => dayjs(date).format('LL');
 

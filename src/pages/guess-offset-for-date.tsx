@@ -2,30 +2,25 @@ import { useState } from 'react';
 
 import { timeoutMs } from '../common';
 import { GuessActions } from '../components/shared';
-import { getRandomDateInYear } from '../math/dates';
+import useGuessingDate from '../hooks/use-guessing-date';
 import OffsetGuesser from '../modules/offset-guesser';
 
 const GuessOffsetForDate = () => {
-  const initRandomDateWithinYear = getRandomDateInYear(2025);
-
-  const [guessingDate, setGuessingDate] = useState(initRandomDateWithinYear);
+  const [guessingDate, getNewGuess] = useGuessingDate('offset', 2025);
 
   const [autoNext, setAutoNext] = useState(false);
   const [nextGuessIncoming, setNextGuessIncoming] = useState(false);
 
-  const handleAnswer = (isCorrect: boolean) => {
-    console.log('isCorrect', isCorrect);
-    if (autoNext) {
-      setNextGuessIncoming(true);
-      setTimeout(() => {
-        getNewGuess();
-      }, timeoutMs);
-    }
+  const getRandomDate = () => {
+    getNewGuess();
+    setNextGuessIncoming(false);
   };
 
-  const getNewGuess = () => {
-    setGuessingDate(getRandomDateInYear(2025));
-    setNextGuessIncoming(false);
+  const handleAnswer = (isCorrect: boolean) => {
+    if (autoNext && isCorrect) {
+      setNextGuessIncoming(true);
+      setTimeout(getRandomDate, timeoutMs);
+    }
   };
 
   return (
@@ -40,7 +35,7 @@ const GuessOffsetForDate = () => {
       />
       <GuessActions
         btnLabel='Random Date'
-        onClick={getNewGuess}
+        onClick={getRandomDate}
         autoEnabled={autoNext}
         toggleAuto={() => setAutoNext(!autoNext)}
       />

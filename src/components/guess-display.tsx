@@ -1,7 +1,7 @@
 import { ReactNode } from 'react';
 
 import clsx from 'clsx';
-import { BiLoaderCircle } from 'react-icons/bi';
+import { BiBoltCircle } from 'react-icons/bi';
 
 const GuessDisplay = ({
   autoMode,
@@ -49,14 +49,19 @@ const GuessDisplay = ({
       <div className={clsx('mt-1 text-xl', isAnswered ? 'visible' : 'invisible')}>
         {explainCorrect}
       </div>
-      {autoMode && autoProcessing && (
+      {autoMode && (
         <div
           className={clsx(
             'absolute right-2 top-2',
             autoMode && autoProcessing && 'animate-spin ease-in-out'
           )}
         >
-          <BiLoaderCircle className='h-6 w-6' />
+          <BiBoltCircle
+            className={clsx(
+              'h-6 w-6 transition-colors',
+              autoProcessing ? 'fill-white' : 'fill-gray-300'
+            )}
+          />
         </div>
       )}
       {typeof renderButtons === 'function' && (
