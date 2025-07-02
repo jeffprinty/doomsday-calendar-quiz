@@ -47,7 +47,9 @@ const QuizResults = ({
               <span>{timeInSeconds.toFixed(1)}s</span>
               <span>
                 {formatDayjsGuessDate(dateGuessed) === currentGuess && '⚪️ '}
-                {typeof dateFormat === 'function' && dateFormat(dateGuessed)}
+                {typeof dateFormat === 'function'
+                  ? dateFormat(dateGuessed)
+                  : formatDayjsGuessDate(dateGuessed)}
               </span>
             </li>
           ))}

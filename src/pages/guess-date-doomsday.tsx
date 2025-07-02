@@ -90,7 +90,11 @@ const GuessDateDoomsdayInModernity = () => {
       id='page__guess-date-doomsday'
     >
       <div className='' id='quiz__top-bit'>
-        <QuizResults answers={pastAnswers} currentGuess={dateStringToGuess} />
+        <QuizResults
+          answers={pastAnswers}
+          currentGuess={dateStringToGuess}
+          dateFormat={formatDayjsGuessDate}
+        />
         <GuessDisplay
           autoMode={autoNext}
           autoProcessing={nextGuessIncoming}
@@ -123,6 +127,7 @@ const GuessDateDoomsdayInModernity = () => {
           <WeekdayGuesser
             className=''
             correctDay={getDoomsdayWeekdayForYear(dateToGuess.year())}
+            disableOnGuess
             key={`doomsyear_${startTime}`}
             onGuess={handleDoomsyearGuess}
             minimizeOnGuess
@@ -130,6 +135,7 @@ const GuessDateDoomsdayInModernity = () => {
           <div className={weekdayGuesserTitle}>Weekday for {dateToGuess.format('MM-DD-YYYY')}:</div>
           <WeekdayGuesser
             correctDay={getWeekdayForDate(dateToGuess)}
+            disableOnGuess
             key={`date_${startTime}`}
             onGuess={handleGuess}
           />
