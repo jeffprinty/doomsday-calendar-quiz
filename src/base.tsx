@@ -37,17 +37,18 @@ const routeArray: Array<RouteArray> = [
     category: 'top',
   },
   {
+    path: '/learn/reference',
+    element: <Reference />,
+    text: 'reference',
+    extra: true,
+    category: 'top',
+  },
+  {
     path: '/learn/doomsday',
     element: <MonthDoomsdayCalendar />,
     text: 'month doomsday',
     category: 'practice',
     description: 'Learn the Doomsdays for Each Month',
-  },
-  {
-    path: '/learn/reference',
-    element: <Reference />,
-    text: 'reference',
-    extra: true,
   },
   {
     path: '/odd',

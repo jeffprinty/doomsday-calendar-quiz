@@ -110,7 +110,7 @@ const NavBar = ({ navItems }: { navItems: Array<NavItem> }) => {
         className={clsx(
           'z-10',
           navOpen
-            ? 'fixed right-0 top-0 h-full w-[40%] border-r border-r-gray-900 bg-[#000300] duration-500 ease-in-out sm:w-1/5'
+            ? 'fixed right-0 top-0 h-full w-1/2 border-r border-r-gray-900 bg-[#000300] duration-500 ease-in-out sm:w-1/5'
             : 'fixed bottom-0 right-[-100%] top-0 w-[40%] duration-500 ease-in-out'
         )}
       >
@@ -125,17 +125,17 @@ const NavBar = ({ navItems }: { navItems: Array<NavItem> }) => {
         ))}
 
         {/* PRACTICE */}
-        <li className={liClass}>Practice</li>
+        <li className={clsx(liClass, 'border-b border-b-gray-300 !text-sm')}>Practice</li>
         {groupedNavItemsHash.practice.map((navItem) => (
           <NavMenuItem key={navItem.text} navItem={navItem} onClick={() => setNavOpen(false)} />
         ))}
+        <hr />
 
         {/* UNGROUPED */}
         {groupedNavItemsHash.ungrouped.map((navItem) => (
           <NavMenuItem key={navItem.text} navItem={navItem} onClick={() => setNavOpen(false)} />
         ))}
 
-        <hr />
         {/* DEPRECATED */}
         {groupedNavItemsHash.deprecated.map((navItem) => (
           <NavMenuItem key={navItem.text} navItem={navItem} onClick={() => setNavOpen(false)} />

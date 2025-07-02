@@ -25,10 +25,11 @@ const Reference = () => {
           ))}
         </div>
       </div>
-      <div className='flex w-full flex-col items-center py-4'>
+      <div className='flex w-full flex-col items-center px-2 py-2'>
+        <div className='text-center'>Month Mnemonics</div>
         <MnemonicsTable />
       </div>
-      <div className='flex w-full flex-col items-center py-4'>
+      <div className='flex max-h-full w-full flex-col items-center overflow-y-auto py-4'>
         <EquationsModule />
       </div>
       <div className='long stuff flex w-full grid-cols-2 flex-row justify-around'>
