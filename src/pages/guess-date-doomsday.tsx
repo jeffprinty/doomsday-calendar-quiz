@@ -11,11 +11,11 @@ import GuessDisplay from '../components/guess-display';
 import QuizResults from '../components/quiz-results';
 import { GuessActions } from '../components/shared';
 import useAnswerHistory from '../hooks/use-answer-history';
+import useGuessingDate from '../hooks/use-guessing-date';
 import {
   formatDayjsGuessDate,
   getDoomsdayWeekdayForYear,
   getFullWeekday,
-  getRandomDateInModernity,
   getWeekdayForDate,
 } from '../math/dates';
 import { Weekday } from '../math/weekdays';
@@ -25,19 +25,19 @@ import WeekdayGuesser from '../modules/weekday-guesser';
 const weekdayGuesserTitle = 'bg-purple-900 w-full text-center text-sm';
 
 const GuessDateDoomsdayInModernity = () => {
-  const startWithTimeAlready = getRandomDateInModernity();
+  const [guessingDate, getNewDate, setGuessingDate] = useGuessingDate('modernity');
+
   const [autoNext, setAutoNext] = useState(false);
-  const [dateToGuess, setCurrentDateToGuess] = useState<Dayjs>(startWithTimeAlready);
   const [enableDoomsdayClick, setEnableDoomsdayClick] = useState(true);
   const [guessingAgain, setGuessingAgain] = useState(false);
-  const [showHint, setShowHint] = useState(false);
   const [nextGuessIncoming, setNextGuessIncoming] = useState(false);
   const [wronglyGuessedDates, setWronglyGuessedDates] = useState<Array<Dayjs>>([]);
+  const [showHint, setShowHint] = useState(false);
 
   const { answerHistory, lastAnswerCorrect, onAnswer, onNewQuestion, startTime } =
     useAnswerHistory('guess-full-date');
 
-  const dateStringToGuess = formatDayjsGuessDate(dateToGuess);
+  const dateStringToGuess = formatDayjsGuessDate(guessingDate);
 
   const generateRandomDate = () => {
     getNextDate();
@@ -47,9 +47,9 @@ const GuessDateDoomsdayInModernity = () => {
   };
 
   const handleGuess = ({ isCorrect }: GuessPayload<Weekday>) => {
-    onAnswer({ isCorrect, answer: dateToGuess });
+    onAnswer({ isCorrect, answer: guessingDate });
     if (!isCorrect) {
-      setWronglyGuessedDates((previous) => [...previous, dateToGuess]);
+      setWronglyGuessedDates((previous) => [...previous, guessingDate]);
     }
     setEnableDoomsdayClick(false);
     if (autoNext) {
@@ -76,13 +76,11 @@ const GuessDateDoomsdayInModernity = () => {
         setGuessingAgain(false);
       } else {
         setWronglyGuessedDates(remainingWrongGuesses);
-        setCurrentDateToGuess(oldestWrongGuess);
+        setGuessingDate(oldestWrongGuess);
         return oldestWrongGuess;
       }
     }
-    const newRandomDate = getRandomDateInModernity();
-    setCurrentDateToGuess(newRandomDate);
-    return newRandomDate;
+    getNewDate();
   };
 
   return (
@@ -99,7 +97,7 @@ const GuessDateDoomsdayInModernity = () => {
         <GuessDisplay
           autoMode={autoNext}
           autoProcessing={nextGuessIncoming}
-          explainIncorrect={`is on ${getFullWeekday(dateToGuess)}`}
+          explainIncorrect={`is on ${getFullWeekday(guessingDate)}`}
           questionText='What day of the week is:'
           guessText={dateStringToGuess}
           guessedCorrectly={lastAnswerCorrect}
@@ -114,10 +112,10 @@ const GuessDateDoomsdayInModernity = () => {
         />
         {showHint && (
           <>
-            <DoomsyearEquation flat fullYear={dateToGuess.year()} />
+            <DoomsyearEquation flat fullYear={guessingDate.year()} />
             <DoomsdayDifference
               className='flex flex-row justify-center'
-              isoDate={dateToGuess.toISOString()}
+              isoDate={guessingDate.toISOString()}
             />
           </>
         )}
@@ -127,15 +125,17 @@ const GuessDateDoomsdayInModernity = () => {
           <div className={weekdayGuesserTitle}>Doomsday for Year</div>
           <WeekdayGuesser
             className=''
-            correctDay={getDoomsdayWeekdayForYear(dateToGuess.year())}
+            correctDay={getDoomsdayWeekdayForYear(guessingDate.year())}
             disableOnGuess
             key={`doomsyear_${startTime}`}
             onGuess={handleDoomsyearGuess}
             minimizeOnGuess
           />
-          <div className={weekdayGuesserTitle}>Weekday for {dateToGuess.format('MM-DD-YYYY')}:</div>
+          <div className={weekdayGuesserTitle}>
+            Weekday for {guessingDate.format('MM-DD-YYYY')}:
+          </div>
           <WeekdayGuesser
-            correctDay={getWeekdayForDate(dateToGuess)}
+            correctDay={getWeekdayForDate(guessingDate)}
             disableOnGuess
             key={`date_${startTime}`}
             onGuess={handleGuess}

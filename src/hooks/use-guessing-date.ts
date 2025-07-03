@@ -27,7 +27,7 @@ const useGuessingDate = (id: string, initYear?: number) => {
     setGuessingDate(newRandomDate);
   };
 
-  return [guessingDate, getNewDate] as [Dayjs, () => void];
+  return [guessingDate, getNewDate, setGuessingDate] as [Dayjs, () => void, (date: Dayjs) => void];
 };
 
 export default useGuessingDate;

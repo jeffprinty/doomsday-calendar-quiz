@@ -13,7 +13,7 @@ import { getAnchorDay } from '../math/century';
 import { getDoomsdayWeekdayForYear } from '../math/dates';
 import { oddPlusElevenFull } from '../math/doomsyear-odd-plus-eleven';
 import { Weekday } from '../math/weekdays';
-import { getRandomYear, splitYearIntoComponents } from '../math/year';
+import { splitYearIntoComponents } from '../math/year';
 import { GuessPayload } from '../modules/module.types';
 import WeekdayGuesser from '../modules/weekday-guesser';
 
