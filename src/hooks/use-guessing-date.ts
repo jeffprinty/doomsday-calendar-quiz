@@ -1,15 +1,21 @@
-import { useState } from 'react';
-
-import { Dayjs } from 'dayjs';
+import dayjs, { Dayjs } from 'dayjs';
+import { useSessionStorage } from 'usehooks-ts';
 
 import { getRandomDateInModernity, getRandomDateInYear } from '../math/dates';
 
+const randomGuessingDate = (initYear?: number) =>
+  initYear ? getRandomDateInYear(initYear) : getRandomDateInModernity();
+
 const useGuessingDate = (id: string, initYear?: number) => {
-  const initRandomDate = initYear ? getRandomDateInYear(initYear) : getRandomDateInModernity();
-  const [guessingDate, setGuessingDate] = useState(initRandomDate);
+  const initRandomDate = randomGuessingDate(initYear);
+  const [guessingDate, setGuessingDate] = useSessionStorage<Dayjs>(id, initRandomDate, {
+    // initializeWithValue: false,
+    serializer: (value) => dayjs(value).toISOString(),
+    deserializer: (isoString) => dayjs(isoString),
+  });
 
   const getNewDate = () => {
-    const newRandomDate = initYear ? getRandomDateInYear(initYear) : getRandomDateInModernity();
+    const newRandomDate = randomGuessingDate(initYear);
     setGuessingDate(newRandomDate);
   };
 
