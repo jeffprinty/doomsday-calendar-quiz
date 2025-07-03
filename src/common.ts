@@ -3,12 +3,7 @@ import { Dayjs } from 'dayjs';
 import { dateIsLeapYear, getDoomsdayForYear, getFirstDateForCalendar } from './math/dates';
 import { Mnemonic, mnemonics } from './math/month-doomsdays';
 
-export const correctColor = 'bg-green-600';
-export const incorrectColor = 'bg-red-900';
-
 export type Steps = 'stepOne' | 'stepTwo' | 'stepThree' | 'stepFour' | 'stepFive' | 'stepSix';
-
-export type PastAnswer<T> = [number, number, boolean, T];
 
 export const timeoutMs = 1500;
 

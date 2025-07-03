@@ -22,7 +22,7 @@ import { Weekday } from '../math/weekdays';
 import { GuessPayload } from '../modules/module.types';
 import WeekdayGuesser from '../modules/weekday-guesser';
 
-const GuessDateDoomsdayWithinYear = ({
+const GuessDateWeekday = ({
   dateToGuess,
   getNextDate,
   onIncorrectGuess,
@@ -33,7 +33,8 @@ const GuessDateDoomsdayWithinYear = ({
   onIncorrectGuess: (dateGuessed: Dayjs) => void;
   updateYear: (updatedYear: number) => void;
 }) => {
-  const { lastAnswerCorrect, onAnswer, onNewQuestion, pastAnswers, startTime } = useAnswerHistory();
+  const { answerHistory, lastAnswerCorrect, onAnswer, onNewQuestion, startTime } =
+    useAnswerHistory('guess-full-date');
 
   const [enableDayClick, setEnableDayClick] = useState(true);
   const [showHint, setShowHint] = useState(false);
@@ -73,7 +74,7 @@ const GuessDateDoomsdayWithinYear = ({
     >
       <div className='' id='quiz__top-bit'>
         <QuizResults
-          answers={pastAnswers}
+          answers={answerHistory}
           currentGuess={dateStringToGuess}
           dateFormat={(date) => formatYearlessDateShortMonth(date)}
         />
@@ -153,7 +154,7 @@ const YearInput = ({
   );
 };
 
-const GuessDateWithinYear = ({ year }: { year?: number }) => {
+const GuessDateWeekdayCurrentYear = ({ year }: { year?: number }) => {
   const initYear = year || new Date().getFullYear();
   const startWithTimeAlready = getRandomDateInYear(initYear);
   const [guessingYear, setGuessingYear] = useState(initYear);
@@ -189,7 +190,7 @@ const GuessDateWithinYear = ({ year }: { year?: number }) => {
         Guess a given date within the current year. Use this once you&apos;ve committed the doomsday
         for {guessingYear} to memory.
       </PageDescribe>
-      <GuessDateDoomsdayWithinYear
+      <GuessDateWeekday
         dateToGuess={currentDateToGuess}
         getNextDate={getNextDate}
         onIncorrectGuess={handleIncorrectGuess}
@@ -199,4 +200,4 @@ const GuessDateWithinYear = ({ year }: { year?: number }) => {
   );
 };
 
-export default GuessDateWithinYear;
+export default GuessDateWeekdayCurrentYear;

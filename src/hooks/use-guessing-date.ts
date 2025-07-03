@@ -9,13 +9,21 @@ const randomGuessingDate = (initYear?: number) =>
 const useGuessingDate = (id: string, initYear?: number) => {
   const initRandomDate = randomGuessingDate(initYear);
   const [guessingDate, setGuessingDate] = useSessionStorage<Dayjs>(id, initRandomDate, {
-    // initializeWithValue: false,
     serializer: (value) => dayjs(value).toISOString(),
     deserializer: (isoString) => dayjs(isoString),
   });
 
   const getNewDate = () => {
-    const newRandomDate = randomGuessingDate(initYear);
+    let newRandomDate = randomGuessingDate(initYear);
+    console.log(
+      "newRandomDate.format('ddd')",
+      newRandomDate.format('ddd'),
+      guessingDate.format('ddd')
+    );
+    if (newRandomDate.format('ddd') === guessingDate.format('ddd')) {
+      console.info('same day twice in a row, rereoll');
+      newRandomDate = randomGuessingDate(initYear);
+    }
     setGuessingDate(newRandomDate);
   };
 
