@@ -96,7 +96,7 @@ const AllSteps = () => {
       </Step>
       <Step className={stepClassName} show={showAllSteps || currentStep === 3}>
         <h4 className={stepHeadingClassName}>Step 4: GuessDateDoomsday</h4>
-        <GuessDateWithinYear year={currentYear} />
+        <GuessDateWithinYear />
       </Step>
       <Step className={stepClassName} show={showAllSteps || currentStep === 4}>
         <h4 className={stepHeadingClassName}>Step 5: GuessDateDoomsday</h4>
