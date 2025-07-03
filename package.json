@@ -15,7 +15,7 @@
   "type": "module",
   "lint-staged": {
     "*": [
-      "pnpm lint:fix"
+      "npx eslint --ext ts --ext tsx ./src --fix"
     ]
   },
   "scripts": {
@@ -28,7 +28,7 @@
     "lint:fix": "npx eslint --ext ts --ext tsx ./src --fix",
     "dev": "vite --host",
     "build": "tsc && vite build && cp dist/index.html dist/404.html",
-    "predeploy": "npm run build",
+    "predeploy": "npm run build && echo 'weekday.guru' > ./dist/CNAME",
     "deploy": "gh-pages -d dist",
     "preview": "vite preview"
   },
