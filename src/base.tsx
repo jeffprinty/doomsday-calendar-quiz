@@ -105,7 +105,7 @@ const routeArray: Array<RouteArray> = [
 ];
 
 const navLinks: Array<NavItem> = routeArray.map(({ path, element, index, ...navItem }) => ({
-  to: `${baseUrl}${path}`,
+  to: path,
   ...navItem,
 }));
 

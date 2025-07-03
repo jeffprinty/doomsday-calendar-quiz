@@ -3,7 +3,7 @@
   "name": "Doomsday Calendar Quiz",
   "short_name": "Doomsday Quiz",
   "description": "Learn how to tell the day of the week for any given date",
-  "start_url": "/doomsday-calendar-quiz",
+  "start_url": "/",
   "display": "standalone",
   "orientation": "portrait",
   "theme_color": "#000",
