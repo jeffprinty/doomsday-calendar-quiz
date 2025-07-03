@@ -123,7 +123,7 @@ const NavBar = ({ navItems }: { navItems: Array<NavItem> }) => {
             </li>
           ))}
       </ul>
-      <div className='nav-menu-buttons'>
+      <div className='nav-menu-buttons flex flex-row'>
         <button
           onClick={() => setSettingsOpen(!settingsOpen)}
           className={clsx('z-10 mr-6', menuIsOpen && 'invisible')}
