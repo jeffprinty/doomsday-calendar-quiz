@@ -8,7 +8,7 @@ import { PageDescribe } from '../components/page-describe';
 import { Hint } from '../components/shared';
 import { getDoomsdayFullWeekdayForYear } from '../math/dates';
 import GuessDateDoomsdayInModernity from '../pages/guess-date-doomsday';
-import GuessDateWithinYear from '../pages/guess-date-doomsday-within-year.old';
+import GuessDateWithinYear from '../pages/guess-date-weekday-current-year';
 import MonthDoomsdayCalendar from '../pages/month-doomsday-calendar';
 import OddPlusEleven from '../pages/odd-plus-eleven';
 import GuessOffsetForDate from './guess-offset-for-date';

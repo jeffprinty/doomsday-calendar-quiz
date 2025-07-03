@@ -6,7 +6,7 @@ import { AppContext } from './app.context';
 import NavBar, { NavItem } from './components/nav-bar';
 import AllSteps from './pages/all-steps';
 import GuessDateDoomsdayInModernity from './pages/guess-date-doomsday';
-import GuessDateDoomsdayWithinYear from './pages/guess-date-doomsday-within-year.old';
+import GuessDateDoomsdayWithinYear from './pages/guess-date-weekday-current-year';
 import GuessFullDateV1 from './pages/guess-full-date-v1';
 import GuessOffsetForDate from './pages/guess-offset-for-date';
 import GuessProgressive from './pages/guess-progressive';
