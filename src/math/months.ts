@@ -39,14 +39,3 @@ export type ShortMonthName =
   | 'oct'
   | 'nov'
   | 'dec';
-
-export const getRandomMonthName = (ignoreLeap = false) => {
-  if (ignoreLeap) {
-    // TODO: don't filter leap-affected months
-    const fixedMonths = monthNames.filter(
-      (monthName) => !['January', 'February'].includes(monthName)
-    );
-    return fixedMonths[Math.random() * fixedMonths.length];
-  }
-  return monthNames[Math.random() * monthNames.length];
-};

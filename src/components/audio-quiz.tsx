@@ -10,6 +10,7 @@ export default function App() {
     stop, // Function to stop the speech or remove it from queue
   } = useSpeech({ text: 'This library is awesome!' });
 
+  console.log('isInQueue', isInQueue);
   return (
     <div style={{ display: 'flex', flexDirection: 'column', rowGap: '1rem' }}>
       <Text />

@@ -100,7 +100,6 @@ export const OffsetGuesser = ({
                 answerIsCorrect === false &&
                   selectedOffset === offset &&
                   makeButtonClassName('!bg-red-900'),
-                // TODO: Show border on selected
               ],
             ])}
             disabled={disableOnAnswer && isAnswered}

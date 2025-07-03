@@ -1,7 +1,6 @@
 import { useState } from 'react';
 
 import clsx from 'clsx';
-import { Dayjs } from 'dayjs';
 import { BiHelpCircle } from 'react-icons/bi';
 
 import DoomsdayDifference from '../components/equations/doomsday-difference';
@@ -27,60 +26,30 @@ const weekdayGuesserTitle = 'bg-purple-900 w-full text-center text-sm';
 const GuessDateDoomsdayInModernity = () => {
   const { answerHistory, lastAnswerCorrect, onAnswer, onNewQuestion, startTime } =
     useAnswerHistory('guess-full-date');
+  const [guessingDate, getNewDate] = useGuessingDate('modernity');
+  const [yearDoomsdayClicked, setYearDoomsdayClicked] = useState<GuessPayload<Weekday>>();
 
-  const [guessingDate, getNewDate, setGuessingDate] = useGuessingDate('modernity');
-  console.log('guessingDate', guessingDate);
-
-  const autoNextCallback = () => {
-    console.log('autoNextCallback');
+  const getNewGuess = () => {
     getNewDate();
     onNewQuestion();
+    setYearDoomsdayClicked(undefined);
   };
-
   const [autoNext, setAutoNext, onAnswerAuto, { nextGuessIncoming }] = useAutoNext({
-    callback: autoNextCallback,
+    callback: getNewGuess,
   });
-
   const [showHint, setShowHint] = useState(false);
 
-  const [wronglyGuessedDates, setWronglyGuessedDates] = useState<Array<Dayjs>>([]);
-  const [guessingAgain, setGuessingAgain] = useState(false);
-
-  const dateStringToGuess = formatDayjsGuessDate(guessingDate);
-
-  const generateRandomDate = () => {
-    getNextDate();
-    onNewQuestion();
-  };
-
-  const handleGuess = ({ isCorrect }: GuessPayload<Weekday>) => {
+  const handleGuess = (guessPayload: GuessPayload<Weekday>) => {
+    const { isCorrect } = guessPayload;
+    console.log(`handleGuess: doomsday: ${guessPayload}, doomsyear: ${yearDoomsdayClicked}`);
     onAnswer({ isCorrect, answer: guessingDate });
     onAnswerAuto(isCorrect);
     if (!isCorrect) {
-      setWronglyGuessedDates((previous) => [...previous, guessingDate]);
+      // setWronglyGuessedDates((previous) => [...previous, guessingDate]);
     }
   };
-  const handleDoomsyearGuess = ({ isCorrect }: GuessPayload<Weekday>) => {
-    console.log('handleDoomsyearGuess', isCorrect);
-  };
 
-  const getNextDate = () => {
-    if (guessingAgain) {
-      // return next item in wrong guesses array
-      // get oldest wrong guess
-      const [oldestWrongGuess, ...remainingWrongGuesses] = wronglyGuessedDates;
-      if (oldestWrongGuess === undefined) {
-        // no guesses left, flip switch
-        setGuessingAgain(false);
-      } else {
-        setWronglyGuessedDates(remainingWrongGuesses);
-        setGuessingDate(oldestWrongGuess);
-        return oldestWrongGuess;
-      }
-    }
-    getNewDate();
-  };
-
+  const dateStringToGuess = formatDayjsGuessDate(guessingDate);
   return (
     <div
       className='md:min-h-1/2 flex w-full flex-col justify-between md:h-1/2 md:justify-start'
@@ -126,7 +95,7 @@ const GuessDateDoomsdayInModernity = () => {
             correctDay={getDoomsdayWeekdayForYear(guessingDate.year())}
             disableOnGuess
             key={`doomsyear_${startTime}`}
-            onGuess={handleDoomsyearGuess}
+            onGuess={setYearDoomsdayClicked}
             minimizeOnGuess
           />
           <div className={weekdayGuesserTitle}>
@@ -139,7 +108,7 @@ const GuessDateDoomsdayInModernity = () => {
             onGuess={handleGuess}
           />
           <GuessActions
-            onClick={generateRandomDate}
+            onClick={getNewGuess}
             autoEnabled={autoNext}
             toggleAuto={() => setAutoNext(!autoNext)}
           />

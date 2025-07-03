@@ -19,7 +19,7 @@ const useAnswerHistory = (id: string) => {
     setStartTime(dayjs());
     setLastAnswerCorrect(undefined);
   };
-  // TODO: Handle other kinds of answers
+  // FUTURE: Handle other kinds of answers, namely remember if got the doomsyear wrong
   const onAnswer = ({ answer, isCorrect }: { answer: Dayjs; isCorrect: boolean }) => {
     setLastAnswerCorrect(isCorrect);
     const answerTime = dayjs();

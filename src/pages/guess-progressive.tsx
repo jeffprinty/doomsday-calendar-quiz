@@ -126,7 +126,6 @@ const GuessFullDate = () => {
             onGuess={({ isCorrect }) => {
               setShowAllAnswers(true);
               setDateWeekdayGuessed(true);
-              // TODO: handle string answer
               onAnswer({ isCorrect, answer: doomsdayOnYear });
               nextStep();
             }}
