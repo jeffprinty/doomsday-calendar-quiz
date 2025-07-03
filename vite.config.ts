@@ -15,7 +15,6 @@ export default defineConfig({
     }),
     splitVendorChunkPlugin(),
   ],
-  base: '/doomsday-calendar-quiz',
   css: {
     preprocessorOptions: {
       scss: {
