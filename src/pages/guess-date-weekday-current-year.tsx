@@ -12,6 +12,7 @@ import QuizResults from '../components/quiz-results';
 import { GuessActions } from '../components/shared';
 import useAnswerHistory from '../hooks/use-answer-history';
 import useAutoNext from '../hooks/use-auto-next';
+import useGuessingDate from '../hooks/use-guessing-date';
 import {
   formatDayjsGuessDate,
   formatYearlessDateShortMonth,
@@ -30,9 +31,9 @@ const GuessDateWeekday = ({
   updateYear,
 }: {
   dateToGuess: Dayjs;
-  getNextDate: () => Dayjs;
+  getNextDate: () => void;
   onIncorrectGuess: (dateGuessed: Dayjs) => void;
-  updateYear: (updatedYear: number) => void;
+  updateYear?: (updatedYear: number) => void;
 }) => {
   const [enableDayClick, setEnableDayClick] = useState(true);
   const [showHint, setShowHint] = useState(false);
@@ -105,7 +106,9 @@ const GuessDateWeekday = ({
             )}
           />
         </div>
-        {showSettings && <YearInput onSubmit={updateYear} initYear={dateToGuess.year()} />}
+        {showSettings && updateYear && (
+          <YearInput onSubmit={updateYear} initYear={dateToGuess.year()} />
+        )}
       </div>
       {showHint && (
         <div className='flex flex-row items-center justify-center'>
@@ -156,35 +159,17 @@ const YearInput = ({
 };
 
 const GuessDateWeekdayCurrentYear = ({ year }: { year?: number }) => {
-  const initYear = year || new Date().getFullYear();
-  const startWithTimeAlready = getRandomDateInYear(initYear);
-  const [guessingYear, setGuessingYear] = useState(initYear);
-  const [guessingAgain, setGuessingAgain] = useState(false);
+  const [guessingDate, getNewDate] = useGuessingDate('current-year', year);
 
-  const [currentDateToGuess, setCurrentDateToGuess] = useState<Dayjs>(startWithTimeAlready);
-  const [wronglyGuessedDates, setWronglyGuessedDates] = useState<Array<Dayjs>>([]);
   const getNextDate = () => {
-    if (guessingAgain) {
-      // return next item in wrong guesses array
-      // get oldest wrong guess
-      const [oldestWrongGuess, ...remainingWrongGuesses] = wronglyGuessedDates;
-      if (oldestWrongGuess === undefined) {
-        // no guesses left, flip switch
-        setGuessingAgain(false);
-      } else {
-        setWronglyGuessedDates(remainingWrongGuesses);
-        setCurrentDateToGuess(oldestWrongGuess);
-        return oldestWrongGuess;
-      }
-    }
-    const newRandomDate = getRandomDateInYear(guessingYear);
-    setCurrentDateToGuess(newRandomDate);
-    return newRandomDate;
+    getNewDate();
   };
 
   const handleIncorrectGuess = (dateGuessed: Dayjs) => {
-    setWronglyGuessedDates((previous) => [...previous, dateGuessed]);
+    console.log('handleIncorrectGuess', dateGuessed);
   };
+
+  const guessingYear = guessingDate.year();
   return (
     <>
       <PageDescribe>
@@ -192,10 +177,9 @@ const GuessDateWeekdayCurrentYear = ({ year }: { year?: number }) => {
         for {guessingYear} to memory.
       </PageDescribe>
       <GuessDateWeekday
-        dateToGuess={currentDateToGuess}
+        dateToGuess={guessingDate}
         getNextDate={getNextDate}
         onIncorrectGuess={handleIncorrectGuess}
-        updateYear={setGuessingYear}
       />
     </>
   );
