@@ -20,7 +20,7 @@ type NavItemGroupsHash = {
   [key in NavItemCategories]: Array<NavItem>;
 };
 
-const menuTitle = 'Doomsday Calendar Quiz';
+const menuTitle = 'weekday.guru';
 
 const navLinkActive = 'text-white';
 const navLinkInactive = 'text-blue-400';

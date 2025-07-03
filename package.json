@@ -7,10 +7,10 @@
     "url": "https://drwicked.com"
   },
   "private": true,
-  "homepage": "https://jeffprinty.github.io/doomsday-calendar-quiz/",
+  "homepage": "https://weekday.guru/",
   "repository": {
     "type": "git",
-    "url": "https://github.com/doinel1a/vite-react-ts-starter"
+    "url": "https://github.com/jeffprinty/doomsday-calendar-quiz"
   },
   "type": "module",
   "lint-staged": {
