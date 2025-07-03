@@ -23,7 +23,6 @@ const GuessFullDateV1 = () => {
   const [showAllYearAnswers, setShowAllYearAnswers] = useState(false);
   const [yearDoomsdayGuessed, setYearDoomsdayGuessed] = useState(false);
   const [weekdayGuessed, setWeekdayGuessed] = useState(false);
-  console.log('weekdayGuessed', weekdayGuessed);
 
   const doomsdayOnYear = getDoomsdayForYear(guessingDate.get('year'));
 

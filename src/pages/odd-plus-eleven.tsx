@@ -1,4 +1,4 @@
-import { ReactNode, useEffect, useState } from 'react';
+import { ReactNode, useState } from 'react';
 
 import clsx from 'clsx';
 import { BiHide, BiRefresh, BiShow } from 'react-icons/bi';
@@ -7,6 +7,7 @@ import { commonStyles, timeoutMs } from '../common';
 import { IconButton } from '../components/button';
 import { Revealable } from '../components/shared';
 import YearInput from '../components/year-input';
+import useGuessingDate from '../hooks/use-guessing-date';
 import { isOdd } from '../math/basic';
 import { getAnchorDay } from '../math/century';
 import { getDoomsdayWeekdayForYear } from '../math/dates';
@@ -38,26 +39,21 @@ const iconProps = {
 };
 
 const OddPlusEleven = () => {
+  const [guessingDate, getNewGuess] = useGuessingDate('odd');
   const [showWork, setShowWork] = useState(true);
   const [showWorkOnAnswer, setShowWorkOnAnswer] = useState(false);
   const [revealAll, setRevealAll] = useState(false);
-  const initYear = getRandomYear();
-  const [fullYearValue, setFullYearValue] = useState<number>(initYear);
-  const [[century, year], setYearParts] = useState<[number, number]>([0, 0]);
+
+  const fullYearValue = guessingDate.year();
+
+  const [century, year] = splitYearIntoComponents(fullYearValue);
+
   const yearPadded = year.toString().padStart(2, '0');
   const correctDoomsday = getDoomsdayWeekdayForYear(fullYearValue);
 
-  useEffect(() => {
-    if (fullYearValue?.toString().length === 4) {
-      const [firstHalf, lastHalf] = splitYearIntoComponents(fullYearValue);
-      setYearParts([firstHalf, lastHalf]);
-    }
-  }, [fullYearValue]);
-
   const startGuessing = () => {
     setRevealAll(false);
-    const rando = getRandomYear();
-    setFullYearValue(rando);
+    getNewGuess();
     setShowWorkOnAnswer(false);
   };
 
@@ -91,11 +87,7 @@ const OddPlusEleven = () => {
         <IconButton className='rounded-l-xl rounded-r-none' onClick={() => setShowWork(!showWork)}>
           {showWork ? <BiHide {...iconProps} /> : <BiShow {...iconProps} />}
         </IconButton>
-        <YearInput
-          className='rounded-4xl md:w-44 md:text-6xl'
-          value={fullYearValue}
-          setValue={setFullYearValue}
-        />
+        <YearInput className='rounded-4xl md:w-44 md:text-6xl' value={fullYearValue} />
         <IconButton className='rounded-l-none rounded-r-xl' onClick={startGuessing}>
           <BiRefresh {...iconProps} />
         </IconButton>
