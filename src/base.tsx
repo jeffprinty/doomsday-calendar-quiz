@@ -16,7 +16,6 @@ import MonthDoomsdayCalendar from './pages/month-doomsday-calendar';
 import OddPlusEleven from './pages/odd-plus-eleven';
 import Reference from './pages/reference';
 
-const baseUrl = import.meta.env.BASE_URL;
 const currentYear = new Date().getFullYear().toString();
 
 interface RouteArray extends Pick<NavItem, 'category' | 'end' | 'extra' | 'text'> {
