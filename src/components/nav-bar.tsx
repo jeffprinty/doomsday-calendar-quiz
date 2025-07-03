@@ -104,6 +104,8 @@ const NavBar = ({ navItems }: { navItems: Array<NavItem> }) => {
     );
   };
 
+  const menuIsOpen = settingsOpen || navOpen;
+
   return (
     <div className='mx-auto flex h-20 w-full max-w-full items-center justify-between bg-black px-4 text-white'>
       <h1 className='w-full py-3 text-2xl font-bold text-[#00df9a] md:w-1/4'>{menuTitle}</h1>
@@ -121,30 +123,31 @@ const NavBar = ({ navItems }: { navItems: Array<NavItem> }) => {
             </li>
           ))}
       </ul>
-
-      <button
-        onClick={() => setSettingsOpen(!settingsOpen)}
-        className={clsx('z-20', settingsOpen && 'invisible')}
-      >
-        <BiCog size={24} className='fill-blue-400' />
-      </button>
-      {/* Mobile Navigation Icon */}
-      {/* Universal X Button */}
-      {navOpen || settingsOpen ? (
+      <div className='nav-menu-buttons'>
         <button
-          onClick={() => {
-            setNavOpen(false);
-            setSettingsOpen(false);
-          }}
-          className='z-20'
+          onClick={() => setSettingsOpen(!settingsOpen)}
+          className={clsx('z-10 mr-6', menuIsOpen && 'invisible')}
         >
-          <BiX size={24} className='fill-white' />
+          <BiCog size={24} className='fill-blue-400' />
         </button>
-      ) : (
-        <button onClick={() => setNavOpen(!navOpen)} className='z-20'>
-          <BiMenu size={24} className='fill-blue-400' />
-        </button>
-      )}
+        {/* Mobile Navigation Icon */}
+        {/* Universal X Button */}
+        {menuIsOpen ? (
+          <button
+            onClick={() => {
+              setNavOpen(false);
+              setSettingsOpen(false);
+            }}
+            className='z-20'
+          >
+            <BiX size={24} className='fill-white' />
+          </button>
+        ) : (
+          <button onClick={() => setNavOpen(!navOpen)} className='z-20'>
+            <BiMenu size={24} className='fill-blue-400' />
+          </button>
+        )}
+      </div>
 
       {/* Mobile Navigation Menu */}
       <SidebarMenu open={navOpen}>
