@@ -94,7 +94,7 @@ const OddPlusEleven = () => {
       </div>
       {showGuts && (
         <div
-          className='sm-py-8 rounded-3xl border-2 border-indigo-800 px-12 py-2 md:text-2xl'
+          className='rounded-3xl border-2 border-indigo-800 px-12 py-2 sm:py-8 md:text-2xl'
           key={fullYearValue}
         >
           <div className='flex flex-row items-center justify-center text-4xl'>
