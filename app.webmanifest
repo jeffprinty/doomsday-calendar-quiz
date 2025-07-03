@@ -1,7 +1,7 @@
 {
   "lang": "en-EN",
-  "name": "Doomsday Calendar Quiz",
-  "short_name": "Doomsday Quiz",
+  "name": "weekday.guru",
+  "short_name": "weekday.guru",
   "description": "Learn how to tell the day of the week for any given date",
   "start_url": "/",
   "display": "standalone",
