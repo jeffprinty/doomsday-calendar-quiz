@@ -15,7 +15,6 @@ import Home from './pages/home';
 import MonthDoomsdayCalendar from './pages/month-doomsday-calendar';
 import OddPlusEleven from './pages/odd-plus-eleven';
 import Reference from './pages/reference';
-import StepOne from './pages/step-1';
 
 const baseUrl = import.meta.env.BASE_URL;
 const currentYear = new Date().getFullYear().toString();
@@ -74,13 +73,6 @@ const routeArray: Array<RouteArray> = [
     element: <GuessOffsetForDate />,
     text: 'offset',
     category: 'practice',
-  },
-  {
-    path: '/step1',
-    element: <StepOne />,
-    text: 'step1',
-    extra: true,
-    category: 'deprecated',
   },
   {
     path: '/steps',
