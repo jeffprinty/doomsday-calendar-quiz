@@ -34,7 +34,8 @@ const GuessDateDoomsdayInModernity = () => {
   const [nextGuessIncoming, setNextGuessIncoming] = useState(false);
   const [wronglyGuessedDates, setWronglyGuessedDates] = useState<Array<Dayjs>>([]);
 
-  const { lastAnswerCorrect, onAnswer, onNewQuestion, pastAnswers, startTime } = useAnswerHistory();
+  const { answerHistory, lastAnswerCorrect, onAnswer, onNewQuestion, startTime } =
+    useAnswerHistory('guess-full-date');
 
   const dateStringToGuess = formatDayjsGuessDate(dateToGuess);
 
@@ -91,7 +92,7 @@ const GuessDateDoomsdayInModernity = () => {
     >
       <div className='' id='quiz__top-bit'>
         <QuizResults
-          answers={pastAnswers}
+          answers={answerHistory}
           currentGuess={dateStringToGuess}
           dateFormat={formatDayjsGuessDate}
         />

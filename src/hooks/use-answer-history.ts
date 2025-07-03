@@ -1,12 +1,19 @@
 import { useState } from 'react';
 
 import dayjs, { Dayjs } from 'dayjs';
+import { useLocalStorage } from 'usehooks-ts';
 
-import { PastAnswer } from '../common';
+// answerTime, intervalInSeconds, isCorrect, answerIso
+export type PastAnswer = [number, number, boolean, string];
 
-const useAnswerHistory = () => {
+const useAnswerHistory = (id: string) => {
   const [lastAnswerCorrect, setLastAnswerCorrect] = useState<boolean | undefined>();
-  const [pastAnswers, setPastAnswers] = useState<Array<PastAnswer<Dayjs>>>([]);
+
+  const [answerHistory, setAnswerHistory] = useLocalStorage<Array<PastAnswer>>(
+    `answer-history__${id}`,
+    []
+  );
+
   const [startTime, setStartTime] = useState<Dayjs>(dayjs());
   const onNewQuestion = () => {
     setStartTime(dayjs());
@@ -19,13 +26,13 @@ const useAnswerHistory = () => {
     const interval = dayjs.duration(answerTime.diff(startTime));
     const intervalInSeconds = interval.asSeconds();
     if (intervalInSeconds) {
-      setPastAnswers((previous) => [
+      setAnswerHistory((previous) => [
         ...previous,
-        [+answerTime, intervalInSeconds, isCorrect, answer],
+        [+answerTime, intervalInSeconds, isCorrect, answer.toISOString()],
       ]);
     }
   };
-  return { lastAnswerCorrect, onAnswer, onNewQuestion, pastAnswers, startTime };
+  return { lastAnswerCorrect, onAnswer, onNewQuestion, answerHistory, startTime };
 };
 
 export default useAnswerHistory;

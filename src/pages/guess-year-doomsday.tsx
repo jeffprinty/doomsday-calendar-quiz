@@ -14,9 +14,9 @@ import WeekdayGuesser from '../modules/weekday-guesser';
 const GuessYearDoomsday = () => {
   const initYear = getRandomYear();
   const [showResults, setShowResults] = useState(true);
-  // TODO: Allow set year
   const [guessingYear, setGuessingYear] = useState(initYear);
-  const { lastAnswerCorrect, onAnswer, onNewQuestion, pastAnswers } = useAnswerHistory();
+  const { answerHistory, lastAnswerCorrect, onAnswer, onNewQuestion, startTime } =
+    useAnswerHistory('guess-full-date');
 
   const doomsdayOnYear = getDoomsdayForYear(guessingYear);
   const correctDoomsday = getWeekdayForDate(doomsdayOnYear);
@@ -38,7 +38,7 @@ const GuessYearDoomsday = () => {
       <YearStepHelperHorizontal key={guessingYear} />
       <WeekdayGuesser
         correctDay={correctDoomsday}
-        key={`week_${guessingYear}`}
+        key={`date_${startTime}`}
         onGuess={({ isCorrect }) => {
           onAnswer({ isCorrect, answer: doomsdayOnYear });
         }}
@@ -51,7 +51,7 @@ const GuessYearDoomsday = () => {
       </Button>
       {showResults && (
         <QuizResults
-          answers={pastAnswers}
+          answers={answerHistory}
           currentGuess={guessingYear.toString()}
           dateFormat={(date) => dayjs(date).format('YYYY')}
         />

@@ -18,7 +18,8 @@ const GuessFullDateV1 = () => {
   const [showResults, setShowResults] = useState(true);
   const [showYearHints, setShowYearHints] = useState(false);
 
-  const { lastAnswerCorrect, onAnswer, onNewQuestion, pastAnswers, startTime } = useAnswerHistory();
+  const { answerHistory, lastAnswerCorrect, onAnswer, onNewQuestion, startTime } =
+    useAnswerHistory('guess-full-date');
 
   const [showAllYearAnswers, setShowAllYearAnswers] = useState(false);
   const [yearDoomsdayGuessed, setYearDoomsdayGuessed] = useState(false);
@@ -100,7 +101,9 @@ const GuessFullDateV1 = () => {
       <Button onClick={() => setShowResults((previous) => !previous)}>
         {showResults ? 'hide' : 'show'} results
       </Button>
-      {showResults && <QuizResults answers={pastAnswers} currentGuess={guessingDate.toString()} />}
+      {showResults && (
+        <QuizResults answers={answerHistory} currentGuess={guessingDate.toString()} />
+      )}
     </div>
   );
 };
