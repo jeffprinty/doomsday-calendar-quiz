@@ -11,6 +11,7 @@ import { PageDescribe } from '../components/page-describe';
 import QuizResults from '../components/quiz-results';
 import { GuessActions } from '../components/shared';
 import useAnswerHistory from '../hooks/use-answer-history';
+import useAutoNext from '../hooks/use-auto-next';
 import {
   formatDayjsGuessDate,
   formatYearlessDateShortMonth,
@@ -33,33 +34,32 @@ const GuessDateWeekday = ({
   onIncorrectGuess: (dateGuessed: Dayjs) => void;
   updateYear: (updatedYear: number) => void;
 }) => {
-  const { answerHistory, lastAnswerCorrect, onAnswer, onNewQuestion, startTime } =
-    useAnswerHistory('guess-full-date');
-
   const [enableDayClick, setEnableDayClick] = useState(true);
   const [showHint, setShowHint] = useState(false);
   const [showSettings, setShowSettings] = useState(false);
-  const [autoNext, setAutoNext] = useState(false);
-  const [nextGuessIncoming, setNextGuessIncoming] = useState(false);
 
-  const dateStringToGuess = formatDayjsGuessDate(dateToGuess);
+  const { answerHistory, lastAnswerCorrect, onAnswer, onNewQuestion, startTime } =
+    useAnswerHistory('guess-full-date');
 
   const generateRandomDate = () => {
     getNextDate();
     setEnableDayClick(true);
-    setNextGuessIncoming(false);
     onNewQuestion();
   };
 
+  const [autoNext, setAutoNext, onAnswerAuto, { nextGuessIncoming }] = useAutoNext({
+    callback: generateRandomDate,
+  });
+
   const handleGuess = ({ isCorrect }: GuessPayload<Weekday>) => {
     onAnswer({ isCorrect, answer: dateToGuess });
+    onAnswerAuto(isCorrect);
     if (!isCorrect) {
       onIncorrectGuess(dateToGuess);
     }
     setEnableDayClick(false);
     if (autoNext) {
       if (isCorrect) {
-        setNextGuessIncoming(true);
         setTimeout(() => {
           generateRandomDate();
         }, timeoutMs);
@@ -67,6 +67,7 @@ const GuessDateWeekday = ({
     }
   };
 
+  const dateStringToGuess = formatDayjsGuessDate(dateToGuess);
   return (
     <div
       className='md:min-h-1/2 flex w-full flex-col justify-between md:h-1/2 md:justify-start'
