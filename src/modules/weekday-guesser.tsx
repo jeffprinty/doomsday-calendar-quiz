@@ -45,6 +45,7 @@ export const WeekdayGuesser = ({
             disabled={disabled || (disableOnGuess && !!selectedDay)}
             key={day}
             onClick={() => onDayClick(day)}
+            selected={thisDayWasSelected}
           >
             {day}
             {thisDayIsCorrect && (
