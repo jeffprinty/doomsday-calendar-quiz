@@ -4,7 +4,7 @@ import clsx from 'clsx';
 import { BiHide, BiRefresh, BiShow } from 'react-icons/bi';
 
 import { commonStyles, timeoutMs } from '../common';
-import { IconButton } from '../components/button';
+import IconButton from '../components/icon-button';
 import { Revealable } from '../components/shared';
 import YearInput from '../components/year-input';
 import useGuessingDate from '../hooks/use-guessing-date';
